@@ -42,6 +42,10 @@
 
 
 
+
+
+
+
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>/* age check: decided before the page paints, so it never flashes once confirmed */try{if(localStorage.getItem('tn-age')==='1')document.documentElement.classList.add('age-ok')}catch(e){}</script>
 <script>/* motion: only when the visitor allows it */if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo')</script>
 <style>.age-ok .gate{display:none!important}</style>
@@ -1517,7 +1521,12 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"] .ico{display:none!important}
 }
 </style>
-<style>/* cream buttons on orange: map section (all sizes) and desktop hero */
+<style>/* nav "Dónde comprar" pill: cream while the bar sits clear over the orange hero, orange again once the bar turns cream */
+:root:root body #nav.nav:not(.solid) .pill.pill,:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{box-shadow:none!important;border-color:transparent!important;color:#2D2926!important}
+:root:root body #nav.nav:not(.solid) .pill.pill{background:#FFF4E6!important;background-color:#FFF4E6!important}
+:root:root body #nav.nav:not(.solid) .pill.pill::after{content:none!important;display:none!important}
+:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important}
+/* cream buttons on orange: map section (all sizes) and desktop hero */
 :root:root body .cierre a.btn.btn.btn,:root:root body .cierre a.btn.btn.btn:hover{box-shadow:none!important;border:0!important}
 :root:root body .cierre a.btn.btn.btn{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important}
 :root:root body .cierre a.btn.btn.btn:hover,:root:root body .cierre a.btn.btn.btn:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
