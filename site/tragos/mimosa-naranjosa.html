@@ -657,6 +657,8 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 /* big monitors: scale the petite layout up so it doesn't look tiny */
 @media (min-width:1800px){.rp-grid,.rp-foot{zoom:1.2}.rp-pg{zoom:1.2}}
 @media (min-width:2300px){.rp-grid,.rp-foot{zoom:1.45}.rp-pg{zoom:1.3}}
+/* more room between the nav and the drink */
+.rp{padding-top:calc(var(--navh,84px) + clamp(36px,5vw,76px))!important}
 /* drink pages: white page, cream nav and footer */
 html{background:var(--crema)}
 body{background:#fff!important}
