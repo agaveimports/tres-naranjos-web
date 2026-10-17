@@ -63,7 +63,7 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 - No em dashes in copy.
 - Colors: brand orange #E8561A, buttons #EE5F1C (hover #E04F12), cream #FFF4E6, ink #2D2926, yellow #F7C45A, WhatsApp green #1E8E4F.
 - Fonts: El Camino (display and logo), Hanken Grotesk (body and buttons), Courier Prime (small labels, ingredient lists; regular-weight ingredient lines get `-webkit-text-stroke:.4px currentColor` so they read on screen). All self-hosted in `site/assets/fonts/`.
-- Buttons are flat pills: no outlines, no hard drop shadows. Animation is minimal (section headlines fade up once).
+- Buttons are flat pills: no outlines, no hard drop shadows, no animated borders. Hover only makes a button a touch lighter, never darker (one shared rule at the end of each page). Animation is minimal (section headlines fade up once).
 - Never invent reviews, testimonials or ratings.
 - Keep the age gate, "Disfruta con responsabilidad" and the GOVERNMENT WARNING on every page.
 

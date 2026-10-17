@@ -976,5 +976,14 @@ document.addEventListener('click',e=>{const b=e.target.closest('.copy-mail');if(
  const done=()=>{toast.textContent='¡Copiado! '+m;toast.classList.add('show');clearTimeout(t);t=setTimeout(()=>toast.classList.remove('show'),2200)};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(m).then(done,()=>{fallback(m);done()});else{fallback(m);done()}});
 function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove()}})();</script>
+<style>/* buttons: one simple hover everywhere, a touch lighter; no animated border */
+:root:root body a.btn[href="donde-comprar"]::before,:root:root body .nav .pill::before,:root:root body .btn::before{content:none!important;display:none!important;animation:none!important}
+:root:root body .btn,:root:root body .nav .pill{transition:filter .15s ease,background-color .15s ease!important}
+:root:root body .btn:hover,:root:root body .btn:focus-visible,:root:root body .nav .pill:hover,:root:root body .nav .pill:focus-visible{transform:none!important;filter:brightness(1.08)!important}
+:root:root body .nav .pill,:root:root body .nav .pill:hover,:root:root body a.btn.btn[href="donde-comprar"],:root:root body a.btn.btn[href="donde-comprar"]:hover,:root:root body a.btn.btn[href="donde-comprar"]:focus-visible{background-color:#EE5F1C!important}
+:root:root body .btn.btn--dark:hover,:root:root body .btn.btn--dark:focus-visible,:root:root body a.btn.btn[href*="tressantos"]:hover,:root:root body a.btn.btn[href*="tressantos"]:focus-visible{background-color:#4A4441!important;filter:none!important}
+:root:root body .btn.btn--wa:hover,:root:root body .btn.btn--wa:focus-visible,:root:root body .rp-acts .rp-wa:hover{background-color:#1E8E4F!important}
+:root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
+</style>
 </body>
 </html>
