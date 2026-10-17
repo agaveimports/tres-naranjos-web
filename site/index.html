@@ -1113,9 +1113,7 @@ addEventListener('resize',fitGiants);
 /* ---- nav state ---- */
 (function(){
   const nav=document.getElementById('nav'),hero=document.getElementById('hero');
-  /* phones: the bar stays clear (cream logo) over the hero photo, turns cream when the headline reaches it */
-  const heroH1=document.querySelector('#hero h1'),mq=matchMedia('(max-width:700px)');
-  const set=()=>nav.classList.toggle('solid',mq.matches&&heroH1?heroH1.getBoundingClientRect().top<=nav.offsetHeight+6:window.scrollY>4);set();addEventListener('scroll',set,{passive:true});
+  const set=()=>nav.classList.toggle('solid',window.scrollY>4);set();addEventListener('scroll',set,{passive:true});
 })();
 
 /* ---- videos ---- */
