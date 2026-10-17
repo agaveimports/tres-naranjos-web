@@ -1477,7 +1477,11 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   .hero--photo .hero-ctas{margin-top:0!important;grid-template-columns:1fr!important;display:grid!important}
   .hero--photo .hero-ctas .btn-wrap,.hero--photo .hero-ctas .btn-wrap .btn{display:flex!important;width:100%!important;justify-content:center}
   .hero--photo h1 br{display:none}
-  .hero--photo .hero-ctas .btn{font-size:14px!important;min-height:52px}
+  /* button: solid cream, slim, full width (like Graza) */
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important;box-shadow:none!important;border:0!important;
+    min-height:44px!important;padding:.75em 1em .65em!important;font-size:14px!important;letter-spacing:.08em}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:hover,:root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"] .ico{display:none!important}
 }
 </style>
 </body></html>
