@@ -1379,15 +1379,11 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   .mnav-cta .a1{background:#FFF4E6;color:#2D2926}
   .mnav-cta .a2{background:#1E8E4F;color:#fff}
   .mnav-cta svg{width:19px;height:19px}
-  .mbar{display:block;position:fixed;z-index:70;left:0;right:0;bottom:0;pointer-events:none;
-    padding:28px max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));
-    background:linear-gradient(to top,#FFF4E6 0,#FFF4E6 45%,rgba(255,244,230,0) 100%);
-    transform:translateY(110%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-  .mbar a{pointer-events:auto}
-  .mbar.show{transform:none}
-  .mbar a{display:flex;align-items:center;justify-content:center;gap:.55em;min-height:54px;border-radius:999px;background:#EE5F1C;color:#FFF4E6;font-weight:700;font-size:15px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 6px 18px rgba(45,41,38,.16)}
-  .mbar a svg{width:19px;height:19px}
-  body.has-mbar{padding-bottom:84px}
+  .mbar{display:block;position:fixed;z-index:70;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+  .mbar.show{opacity:1;transform:none;pointer-events:auto}
+  .mbar a{display:grid;place-items:center;width:52px;height:52px;padding:0;border-radius:50%;background:#EE5F1C;color:#FFF4E6;font-weight:700;font-size:13px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 14px rgba(45,41,38,.18)}
+  .mbar a svg{width:22px;height:22px}
   html.mnav-lock,html.mnav-lock body{overflow:hidden}
 }
 </style>
@@ -1413,12 +1409,11 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   m.addEventListener('click',e=>{if(e.target.closest('a'))open(false)});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))open(false)});
   // sticky bar (not on Dónde comprar itself)
-  if(onDonde)return;
-  const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<a href="donde-comprar">'+BAG+'Dónde comprar</a>';document.body.appendChild(bar);
-  const mq=matchMedia('(max-width:700px)');const sync=()=>document.body.classList.toggle('has-mbar',mq.matches);sync();mq.addEventListener('change',sync);
-  const heroCtas=document.querySelector('.hero-ctas');
-  const foot=[...document.querySelectorAll('footer')].pop();
-  const update=()=>{let show;if(heroCtas){show=heroCtas.getBoundingClientRect().bottom<0}else show=scrollY>120;if(foot&&foot.getBoundingClientRect().top<innerHeight-40)show=false;bar.classList.toggle('show',show)};
+  if(onDonde||onFaq)return;
+  const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<a href="donde-comprar" aria-label="Dónde comprar" title="Dónde comprar">'+BAG+'</a>';document.body.appendChild(bar);
+    const heroCtas=document.querySelector('.hero-ctas');
+  const foot=document.querySelector('.credit');
+  const update=()=>{let show;if(heroCtas){show=heroCtas.getBoundingClientRect().bottom<0}else show=scrollY>120;if(foot&&foot.getBoundingClientRect().top<innerHeight-10)show=false;bar.classList.toggle('show',show)};
   addEventListener('scroll',update,{passive:true});update();
 })();
 </script>
