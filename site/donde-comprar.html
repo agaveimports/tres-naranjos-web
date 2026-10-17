@@ -39,6 +39,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1206,7 +1208,7 @@ const STREET_LAYERS_TOP=[
       if(c.m.length>1)return '<button type="button" class="pin clu" data-i="'+i+'" aria-label="'+c.m.length+' lugares, acercar">'+c.m.length+'</button>';
       const s=c.m[0],t=TIPOS[s.tipo]||OTRO;
       return '<button type="button" class="pin one'+(st.open===s.id?' on':'')+'" data-i="'+i+'" data-id="'+s.id+'" style="background:'+t.c+';color:'+t.f+'" aria-label="'+esc(s.nombre+', '+s.pueblo)+'">'+icon(s.tipo)+'</button>';
-    }).join('')+(st.me?'<span class="me" aria-label="Tu ubicación"></span>':'')+(st.open!=null?popHTML():'');
+    }).join('')+(st.me?'<span class="me" aria-label="Tu ubicación"></span>':'')+(st.open!=null&&wide()?popHTML():''); /* phones: no pop-up, the list narrows to the tapped place instead */
     pinData.forEach((c,i)=>c.el=pinsEl.children[i]);
     // drawn town names only while the real map labels aren't available
     labelsEl.innerHTML=(!st.live&&map.getZoom()>9.6)?Object.entries(muni).filter(([,m])=>map.getBounds().contains(m.c)).map(([n,m])=>'<span class="tlabel" data-x="'+m.c[0]+'" data-y="'+m.c[1]+'">'+esc(n)+'</span>').join(''):'';
@@ -1243,14 +1245,15 @@ const STREET_LAYERS_TOP=[
   function openStore(id,zoom){
     st.open=id; const s=st.stores.find(s=>s.id===id);
     if(zoom){map.flyTo({center:s.ll,zoom:Math.max(map.getZoom(),15.5),animate:!reduce,duration:1100,essential:true})}
-    else{buildPins();place();marks();showRow(id)}
+    else{buildPins();place();if(!wide())renderList();marks();showRow(id)}
   }
   function showRow(id){if(!wide())return;const r=document.querySelector('.store[data-id="'+id+'"]'),col=document.querySelector('.listcol');if(!r||!col)return;
     const top=r.getBoundingClientRect().top-col.getBoundingClientRect().top+col.scrollTop-col.clientHeight/2+r.offsetHeight/2;col.scrollTo({top,behavior:reduce?'auto':'smooth'})}
 
   /* ---------- list: what's in view ---------- */
   function renderList(){
-    const list=filtered().filter(inView), island=isIsland(); chips();
+    let list=filtered().filter(inView); const island=isIsland(); chips();
+    if(!wide()&&st.open!=null){const one=list.filter(x=>x.id===st.open);if(one.length)list=one} /* phones: a tapped pin singles out its place, like Airbnb */
     map.setFilter('pr-sel',['==',['get','n'],(!island&&st.focus)||'']);
     $('split').classList.toggle('is-empty',!list.length);
     if(!list.length){
@@ -1295,10 +1298,10 @@ const STREET_LAYERS_TOP=[
     if(!wide())return; e.preventDefault();
     if(e.target.closest('#pins')){map.getCanvasContainer().dispatchEvent(new WheelEvent('wheel',{deltaX:e.deltaX,deltaY:e.deltaY,deltaZ:e.deltaZ,deltaMode:e.deltaMode,clientX:e.clientX,clientY:e.clientY,screenX:e.screenX,screenY:e.screenY,ctrlKey:e.ctrlKey,shiftKey:e.shiftKey,bubbles:true,cancelable:true}))}
   },{passive:false});
-  map.on('click',()=>{hideHint();if(st.open!=null){st.open=null;buildPins();place();marks()}});
+  map.on('click',()=>{hideHint();if(st.open!=null){st.open=null;buildPins();place();if(!wide())renderList();marks()}});
   $('zin').addEventListener('click',()=>{st.focus=null;map.zoomIn({animate:!reduce})});
   $('zout').addEventListener('click',()=>{st.focus=null;map.zoomOut({animate:!reduce})});
-  function unselect(){st.open=null;buildPins();place();marks()}
+  function unselect(){st.open=null;buildPins();place();if(!wide())renderList();marks()}
   const all=()=>{st.focus=null;st.open=null;st.q='';const qi=$('q');if(qi)qi.value='';buildPins();goIsland()};
   $('clearsel').addEventListener('click',all);
   addEventListener('keydown',e=>{if(e.key==='Escape'&&st.open!=null&&!e.target.closest('input'))unselect()});
