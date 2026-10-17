@@ -1,13 +1,13 @@
 # Tres Naranjos website
 
-Marketing site for Tres Naranjos Triple Sec (Agave Imports LLC, Puerto Rico). Plain static HTML, CSS and JS, no framework and no build server. Everything in `site/` is published as is by Netlify.
+Marketing site for Tres Naranjos Triple Sec (Agave Imports LLC, Puerto Rico). Plain static HTML, CSS and JS, no framework and no build server. Everything in `site/` is published as is by Cloudflare (Workers static assets, configured in `wrangler.jsonc`).
 
 The people asking for changes are usually not developers. They write in Spanish or English and describe what they want to see. Make the change, check it, and explain what changed in plain words.
 
 ## Layout
 
 ```
-site/                    published folder (Netlify "publish" directory)
+site/                    published folder (Cloudflare serves it as is; see wrangler.jsonc)
   index.html             home page
   donde-comprar.html     store finder with the map
   preguntas.html         FAQ page (GENERATED from tools/faq.json)
@@ -40,7 +40,7 @@ tools/
    `python3 tools/build_recipes.py && python3 tools/build_tragos.py && python3 tools/build_faq.py && python3 tools/build_cards.py`
 4. Add `/tragos/<slug>` to `site/sitemap.xml`.
 
-Links between pages: generated pages in `site/tragos/` use `<base href="../">`, so write links relative to the site root (`tragos/mezcalita`, `assets/...`). Link to drinks without `.html` (Netlify serves `tragos/mezcalita.html` at `/tragos/mezcalita`).
+Links between pages: generated pages in `site/tragos/` use `<base href="../">`, so write links relative to the site root (`tragos/mezcalita`, `assets/...`). Link to drinks without `.html` (Cloudflare serves `tragos/mezcalita.html` at `/tragos/mezcalita`).
 
 The home page section "Una naranja, mil maneras" shows 6 featured drinks from its own `const RECIPES` block in `site/index.html` (plus `SHARE_CODE` and `SHARE_TAGS` next to it). Keep it in sync with drinks.json when you change one of those 6.
 
@@ -71,9 +71,9 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 ## Before finishing any change
 
 - WhatsApp/Google previews: title, description, og: and twitter: tags, canonical and JSON-LD must sit inside <head>, near the top. After hand-editing `site/index.html` or `site/donde-comprar.html`, run `python3 tools/hoist_meta.py site/index.html site/donde-comprar.html`.
-- Every push to `main` is a Netlify deploy and uses plan credits: batch related changes into one push.
+- Every push to `main` goes live on Cloudflare in about a minute. Batch related changes into one push.
 
 - Open the changed pages in a browser at phone width (390px) and laptop width (1440px) and check nothing overlaps or spills sideways.
 - Check there are no broken images or console errors.
 - Images: new photos as WebP, around 80 quality, no wider than 1600px.
-- Commit with a short message describing the change. Pushing to `main` deploys to Netlify automatically in about a minute.
+- Commit with a short message describing the change. Pushing to `main` deploys to Cloudflare automatically in about a minute.

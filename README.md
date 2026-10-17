@@ -4,7 +4,7 @@ Sitio web de Tres Naranjos Triple Sec, de Agave Imports LLC.
 
 ## Cómo se publica
 
-Netlify publica la carpeta `site/` automáticamente cada vez que hay un cambio nuevo en la rama `main`. No hay que subir nada a mano.
+Cloudflare publica la carpeta `site/` automáticamente cada vez que hay un cambio nuevo en la rama `main`. No hay que subir nada a mano. Es gratis.
 
 ## Cómo hacer cambios
 
@@ -19,4 +19,4 @@ Claude sigue las instrucciones de `CLAUDE.md`, revisa que todo se vea bien en ce
 
 ## Si algo sale mal
 
-En Netlify, ve a **Deploys**, escoge una versión anterior y haz clic en **Publish deploy**. El sitio vuelve a como estaba.
+En Cloudflare, ve a **Workers & Pages → tres-naranjos-web → Deployments**, escoge una versión anterior y usa **Rollback**. El sitio vuelve a como estaba.
