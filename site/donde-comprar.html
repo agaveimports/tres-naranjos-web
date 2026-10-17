@@ -31,6 +31,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -449,6 +451,7 @@ footer{padding-block:clamp(50px,6vw,80px) 0;overflow:hidden}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 @media (max-width:900px){.mapcol .ctrl{display:none!important}}
+@media (max-width:900px) and (hover:none){.store:hover{background:transparent!important}} /* phones: a tapped row doesn't stay highlighted (touch keeps :hover stuck) */
 @media (max-width:700px){ /* phones: search and a round pin button on one row */
   .finder{flex-wrap:nowrap!important;gap:8px!important}
   .finder .search{flex:1 1 auto!important;min-width:0}
