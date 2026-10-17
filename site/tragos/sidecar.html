@@ -657,6 +657,9 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 /* big monitors: scale the petite layout up so it doesn't look tiny */
 @media (min-width:1800px){.rp-grid,.rp-foot{zoom:1.2}.rp-pg{zoom:1.2}}
 @media (min-width:2300px){.rp-grid,.rp-foot{zoom:1.45}.rp-pg{zoom:1.3}}
+/* ingredient list: typewriter face with a little more body so it reads on screen */
+.rp-ing{font-size:15.5px!important;-webkit-text-stroke:.4px currentColor}
+.rp-ing li.tn,.rp-ing .a{-webkit-text-stroke:0}
 /* smooth drink-to-drink swap: only the recipe fades */
 .rp-body{view-transition-name:rp-body}
 ::view-transition-group(rp-body){animation:none!important}
@@ -988,16 +991,27 @@ const ALL=[{"code":"A1","slug":"margarita","name":"Margarita","sub":"La clásica
   function warm(){pre(cur-1);pre(cur+1)}
   (window.requestIdleCallback||setTimeout)(warm);
   const q=s=>document.querySelector(s),txt=(el,t)=>{if(el)el.textContent=t};
-  function fill(i){
-    const d=ALL[i],prv=ALL[mod(i-1)],nxt=ALL[mod(i+1)];cur=i;
+  function body(d){
     R={code:d.code,slug:d.slug,name:d.name,serves:d.serves,ing:d.ing,tags:d.tags};ppl=d.serves;
-    const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
     txt(h1,d.name);txt(q('.rp-meta'),d.sub+' · '+d.vaso);txt(q('.rp-tags .t1'),d.tags[0]);txt(q('.rp-tags .t2'),d.tags[1]);
     const ol=q('.rp-steps');ol.innerHTML='';d.steps.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.appendChild(li)});
     let note=q('.rp-note');if(d.tip){if(!note){note=document.createElement('p');note.className='rp-note';ol.after(note)}note.textContent=d.tip}else if(note)note.remove();
+    render();fitTitle();
+  }
+  /* same height for every drink, so the footer never jumps: measure all 12 in one frame (nothing paints in between) */
+  const rb=q('.rp-body');
+  function equalize(){if(!rb)return;const keepU=unit,keepP=ppl;rb.style.minHeight='';let mx=0;
+    ALL.forEach(d=>{body(d);mx=Math.max(mx,rb.offsetHeight)});
+    body(ALL[cur]);ppl=keepP;unit=keepU;render();rb.style.minHeight=mx+'px'}
+  let eqT;addEventListener('resize',()=>{clearTimeout(eqT);eqT=setTimeout(equalize,150)});
+  (document.fonts&&document.fonts.ready||Promise.resolve()).then(equalize);
+  function fill(i){
+    const d=ALL[i],prv=ALL[mod(i-1)],nxt=ALL[mod(i+1)];cur=i;
+    body(d);
+    const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
     [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='tragos/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
     document.title=d.name+' | Receta con Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
-    render();fitTitle();share();warm();
+    share();warm();
   }
   function go(i,push){i=mod(i);if(i===cur)return;
     const run=()=>{fill(i);if(push)history.pushState({slug:ALL[i].slug},'','tragos/'+ALL[i].slug);if(scrollY>0)scrollTo(0,0)};
