@@ -197,9 +197,18 @@ CSS='''<style>
 /* big monitors: scale the petite layout up so it doesn't look tiny */
 @media (min-width:1800px){.rp-grid,.rp-foot{zoom:1.2}.rp-pg{zoom:1.2}}
 @media (min-width:2300px){.rp-grid,.rp-foot{zoom:1.45}.rp-pg{zoom:1.3}}
+/* smooth drink-to-drink swap: only the recipe fades */
+.rp-body{view-transition-name:rp-body}
+::view-transition-group(rp-body){animation:none!important}
+::view-transition-old(rp-body){animation:rp-out .1s ease-in both!important}
+::view-transition-new(rp-body){animation:rp-in .24s cubic-bezier(.2,.7,.2,1) .1s both!important}
+@keyframes rp-out{to{opacity:0}}
+@keyframes rp-in{from{opacity:0;transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){::view-transition-old(rp-body),::view-transition-new(rp-body){animation:none!important}}
 </style>'''
 def esc(t): return html.escape(t,quote=True)
 order=[d['code'] for d in D]
+ALLJS=json.dumps([{'code':x['code'],'slug':x['slug'],'name':x['name'],'sub':x['sub'],'vaso':x['vaso'],'serves':x['serves'],'ing':x['ing'],'steps':x['steps'],'tip':x.get('tip',''),'tags':x['tags'],'photo':x['photo']} for x in D],ensure_ascii=False,separators=(',',':'))
 for i,d in enumerate(D):
   c=d['code'];name=d['name'];tg=TAGS[c]
   more=[D[(i+k)%len(D)] for k in (2,3,4)]
@@ -260,7 +269,8 @@ for i,d in enumerate(D):
   # keep shared scripts (WhatsApp, giants, age gate), drop the tragos picker
   a=s.index('/* =====================================================================\n   RECETAS');b=s.index('</script>',a)
   js='''/* ---- recipe page ---- */
-const R='''+json.dumps({'code':c,'slug':d['slug'],'name':name,'serves':d['serves'],'ing':d['ing'],'tags':tg})+''';
+let R='''+json.dumps({'code':c,'slug':d['slug'],'name':name,'serves':d['serves'],'ing':d['ing'],'tags':tg})+''';
+const ALL='''+ALLJS+''';
 (function(){
   const $=id=>document.getElementById(id);let ppl=R.serves,unit='oz';
   const step=R.serves>1?R.serves/2:1;
@@ -275,10 +285,38 @@ const R='''+json.dumps({'code':c,'slug':d['slug'],'name':name,'serves':d['serves
   function fitTitle(){if(!h1)return;h1.style.removeProperty('font-size');const max=parseFloat(getComputedStyle(h1).fontSize),w=h1.parentElement.clientWidth;let fs=max;h1.style.setProperty('font-size',fs+'px','important');while(h1.scrollWidth>w&&fs>18){fs-=1;h1.style.setProperty('font-size',fs+'px','important')}}
   fitTitle();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitTitle);addEventListener('resize',fitTitle);
   render();
-  addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;const a=document.querySelector(e.key==='ArrowLeft'?'.rp-pg.prev':e.key==='ArrowRight'?'.rp-pg.next':'x');if(a)location.href=a.href});
+  addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;if(e.key==='ArrowLeft')go(cur-1,true);else if(e.key==='ArrowRight')go(cur+1,true)});
   const site=new URL('.',document.baseURI).href.replace(/\\/$/,'');
-  const txt='*'+R.name.toUpperCase()+'*\\n_con Tres Naranjos Triple Sec_\\n'+R.tags[0]+' y '+R.tags[1].toLowerCase()+'. La receta completa aquí:\\n'+site+'/tragos/'+R.slug;
-  $('share').href='https://wa.me/?text='+encodeURIComponent(txt);
+  function share(){const txt='*'+R.name.toUpperCase()+'*\\n_con Tres Naranjos Triple Sec_\\n'+R.tags[0]+' y '+R.tags[1].toLowerCase()+'. La receta completa aquí:\\n'+site+'/tragos/'+R.slug;
+    $('share').href='https://wa.me/?text='+encodeURIComponent(txt)}
+  share();
+  /* ---- smooth drink-to-drink: swap the recipe in place, no page reload ---- */
+  const N=ALL.length,mod=i=>(i%N+N)%N,sm=d=>'assets/tragos/sm/'+d.photo+'.webp';
+  let cur=Math.max(0,ALL.findIndex(d=>d.slug===R.slug));
+  const pre=i=>{const im=new Image();im.decoding='async';im.src=sm(ALL[mod(i)])};
+  function warm(){pre(cur-1);pre(cur+1)}
+  (window.requestIdleCallback||setTimeout)(warm);
+  const q=s=>document.querySelector(s),txt=(el,t)=>{if(el)el.textContent=t};
+  function fill(i){
+    const d=ALL[i],prv=ALL[mod(i-1)],nxt=ALL[mod(i+1)];cur=i;
+    R={code:d.code,slug:d.slug,name:d.name,serves:d.serves,ing:d.ing,tags:d.tags};ppl=d.serves;
+    const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
+    txt(h1,d.name);txt(q('.rp-meta'),d.sub+' · '+d.vaso);txt(q('.rp-tags .t1'),d.tags[0]);txt(q('.rp-tags .t2'),d.tags[1]);
+    const ol=q('.rp-steps');ol.innerHTML='';d.steps.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.appendChild(li)});
+    let note=q('.rp-note');if(d.tip){if(!note){note=document.createElement('p');note.className='rp-note';ol.after(note)}note.textContent=d.tip}else if(note)note.remove();
+    [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='tragos/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
+    document.title=d.name+' | Receta con Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
+    render();fitTitle();share();warm();
+  }
+  function go(i,push){i=mod(i);if(i===cur)return;
+    const run=()=>{fill(i);if(push)history.pushState({slug:ALL[i].slug},'','tragos/'+ALL[i].slug);if(scrollY>0)scrollTo(0,0)};
+    const im=new Image();im.src=sm(ALL[i]);
+    const swap=()=>{if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.startViewTransition(run);else run()};
+    (im.decode?im.decode():Promise.resolve()).then(swap,swap);
+  }
+  document.querySelectorAll('.rp-pg').forEach(a=>a.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button)return;e.preventDefault();go(cur+(a.classList.contains('prev')?-1:1),true)}));
+  history.replaceState({slug:R.slug},'');
+  addEventListener('popstate',()=>{const sl=location.pathname.replace(/\\/$/,'').split('/').pop().replace('.html','');const i=ALL.findIndex(d=>d.slug===sl);if(i>=0){const t=()=>fill(i);document.startViewTransition?document.startViewTransition(t):t()}});
   const nav=$('nav');if(nav)document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');
 })();
 '''
