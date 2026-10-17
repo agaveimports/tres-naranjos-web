@@ -883,5 +883,8 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))open(false)});
 })();
 </script>
+<style>/* no decorative icons on buttons: app logos (WhatsApp, Instagram) and the Cerca de mí pin stay */
+.nav .pill .ico,.nav ul a .ico,.cierre .btn .ico{display:none!important}
+</style>
 </body>
 </html>
