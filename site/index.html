@@ -1223,7 +1223,7 @@ function shareText(k){const r=RECIPES[k];
   (function(){
     const left=document.querySelector('.mil-left'),all=left&&left.querySelector('.btn--dark');if(!left)return;
     const keys=Object.keys(RECIPES),sw=document.createElement('div');sw.className='mil-swipe';
-    sw.innerHTML='<div class="ms-track">'+keys.map(k=>'<div class="menu ms-card"><div class="menu-photo" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'"><img class="on" src="assets/tragos/wide/'+k+'.webp" loading="eager" decoding="async" alt="'+RECIPES[k].name+'"></div><div class="menu-text-wrap">'+cardText(k)+'</div></div>').join('')+'</div>'+
+    sw.innerHTML='<div class="ms-track">'+keys.map(k=>'<div class="menu ms-card"><div class="menu-photo" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'"><img class="on" src="assets/tragos/wide2/'+k+'.webp" loading="eager" decoding="async" alt="'+RECIPES[k].name+'"></div><div class="menu-text-wrap">'+cardText(k)+'</div></div>').join('')+'</div>'+
       '<div class="ms-dots">'+keys.map((k,i)=>'<button type="button" aria-label="'+RECIPES[k].name+'"'+(i?'':' aria-current="true"')+'></button>').join('')+'</div>';
     left.insertBefore(sw,all);
     const tr=sw.querySelector('.ms-track'),dots=[...sw.querySelectorAll('.ms-dots button')];
