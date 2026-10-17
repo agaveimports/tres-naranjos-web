@@ -43,6 +43,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -476,6 +478,9 @@ footer{padding-block:clamp(50px,6vw,80px) 0;overflow:hidden}
     border:0!important;border-radius:999px;padding:.42em .8em .34em!important;text-decoration:none!important;font:700 11.5px var(--mono)!important;
     box-shadow:0 6px 18px -6px rgba(45,41,38,.35);display:inline-flex;gap:.4em;align-items:center;top:10px;left:10px}
   .mapcol > .clear-sel[hidden]{display:none!important}
+  .mapcol > .clear-sel:hover,.mapcol > .clear-sel:focus,.mapcol > .clear-sel:active{background:#fff!important;color:var(--negro)!important}
+  .mapcol > .clear-sel{transition:opacity .25s ease}
+  .mapcol > .clear-sel.leaving{opacity:0;pointer-events:none}
 } /* phones: a tapped row doesn't stay highlighted (touch keeps :hover stuck) */
 @media (max-width:700px){ /* phones: search and a round pin button on one row */
   .finder{flex-wrap:nowrap!important;gap:8px!important}
@@ -1272,7 +1277,7 @@ const STREET_LAYERS_TOP=[
         '<div class="go" style="grid-column:2"><a class="primary" href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">Cómo llegar →</a></div></div>'}).join('')+'</div>').join('');
     marks();
   }
-  function marks(){document.querySelectorAll('.store').forEach(r=>r.classList.toggle('on',+r.dataset.id===st.open));const c=$('clearsel');if(c&&islandZoom!=null)c.hidden=isIsland()&&st.open==null&&!st.q}
+  function marks(){document.querySelectorAll('.store').forEach(r=>r.classList.toggle('on',+r.dataset.id===st.open));const c=$('clearsel');if(c&&islandZoom!=null){c.hidden=isIsland()&&st.open==null&&!st.q;if(c.hidden)c.classList.remove('leaving')}}
   const res=$('results');
   res.addEventListener('mouseover',e=>{const r=e.target.closest('.store');pinsEl.querySelectorAll('.pin.hot').forEach(p=>p.classList.remove('hot'));if(!r)return;const c=pinData.find(c=>c.m.some(s=>s.id===+r.dataset.id));c&&c.el&&c.el.classList.add('hot')});
   res.addEventListener('mouseleave',()=>pinsEl.querySelectorAll('.pin.hot').forEach(p=>p.classList.remove('hot')));
@@ -1307,7 +1312,7 @@ const STREET_LAYERS_TOP=[
   $('zout').addEventListener('click',()=>{st.focus=null;map.zoomOut({animate:!reduce})});
   function unselect(){st.open=null;buildPins();place();if(!wide())renderList();marks()}
   const all=()=>{st.focus=null;st.open=null;st.q='';const qi=$('q');if(qi)qi.value='';buildPins();goIsland()};
-  $('clearsel').addEventListener('click',all);
+  $('clearsel').addEventListener('click',e=>{if(!wide()){const b=e.currentTarget;b.classList.add('leaving');b.blur();setTimeout(()=>b.classList.remove('leaving'),1600)}all()}); /* phones: the pill fades out as soon as it's tapped */
   addEventListener('keydown',e=>{if(e.key==='Escape'&&st.open!=null&&!e.target.closest('input'))unselect()});
   $('zall').addEventListener('click',all);
   let rt; new ResizeObserver(()=>{map.resize();clearTimeout(rt);rt=setTimeout(()=>{if(map.loaded()||islandZoom!=null){lockIsland();settle()}},120)}).observe(box);
