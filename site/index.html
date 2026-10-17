@@ -1,5 +1,7 @@
 <!doctype html><html lang="es"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tres Naranjos Triple Sec | Licor de naranja con miel de agave</title><meta name="description" content="Tres Naranjos Triple Sec: licor de naranja con miel de agave. Imaginado en Puerto Rico, hecho en México. Recetas de cócteles y dónde comprarlo en la isla."><meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:locale" content="es_PR"><meta property="og:title" content="Tres Naranjos Triple Sec"><meta property="og:description" content="Licor de naranja con miel de agave. Recetas y dónde comprarlo en Puerto Rico."><meta property="og:image" content="https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/share/home.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "Tres Naranjos", "url": "https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/", "logo": "https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/icon-512.png", "email": "info@agaveimportspr.com", "sameAs": ["https://instagram.com/tresnaranjosoficial"], "parentOrganization": {"@type": "Organization", "name": "Agave Imports LLC"}}, {"@type": "Product", "name": "Tres Naranjos Triple Sec", "description": "Licor de naranja con miel de agave. 25% alc. vol., 750 ml.", "brand": {"@type": "Brand", "name": "Tres Naranjos"}, "image": "https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/share/home.jpg", "category": "Licor de naranja"}]}</script>
+
+
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>/* age check: decided before the page paints, so it never flashes once confirmed */try{if(localStorage.getItem('tn-age')==='1')document.documentElement.classList.add('age-ok')}catch(e){}</script>
 <script>/* motion: only when the visitor allows it */if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo')</script>
 <style>.age-ok .gate{display:none!important}</style>
@@ -1178,14 +1180,27 @@ function shareText(k){const r=RECIPES[k];
     b.addEventListener('click',()=>{location.href='tragos/'+(SHARE_CODE[k]||'margarita')}); b.addEventListener('mouseenter',()=>show(k));
     words.appendChild(b);
   });
+  function cardText(k){const r=RECIPES[k];return '<div class="menu-text"><div class="menu-head"><span class="menu-badge" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'">'+glassSVG2(GLASS[k])+'</span><h3>'+r.name+'</h3></div><ul>'+r.ing.map(i=>{const m=i.match(/^([\d\s\/]+ oz)\s+(.+)$/);let nm=m?m[2]:i;nm=nm[0].toUpperCase()+nm.slice(1);const tn=/Tres Naranjos/.test(nm);return '<li'+(tn?' class="tn"':'')+'><span>'+nm+'</span>'+(m?'<span class="a">'+m[1]+'</span>':'')+'</li>'}).join('')+'</ul><span class="label">Cómo se hace</span><p>'+r.how+'</p><a class="menu-page" href="tragos/'+(SHARE_CODE[k]||'margarita')+'">Ver receta completa →</a><a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(shareText(k))+'"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Mándasela a un pana</a></div>'}
   let show=function(k){
     const r=RECIPES[k];
     words.querySelectorAll('.word').forEach(w=>{const on=w.dataset.k===k;w.classList.toggle('on',on);w.setAttribute('aria-selected',on);if(on)w.closest('.mil').style.setProperty('--cur',getComputedStyle(w).getPropertyValue('--dc'))});
     if(!menu.querySelector('.menu-photo')){menu.innerHTML='<div class="menu-photo">'+Object.keys(RECIPES).map(x=>'<img data-k="'+x+'" src="assets/tragos/'+x+'.webp" loading="lazy" decoding="async" alt="'+RECIPES[x].name+'">').join('')+'</div><div class="menu-text-wrap"></div>'}
     const ph=menu.querySelector('.menu-photo');ph.style.background=BADGE_BG[k]||'var(--naranja)';ph.querySelectorAll('img').forEach(im=>im.classList.toggle('on',im.dataset.k===k));
-    menu.querySelector('.menu-text-wrap').innerHTML='<div class="menu-text"><div class="menu-head"><span class="menu-badge" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'">'+glassSVG2(GLASS[k])+'</span><h3>'+r.name+'</h3></div><ul>'+r.ing.map(i=>{const m=i.match(/^([\d\s\/]+ oz)\s+(.+)$/);let nm=m?m[2]:i;nm=nm[0].toUpperCase()+nm.slice(1);const tn=/Tres Naranjos/.test(nm);return '<li'+(tn?' class="tn"':'')+'><span>'+nm+'</span>'+(m?'<span class="a">'+m[1]+'</span>':'')+'</li>'}).join('')+'</ul><span class="label">Cómo se hace</span><p>'+r.how+'</p><a class="menu-page" href="tragos/'+(SHARE_CODE[k]||'margarita')+'">Ver receta completa →</a><a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(shareText(k))+'"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Mándasela a un pana</a></div>';
+    menu.querySelector('.menu-text-wrap').innerHTML=cardText(k);
     foot.innerHTML='';
   }
+
+  ;/* ---- phones: one drink card at a time, swipe left/right ---- */
+  (function(){
+    const left=document.querySelector('.mil-left'),all=left&&left.querySelector('.btn--dark');if(!left)return;
+    const keys=Object.keys(RECIPES),sw=document.createElement('div');sw.className='mil-swipe';
+    sw.innerHTML='<div class="ms-track">'+keys.map(k=>'<div class="menu ms-card"><div class="menu-photo" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'"><img class="on" src="assets/tragos/'+k+'.webp" loading="lazy" decoding="async" alt="'+RECIPES[k].name+'"></div><div class="menu-text-wrap">'+cardText(k)+'</div></div>').join('')+'</div>'+
+      '<div class="ms-dots">'+keys.map((k,i)=>'<button type="button" aria-label="'+RECIPES[k].name+'"'+(i?'':' aria-current="true"')+'></button>').join('')+'</div>';
+    left.insertBefore(sw,all);
+    const tr=sw.querySelector('.ms-track'),dots=[...sw.querySelectorAll('.ms-dots button')];
+    tr.addEventListener('scroll',()=>{const i=Math.round(tr.scrollLeft/tr.clientWidth);dots.forEach((d,j)=>d.toggleAttribute('aria-current',j===i))},{passive:true});
+    dots.forEach((d,i)=>d.addEventListener('click',()=>tr.scrollTo({left:i*tr.clientWidth,behavior:'smooth'})));
+  })();
   // lock the card to the tallest recipe so it never jumps while hovering
   {const sec=document.getElementById('mil');const pre=()=>Object.keys(RECIPES).forEach(k=>{const i=new Image();i.src='assets/tragos/'+k+'.webp'});if(sec&&'IntersectionObserver' in window){const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){pre();io.disconnect()}},{rootMargin:'600px 0px'});io.observe(sec)}else pre()}
   let cur='margarita';
@@ -1316,4 +1331,28 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 :root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
 </style>
 <style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}.credit a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.credit a:hover{color:#2D2926}</style>
+<style>/* round-1 mobile feedback */
+.mil-swipe{display:none}
+@media (max-width:700px){
+  .mil .words,.mil .recipe{display:none!important}
+  .mil-swipe{display:block;margin:4px calc(-1 * var(--gutter,16px)) 0}
+  .ms-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:stretch;-webkit-overflow-scrolling:touch}
+  .ms-track::-webkit-scrollbar{display:none}
+  .ms-card{flex:0 0 calc(100% - 2*var(--gutter,16px));margin:0 var(--gutter,16px);scroll-snap-align:center;box-sizing:border-box}
+  .ms-card .menu-photo{aspect-ratio:16/10!important;height:auto!important;min-height:0!important}
+  .ms-card .menu-photo img{opacity:1}
+  .ms-dots{display:flex;justify-content:center;gap:8px;margin:16px 0 4px}
+  .ms-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(45,41,38,.25);cursor:pointer}
+  .ms-dots button[aria-current]{background:var(--negro);width:22px;border-radius:4px}
+  .mil-left .btn--dark{margin-top:18px;width:100%;box-sizing:border-box;justify-content:center;display:flex}
+  .hero-ctas{display:grid!important;grid-template-columns:1fr;gap:12px!important;width:100%}
+  .hero-ctas>*{width:100%!important;max-width:none!important}
+  .hero-ctas .btn-wrap,.hero-ctas .btn{width:100%!important;justify-content:center;box-sizing:border-box}
+  .proof-list li:nth-child(n+4){display:none}
+}
+/* Dónde comprar pill readable on the orange hero */
+.hero .btn[href="donde-comprar"],.nav .pill{box-shadow:inset 0 0 0 2px rgba(255,244,230,.75)!important}
+/* map section button: orange with cream text */
+:root:root body .cierre a.btn.btn{background-color:#EE5F1C!important;color:var(--crema)!important}
+</style>
 </body></html>
