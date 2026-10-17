@@ -35,6 +35,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -453,7 +455,21 @@ footer{padding-block:clamp(50px,6vw,80px) 0;overflow:hidden}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 @media (max-width:900px){.mapcol .ctrl{display:none!important}}
-@media (max-width:900px) and (hover:none){.store:hover{background:transparent!important}} /* phones: a tapped row doesn't stay highlighted (touch keeps :hover stuck) */
+@media (max-width:900px) and (hover:none){.store:hover{background:transparent!important}}
+@media (max-width:700px){ /* phones: filters live in the header under the search; "Ver toda la isla" floats on the map */
+  .dc-hero .chips{display:flex;flex-wrap:nowrap;gap:6px;margin:10px 0 0;padding:0;overflow:visible;width:100%}
+  .dc-hero .chip{flex:1 1 auto;min-width:0;justify-content:center;gap:.35em;font-size:13px!important;padding:.55em .5em .45em!important;
+    background:rgba(255,244,230,.16)!important;color:var(--crema)!important}
+  .dc-hero .chip svg{display:none}
+  .dc-hero .chip small{font-size:11px;opacity:.75}
+  .dc-hero .chip[aria-pressed="true"]{background:var(--crema)!important;color:var(--negro)!important}
+  .dc-hero .chip[aria-pressed="true"] small{opacity:.6}
+  .list-head.moved{display:none!important}
+  .mapcol > .clear-sel{position:absolute;top:12px;left:12px;z-index:5;margin:0!important;background:#fff!important;color:var(--negro)!important;
+    border:0!important;border-radius:999px;padding:.55em 1em .45em!important;text-decoration:none!important;font:700 13px var(--mono)!important;
+    box-shadow:0 6px 18px -6px rgba(45,41,38,.35);display:inline-flex;gap:.45em;align-items:center}
+  .mapcol > .clear-sel[hidden]{display:none!important}
+} /* phones: a tapped row doesn't stay highlighted (touch keeps :hover stuck) */
 @media (max-width:700px){ /* phones: search and a round pin button on one row */
   .finder{flex-wrap:nowrap!important;gap:8px!important}
   .finder .search{flex:1 1 auto!important;min-width:0}
@@ -1164,6 +1180,12 @@ const STREET_LAYERS_TOP=[
   }
 
 
+  /* phones: filters go up under the search, "Ver toda la isla" floats on the map; they go back on wider screens */
+  {const mq=matchMedia('(max-width:700px)'),ch=$('chips'),cs=$('clearsel'),lh=document.querySelector('.list-head'),fd=document.querySelector('.finder'),mc=document.querySelector('.mapcol');
+   const place2=()=>{if(!ch||!cs||!lh||!fd||!mc)return;
+     if(mq.matches){fd.after(ch);mc.appendChild(cs);lh.classList.add('moved')}
+     else{lh.prepend(cs);lh.prepend(ch);lh.classList.remove('moved')}};
+   place2();mq.addEventListener?mq.addEventListener('change',place2):mq.addListener(place2);}
   $('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st.tipo=b.dataset.t;chips();st.open=null;settle()});
 
   /* ---------- pins: cluster in screen space, like Airbnb / Google Maps ---------- */
