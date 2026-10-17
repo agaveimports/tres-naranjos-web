@@ -28,13 +28,15 @@ main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + c
 .fq .ans{padding:0 0 20px;font-size:16px;line-height:1.6;max-width:62ch}
 .fq .ans a{color:#E04F12;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .fq-more{margin-top:clamp(28px,3vw,40px);font-size:16px}
+.fq-head p a,.fq-more a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.fq-head p a:hover,.fq-more a:hover{color:#E04F12}
 @media (min-width:1800px){.fq{zoom:1.2}}
 </style>'''
 items=''.join(f'<details><summary>{esc(f["q"])}</summary><div class="ans">{f["a"]}</div></details>' for f in FAQ)
 main=f'''<main id="top" class="fq wrap">
-  <header class="fq-head"><span class="fq-eye">Preguntas frecuentes</span><h1>Todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? Escríbenos.</p></header>
+  <header class="fq-head"><span class="fq-eye">Preguntas frecuentes</span><h1>Todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
   {items}
-  <p class="fq-more">¿Otra pregunta? Escríbenos por WhatsApp o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
+  <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
 </main>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]
 s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Preguntas frecuentes | Tres Naranjos"><meta property="og:image" content="{B}/share/home.jpg"><link rel="canonical" href="{B}/preguntas"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
