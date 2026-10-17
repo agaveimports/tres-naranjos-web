@@ -58,7 +58,7 @@ for dr in json.load(open(TOOLS + 'drinks.json')):
     for l in lines:
         d.text((x0 - 4, y), l, font=fo, fill=NEGRO); y += int(size * 0.9)
     y += 14
-    d.text((x0, y), dr['sub'] + ' · ' + dr['vaso'], font=f('hk5.ttf', 30), fill=GRIS); y += 64
+    y += 8
     # tags
     tf = f('hk7.ttf', 26); tx = x0
     for (bg, fg), t in zip([(NAR, CREMA), (AMARILLO, LADRILLO)], dr['tags']):

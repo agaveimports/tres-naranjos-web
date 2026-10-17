@@ -13,7 +13,7 @@ site/                    published folder (Cloudflare serves it as is; see wrang
   preguntas.html         FAQ page (GENERATED from tools/faq.json)
   tragos/index.html      drinks grid, served at /tragos/ (GENERATED, do not edit by hand)
   tragos/<slug>.html     one page per drink, served at /tragos/<slug> e.g. /tragos/mezcalita (GENERATED)
-  share/<slug>.jpg       WhatsApp share cards, 1200x630: the drink photo untouched on the left, name and tags on the right (GENERATED); share/home.jpg is hand-made. After changing cards, bump the ?v= number on og:image in build_recipes.py so WhatsApp fetches the new image
+  share/<slug>.jpg       WhatsApp share cards, 1200x630: the drink photo untouched on the left, drink name, two tags and the wordmark on the right (GENERATED); share/home.jpg is hand-made. After changing cards, bump the ?v= number on og:image in build_recipes.py so WhatsApp fetches the new image
   _redirects             old /r/A1.html style links -> new addresses (keep these)
   assets/                photos (.webp), video, fonts
   assets/tragos/         drink photos 960x1200; assets/tragos/sm/ = 560x560 thumbnails
