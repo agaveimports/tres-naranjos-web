@@ -47,18 +47,22 @@ def wrap(d, text, fo, maxw):
 os.makedirs(SITE + 'share', exist_ok=True)
 
 WIDE = TOOLS + 'share-src/'
-def grain(img, seed=7):
+def grain(img, seed=7, size=2.2, amount=11):
+    """film grain like the home page hero: coarse (about 2px) clumps, a bit stronger in the shadows"""
     a = np.asarray(img).astype(np.float32); h, w = a.shape[:2]
-    g = np.random.default_rng(seed).normal(0, 1, (h, w)).astype(np.float32)
-    g = np.asarray(Image.fromarray(((g * 40) + 128).clip(0, 255).astype('uint8')).filter(ImageFilter.GaussianBlur(0.45))).astype(np.float32) - 128
+    gh, gw = max(1, int(h / size)), max(1, int(w / size))
+    g = np.random.default_rng(seed).normal(0, 1, (gh, gw)).astype(np.float32)
+    g = np.asarray(Image.fromarray(((g * 40) + 128).clip(0, 255).astype('uint8')).resize((w, h), Image.BICUBIC)
+                   .filter(ImageFilter.GaussianBlur(0.6))).astype(np.float32) - 128
     lum = a.mean(2, keepdims=True) / 255
-    a += (g[..., None] / 40) * (7 + 5 * (1 - lum))
+    a += (g[..., None] / 40) * (amount + 5 * (1 - lum))
     return Image.fromarray(a.clip(0, 255).astype('uint8'))
 
 def balanced(d, text, fo, maxw):
     """One line if it fits, otherwise the two-line split with the narrowest widest line."""
     if d.textlength(text, font=fo) <= maxw: return [text]
     w = text.split(); best = None
+    if len(w) == 1: return [text]
     for i in range(1, len(w)):
         a, b = ' '.join(w[:i]), ' '.join(w[i:]); m = max(d.textlength(a, font=fo), d.textlength(b, font=fo))
         if best is None or m < best[0]: best = (m, [a, b])
@@ -68,25 +72,33 @@ def wide_card(dr, size):
     src = Image.open(WIDE + dr['slug'] + '.jpg').convert('RGB')
     sw, sh = src.size; th = int(sw * H / W); top = int((sh - th) * 0.55)
     img = grain(src.crop((0, top, sw, top + th)).resize((W, H), Image.LANCZOS))
-    fo = f('elc.ttf', size); d = ImageDraw.Draw(img)
-    zx0, zx1 = int(W * 0.40), W - 40          # empty zone to the right of the glass
-    lines = balanced(d, dr['name'].upper(), fo, zx1 - zx0 - 40)
+    d = ImageDraw.Draw(img)
+    zx0, zx1 = int(W * 0.38), W - 44          # empty zone to the right of the glass
+    # each card gets the biggest name that fits the zone in up to 2 lines (capped so short names don't shout)
+    size = WMAX
+    while size > 70:
+        fo = f('elc.ttf', size); lines = balanced(d, dr['name'].upper(), fo, zx1 - zx0 - 30)
+        if len(lines) <= 2 and all(d.textlength(l, font=fo) <= zx1 - zx0 - 30 for l in lines): break
+        size -= 4
+    fo = f('elc.ttf', size)
     lh = int(size * 0.92); bb = fo.getbbox('M'); cap = bb[3] - bb[1]
     block = lh * (len(lines) - 1) + cap; y0 = (H - block) // 2 - bb[1]
     widest = max(d.textlength(l, font=fo) for l in lines); x0 = int((zx0 + zx1 - widest) / 2)
-    # text colour from the background brightness behind the text
+    # text colour from the background brightness behind the text (no shadow)
     zone = np.asarray(img.crop((x0, (H - block) // 2, int(x0 + widest), (H + block) // 2))).astype(np.float32)
-    bright = (0.2126 * zone[..., 0] + 0.7152 * zone[..., 1] + 0.0722 * zone[..., 2]).mean() > 165
-    if not bright:
-        shd = Image.new('L', (W, H), 0); sd = ImageDraw.Draw(shd); y = y0
-        for l in lines: sd.text((x0, y + 3), l, font=fo, fill=110); y += lh
-        img.paste((60, 20, 10), (0, 0), shd.filter(ImageFilter.GaussianBlur(10))); d = ImageDraw.Draw(img)
+    # pick whichever of cream or ink reads better on this backdrop (WCAG contrast)
+    lin = lambda c: ((c / 255) / 12.92) if c <= 10 else (((c / 255) + .055) / 1.055) ** 2.4
+    m = zone.reshape(-1, 3).mean(0); Lb = .2126 * lin(m[0]) + .7152 * lin(m[1]) + .0722 * lin(m[2])
+    Lc = .2126 * lin(255) + .7152 * lin(244) + .0722 * lin(230); Ln = .2126 * lin(45) + .7152 * lin(41) + .0722 * lin(38)
+    con = lambda a, b: (max(a, b) + .05) / (min(a, b) + .05)
+    bright = con(Lb, Ln) > con(Lb, Lc) * 1.15   # lean to cream unless ink is clearly better
     y = y0
     for l in lines:
         d.text((x0, y), l, font=fo, fill=NEGRO if bright else CREMA); y += lh
     return img
 
 DR = json.load(open(TOOLS + 'drinks.json'))
+WMAX = 176   # largest drink name on a wide share card
 # one name size for every wide card: the largest that keeps every name to 2 lines in the empty zone
 _d = ImageDraw.Draw(Image.new('RGB', (W, H))); WSIZE = 132
 while WSIZE > 70 and any(_d.textlength(l, font=f('elc.ttf', WSIZE)) > int(W * 0.60) - 80
@@ -94,7 +106,7 @@ while WSIZE > 70 and any(_d.textlength(l, font=f('elc.ttf', WSIZE)) > int(W * 0.
     WSIZE -= 4
 for dr in DR:
     if os.path.exists(WIDE + dr['slug'] + '.jpg'):
-        wide_card(dr, WSIZE).save(SITE + f"share/{dr['slug']}.jpg", quality=90, optimize=True, progressive=True, subsampling=0); continue
+        wide_card(dr, 0).save(SITE + f"share/{dr['slug']}.jpg", quality=90, optimize=True, progressive=True, subsampling=0); continue
     img = Image.new('RGB', (W, H), CREMA); d = ImageDraw.Draw(img)
     # photo: same 4:5 frame as the site, only resized
     ph_h = H - 2 * M; ph_w = int(ph_h * 4 / 5)
