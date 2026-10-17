@@ -843,6 +843,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   .mnav ul{list-style:none;margin:auto 0;padding:0;display:grid;gap:6px}
   .mnav li a{display:block;font-family:var(--display);font-size:clamp(40px,12vw,56px);line-height:1.05;color:#FFF4E6;text-decoration:none;text-transform:uppercase;padding:6px 0}
   .mnav li a[aria-current]{color:#2D2926}
+  .mnav .ext{font-family:system-ui,sans-serif;font-size:.6em;vertical-align:.35em;margin-left:.1em}
   .mnav-cta{display:grid;gap:10px}
   .mnav-cta a{display:flex;align-items:center;justify-content:center;gap:.5em;min-height:54px;border-radius:999px;font-weight:700;font-size:15px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
   .mnav-cta .a1{background:#FFF4E6;color:#2D2926}
@@ -870,8 +871,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   const m=document.createElement('div');m.className='mnav';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','Menú');
   const cur=c=>c?' aria-current="page"':'';
   m.innerHTML='<div class="mnav-top"><a class="logo" href="./">TR<span class="rev">E</span>S NARANJOS</a><button type="button" class="mnav-x" aria-label="Cerrar menú">×</button></div>'+
-    '<ul><li><a href="./"'+cur(here==='/'||/\/index$/.test(here))+'>Inicio</a></li><li><a href="tragos/"'+cur(onTragos)+'>Tragos</a></li><li><a href="donde-comprar"'+cur(onDonde)+'>Dónde comprar</a></li><li><a href="preguntas"'+cur(onFaq)+'>Preguntas</a></li><li><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a></li></ul>'+
-    '<div class="mnav-cta"><a class="a1" href="donde-comprar">'+BAG+'Encuentra una tienda</a><a class="a2" href="'+waLink+'" target="_blank" rel="noopener">'+WA+'Escríbenos</a></div>';
+    '<ul><li><a href="./"'+cur(here==='/'||/\/index$/.test(here))+'>Inicio</a></li><li><a href="tragos/"'+cur(onTragos)+'>Tragos</a></li><li><a href="donde-comprar"'+cur(onDonde)+'>Dónde comprar</a></li><li><a href="preguntas"'+cur(onFaq)+'>Preguntas</a></li><li><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram <span class="ext">↗\uFE0E</span></a></li><li><a href="'+waLink+'" target="_blank" rel="noopener">Escríbenos <span class="ext">↗\uFE0E</span></a></li></ul>';
   document.body.appendChild(m);
   const navLogo=nav.querySelector('.logo'),mLogo=m.querySelector('.mnav-top .logo'),mx=m.querySelector('.mnav-x');
   const align=()=>{const r=navLogo.getBoundingClientRect(),cs=getComputedStyle(navLogo),br=b.getBoundingClientRect();
