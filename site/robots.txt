@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://timely-snickerdoodle-0fc15a.netlify.app/sitemap.xml
+Sitemap: https://tres-naranjos.netlify.app/sitemap.xml
