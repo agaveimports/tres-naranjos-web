@@ -15,6 +15,10 @@
 
 
 
+
+
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1302,8 +1306,12 @@ const STREET_LAYERS_TOP=[
       if(me[0]<-68.5||me[0]>-64.5||me[1]<17.5||me[1]>19)return fail('Parece que no estás en Puerto Rico. Busca un pueblo arriba.');
       st.me=me; st.focus=null;
       const near=st.stores.slice().sort((a,b)=>Math.hypot(a.ll[0]-me[0],a.ll[1]-me[1])-Math.hypot(b.ll[0]-me[0],b.ll[1]-me[1])).slice(0,4);
-      hideHint(); fitLL([me,...near.map(s=>s.ll)],70,15);
-      if(!wide())document.querySelector('.mapcol').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      hideHint();
+      if(wide()){fitLL([me,...near.map(s=>s.ll)],70,15);return}
+      /* phones: no scrolling; the map grows in place to fill the screen under the button, then zooms to you */
+      const mc=document.querySelector('.mapcol'),top=Math.max(0,mc.getBoundingClientRect().top);
+      mc.style.setProperty('height',Math.max(280,Math.round(innerHeight-top))+'px','important');map.resize();
+      fitLL([me,...near.map(s=>s.ll)],60,15);
     },()=>fail(),{timeout:8000})}catch(e){fail()}
   });
 
