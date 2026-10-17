@@ -91,7 +91,7 @@ def wide_card(dr, size):
     m = zone.reshape(-1, 3).mean(0); Lb = .2126 * lin(m[0]) + .7152 * lin(m[1]) + .0722 * lin(m[2])
     Lc = .2126 * lin(255) + .7152 * lin(244) + .0722 * lin(230); Ln = .2126 * lin(45) + .7152 * lin(41) + .0722 * lin(38)
     con = lambda a, b: (max(a, b) + .05) / (min(a, b) + .05)
-    bright = con(Lb, Ln) > con(Lb, Lc) * 1.15   # lean to cream unless ink is clearly better
+    bright = con(Lb, Lc) < CREAM_MIN   # cream whenever it still reads (big bold type); ink only on the lightest backdrops
     y = y0
     for l in lines:
         d.text((x0, y), l, font=fo, fill=NEGRO if bright else CREMA); y += lh
@@ -99,6 +99,7 @@ def wide_card(dr, size):
 
 DR = json.load(open(TOOLS + 'drinks.json'))
 WMAX = 176   # largest drink name on a wide share card
+CREAM_MIN = 2.2   # lowest cream-vs-backdrop contrast we accept before switching the name to ink
 # one name size for every wide card: the largest that keeps every name to 2 lines in the empty zone
 _d = ImageDraw.Draw(Image.new('RGB', (W, H))); WSIZE = 132
 while WSIZE > 70 and any(_d.textlength(l, font=f('elc.ttf', WSIZE)) > int(W * 0.60) - 80
