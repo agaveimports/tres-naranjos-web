@@ -1,0 +1,10 @@
+// Cloudflare hosting: publishes the site/ folder as is (no build step).
+// _headers and _redirects inside site/ are applied by Cloudflare.
+{
+  "name": "tres-naranjos-web",
+  "compatibility_date": "2026-10-13",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash"
+  }
+}
