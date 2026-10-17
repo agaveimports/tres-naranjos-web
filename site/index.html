@@ -54,6 +54,10 @@
 
 
 
+
+
+
+
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>/* age check: decided before the page paints, so it never flashes once confirmed */try{if(localStorage.getItem('tn-age')==='1')document.documentElement.classList.add('age-ok')}catch(e){}</script>
 <script>/* motion: only when the visitor allows it */if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo')</script>
 <style>.age-ok .gate{display:none!important}</style>
@@ -128,7 +132,7 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
-<style>@view-transition{navigation:auto}.nav{view-transition-name:site-nav}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none}</style>
+<style>@view-transition{navigation:none}.nav{view-transition-name:none} /* home: the bar looks different over the hero, so it is not carried over from other pages */::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none}</style>
 <link rel="preload" href="assets/fonts/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/hanken-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ElCaminoRegular.woff2" as="font" type="font/woff2" crossorigin>
@@ -930,6 +934,153 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 <!-- ===================== AGE GATE ===================== -->
 </head><body>
+<!-- page styles live here (top of body) so they apply on the first paint -->
+<style>/* buttons: one simple hover everywhere, a touch lighter; no animated border */
+:root:root body a.btn[href="donde-comprar"]::before,:root:root body .nav .pill::before,:root:root body .btn::before{content:none!important;display:none!important;animation:none!important}
+:root:root body .btn,:root:root body .nav .pill{transition:filter .15s ease,background-color .15s ease!important}
+:root:root body .btn:hover,:root:root body .btn:focus-visible,:root:root body .nav .pill:hover,:root:root body .nav .pill:focus-visible{transform:none!important;filter:brightness(1.08)!important}
+:root:root body .nav .pill,:root:root body .nav .pill:hover,:root:root body a.btn.btn[href="donde-comprar"],:root:root body a.btn.btn[href="donde-comprar"]:hover,:root:root body a.btn.btn[href="donde-comprar"]:focus-visible{background-color:#EE5F1C!important}
+:root:root body .btn.btn--dark:hover,:root:root body .btn.btn--dark:focus-visible,:root:root body a.btn.btn[href*="tressantos"]:hover,:root:root body a.btn.btn[href*="tressantos"]:focus-visible{background-color:#4A4441!important;filter:none!important}
+:root:root body .btn.btn--wa:hover,:root:root body .btn.btn--wa:focus-visible,:root:root body .rp-acts .rp-wa:hover{background-color:#1E8E4F!important}
+:root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
+</style>
+<style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}.credit a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.credit a:hover{color:#2D2926}</style>
+<style>/* round-1 mobile feedback */
+.mil-swipe{display:none}
+@media (max-width:700px){
+  .mil .words,.mil .recipe{display:none!important}
+  .mil-swipe{display:block;margin:4px calc(-1 * var(--gutter,16px)) 0}
+  .ms-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:stretch;-webkit-overflow-scrolling:touch}
+  .ms-track::-webkit-scrollbar{display:none}
+  .ms-card{flex:0 0 calc(100% - 2*var(--gutter,16px));margin:0 var(--gutter,16px);scroll-snap-align:center;box-sizing:border-box}
+  .ms-card .menu-photo{aspect-ratio:16/10!important;height:auto!important;min-height:0!important}
+  .ms-card .menu-photo img{opacity:1}
+  .ms-dots{display:flex;justify-content:center;gap:8px;margin:16px 0 4px}
+  .ms-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(45,41,38,.25);cursor:pointer}
+  .ms-dots button[aria-current]{background:var(--negro);width:22px;border-radius:4px}
+  .mil-left .btn--dark{margin-top:18px;width:100%;box-sizing:border-box;justify-content:center;display:flex}
+  .hero-ctas{display:grid!important;grid-template-columns:1fr;gap:12px!important;width:100%}
+  .hero-ctas>*{width:100%!important;max-width:none!important}
+  .hero-ctas .btn-wrap,.hero-ctas .btn{width:100%!important;justify-content:center;box-sizing:border-box}
+  .proof-list li:nth-child(n+4){display:none}
+}
+/* Dónde comprar pill readable on the orange hero */
+.hero .btn[href="donde-comprar"],.nav .pill{box-shadow:inset 0 0 0 1.5px rgba(255,244,230,.4)!important}
+/* map section button: orange with cream text */
+:root:root body .cierre a.btn.btn{background-color:#EE5F1C!important;color:var(--crema)!important}
+</style>
+<style>
+.nav-burger,.mnav,.mbar{display:none}
+@media (max-width:700px){
+  .nav ul,.nav .pill{display:none!important}
+  .nav{justify-content:space-between!important}
+  :root:root .nav .logo{font-size:clamp(22px,7vw,28px)!important;position:absolute;left:50%;transform:translate(-50%,.1em)!important}
+  .nav{justify-content:flex-end!important}
+  .nav-burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
+  .nav-burger span{display:block;width:24px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
+  .mnav{display:flex;position:fixed;inset:0;z-index:80;flex-direction:column;background:#E8561A;color:#FFF4E6;
+    padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
+    opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
+  .mnav.open{opacity:1;visibility:visible}
+  .mnav-top{display:flex;align-items:center;justify-content:space-between;min-height:44px;position:relative}
+  .mnav-top .logo{color:#FFF4E6;font-size:21px}
+  .mnav-x{width:44px;height:44px;margin-right:-8px;border:0;background:none;color:#FFF4E6;font-size:34px;line-height:1;cursor:pointer}
+  .mnav ul{list-style:none;margin:auto 0;padding:0;display:grid;gap:6px}
+  .mnav li a{display:block;font-family:var(--display);font-size:clamp(40px,12vw,56px);line-height:1.05;color:#FFF4E6;text-decoration:none;text-transform:uppercase;padding:6px 0}
+  .mnav li a[aria-current]{color:#2D2926}
+  .mnav .ext{font-family:system-ui,sans-serif;font-size:.6em;vertical-align:.35em;margin-left:.1em}
+  .mnav-cta{display:grid;gap:10px}
+  .mnav-cta a{display:flex;align-items:center;justify-content:center;gap:.5em;min-height:54px;border-radius:999px;font-weight:700;font-size:15px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+  .mnav-cta .a1{background:#FFF4E6;color:#2D2926}
+  .mnav-cta .a2{background:#1E8E4F;color:#fff}
+  .mnav-cta svg{width:19px;height:19px}
+  .mbar{display:block;position:fixed;z-index:70;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+  .mbar.show{opacity:1;transform:none;pointer-events:auto}
+  .mbar a{display:grid;place-items:center;width:52px;height:52px;padding:0;border-radius:50%;background:#EE5F1C;color:#FFF4E6;font-weight:700;font-size:13px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 14px rgba(45,41,38,.18)}
+  .mbar a svg{width:22px;height:22px}
+  html.mnav-lock,html.mnav-lock body{overflow:hidden}
+}
+</style>
+<style>/* phones: never show iOS's big play button on the looping videos (Low Power Mode blocks autoplay);
+   the still poster shows instead and the video starts on the first touch */
+@media (max-width:700px){video::-webkit-media-controls,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none;opacity:0!important}}
+</style>
+<style>/* round-2 mobile feedback */
+@media (max-width:700px){
+  .hero-origin{white-space:nowrap;font-size:clamp(9.5px,2.75vw,11.5px)!important;letter-spacing:.06em!important}
+  .hero-origin br{display:none}
+  /* hero: one screen, photo behind, scene between the copy and the buttons */
+  .hero.hero--photo{position:relative;overflow:hidden;min-height:100svh!important;height:100svh;box-sizing:border-box;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))!important;
+    display:flex!important;flex-direction:column;background:#EE6A1E url("assets/hero-mobile.webp") center bottom/cover no-repeat!important}
+  .hero.hero--photo>*{position:relative;z-index:1}
+  .hero--photo .hero-copy{flex:1;display:flex;flex-direction:column;min-height:0}
+  .hero--photo h1{font-size:clamp(40px,11.5vw,48px)!important;margin-bottom:.25em!important}
+  .hero--photo .hero-sub{font-size:16px!important;margin-bottom:0!important}
+  .hero--photo .hero-ctas{margin-top:auto!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .hero--photo .hero-ctas .btn{font-size:13px!important;padding:1em .5em .9em!important;min-height:48px}
+  .hero--photo .hero-ctas .btn .ico{width:16px;height:16px}
+  /* drink cards: photo always visible, card fits on screen */
+  .ms-card .menu-photo{aspect-ratio:auto!important;height:250px!important;min-height:250px!important;display:block!important}
+  .ms-card .menu-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:1!important;display:block!important} /* wide version of the drink photo, whole glass in frame */
+  .ms-card .menu-text .label,.ms-card .menu-text .label+p{display:none!important}
+  .ms-card .menu-head{margin-bottom:6px}
+  .ms-card .menu-text li{padding-block:4px!important;font-size:13.5px!important;line-height:1.3!important}
+}
+@media (max-width:700px){
+  /* photo layer, scene lifted so the buttons sit under the bottle; reaches under the transparent nav */
+  /* one photo for the whole hero; the scene lands between the copy and the buttons */
+  .hero.hero--photo{background:#EC6522 url("assets/hero-mobile.webp") center bottom/cover no-repeat!important}
+  .hero.hero--photo::before,.hero--photo .hero-copy::after{content:none!important}
+}
+@media (max-width:700px) and (min-aspect-ratio:52/100){.hero.hero--photo{background-size:auto max(calc(100% + 24px),177.05vw)!important;background-position:center calc(100% + 24px)!important}}
+@media (max-width:700px) and (min-aspect-ratio:55/100){.hero.hero--photo{background-size:auto max(calc(100% + 90px),177.05vw)!important;background-position:center calc(100% + 90px)!important}}
+/* round-3 mobile hero (Graza style): big bottle up top, one headline and one button at the bottom */
+@media (max-width:700px){
+  :root .hero.hero--photo{--S:max(calc((100svh - 330px)*3.257),247.5vw);background-image:url("assets/hero-mobile-tall.webp")!important;
+    background-size:auto var(--S)!important;background-position:center calc(86px - .322*var(--S))!important;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))!important}
+  :root .hero.hero--photo::before{content:""!important;position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(176,62,10,.14) 0,rgba(176,62,10,.06) 20%,rgba(176,62,10,0) 40%)!important}
+  .hero--photo .hero-origin,.hero--photo .hero-sub,.hero--photo .hero-ctas .btn--ghost{display:none!important}
+  .hero--photo .hero-copy{justify-content:flex-end;gap:0!important;width:100%!important;max-width:none!important;align-self:stretch!important}
+  .hero--photo h1{max-width:none!important}
+  .hero--photo h1{margin:0 0 .3em!important;text-shadow:0 2px 18px rgba(60,20,5,.25)}
+  html body #hero.hero--photo h1{font-size:12.7vw!important;line-height:.95!important}
+  .hero--photo .hero-ctas{margin-top:0!important;grid-template-columns:1fr!important;display:grid!important}
+  .hero--photo .hero-ctas .btn-wrap,.hero--photo .hero-ctas .btn-wrap .btn{display:flex!important;width:100%!important;justify-content:center}
+  .hero--photo h1 br{display:none}
+  /* clear bar over the hero: a soft warm shade keeps the cream logo readable over light parts of the photo */
+  .nav:not(.solid){border-bottom-color:transparent!important;border-bottom-width:0!important}
+  .nav:not(.solid)::after{content:"";position:absolute;left:0;right:0;top:0;height:150%;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(150,50,10,.32),rgba(150,50,10,.12) 55%,rgba(150,50,10,0))}
+  /* button: solid cream, slim, full width (like Graza) */
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important;box-shadow:none!important;border:0!important;
+    min-height:44px!important;padding:.75em 1em .65em!important;font-size:14px!important;letter-spacing:.08em}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:hover,:root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"] .ico{display:none!important}
+}
+</style>
+<style>/* nav "Dónde comprar" pill: cream while the bar sits clear over the orange hero, orange again once the bar turns cream */
+:root:root body #nav.nav:not(.solid) .pill.pill,:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{box-shadow:none!important;border-color:transparent!important;color:#2D2926!important}
+:root:root body #nav.nav:not(.solid) .pill.pill{background:#FFF4E6!important;background-color:#FFF4E6!important}
+:root:root body #nav.nav:not(.solid) .pill.pill::after{content:none!important;display:none!important}
+:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important}
+/* cream buttons on orange: map section (all sizes) and desktop hero */
+:root:root body .cierre a.btn.btn.btn,:root:root body .cierre a.btn.btn.btn:hover{box-shadow:none!important;border:0!important}
+:root:root body .cierre a.btn.btn.btn{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important}
+:root:root body .cierre a.btn.btn.btn:hover,:root:root body .cierre a.btn.btn.btn:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
+@media (min-width:701px){
+  :root:root body #hero .hero-ctas a.btn.btn{box-shadow:none!important;border:0!important}
+  :root:root body #hero .hero-ctas a.btn.btn .ico{display:none!important}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important}
+  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:hover,:root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
+  :root:root body #hero .hero-ctas a.btn--ghost.btn{background:rgba(255,244,230,.18)!important;background-color:rgba(255,244,230,.18)!important;color:#FFF4E6!important}
+  :root:root body #hero .hero-ctas a.btn--ghost.btn:hover,:root:root body #hero .hero-ctas a.btn--ghost.btn:focus-visible{background:rgba(255,244,230,.28)!important;background-color:rgba(255,244,230,.28)!important;color:#FFF4E6!important}
+}
+</style>
+<style>/* no decorative icons on buttons: app logos (WhatsApp, Instagram) and the Cerca de mí pin stay */
+.nav .pill .ico,.nav ul a .ico,.cierre .btn .ico{display:none!important}
+</style>
+
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-box">
     <img src="assets/icon.webp" alt="">
@@ -1237,7 +1388,7 @@ function shareText(k){const r=RECIPES[k];
   let show=function(k){
     const r=RECIPES[k];
     words.querySelectorAll('.word').forEach(w=>{const on=w.dataset.k===k;w.classList.toggle('on',on);w.setAttribute('aria-selected',on);if(on)w.closest('.mil').style.setProperty('--cur',getComputedStyle(w).getPropertyValue('--dc'))});
-    if(!menu.querySelector('.menu-photo')){menu.innerHTML='<div class="menu-photo">'+Object.keys(RECIPES).map(x=>'<img data-k="'+x+'" src="assets/tragos/ctr/'+x+'.webp" loading="lazy" decoding="async" alt="'+RECIPES[x].name+'">').join('')+'</div><div class="menu-text-wrap"></div>'}
+    if(!menu.querySelector('.menu-photo')){menu.innerHTML='<div class="menu-photo">'+Object.keys(RECIPES).map(x=>'<img data-k="'+x+'" src="assets/tragos/ctr2/'+x+'.webp" loading="lazy" decoding="async" alt="'+RECIPES[x].name+'">').join('')+'</div><div class="menu-text-wrap"></div>'}
     const ph=menu.querySelector('.menu-photo');ph.style.background=BADGE_BG[k]||'var(--naranja)';ph.querySelectorAll('img').forEach(im=>im.classList.toggle('on',im.dataset.k===k));
     menu.querySelector('.menu-text-wrap').innerHTML=cardText(k);
     foot.innerHTML='';
@@ -1374,74 +1525,11 @@ document.addEventListener('click',e=>{const b=e.target.closest('.copy-mail');if(
  const done=()=>{toast.textContent='¡Copiado! '+m;toast.classList.add('show');clearTimeout(t);t=setTimeout(()=>toast.classList.remove('show'),2200)};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(m).then(done,()=>{fallback(m);done()});else{fallback(m);done()}});
 function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove()}})();</script>
-<style>/* buttons: one simple hover everywhere, a touch lighter; no animated border */
-:root:root body a.btn[href="donde-comprar"]::before,:root:root body .nav .pill::before,:root:root body .btn::before{content:none!important;display:none!important;animation:none!important}
-:root:root body .btn,:root:root body .nav .pill{transition:filter .15s ease,background-color .15s ease!important}
-:root:root body .btn:hover,:root:root body .btn:focus-visible,:root:root body .nav .pill:hover,:root:root body .nav .pill:focus-visible{transform:none!important;filter:brightness(1.08)!important}
-:root:root body .nav .pill,:root:root body .nav .pill:hover,:root:root body a.btn.btn[href="donde-comprar"],:root:root body a.btn.btn[href="donde-comprar"]:hover,:root:root body a.btn.btn[href="donde-comprar"]:focus-visible{background-color:#EE5F1C!important}
-:root:root body .btn.btn--dark:hover,:root:root body .btn.btn--dark:focus-visible,:root:root body a.btn.btn[href*="tressantos"]:hover,:root:root body a.btn.btn[href*="tressantos"]:focus-visible{background-color:#4A4441!important;filter:none!important}
-:root:root body .btn.btn--wa:hover,:root:root body .btn.btn--wa:focus-visible,:root:root body .rp-acts .rp-wa:hover{background-color:#1E8E4F!important}
-:root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
-</style>
-<style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}.credit a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.credit a:hover{color:#2D2926}</style>
-<style>/* round-1 mobile feedback */
-.mil-swipe{display:none}
-@media (max-width:700px){
-  .mil .words,.mil .recipe{display:none!important}
-  .mil-swipe{display:block;margin:4px calc(-1 * var(--gutter,16px)) 0}
-  .ms-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:stretch;-webkit-overflow-scrolling:touch}
-  .ms-track::-webkit-scrollbar{display:none}
-  .ms-card{flex:0 0 calc(100% - 2*var(--gutter,16px));margin:0 var(--gutter,16px);scroll-snap-align:center;box-sizing:border-box}
-  .ms-card .menu-photo{aspect-ratio:16/10!important;height:auto!important;min-height:0!important}
-  .ms-card .menu-photo img{opacity:1}
-  .ms-dots{display:flex;justify-content:center;gap:8px;margin:16px 0 4px}
-  .ms-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(45,41,38,.25);cursor:pointer}
-  .ms-dots button[aria-current]{background:var(--negro);width:22px;border-radius:4px}
-  .mil-left .btn--dark{margin-top:18px;width:100%;box-sizing:border-box;justify-content:center;display:flex}
-  .hero-ctas{display:grid!important;grid-template-columns:1fr;gap:12px!important;width:100%}
-  .hero-ctas>*{width:100%!important;max-width:none!important}
-  .hero-ctas .btn-wrap,.hero-ctas .btn{width:100%!important;justify-content:center;box-sizing:border-box}
-  .proof-list li:nth-child(n+4){display:none}
-}
-/* Dónde comprar pill readable on the orange hero */
-.hero .btn[href="donde-comprar"],.nav .pill{box-shadow:inset 0 0 0 1.5px rgba(255,244,230,.4)!important}
-/* map section button: orange with cream text */
-:root:root body .cierre a.btn.btn{background-color:#EE5F1C!important;color:var(--crema)!important}
-</style>
+
+
+
 <!-- mobile nav: menu button + full-screen menu + sticky "Dónde comprar" bar (phones only) -->
-<style>
-.nav-burger,.mnav,.mbar{display:none}
-@media (max-width:700px){
-  .nav ul,.nav .pill{display:none!important}
-  .nav{justify-content:space-between!important}
-  :root:root .nav .logo{font-size:clamp(22px,7vw,28px)!important;position:absolute;left:50%;transform:translate(-50%,.1em)!important}
-  .nav{justify-content:flex-end!important}
-  .nav-burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
-  .nav-burger span{display:block;width:24px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
-  .mnav{display:flex;position:fixed;inset:0;z-index:80;flex-direction:column;background:#E8561A;color:#FFF4E6;
-    padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
-    opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
-  .mnav.open{opacity:1;visibility:visible}
-  .mnav-top{display:flex;align-items:center;justify-content:space-between;min-height:44px;position:relative}
-  .mnav-top .logo{color:#FFF4E6;font-size:21px}
-  .mnav-x{width:44px;height:44px;margin-right:-8px;border:0;background:none;color:#FFF4E6;font-size:34px;line-height:1;cursor:pointer}
-  .mnav ul{list-style:none;margin:auto 0;padding:0;display:grid;gap:6px}
-  .mnav li a{display:block;font-family:var(--display);font-size:clamp(40px,12vw,56px);line-height:1.05;color:#FFF4E6;text-decoration:none;text-transform:uppercase;padding:6px 0}
-  .mnav li a[aria-current]{color:#2D2926}
-  .mnav .ext{font-family:system-ui,sans-serif;font-size:.6em;vertical-align:.35em;margin-left:.1em}
-  .mnav-cta{display:grid;gap:10px}
-  .mnav-cta a{display:flex;align-items:center;justify-content:center;gap:.5em;min-height:54px;border-radius:999px;font-weight:700;font-size:15px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
-  .mnav-cta .a1{background:#FFF4E6;color:#2D2926}
-  .mnav-cta .a2{background:#1E8E4F;color:#fff}
-  .mnav-cta svg{width:19px;height:19px}
-  .mbar{display:block;position:fixed;z-index:70;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
-    opacity:0;transform:translateY(12px) scale(.96);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
-  .mbar.show{opacity:1;transform:none;pointer-events:auto}
-  .mbar a{display:grid;place-items:center;width:52px;height:52px;padding:0;border-radius:50%;background:#EE5F1C;color:#FFF4E6;font-weight:700;font-size:13px;line-height:1;font-family:var(--sans,var(--body,inherit));letter-spacing:.05em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 14px rgba(45,41,38,.18)}
-  .mbar a svg{width:22px;height:22px}
-  html.mnav-lock,html.mnav-lock body{overflow:hidden}
-}
-</style>
+
 <script>
 (function(){
   const nav=document.getElementById('nav');if(!nav)return;
@@ -1468,86 +1556,12 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))open(false)});
 })();
 </script>
-<style>/* phones: never show iOS's big play button on the looping videos (Low Power Mode blocks autoplay);
-   the still poster shows instead and the video starts on the first touch */
-@media (max-width:700px){video::-webkit-media-controls,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none;opacity:0!important}}
-</style>
+
 <script>(function(){if(!matchMedia('(max-width:700px)').matches)return;
   const go=()=>document.querySelectorAll('video[autoplay]').forEach(v=>{if(v.paused)v.play().catch(()=>{})});
   ['touchstart','scroll'].forEach(e=>addEventListener(e,go,{passive:true,once:true}));
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)go()});})();</script>
-<style>/* round-2 mobile feedback */
-@media (max-width:700px){
-  .hero-origin{white-space:nowrap;font-size:clamp(9.5px,2.75vw,11.5px)!important;letter-spacing:.06em!important}
-  .hero-origin br{display:none}
-  /* hero: one screen, photo behind, scene between the copy and the buttons */
-  .hero.hero--photo{position:relative;overflow:hidden;min-height:100svh!important;height:100svh;box-sizing:border-box;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))!important;
-    display:flex!important;flex-direction:column;background:#EE6A1E url("assets/hero-mobile.webp") center bottom/cover no-repeat!important}
-  .hero.hero--photo>*{position:relative;z-index:1}
-  .hero--photo .hero-copy{flex:1;display:flex;flex-direction:column;min-height:0}
-  .hero--photo h1{font-size:clamp(40px,11.5vw,48px)!important;margin-bottom:.25em!important}
-  .hero--photo .hero-sub{font-size:16px!important;margin-bottom:0!important}
-  .hero--photo .hero-ctas{margin-top:auto!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
-  .hero--photo .hero-ctas .btn{font-size:13px!important;padding:1em .5em .9em!important;min-height:48px}
-  .hero--photo .hero-ctas .btn .ico{width:16px;height:16px}
-  /* drink cards: photo always visible, card fits on screen */
-  .ms-card .menu-photo{aspect-ratio:auto!important;height:250px!important;min-height:250px!important;display:block!important}
-  .ms-card .menu-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:1!important;display:block!important} /* wide version of the drink photo, whole glass in frame */
-  .ms-card .menu-text .label,.ms-card .menu-text .label+p{display:none!important}
-  .ms-card .menu-head{margin-bottom:6px}
-  .ms-card .menu-text li{padding-block:4px!important;font-size:13.5px!important;line-height:1.3!important}
-}
-@media (max-width:700px){
-  /* photo layer, scene lifted so the buttons sit under the bottle; reaches under the transparent nav */
-  /* one photo for the whole hero; the scene lands between the copy and the buttons */
-  .hero.hero--photo{background:#EC6522 url("assets/hero-mobile.webp") center bottom/cover no-repeat!important}
-  .hero.hero--photo::before,.hero--photo .hero-copy::after{content:none!important}
-}
-@media (max-width:700px) and (min-aspect-ratio:52/100){.hero.hero--photo{background-size:auto max(calc(100% + 24px),177.05vw)!important;background-position:center calc(100% + 24px)!important}}
-@media (max-width:700px) and (min-aspect-ratio:55/100){.hero.hero--photo{background-size:auto max(calc(100% + 90px),177.05vw)!important;background-position:center calc(100% + 90px)!important}}
-/* round-3 mobile hero (Graza style): big bottle up top, one headline and one button at the bottom */
-@media (max-width:700px){
-  :root .hero.hero--photo{--S:max(calc((100svh - 330px)*3.257),247.5vw);background-image:url("assets/hero-mobile-tall.webp")!important;
-    background-size:auto var(--S)!important;background-position:center calc(86px - .322*var(--S))!important;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))!important}
-  :root .hero.hero--photo::before{content:""!important;position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:linear-gradient(to top,rgba(176,62,10,.14) 0,rgba(176,62,10,.06) 20%,rgba(176,62,10,0) 40%)!important}
-  .hero--photo .hero-origin,.hero--photo .hero-sub,.hero--photo .hero-ctas .btn--ghost{display:none!important}
-  .hero--photo .hero-copy{justify-content:flex-end;gap:0!important;width:100%!important;max-width:none!important;align-self:stretch!important}
-  .hero--photo h1{max-width:none!important}
-  .hero--photo h1{margin:0 0 .3em!important;text-shadow:0 2px 18px rgba(60,20,5,.25)}
-  html body #hero.hero--photo h1{font-size:12.7vw!important;line-height:.95!important}
-  .hero--photo .hero-ctas{margin-top:0!important;grid-template-columns:1fr!important;display:grid!important}
-  .hero--photo .hero-ctas .btn-wrap,.hero--photo .hero-ctas .btn-wrap .btn{display:flex!important;width:100%!important;justify-content:center}
-  .hero--photo h1 br{display:none}
-  /* clear bar over the hero: a soft warm shade keeps the cream logo readable over light parts of the photo */
-  .nav:not(.solid){border-bottom-color:transparent!important;border-bottom-width:0!important}
-  .nav:not(.solid)::after{content:"";position:absolute;left:0;right:0;top:0;height:150%;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(150,50,10,.32),rgba(150,50,10,.12) 55%,rgba(150,50,10,0))}
-  /* button: solid cream, slim, full width (like Graza) */
-  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important;box-shadow:none!important;border:0!important;
-    min-height:44px!important;padding:.75em 1em .65em!important;font-size:14px!important;letter-spacing:.08em}
-  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:hover,:root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
-  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"] .ico{display:none!important}
-}
-</style>
-<style>/* nav "Dónde comprar" pill: cream while the bar sits clear over the orange hero, orange again once the bar turns cream */
-:root:root body #nav.nav:not(.solid) .pill.pill,:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{box-shadow:none!important;border-color:transparent!important;color:#2D2926!important}
-:root:root body #nav.nav:not(.solid) .pill.pill{background:#FFF4E6!important;background-color:#FFF4E6!important}
-:root:root body #nav.nav:not(.solid) .pill.pill::after{content:none!important;display:none!important}
-:root:root body #nav.nav:not(.solid) .pill.pill:hover,:root:root body #nav.nav:not(.solid) .pill.pill:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important}
-/* cream buttons on orange: map section (all sizes) and desktop hero */
-:root:root body .cierre a.btn.btn.btn,:root:root body .cierre a.btn.btn.btn:hover{box-shadow:none!important;border:0!important}
-:root:root body .cierre a.btn.btn.btn{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important}
-:root:root body .cierre a.btn.btn.btn:hover,:root:root body .cierre a.btn.btn.btn:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
-@media (min-width:701px){
-  :root:root body #hero .hero-ctas a.btn.btn{box-shadow:none!important;border:0!important}
-  :root:root body #hero .hero-ctas a.btn.btn .ico{display:none!important}
-  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]{background:#FFF4E6!important;background-color:#FFF4E6!important;color:#2D2926!important}
-  :root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:hover,:root:root body #hero .hero-ctas a.btn.btn[href="donde-comprar"]:focus-visible{background:#FFFAF3!important;background-color:#FFFAF3!important;color:#2D2926!important}
-  :root:root body #hero .hero-ctas a.btn--ghost.btn{background:rgba(255,244,230,.18)!important;background-color:rgba(255,244,230,.18)!important;color:#FFF4E6!important}
-  :root:root body #hero .hero-ctas a.btn--ghost.btn:hover,:root:root body #hero .hero-ctas a.btn--ghost.btn:focus-visible{background:rgba(255,244,230,.28)!important;background-color:rgba(255,244,230,.28)!important;color:#FFF4E6!important}
-}
-</style>
-<style>/* no decorative icons on buttons: app logos (WhatsApp, Instagram) and the Cerca de mí pin stay */
-.nav .pill .ico,.nav ul a .ico,.cierre .btn .ico{display:none!important}
-</style>
+
+
+
 </body></html>

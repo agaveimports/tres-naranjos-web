@@ -45,9 +45,25 @@ CSS='''<style>
 /* big monitors: scale the petite layout up so it doesn't look tiny */
 @media (min-width:1800px){.tg{zoom:1.2}}
 @media (min-width:2300px){.tg{zoom:1.45}}
+/* loading placeholder: the photo's own color with a soft shimmer, then the photo fades in */
+.tg-ph{background:var(--ph,#F6E2C8)!important}
+.tg-ph::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(100deg,transparent 30%,rgba(255,244,230,.28) 50%,transparent 70%) 0 0/250% 100%;animation:tg-shim 1.3s ease-in-out infinite}
+.tg-ph img{position:relative;z-index:1;opacity:0;transition:opacity .35s ease,transform .5s cubic-bezier(.16,1,.3,1)!important}
+.tg-ph .tg-tags{z-index:2}
+.tg-ph.ld img{opacity:1}
+.tg-ph.ld::before{animation:none;opacity:0}
+@keyframes tg-shim{from{background-position:120% 0}to{background-position:-20% 0}}
+@media (prefers-reduced-motion:reduce){.tg-ph::before{animation:none}}
 </style>'''
 def esc(t): return html.escape(t,quote=True)
-cards=''.join(f'''<a class="tg-card" href="tragos/{d['slug']}"><div class="tg-ph"><img src="assets/tragos/sm/{PHOTO[d['code']]}.webp" decoding="async" alt="{esc(d['name'])} con Tres Naranjos" loading="eager"{' fetchpriority="high"' if i<6 else ''}><div class="tg-tags"><span class="t1">{esc(TAGS[d['code']][0])}</span><span class="t2">{esc(TAGS[d['code']][1])}</span></div></div><span class="tg-name">{esc(d['name'])}</span></a>''' for i,d in enumerate(D))
+from PIL import Image as _Im
+def avg_color(name):
+    """the photo's average color, shown as the placeholder while the photo loads"""
+    try:
+        im=_Im.open(SITE+'assets/tragos/sm/'+name+'.webp').convert('RGB').resize((1,1),_Im.BILINEAR)
+        return '#%02x%02x%02x'%im.getpixel((0,0))
+    except Exception: return '#F6E2C8'
+cards=''.join(f'''<a class="tg-card" href="tragos/{d['slug']}"><div class="tg-ph" style="--ph:{avg_color(PHOTO[d['code']])}"><img src="assets/tragos/sm/{PHOTO[d['code']]}.webp" onload="this.parentNode.classList.add('ld')" decoding="async" alt="{esc(d['name'])} con Tres Naranjos" loading="eager"{' fetchpriority="high"' if i<6 else ''}><div class="tg-tags"><span class="t1">{esc(TAGS[d['code']][0])}</span><span class="t2">{esc(TAGS[d['code']][1])}</span></div></div><span class="tg-name">{esc(d['name'])}</span></a>''' for i,d in enumerate(D))
 main=f'''<main id="top" class="tg wrap">
   <header class="tg-head"><span class="tg-eye">Recetas con Tres Naranjos</span><h1>Doce tragos, una naranja.</h1><p>Clásicos y criollos que quedan mejor con nuestro triple sec. Escoge uno y te enseñamos cómo.</p></header>
   <div class="tg-grid">{cards}</div>
