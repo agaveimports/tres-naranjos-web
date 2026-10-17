@@ -197,6 +197,9 @@ CSS='''<style>
 /* big monitors: scale the petite layout up so it doesn't look tiny */
 @media (min-width:1800px){.rp-grid,.rp-foot{zoom:1.2}.rp-pg{zoom:1.2}}
 @media (min-width:2300px){.rp-grid,.rp-foot{zoom:1.45}.rp-pg{zoom:1.3}}
+/* iPhone Safari: give the photo a real width so it never collapses */
+.rp-top .rp-photo{flex:0 0 auto!important;min-width:104px}
+.rp-top .rp-photo img{display:block;width:100%;height:100%;object-fit:cover}
 /* more room between the nav and the drink */
 .rp{padding-top:calc(var(--navh,84px) + clamp(36px,5vw,76px))!important}
 /* prev/next tiles: show the full drink name (wraps to two lines), same height either way */

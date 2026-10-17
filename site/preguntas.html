@@ -845,17 +845,14 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     '<ul><li><a href="./"'+cur(here==='/'||/\/index$/.test(here))+'>Inicio</a></li><li><a href="tragos/"'+cur(onTragos)+'>Tragos</a></li><li><a href="donde-comprar"'+cur(onDonde)+'>Dónde comprar</a></li><li><a href="preguntas"'+cur(onFaq)+'>Preguntas</a></li><li><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a></li></ul>'+
     '<div class="mnav-cta"><a class="a1" href="donde-comprar">'+BAG+'Encuentra una tienda</a><a class="a2" href="'+waLink+'" target="_blank" rel="noopener">'+WA+'Escríbenos</a></div>';
   document.body.appendChild(m);
-  const open=v=>{m.classList.toggle('open',v);b.setAttribute('aria-expanded',v);document.documentElement.classList.toggle('mnav-lock',v);if(v)m.querySelector('.mnav-x').focus();else b.focus()};
+  const navLogo=nav.querySelector('.logo'),mLogo=m.querySelector('.mnav-top .logo'),mx=m.querySelector('.mnav-x');
+  const align=()=>{const r=navLogo.getBoundingClientRect(),cs=getComputedStyle(navLogo),br=b.getBoundingClientRect();
+    Object.assign(mLogo.style,{position:'absolute',left:r.left+'px',top:r.top+'px',fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,margin:0});
+    Object.assign(mx.style,{position:'absolute',left:br.left+'px',top:br.top+'px',width:br.width+'px',height:br.height+'px',margin:0})};
+  const open=v=>{if(v)align();m.classList.toggle('open',v);b.setAttribute('aria-expanded',v);document.documentElement.classList.toggle('mnav-lock',v);if(v)m.querySelector('.mnav-x').focus();else b.focus()};
   b.onclick=()=>open(true);m.querySelector('.mnav-x').onclick=()=>open(false);
   m.addEventListener('click',e=>{if(e.target.closest('a'))open(false)});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))open(false)});
-  // sticky bar (not on Dónde comprar itself)
-  if(onDonde||onFaq)return;
-  const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<a href="donde-comprar" aria-label="Dónde comprar" title="Dónde comprar">'+BAG+'</a>';document.body.appendChild(bar);
-    const heroCtas=document.querySelector('.hero-ctas');
-  const foot=document.querySelector('.credit');
-  const update=()=>{let show;if(heroCtas){show=heroCtas.getBoundingClientRect().bottom<0}else show=scrollY>120;if(foot&&foot.getBoundingClientRect().top<innerHeight-10)show=false;bar.classList.toggle('show',show)};
-  addEventListener('scroll',update,{passive:true});update();
 })();
 </script>
 </body>
