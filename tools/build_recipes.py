@@ -289,7 +289,7 @@ for i,d in enumerate(D):
   fa=s.index('<footer');fb=s.index('</footer>',fa)+9
   s=s[:fa]+'''<footer class="rp-foot wrap">
   <nav class="rp-flinks"><a href="tragos/">Tragos</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="preguntas">Preguntas</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
-  <p><strong>Disfruta con responsabilidad.</strong> © Tres Naranjos 2026. Importado por Agave Imports LLC, San Juan, PR. Producido y embotellado por Bodegas Collado, S.A. de C.V., Ciudad de México.</p>
+  <p><strong>Disfruta con responsabilidad.</strong> © Tres Naranjos 2026. Importado por Agave Imports LLC, San Juan, PR. Producido y embotellado por Bodegas Collado, S.A. de C.V., Ciudad de México. <a href="privacidad" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacidad</a></p>
   <p><strong>GOVERNMENT WARNING:</strong> (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.</p>
 </footer>'''+s[fb:]
   # keep shared scripts (WhatsApp, giants, age gate), drop the tragos picker
