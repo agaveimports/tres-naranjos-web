@@ -25,6 +25,7 @@ main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + c
 .fq summary::after{content:"+";font:400 26px/1 var(--mono);color:#E8561A;transition:transform .2s ease;flex:none}
 .fq details[open] summary::after{transform:rotate(45deg)}
 .fq summary:hover{color:#E04F12}
+.fq summary:focus:not(:focus-visible){outline:none}
 .fq .ans{padding:0 0 20px;font-size:16px;line-height:1.6;max-width:62ch}
 .fq .ans a{color:#E04F12;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .fq-more{margin-top:clamp(28px,3vw,40px);font-size:16px}
@@ -37,7 +38,8 @@ main=f'''<main id="top" class="fq wrap">
   <header class="fq-head"><span class="fq-eye">Preguntas frecuentes</span><h1>Todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
   {items}
   <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
-</main>'''
+</main>
+<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.js-wa-sell').forEach(a=>a.href='https://wa.me/'+(typeof WHATSAPP!=='undefined'?WHATSAPP:'17876471157')+'?text='+encodeURIComponent('¡Hola! Tengo un negocio y me interesa vender Tres Naranjos.')))</script>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]
 s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Preguntas frecuentes | Tres Naranjos"><meta property="og:image" content="{B}/share/home.jpg"><link rel="canonical" href="{B}/preguntas"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS'); b=s.index('</script>',a)
