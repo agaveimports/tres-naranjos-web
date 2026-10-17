@@ -25,6 +25,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1277,13 +1279,15 @@ const STREET_LAYERS_TOP=[
   }
   function closeSugg(){sugg.hidden=true;items=[];hi=-1;q.setAttribute('aria-expanded','false');q.removeAttribute('aria-activedescendant')}
   function highlight(n){hi=n;sugg.querySelectorAll('li[role=option]').forEach((li,i)=>li.setAttribute('aria-selected',i===hi));if(hi>-1){q.setAttribute('aria-activedescendant','sg'+hi);const li=sugg.children[hi];li&&li.scrollIntoView({block:'nearest'})}}
+  /* phones/tablets: close the keyboard once a place is picked or searched, so the map is visible */
+  const dropKb=()=>{if(matchMedia('(pointer:coarse)').matches)q.blur()};
   function choose(it){
-    closeSugg(); hideHint(); st.q=''; st.open=null;
+    closeSugg(); hideHint(); dropKb(); st.q=''; st.open=null;
     if(it.kind==='town'){q.value=it.n;st.focus=it.n;goPlace(it.n)}
     else{const s=st.stores.find(s=>s.id===it.id);q.value=s.nombre;st.focus=null;openStore(it.id,true)}
   }
   function submit(){
-    const v=q.value.trim(); closeSugg(); st.open=null;
+    const v=q.value.trim(); closeSugg(); dropKb(); st.open=null;
     if(!v){st.q='';st.focus=null;goIsland();return}
     const zona=Object.keys(ZONA).find(z=>norm(z)===norm(v)); if(zona){st.q='';st.focus=zona;goPlace(zona);return}
     const town=muniKey[norm(v)]; if(town){st.q='';st.focus=town;goTown(town);return}
