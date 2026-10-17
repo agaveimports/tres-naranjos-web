@@ -228,7 +228,7 @@ for i,d in enumerate(D):
   s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{esc(desc)}">',s,count=1)
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
-    f'<meta property="og:image" content="{B}/share/{d['slug']}.jpg?v=8"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
+    f'<meta property="og:image" content="{B}/share/{d['slug']}.jpg?v=9"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
     f'<meta property="og:url" content="{B}/tragos/{d['slug']}"><meta name="twitter:card" content="summary_large_image">\n')
   s=s.replace('<meta charset',head_extra+'<meta charset',1) if '<meta charset' in s[:400] else s.replace('<head>','<head>'+head_extra,1)
   s=s.replace('</head>',CSS+'\n</head>',1)
