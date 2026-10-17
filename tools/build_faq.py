@@ -10,6 +10,7 @@ esc=lambda t:html.escape(t,quote=True)
 s=re.sub(r'<title>.*?</title>','<title>Preguntas frecuentes | Tres Naranjos</title>',s,count=1)
 s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Todo sobre Tres Naranjos Triple Sec: qué es, de dónde es, cuánto alcohol tiene, dónde comprarlo en Puerto Rico y qué tragos hacer.">',s,count=1)
 s=s.replace('<a href="tragos/" aria-current="page">','<a href="tragos/">',1)
+s=s.replace('<li class="nav-faq"><a href="preguntas">','<li class="nav-faq"><a href="preguntas" aria-current="page">',1)
 plain=lambda a:re.sub(r'<[^>]+>','',a)
 LD={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":f['q'],"acceptedAnswer":{"@type":"Answer","text":plain(f['a'])}} for f in FAQ]}
 CSS='''<style>
