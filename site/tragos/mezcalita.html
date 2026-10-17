@@ -620,7 +620,7 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 }
 /* wide screens: tiles pinned to the screen edges, vertically centered */
 @media (min-width:1100px){
-  .rp-pager{position:fixed!important;inset:0!important;top:0!important;z-index:15}
+  .rp-pager{position:absolute!important;left:0!important;right:0!important;top:0!important;bottom:auto!important;height:100svh;z-index:15}
   .rp-pg{top:50%;transition:opacity .3s ease,background .2s ease}
   .rp-pg.prev{left:var(--gutter,32px)!important;transform:translateY(-50%)!important}
   .rp-pg.next{left:auto!important;right:var(--gutter,32px);transform:translateY(-50%)!important}
@@ -960,7 +960,7 @@ const R={"code": "A2", "slug": "mezcalita", "name": "Mezcalita", "serves": 1, "i
     $('ing').innerHTML=R.ing.map(x=>'<li'+(x[2]?' class="tn"':'')+'><span>'+(x[2]?'Tres Naranjos Triple Sec':x[1])+'</span>'+(x[0]!=null?'<span class="a">'+fmt(x[0]*k)+'</span>':'')+'</li>').join('')}
   $('less').onclick=()=>{ppl=Math.max(step,ppl-step);render()};$('more').onclick=()=>{ppl=Math.min(40,ppl+step);render()};
   document.querySelectorAll('.rp-units button').forEach(b=>b.onclick=()=>{unit=b.dataset.u;document.querySelectorAll('.rp-units button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
-  const pgr=document.querySelector('.rp-pager'),ft=document.querySelector('footer');if(pgr&&ft)new IntersectionObserver(e=>pgr.classList.toggle('away',e[0].isIntersecting)).observe(ft);
+  const pgr=document.querySelector('.rp-pager'),ft=document.querySelector('footer');
   const h1=document.querySelector('.rp-top h1');
   function fitTitle(){if(!h1)return;h1.style.removeProperty('font-size');const max=parseFloat(getComputedStyle(h1).fontSize),w=h1.parentElement.clientWidth;let fs=max;h1.style.setProperty('font-size',fs+'px','important');while(h1.scrollWidth>w&&fs>18){fs-=1;h1.style.setProperty('font-size',fs+'px','important')}}
   fitTitle();(document.fonts&&document.fonts.ready||Promise.resolve()).then(fitTitle);addEventListener('resize',fitTitle);
