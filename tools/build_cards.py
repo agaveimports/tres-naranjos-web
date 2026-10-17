@@ -48,7 +48,7 @@ for dr in json.load(open(TOOLS + 'drinks.json')):
     # right panel
     x0 = M + ph_w + 56; maxw = W - M - 20 - x0
     y = M + 26
-    spaced(d, x0, y, 'RECETA CON TRES NARANJOS', f('cp7.ttf', 22), NAR, 3.5)
+    spaced(d, x0, y, 'RECETA', f('cp7.ttf', 22), NAR, 3.5)
     name = dr['name'].upper()
     size = 132
     while size > 70:
