@@ -992,9 +992,9 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 .nav-burger,.mnav,.mbar{display:none}
 @media (max-width:700px){
   .nav ul,.nav .pill{display:none!important}
-  .nav{justify-content:flex-start!important}
-  .nav .logo{position:absolute;left:50%;transform:translateX(-50%)!important}
-  .nav-burger{order:-1;display:grid;place-items:center;width:44px;height:44px;margin-left:-10px;margin-right:0;border:0;background:none;color:inherit;cursor:pointer;padding:0}
+  .nav{justify-content:space-between!important}
+  :root:root .nav .logo{font-size:clamp(22px,7vw,28px)!important;transform:translateY(.1em)}
+  .nav-burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
   .nav-burger span{display:block;width:24px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
   .mnav{display:flex;position:fixed;inset:0;z-index:80;flex-direction:column;background:#E8561A;color:#FFF4E6;
     padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
