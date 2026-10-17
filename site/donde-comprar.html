@@ -27,6 +27,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1137,10 +1139,13 @@ const STREET_LAYERS_TOP=[
     const inGroup=(s,g)=>g==='Todos'||KIND_OF(s.tipo)===g;
   const filtered=()=>{const q=norm(st.q);return st.stores.filter(s=>inGroup(s,st.tipo)&&(!q||muniKey[q]||norm(s.nombre+' '+s.pueblo+' '+s.dir+' '+s.tipo).includes(q)))};
   const inView=s=>map.getBounds().contains(s.ll);
+  /* phones: chip counts follow what the list shows: the search and the part of the map in view (the whole island when zoomed out);
+     a type with nothing here is hidden unless it is the one selected */
   function chips(){
-    const n=g=>st.stores.filter(s=>inGroup(s,g)).length;
+    const q=norm(st.q),here=st.stores.filter(s=>(!q||muniKey[q]||norm(s.nombre+' '+s.pueblo+' '+s.dir+' '+s.tipo).includes(q))&&(wide()||islandZoom==null||isIsland()||inView(s)));
+    const n=g=>here.filter(s=>inGroup(s,g)).length;
     const ico=k=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+KINDS[k].i+'</svg>';
-    $('chips').innerHTML=['Todos','bar','rest','tienda'].map(g=>'<button type="button" class="chip" data-t="'+g+'" aria-pressed="'+(st.tipo===g)+'">'+(KINDS[g]?ico(g):'')+(KINDS[g]?KINDS[g].label:'Todos')+'<small>'+n(g)+'</small></button>').join('');
+    $('chips').innerHTML=['Todos','bar','rest','tienda'].filter(g=>wide()||g==='Todos'||g===st.tipo||n(g)>0).map(g=>'<button type="button" class="chip" data-t="'+g+'" aria-pressed="'+(st.tipo===g)+'">'+(KINDS[g]?ico(g):'')+(KINDS[g]?KINDS[g].label:'Todos')+'<small>'+n(g)+'</small></button>').join('');
   }
 
 
@@ -1206,7 +1211,7 @@ const STREET_LAYERS_TOP=[
 
   /* ---------- list: what's in view ---------- */
   function renderList(){
-    const list=filtered().filter(inView), island=isIsland();
+    const list=filtered().filter(inView), island=isIsland(); chips();
     map.setFilter('pr-sel',['==',['get','n'],(!island&&st.focus)||'']);
     $('split').classList.toggle('is-empty',!list.length);
     if(!list.length){
