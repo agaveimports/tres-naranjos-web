@@ -1,4 +1,5 @@
 """Builds site/preguntas.html from tools/faq.json (questions and answers, HTML links allowed in answers)."""
+from hoist_meta import hoist
 import json, html, re, os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'; SITE=ROOT+'site/'
@@ -40,4 +41,4 @@ s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta pro
 a=s.index('/* =====================================================================\n   RECETAS'); b=s.index('</script>',a)
 s=s[:a]+"(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n"+s[b:]
 s=re.sub(r'<style>\.t-page\{[^<]*</style>\n','',s)
-open(SITE+'preguntas.html','w').write(s); print('ok', len(FAQ), 'questions')
+open(SITE+'preguntas.html','w').write(hoist(s)); print('ok', len(FAQ), 'questions')

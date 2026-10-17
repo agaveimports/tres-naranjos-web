@@ -28,6 +28,7 @@ tools/
   build_cards.py         builds site/share/<slug>.jpg share cards (needs Pillow)
   set_contact.py         change WhatsApp number or email everywhere
   set_domain.py          change the site address everywhere (links, share cards, sitemap)
+  hoist_meta.py          moves title/description/share-preview tags to the top of <head> (builders run it; run by hand after editing index.html or donde-comprar.html)
 ```
 
 ## Common tasks
@@ -67,6 +68,9 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 - Keep the age gate, "Disfruta con responsabilidad" and the GOVERNMENT WARNING on every page.
 
 ## Before finishing any change
+
+- WhatsApp/Google previews: title, description, og: and twitter: tags, canonical and JSON-LD must sit inside <head>, near the top. After hand-editing `site/index.html` or `site/donde-comprar.html`, run `python3 tools/hoist_meta.py site/index.html site/donde-comprar.html`.
+- Every push to `main` is a Netlify deploy and uses plan credits: batch related changes into one push.
 
 - Open the changed pages in a browser at phone width (390px) and laptop width (1440px) and check nothing overlaps or spills sideways.
 - Check there are no broken images or console errors.

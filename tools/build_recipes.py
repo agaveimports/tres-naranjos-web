@@ -1,3 +1,4 @@
+from hoist_meta import hoist
 import json,html,re
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
@@ -282,5 +283,5 @@ const R='''+json.dumps({'code':c,'slug':d['slug'],'name':name,'serves':d['serves
 })();
 '''
   s=s[:a]+js+s[b:]
-  open(A+f"tragos/{d['slug']}.html",'w').write(s)
+  open(A+f"tragos/{d['slug']}.html",'w').write(hoist(s))
 print('built',len(D))

@@ -1,3 +1,4 @@
+from hoist_meta import hoist
 import json,html,re
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
@@ -63,4 +64,4 @@ const SL='''+json.dumps({d['code']:d['slug'] for d in D})+''';
 '''
 s=s[:a]+js+s[b:]
 s=re.sub(r'<style>\.t-page\{[^<]*</style>\n','',s)
-os.makedirs(A+'tragos',exist_ok=True);s=s.replace('<meta charset','<base href="../">\n<meta charset',1);open(A+'tragos/index.html','w').write(s);print('ok')
+os.makedirs(A+'tragos',exist_ok=True);s=s.replace('<meta charset','<base href="../">\n<meta charset',1);open(A+'tragos/index.html','w').write(hoist(s));print('ok')
