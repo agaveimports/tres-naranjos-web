@@ -659,6 +659,9 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 @media (min-width:2300px){.rp-grid,.rp-foot{zoom:1.45}.rp-pg{zoom:1.3}}
 /* more room between the nav and the drink */
 .rp{padding-top:calc(var(--navh,84px) + clamp(36px,5vw,76px))!important}
+/* prev/next tiles: show the full drink name (wraps to two lines), same height either way */
+:root:root .rp-pgt b{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;font-size:15px!important;line-height:1!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media (min-width:1100px){:root:root .rp-pg{min-height:62px;box-sizing:border-box}}
 /* drink pages: white page, cream nav and footer */
 html{background:var(--crema)}
 body{background:#fff!important}
