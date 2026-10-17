@@ -3,7 +3,7 @@
 # the two tags on the photo (like the Tragos grid), and only the drink name on the right, vertically centered.
 # If tools/share-src/<slug>.jpg exists (a wide version of the drink photo, glass in the left third),
 # the card is that photo full-bleed with film grain and only the drink name, centered in the empty space.
-# Light backgrounds get ink text, darker ones cream.
+# Names are always cream, no shadow, as big as fits in up to 2 lines.
 # Krea prompt used for the wide photos (Nano Banana Pro, 16:9, 2K, the site photo attached):
 #   Extend this exact photograph into a wide landscape image. Keep the same glass, the same drink, the same garnish,
 #   the same hard warm sunlight, the same backdrop color, the same soft leaf shadows and the same fine film grain.
@@ -73,33 +73,25 @@ def wide_card(dr, size):
     sw, sh = src.size; th = int(sw * H / W); top = int((sh - th) * 0.55)
     img = grain(src.crop((0, top, sw, top + th)).resize((W, H), Image.LANCZOS))
     d = ImageDraw.Draw(img)
-    zx0, zx1 = int(W * 0.38), W - 44          # empty zone to the right of the glass
+    zx0, zx1 = int(W * 0.36), W - 40          # empty zone to the right of the glass
     # each card gets the biggest name that fits the zone in up to 2 lines (capped so short names don't shout)
     size = WMAX
     while size > 70:
-        fo = f('elc.ttf', size); lines = balanced(d, dr['name'].upper(), fo, zx1 - zx0 - 30)
-        if len(lines) <= 2 and all(d.textlength(l, font=fo) <= zx1 - zx0 - 30 for l in lines): break
+        fo = f('elc.ttf', size); lines = balanced(d, dr['name'].upper(), fo, zx1 - zx0 - 24)
+        if len(lines) <= 2 and all(d.textlength(l, font=fo) <= zx1 - zx0 - 24 for l in lines): break
         size -= 4
     fo = f('elc.ttf', size)
     lh = int(size * 0.92); bb = fo.getbbox('M'); cap = bb[3] - bb[1]
     block = lh * (len(lines) - 1) + cap; y0 = (H - block) // 2 - bb[1]
     widest = max(d.textlength(l, font=fo) for l in lines); x0 = int((zx0 + zx1 - widest) / 2)
-    # text colour from the background brightness behind the text (no shadow)
-    zone = np.asarray(img.crop((x0, (H - block) // 2, int(x0 + widest), (H + block) // 2))).astype(np.float32)
-    # pick whichever of cream or ink reads better on this backdrop (WCAG contrast)
-    lin = lambda c: ((c / 255) / 12.92) if c <= 10 else (((c / 255) + .055) / 1.055) ** 2.4
-    m = zone.reshape(-1, 3).mean(0); Lb = .2126 * lin(m[0]) + .7152 * lin(m[1]) + .0722 * lin(m[2])
-    Lc = .2126 * lin(255) + .7152 * lin(244) + .0722 * lin(230); Ln = .2126 * lin(45) + .7152 * lin(41) + .0722 * lin(38)
-    con = lambda a, b: (max(a, b) + .05) / (min(a, b) + .05)
-    bright = con(Lb, Lc) < CREAM_MIN   # cream whenever it still reads (big bold type); ink only on the lightest backdrops
+    # names are always cream, no shadow (the WhatsApp title and description sit below the card)
     y = y0
     for l in lines:
-        d.text((x0, y), l, font=fo, fill=NEGRO if bright else CREMA); y += lh
+        d.text((x0, y), l, font=fo, fill=CREMA); y += lh
     return img
 
 DR = json.load(open(TOOLS + 'drinks.json'))
-WMAX = 176   # largest drink name on a wide share card
-CREAM_MIN = 2.2   # lowest cream-vs-backdrop contrast we accept before switching the name to ink
+WMAX = 200   # largest drink name on a wide share card
 # one name size for every wide card: the largest that keeps every name to 2 lines in the empty zone
 _d = ImageDraw.Draw(Image.new('RGB', (W, H))); WSIZE = 132
 while WSIZE > 70 and any(_d.textlength(l, font=f('elc.ttf', WSIZE)) > int(W * 0.60) - 80
