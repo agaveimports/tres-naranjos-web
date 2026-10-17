@@ -1,0 +1,707 @@
+[
+ {
+  "code": "A1",
+  "name": "Margarita",
+  "sub": "La clásica",
+  "vaso": "Vaso corto",
+  "time": "2 min",
+  "level": "Fácil",
+  "serves": 1,
+  "tags": [
+   "Cítrico",
+   "Fresco"
+  ],
+  "photo": "margarita",
+  "ing": [
+   [
+    1.5,
+    "Tequila blanco o mezcal"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    0.5,
+    "Jugo de lima"
+   ],
+   [
+    0.5,
+    "Miel de agave o sirope simple"
+   ],
+   [
+    null,
+    "Un toque de club soda"
+   ],
+   [
+    null,
+    "Sal y una rueda de lima"
+   ]
+  ],
+  "steps": [
+   "Pasa una rueda de lima por el borde de un vaso corto y escárchalo con sal.",
+   "En una coctelera con hielo, añade el tequila, Tres Naranjos, el jugo de lima y la miel de agave (o el sirope).",
+   "Agita con fuerza de 10 a 15 segundos, hasta que la coctelera esté bien fría.",
+   "Cuela en el vaso con hielo fresco.",
+   "Termina con un toque de club soda y decora con la rueda de lima."
+  ],
+  "tip": "La soda al final la hace más ligera. Créenos.",
+  "taste": [
+   "Cítrico",
+   "Fresco",
+   "Balanceado"
+  ],
+  "bg": "var(--amarillo)",
+  "liq": "#EFE6A8",
+  "glass": "rocks",
+  "rim": "salt",
+  "garnish": "lime",
+  "flavor": "Cítrico",
+  "needs": [
+   [
+    "tequila",
+    "mezcal"
+   ],
+   "lima"
+  ]
+ },
+ {
+  "code": "A2",
+  "name": "Mezcalita",
+  "sub": "Con humo",
+  "vaso": "Vaso corto",
+  "time": "3 min",
+  "level": "Fácil",
+  "serves": 1,
+  "tags": [
+   "Ahumado",
+   "Picantito"
+  ],
+  "photo": "mezcalita",
+  "ing": [
+   [
+    1.5,
+    "Tres Santos Mezcal"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    0.75,
+    "Jugo de lima"
+   ],
+   [
+    0.25,
+    "Miel de agave"
+   ],
+   [
+    null,
+    "Tajín y una rueda de lima"
+   ]
+  ],
+  "steps": [
+   "Pasa una rueda de lima por el borde de un vaso corto y escárchalo con tajín.",
+   "En una coctelera con hielo, añade el mezcal, Tres Naranjos, el jugo de lima y la miel de agave.",
+   "Agita con fuerza de 10 a 15 segundos.",
+   "Cuela en el vaso con hielo fresco y decora con la rueda de lima."
+  ],
+  "tip": "Hermano de la margarita, pero el que llega tarde a la fiesta y se queda hasta el final.",
+  "taste": [
+   "Ahumado",
+   "Cítrico",
+   "Picantito"
+  ],
+  "bg": "var(--naranja)",
+  "liq": "#E8D49A",
+  "glass": "rocks",
+  "rim": "tajin",
+  "garnish": "lime",
+  "flavor": "Ahumado",
+  "needs": [
+   "mezcal",
+   "lima"
+  ]
+ },
+ {
+  "code": "A3",
+  "name": "Spritz de china",
+  "sub": "Para la tarde",
+  "vaso": "Copa de vino",
+  "time": "1 min",
+  "level": "Facilísimo",
+  "serves": 1,
+  "tags": [
+   "Burbujeante",
+   "Ligero"
+  ],
+  "photo": "spritz",
+  "ing": [
+   [
+    1.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    3,
+    "Prosecco o cava"
+   ],
+   [
+    1,
+    "Club soda"
+   ],
+   [
+    null,
+    "Mucho hielo"
+   ],
+   [
+    null,
+    "Una rueda de china"
+   ]
+  ],
+  "steps": [
+   "Llena una copa de vino grande con hielo hasta el tope.",
+   "Añade Tres Naranjos.",
+   "Vierte el prosecco despacito para que no pierda las burbujas.",
+   "Completa con la club soda y revuelve suave, una sola vez.",
+   "Decora con una rueda de china."
+  ],
+  "tip": "No se agita. Se sirve y se disfruta.",
+  "taste": [
+   "Burbujeante",
+   "Ligero",
+   "Cítrico"
+  ],
+  "bg": "var(--crema)",
+  "liq": "#F7913A",
+  "glass": "wine",
+  "garnish": "orange",
+  "flavor": "Burbujeante",
+  "needs": [
+   "espumoso",
+   "china"
+  ]
+ },
+ {
+  "code": "A4",
+  "name": "Cosmo",
+  "sub": "Rosadito",
+  "vaso": "Copa",
+  "time": "3 min",
+  "level": "Fácil",
+  "serves": 1,
+  "tags": [
+   "Ácido",
+   "Frutal"
+  ],
+  "photo": "cosmo",
+  "ing": [
+   [
+    1.5,
+    "Vodka cítrico"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    0.5,
+    "Jugo de lima"
+   ],
+   [
+    1,
+    "Jugo de arándano"
+   ],
+   [
+    null,
+    "Una piel de china"
+   ]
+  ],
+  "steps": [
+   "Enfría una copa con hielo y agua mientras preparas el trago.",
+   "En una coctelera con hielo, añade el vodka, Tres Naranjos, el jugo de lima y el de arándano.",
+   "Agita con fuerza de 10 a 15 segundos.",
+   "Bota el hielo de la copa y cuela el trago adentro.",
+   "Exprime la piel de china sobre la copa para soltar los aceites y déjala caer."
+  ],
+  "tip": "La piel de china al final es lo que la hace oler a gloria.",
+  "taste": [
+   "Ácido",
+   "Frutal"
+  ],
+  "bg": "var(--rojo)",
+  "liq": "#F0607A",
+  "glass": "coupe",
+  "garnish": "peel",
+  "flavor": "Ácido",
+  "needs": [
+   "vodka",
+   "lima",
+   "arandano"
+  ]
+ },
+ {
+  "code": "B1",
+  "name": "Sidecar",
+  "sub": "Old school",
+  "vaso": "Copa",
+  "time": "3 min",
+  "level": "Intermedio",
+  "serves": 1,
+  "tags": [
+   "Seco",
+   "Robusto"
+  ],
+  "photo": "sidecar",
+  "ing": [
+   [
+    1.5,
+    "Coñac"
+   ],
+   [
+    0.75,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    0.75,
+    "Jugo de limón"
+   ],
+   [
+    null,
+    "Azúcar para el borde"
+   ]
+  ],
+  "steps": [
+   "Pasa una rueda de limón por la mitad del borde de una copa y escárchala con azúcar.",
+   "En una coctelera con hielo, añade el coñac, Tres Naranjos y el jugo de limón.",
+   "Agita con fuerza de 10 a 15 segundos.",
+   "Cuela en la copa, sin hielo."
+  ],
+  "tip": "Solo medio borde de azúcar, así cada quien decide.",
+  "taste": [
+   "Seco",
+   "Cítrico",
+   "Robusto"
+  ],
+  "bg": "var(--crema)",
+  "liq": "#E3A04A",
+  "glass": "coupe",
+  "rim": "sugar",
+  "flavor": "Seco",
+  "needs": [
+   "cognac",
+   "lima"
+  ]
+ },
+ {
+  "code": "B2",
+  "name": "Ponche de naranja",
+  "sub": "De playa",
+  "vaso": "Vaso alto",
+  "time": "2 min",
+  "level": "Facilísimo",
+  "serves": 1,
+  "tags": [
+   "Frutal",
+   "Refrescante"
+  ],
+  "photo": "ponche",
+  "ing": [
+   [
+    1.5,
+    "Ron blanco"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    2,
+    "Jugo de china"
+   ],
+   [
+    0.5,
+    "Jugo de lima"
+   ],
+   [
+    null,
+    "Una rueda de china"
+   ]
+  ],
+  "steps": [
+   "Llena un vaso alto con hielo.",
+   "En una coctelera con hielo, añade el ron, Tres Naranjos, el jugo de china y el de lima.",
+   "Agita de 10 a 15 segundos.",
+   "Cuela en el vaso y decora con la rueda de china."
+  ],
+  "tip": "Duplica todo y llévalo en un termo a la playa.",
+  "taste": [
+   "Frutal",
+   "Dulce",
+   "Refrescante"
+  ],
+  "bg": "var(--amarillo)",
+  "liq": "#F6A33A",
+  "glass": "highball",
+  "garnish": "orange",
+  "flavor": "Frutal",
+  "needs": [
+   "ron",
+   "china"
+  ]
+ },
+ {
+  "code": "B3",
+  "name": "Margarita de parcha",
+  "sub": "Bien boricua",
+  "vaso": "Vaso corto",
+  "time": "3 min",
+  "level": "Fácil",
+  "serves": 1,
+  "tags": [
+   "Tropical",
+   "Ácido"
+  ],
+  "photo": "parcha",
+  "ing": [
+   [
+    1.5,
+    "Tequila blanco"
+   ],
+   [
+    0.75,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    1,
+    "Pulpa de parcha"
+   ],
+   [
+    0.5,
+    "Jugo de lima"
+   ],
+   [
+    0.25,
+    "Miel de agave"
+   ],
+   [
+    null,
+    "Azúcar para el borde"
+   ],
+   [
+    null,
+    "Media parcha para decorar"
+   ]
+  ],
+  "steps": [
+   "Pasa una rueda de lima por el borde de un vaso corto y escárchalo con azúcar.",
+   "En una coctelera con hielo, añade el tequila, Tres Naranjos, la pulpa de parcha, el jugo de lima y la miel de agave.",
+   "Agita con fuerza unos 15 segundos para que la parcha se integre bien.",
+   "Cuela en el vaso con hielo fresco y decora con la media parcha."
+  ],
+  "tip": "¿La quieres frozen? Pásala por la licuadora con una taza de hielo.",
+  "taste": [
+   "Tropical",
+   "Ácido",
+   "Dulce"
+  ],
+  "bg": "var(--naranja)",
+  "liq": "#F4C430",
+  "glass": "coupe",
+  "rim": "sugar",
+  "garnish": "lime",
+  "flavor": "Tropical",
+  "needs": [
+   "tequila",
+   "parcha",
+   "lima"
+  ]
+ },
+ {
+  "code": "B4",
+  "name": "Margarita de tamarindo",
+  "sub": "Agridulce",
+  "vaso": "Vaso corto",
+  "time": "3 min",
+  "level": "Fácil",
+  "serves": 1,
+  "tags": [
+   "Agridulce",
+   "Picantito"
+  ],
+  "photo": "tamarindo",
+  "ing": [
+   [
+    1.5,
+    "Tequila blanco"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    1,
+    "Concentrado de tamarindo"
+   ],
+   [
+    0.5,
+    "Jugo de lima"
+   ],
+   [
+    null,
+    "Tajín y una rueda de lima"
+   ]
+  ],
+  "steps": [
+   "Pasa una rueda de lima por el borde de un vaso corto y escárchalo con tajín.",
+   "En una coctelera con hielo, añade el tequila, Tres Naranjos, el concentrado de tamarindo y el jugo de lima.",
+   "Agita con fuerza de 10 a 15 segundos.",
+   "Cuela en el vaso con hielo fresco y decora con la rueda de lima."
+  ],
+  "tip": "Si el tamarindo es muy dulce, súbele la lima.",
+  "taste": [
+   "Agridulce",
+   "Picantito"
+  ],
+  "bg": "var(--crema)",
+  "liq": "#A0602F",
+  "glass": "rocks",
+  "rim": "tajin",
+  "garnish": "lime",
+  "flavor": "Agridulce",
+  "needs": [
+   "tequila",
+   "tamarindo",
+   "lima"
+  ]
+ },
+ {
+  "code": "C1",
+  "name": "Kamikaze",
+  "sub": "Partes iguales",
+  "vaso": "Copa o shot",
+  "time": "1 min",
+  "level": "Facilísimo",
+  "serves": 1,
+  "tags": [
+   "Ácido",
+   "Intenso"
+  ],
+  "photo": "kamikaze",
+  "ing": [
+   [
+    1,
+    "Vodka"
+   ],
+   [
+    1,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    1,
+    "Jugo de lima"
+   ],
+   [
+    null,
+    "Una rueda de lima"
+   ]
+  ],
+  "steps": [
+   "Enfría la copa o los vasitos de shot en el congelador unos minutos.",
+   "En una coctelera con hielo, añade el vodka, Tres Naranjos y el jugo de lima.",
+   "Agita con fuerza de 10 a 15 segundos.",
+   "Cuela en la copa o reparte en shots y decora con la rueda de lima."
+  ],
+  "tip": "Partes iguales. Imposible equivocarse.",
+  "taste": [
+   "Ácido",
+   "Intenso"
+  ],
+  "bg": "var(--rojo)",
+  "liq": "#E3EBB8",
+  "glass": "coupe",
+  "garnish": "lime",
+  "flavor": "Ácido",
+  "needs": [
+   "vodka",
+   "lima"
+  ]
+ },
+ {
+  "code": "C2",
+  "name": "Mai Tai",
+  "sub": "Tiki",
+  "vaso": "Vaso corto",
+  "time": "4 min",
+  "level": "Intermedio",
+  "serves": 1,
+  "tags": [
+   "Tropical",
+   "Almendrado"
+  ],
+  "photo": "maitai",
+  "ing": [
+   [
+    2,
+    "Ron añejo"
+   ],
+   [
+    0.75,
+    "Jugo de lima"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    0.5,
+    "Sirope de almendra (orgeat)"
+   ],
+   [
+    null,
+    "Hierbabuena y una cuña de china"
+   ]
+  ],
+  "steps": [
+   "Llena un vaso corto con hielo picado.",
+   "En una coctelera con hielo, añade el ron, el jugo de lima, Tres Naranjos y el sirope de almendra.",
+   "Agita de 10 a 15 segundos.",
+   "Sirve sin colar, con todo el hielo.",
+   "Dale una palmada a la hierbabuena para que suelte el aroma y decora con ella y la cuña de china."
+  ],
+  "tip": "Hielo picado o triturado. Es parte del show.",
+  "taste": [
+   "Tropical",
+   "Almendrado",
+   "Dulce"
+  ],
+  "bg": "var(--amarillo)",
+  "liq": "#C8702C",
+  "glass": "rocks",
+  "garnish": "mint",
+  "flavor": "Tropical",
+  "needs": [
+   "ron",
+   "lima"
+  ]
+ },
+ {
+  "code": "C3",
+  "name": "Sangría de la casa",
+  "sub": "Para la jarra",
+  "vaso": "Jarra",
+  "time": "10 min",
+  "level": "Fácil",
+  "serves": 6,
+  "tags": [
+   "Frutal",
+   "Refrescante"
+  ],
+  "photo": "sangria",
+  "ing": [
+   [
+    25,
+    "Vino tinto"
+   ],
+   [
+    3,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    6,
+    "Jugo de china"
+   ],
+   [
+    null,
+    "Frutas picadas: china, manzana, uvas"
+   ],
+   [
+    null,
+    "Hielo"
+   ]
+  ],
+  "steps": [
+   "Pica las frutas en pedazos pequeños y ponlas en una jarra.",
+   "Añade el vino, Tres Naranjos y el jugo de china.",
+   "Revuelve bien y refrigera por lo menos una hora; mejor toda la noche.",
+   "Sirve en copas con hielo y una cucharada de fruta en cada una."
+  ],
+  "tip": "Una botella de vino da para 6. Mejor si la preparas la noche antes.",
+  "taste": [
+   "Frutal",
+   "Refrescante"
+  ],
+  "bg": "var(--naranja)",
+  "liq": "#8E1F2F",
+  "glass": "pitcher",
+  "garnish": "orange",
+  "flavor": "Frutal",
+  "needs": [
+   "vino",
+   "china"
+  ]
+ },
+ {
+  "code": "C4",
+  "name": "Mimosa naranjosa",
+  "sub": "Para el brunch",
+  "vaso": "Flauta",
+  "time": "1 min",
+  "level": "Facilísimo",
+  "serves": 1,
+  "tags": [
+   "Burbujeante",
+   "Ligero"
+  ],
+  "photo": "mimosa",
+  "ing": [
+   [
+    3,
+    "Champán, cava o prosecco"
+   ],
+   [
+    2,
+    "Jugo de china"
+   ],
+   [
+    0.5,
+    "Tres Naranjos",
+    1
+   ],
+   [
+    null,
+    "Una tira de piel de china"
+   ]
+  ],
+  "steps": [
+   "Asegúrate de que el espumoso y el jugo estén bien fríos.",
+   "Echa Tres Naranjos y el jugo de china en una flauta.",
+   "Completa con el espumoso despacito, con la flauta inclinada para que no se desborde.",
+   "No revuelvas; las burbujas lo mezclan solas. Decora con la piel de china."
+  ],
+  "tip": "Todo bien frío antes de empezar.",
+  "taste": [
+   "Burbujeante",
+   "Ligero"
+  ],
+  "bg": "var(--crema)",
+  "liq": "#F7B94A",
+  "glass": "flute",
+  "garnish": null,
+  "flavor": "Burbujeante",
+  "needs": [
+   "espumoso",
+   "china"
+  ]
+ }
+]
