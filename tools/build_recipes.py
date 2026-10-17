@@ -219,6 +219,19 @@ CSS='''<style>
 @keyframes rp-out{to{opacity:0}}
 @keyframes rp-in{from{opacity:0;transform:translateY(6px)}}
 @media (prefers-reduced-motion:reduce){::view-transition-old(rp-body),::view-transition-new(rp-body){animation:none!important}}
+/* phones: no prev/next tiles up top; the WhatsApp button sticks to the bottom with small, quiet prev/next arrows beside it */
+.rp-sw{display:none}
+@media (max-width:600px){
+  :root:root .rp-pager{display:none!important}
+  :root:root .rp{padding-top:calc(var(--navh,84px) + 22px)!important}
+  .rp-acts{position:sticky;bottom:0;z-index:6;flex-wrap:nowrap!important;align-items:center;gap:6px!important;
+    margin:clamp(22px,6vw,30px) calc(-1*var(--gutter,16px)) 0!important;padding:14px var(--gutter,16px) calc(12px + env(safe-area-inset-bottom,0px));
+    background:linear-gradient(to top,var(--crema,#FFF4E6) 72%,rgba(255,244,230,0))}
+  .rp-acts .btn{flex:1;width:auto!important;min-width:0;min-height:48px}
+  .rp-sw{display:grid;place-items:center;flex:none;width:36px;height:48px;padding:0;border:0;background:none;color:rgba(45,41,38,.38);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .rp-sw svg{width:20px;height:20px}
+  .rp-sw:active{color:rgba(45,41,38,.7)}
+}
 </style>'''
 def esc(t): return html.escape(t,quote=True)
 order=[d['code'] for d in D]
@@ -267,7 +280,7 @@ for i,d in enumerate(D):
       <ul class="rp-ing" id="ing"></ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
-      <div class="rp-acts"><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a></div>
+      <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Trago anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Trago siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
     </div>
   </div>
 
@@ -343,6 +356,7 @@ const ALL='''+ALLJS+''';
    zone.addEventListener('touchend',e=>{if(x0===null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;
      if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.6&&!e.target.closest('button,input,.rp-units'))go(cur+(dx<0?1:-1),true)},{passive:true});}
   document.querySelectorAll('.rp-pg').forEach(a=>a.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button)return;e.preventDefault();go(cur+(a.classList.contains('prev')?-1:1),true)}));
+  document.querySelectorAll('.rp-sw').forEach(b=>b.addEventListener('click',()=>go(cur+(b.classList.contains('prev')?-1:1),true)));
   history.replaceState({slug:R.slug},'');
   addEventListener('popstate',()=>{const sl=location.pathname.replace(/\\/$/,'').split('/').pop().replace('.html','');const i=ALL.findIndex(d=>d.slug===sl);if(i>=0){const t=()=>fill(i);document.startViewTransition?document.startViewTransition(t):t()}});
   const nav=$('nav');if(nav)document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');
