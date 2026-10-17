@@ -1,6 +1,6 @@
 # Builds the WhatsApp preview cards in site/share/<slug>.jpg (1200x630) from the drink photos.
 # Layout: the drink photo exactly as on the site (4:5, uncropped, rounded) on the left,
-# a cream panel on the right with the drink name big, its vibe and glass, the two tags and the wordmark.
+# the two tags on the photo (like the Tragos grid), and only the drink name on the right, vertically centered.
 # share/home.jpg is hand-made and not touched here.
 import os, json
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -45,27 +45,24 @@ for dr in json.load(open(TOOLS + 'drinks.json')):
     mask = Image.new('L', (ph_w, ph_h), 0); ImageDraw.Draw(mask).rounded_rectangle([0, 0, ph_w - 1, ph_h - 1], R, fill=255)
     img.paste(ph, (M, M), mask)
 
-    # right panel
-    x0 = M + ph_w + 56; maxw = W - M - 20 - x0
-    y = M + 26
-    name = dr['name'].upper()
-    size = 132
-    while size > 70:
+    # tags on the photo, bottom-left, like the Tragos grid
+    tf = f('hk7.ttf', 24); tx = M + 22; ty = M + ph_h - 22 - 48
+    for (bg, fg), t in zip([(NAR, CREMA), (AMARILLO, LADRILLO)], dr['tags']):
+        tt = t.upper(); tw = sum(d.textlength(ch, font=tf) + 1.5 for ch in tt) - 1.5; bw = int(tw + 44)
+        d.rounded_rectangle([tx, ty, tx + bw, ty + 48], 24, fill=bg)
+        spaced(d, tx + 22, ty + 11, tt, tf, fg, 1.5); tx += bw + 10
+    # right panel: only the drink name, vertically centered on the photo, max 2 lines
+    x0 = M + ph_w + 64; maxw = W - M - 24 - x0
+    name = dr['name'].upper(); size = 140
+    while size > 64:
         lines = wrap(d, name, f('elc.ttf', size), maxw)
         if len(lines) <= 2 and all(d.textlength(l, font=f('elc.ttf', size)) <= maxw for l in lines): break
         size -= 4
-    fo = f('elc.ttf', size); y += 4
+    fo = f('elc.ttf', size); lh = int(size * 0.92)
+    bb = fo.getbbox('M'); cap = bb[3] - bb[1]
+    block = lh * (len(lines) - 1) + cap
+    y = M + (ph_h - block) // 2 - bb[1]
     for l in lines:
-        d.text((x0 - 4, y), l, font=fo, fill=NEGRO); y += int(size * 0.9)
-    y += 14
-    y += 8
-    # tags
-    tf = f('hk7.ttf', 26); tx = x0
-    for (bg, fg), t in zip([(NAR, CREMA), (AMARILLO, LADRILLO)], dr['tags']):
-        tt = t.upper(); tw = sum(d.textlength(ch, font=tf) + 1.5 for ch in tt) - 1.5; bw = int(tw + 48)
-        d.rounded_rectangle([tx, y, tx + bw, y + 52], 26, fill=bg)
-        spaced(d, tx + 24, y + 12, tt, tf, fg, 1.5); tx += bw + 12
-    # wordmark, bottom right of the panel
-    wordmark(img, x0, H - M - 20 - 46, 46, NAR)
+        d.text((x0 - 4, y), l, font=fo, fill=NEGRO); y += lh
     img.save(SITE + f"share/{dr['slug']}.jpg", quality=90, optimize=True, progressive=True, subsampling=0)
 print('done')
