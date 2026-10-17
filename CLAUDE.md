@@ -65,6 +65,7 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 - Fonts: El Camino (display and logo), Hanken Grotesk (body and buttons), Courier Prime (small labels, ingredient lists; regular-weight ingredient lines get `-webkit-text-stroke:.4px currentColor` so they read on screen). All self-hosted in `site/assets/fonts/`.
 - Buttons are flat pills: no outlines, no hard drop shadows, no animated borders. Hover only makes a button a touch lighter, never darker (one shared rule at the end of each page). Animation is minimal (section headlines fade up once).
 - Never invent reviews, testimonials or ratings.
+- Keep the designer credit line ("Diseño por Alfonso Rodriguez", class `credit`) at the bottom of every page. It is required by the designer and must not be removed.
 - Keep the age gate, "Disfruta con responsabilidad" and the GOVERNMENT WARNING on every page.
 
 ## Before finishing any change

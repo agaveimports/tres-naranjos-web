@@ -568,6 +568,9 @@ p{margin:0}
 .menu ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
 .menu li{border-bottom:1px dotted var(--negro-60);padding-block:3px;font-variant-numeric:tabular-nums}
 .menu ul{-webkit-text-stroke:.4px currentColor}
+.menu li{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.menu li .a{white-space:nowrap;font-weight:700;-webkit-text-stroke:0}
+.menu li.tn{font-weight:700;color:#C2410C;-webkit-text-stroke:0}
 
 .recipe-foot{font-size:18px}
 .recipe-foot a{display:inline-block;margin-top:2px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:underline dashed;text-underline-offset:6px}
@@ -1031,6 +1034,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
   </div>
   <div class="foot-giant"><span class="giant" aria-hidden="true">TR<span class="rev">E</span>S NARANJOS</span></div>
 </footer>
+<div class="credit">Diseño por Alfonso Rodriguez</div>
 
 <script>
 /* ===== Drop your video files here later (MP4, muted loops). Leave '' for none. ===== */
@@ -1179,7 +1183,7 @@ function shareText(k){const r=RECIPES[k];
     words.querySelectorAll('.word').forEach(w=>{const on=w.dataset.k===k;w.classList.toggle('on',on);w.setAttribute('aria-selected',on);if(on)w.closest('.mil').style.setProperty('--cur',getComputedStyle(w).getPropertyValue('--dc'))});
     if(!menu.querySelector('.menu-photo')){menu.innerHTML='<div class="menu-photo">'+Object.keys(RECIPES).map(x=>'<img data-k="'+x+'" src="assets/tragos/'+x+'.webp" loading="lazy" decoding="async" alt="'+RECIPES[x].name+'">').join('')+'</div><div class="menu-text-wrap"></div>'}
     const ph=menu.querySelector('.menu-photo');ph.style.background=BADGE_BG[k]||'var(--naranja)';ph.querySelectorAll('img').forEach(im=>im.classList.toggle('on',im.dataset.k===k));
-    menu.querySelector('.menu-text-wrap').innerHTML='<div class="menu-text"><div class="menu-head"><span class="menu-badge" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'">'+glassSVG2(GLASS[k])+'</span><h3>'+r.name+'</h3></div><ul>'+r.ing.map(i=>'<li>'+i+'</li>').join('')+'</ul><span class="label">Cómo se hace</span><p>'+r.how+'</p><a class="menu-page" href="tragos/'+(SHARE_CODE[k]||'margarita')+'">Ver receta completa →</a><a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(shareText(k))+'"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Mándasela a un pana</a></div>';
+    menu.querySelector('.menu-text-wrap').innerHTML='<div class="menu-text"><div class="menu-head"><span class="menu-badge" style="background:'+(BADGE_BG[k]||'var(--naranja)')+'">'+glassSVG2(GLASS[k])+'</span><h3>'+r.name+'</h3></div><ul>'+r.ing.map(i=>{const m=i.match(/^([\d\s\/]+ oz)\s+(.+)$/);let nm=m?m[2]:i;nm=nm[0].toUpperCase()+nm.slice(1);const tn=/Tres Naranjos/.test(nm);return '<li'+(tn?' class="tn"':'')+'><span>'+nm+'</span>'+(m?'<span class="a">'+m[1]+'</span>':'')+'</li>'}).join('')+'</ul><span class="label">Cómo se hace</span><p>'+r.how+'</p><a class="menu-page" href="tragos/'+(SHARE_CODE[k]||'margarita')+'">Ver receta completa →</a><a class="btn btn--wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(shareText(k))+'"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Mándasela a un pana</a></div>';
     foot.innerHTML='';
   }
   // lock the card to the tallest recipe so it never jumps while hovering
@@ -1311,4 +1315,5 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 :root:root body .btn.btn--wa:hover,:root:root body .btn.btn--wa:focus-visible,:root:root body .rp-acts .rp-wa:hover{background-color:#1E8E4F!important}
 :root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
 </style>
+<style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}</style>
 </body></html>
