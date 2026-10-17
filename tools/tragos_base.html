@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tragos | Tres Naranjos</title><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#E8561A">
+<title>Tragos | Tres Naranjos</title><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 <meta name="description" content="Tragos con Tres Naranjos Triple Sec: margaritas, mezcalitas, spritz, sangría y más. Ajusta para tu fiesta y mándalas por WhatsApp.">
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
 <style>@view-transition{navigation:auto}.nav{view-transition-name:site-nav}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none}</style>
@@ -1044,7 +1044,8 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<a href="donde-comprar">'+BAG+'Dónde comprar</a>';document.body.appendChild(bar);
   const mq=matchMedia('(max-width:700px)');const sync=()=>document.body.classList.toggle('has-mbar',mq.matches);sync();mq.addEventListener('change',sync);
   const heroCtas=document.querySelector('.hero-ctas');
-  const update=()=>{let show;if(heroCtas){show=heroCtas.getBoundingClientRect().bottom<0}else show=scrollY>120;bar.classList.toggle('show',show)};
+  const foot=[...document.querySelectorAll('footer')].pop();
+  const update=()=>{let show;if(heroCtas){show=heroCtas.getBoundingClientRect().bottom<0}else show=scrollY>120;if(foot&&foot.getBoundingClientRect().top<innerHeight-40)show=false;bar.classList.toggle('show',show)};
   addEventListener('scroll',update,{passive:true});update();
 })();
 </script>
