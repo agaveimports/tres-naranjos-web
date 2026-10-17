@@ -19,7 +19,7 @@ site/                    published folder (Netlify "publish" directory)
   assets/tragos/         drink photos 960x1200; assets/tragos/sm/ = 560x560 thumbnails
   sitemap.xml, robots.txt, _headers (cache rules), favicons
 tools/
-  drinks.json            ALL drink data: slug (the URL name), name, vibe, glass, tags, photo, ingredients, steps, tip
+  drinks.json            ALL drink data: slug (the URL name), name, vibe, glass, tags, photo, ingredients, steps, tip (tips are kept but not shown on the site for now)
   config.json            site_url, whatsapp, email (current values, used by the helper scripts)
   tragos_base.html       shared header, footer, age gate and styles for generated pages
   build_recipes.py       builds site/tragos/<slug>.html from drinks.json

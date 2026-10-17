@@ -211,7 +211,7 @@ CSS='''<style>
 </style>'''
 def esc(t): return html.escape(t,quote=True)
 order=[d['code'] for d in D]
-ALLJS=json.dumps([{'code':x['code'],'slug':x['slug'],'name':x['name'],'sub':x['sub'],'vaso':x['vaso'],'serves':x['serves'],'ing':x['ing'],'steps':x['steps'],'tip':x.get('tip',''),'tags':x['tags'],'photo':x['photo']} for x in D],ensure_ascii=False,separators=(',',':'))
+ALLJS=json.dumps([{'code':x['code'],'slug':x['slug'],'name':x['name'],'sub':x['sub'],'vaso':x['vaso'],'serves':x['serves'],'ing':x['ing'],'steps':x['steps'],'tags':x['tags'],'photo':x['photo']} for x in D],ensure_ascii=False,separators=(',',':'))
 for i,d in enumerate(D):
   c=d['code'];name=d['name'];tg=TAGS[c]
   more=[D[(i+k)%len(D)] for k in (2,3,4)]
@@ -256,7 +256,6 @@ for i,d in enumerate(D):
       <ul class="rp-ing" id="ing"></ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
-      {('<p class="rp-note">'+esc(d['tip'])+'</p>') if d.get('tip') else ''}
       <div class="rp-acts"><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a></div>
     </div>
   </div>
@@ -304,7 +303,6 @@ const ALL='''+ALLJS+''';
     R={code:d.code,slug:d.slug,name:d.name,serves:d.serves,ing:d.ing,tags:d.tags};ppl=d.serves;
     txt(h1,d.name);txt(q('.rp-meta'),d.sub+' · '+d.vaso);txt(q('.rp-tags .t1'),d.tags[0]);txt(q('.rp-tags .t2'),d.tags[1]);
     const ol=q('.rp-steps');ol.innerHTML='';d.steps.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.appendChild(li)});
-    let note=q('.rp-note');if(d.tip){if(!note){note=document.createElement('p');note.className='rp-note';ol.after(note)}note.textContent=d.tip}else if(note)note.remove();
     render();fitTitle();
   }
   /* same height for every drink, so the footer never jumps: measure all 12 in one frame (nothing paints in between) */
