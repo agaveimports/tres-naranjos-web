@@ -993,7 +993,8 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 @media (max-width:700px){
   .nav ul,.nav .pill{display:none!important}
   .nav{justify-content:space-between!important}
-  :root:root .nav .logo{font-size:clamp(22px,7vw,28px)!important;transform:translateY(.1em)}
+  :root:root .nav .logo{font-size:clamp(22px,7vw,28px)!important;position:absolute;left:50%;transform:translate(-50%,.1em)!important}
+  .nav{justify-content:flex-end!important}
   .nav-burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
   .nav-burger span{display:block;width:24px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
   .mnav{display:flex;position:fixed;inset:0;z-index:80;flex-direction:column;background:#E8561A;color:#FFF4E6;
@@ -1038,7 +1039,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   document.body.appendChild(m);
   const navLogo=nav.querySelector('.logo'),mLogo=m.querySelector('.mnav-top .logo'),mx=m.querySelector('.mnav-x');
   const align=()=>{const r=navLogo.getBoundingClientRect(),cs=getComputedStyle(navLogo),br=b.getBoundingClientRect();
-    Object.assign(mLogo.style,{position:'fixed',transform:'none',left:r.left+'px',top:r.top+'px',fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,margin:0});
+    Object.assign(mLogo.style,{position:'fixed',transform:'none',width:r.width+'px',left:r.left+'px',top:r.top+'px',fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,margin:0});
     Object.assign(mx.style,{position:'fixed',left:br.left+'px',top:br.top+'px',width:br.width+'px',height:br.height+'px',margin:0})};
   const open=v=>{if(v)align();m.classList.toggle('open',v);b.setAttribute('aria-expanded',v);document.documentElement.classList.toggle('mnav-lock',v);if(v)m.querySelector('.mnav-x').focus();else b.focus()};
   b.onclick=()=>open(true);m.querySelector('.mnav-x').onclick=()=>open(false);
