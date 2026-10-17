@@ -9,7 +9,7 @@
 #   the same hard warm sunlight, the same backdrop color, the same soft leaf shadows and the same fine film grain.
 #   Do not redraw or change the glass or the drink. Place the glass in the left third of the frame. The right two
 #   thirds is the same continuous seamless backdrop with soft dappled leaf shadows, plain and empty, with room for a
-#   title. No text, no logos, no extra objects. share/home.jpg is hand-made and not touched here.
+#   title. No text, no logos, no extra objects. share/home.jpg (home share card) is the hand-made photo in tools/share-src/home-clean.jpg plus the hero headline in cream; it is not built here. Bump its ?v= when it changes.
 import os, json
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 import numpy as np
