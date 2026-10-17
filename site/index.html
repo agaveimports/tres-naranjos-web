@@ -10,6 +10,8 @@
 
 
 
+
+
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>/* age check: decided before the page paints, so it never flashes once confirmed */try{if(localStorage.getItem('tn-age')==='1')document.documentElement.classList.add('age-ok')}catch(e){}</script>
 <script>/* motion: only when the visitor allows it */if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo')</script>
 <style>.age-ok .gate{display:none!important}</style>
@@ -1368,13 +1370,15 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 .nav-burger,.mnav,.mbar{display:none}
 @media (max-width:700px){
   .nav ul,.nav .pill{display:none!important}
-  .nav-burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-8px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
+  .nav{justify-content:flex-start!important}
+  .nav .logo{position:absolute;left:50%;transform:translateX(-50%)!important}
+  .nav-burger{order:-1;display:grid;place-items:center;width:44px;height:44px;margin-left:-10px;margin-right:0;border:0;background:none;color:inherit;cursor:pointer;padding:0}
   .nav-burger span{display:block;width:24px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
   .mnav{display:flex;position:fixed;inset:0;z-index:80;flex-direction:column;background:#E8561A;color:#FFF4E6;
     padding:calc(18px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
     opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
   .mnav.open{opacity:1;visibility:visible}
-  .mnav-top{display:flex;align-items:center;justify-content:space-between;min-height:44px}
+  .mnav-top{display:flex;align-items:center;justify-content:space-between;min-height:44px;position:relative}
   .mnav-top .logo{color:#FFF4E6;font-size:21px}
   .mnav-x{width:44px;height:44px;margin-right:-8px;border:0;background:none;color:#FFF4E6;font-size:34px;line-height:1;cursor:pointer}
   .mnav ul{list-style:none;margin:auto 0;padding:0;display:grid;gap:6px}
@@ -1412,8 +1416,8 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   document.body.appendChild(m);
   const navLogo=nav.querySelector('.logo'),mLogo=m.querySelector('.mnav-top .logo'),mx=m.querySelector('.mnav-x');
   const align=()=>{const r=navLogo.getBoundingClientRect(),cs=getComputedStyle(navLogo),br=b.getBoundingClientRect();
-    Object.assign(mLogo.style,{position:'absolute',left:r.left+'px',top:r.top+'px',fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,margin:0});
-    Object.assign(mx.style,{position:'absolute',left:br.left+'px',top:br.top+'px',width:br.width+'px',height:br.height+'px',margin:0})};
+    Object.assign(mLogo.style,{position:'fixed',transform:'none',left:r.left+'px',top:r.top+'px',fontSize:cs.fontSize,lineHeight:cs.lineHeight,letterSpacing:cs.letterSpacing,margin:0});
+    Object.assign(mx.style,{position:'fixed',left:br.left+'px',top:br.top+'px',width:br.width+'px',height:br.height+'px',margin:0})};
   const open=v=>{if(v)align();m.classList.toggle('open',v);b.setAttribute('aria-expanded',v);document.documentElement.classList.toggle('mnav-lock',v);if(v)m.querySelector('.mnav-x').focus();else b.focus()};
   b.onclick=()=>open(true);m.querySelector('.mnav-x').onclick=()=>open(false);
   m.addEventListener('click',e=>{if(e.target.closest('a'))open(false)});
