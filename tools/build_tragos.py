@@ -46,7 +46,7 @@ CSS='''<style>
 @media (min-width:2300px){.tg{zoom:1.45}}
 </style>'''
 def esc(t): return html.escape(t,quote=True)
-cards=''.join(f'''<a class="tg-card" href="r/{d['code']}.html"><div class="tg-ph"><img src="assets/tragos/sm/{PHOTO[d['code']]}.webp" decoding="async" alt="{esc(d['name'])} con Tres Naranjos" loading="{'eager' if i<4 else 'lazy'}"><div class="tg-tags"><span class="t1">{esc(TAGS[d['code']][0])}</span><span class="t2">{esc(TAGS[d['code']][1])}</span></div></div><span class="tg-name">{esc(d['name'])}</span></a>''' for i,d in enumerate(D))
+cards=''.join(f'''<a class="tg-card" href="tragos/{d['slug']}"><div class="tg-ph"><img src="assets/tragos/sm/{PHOTO[d['code']]}.webp" decoding="async" alt="{esc(d['name'])} con Tres Naranjos" loading="eager"{' fetchpriority="high"' if i<6 else ''}><div class="tg-tags"><span class="t1">{esc(TAGS[d['code']][0])}</span><span class="t2">{esc(TAGS[d['code']][1])}</span></div></div><span class="tg-name">{esc(d['name'])}</span></a>''' for i,d in enumerate(D))
 main=f'''<main id="top" class="tg wrap">
   <header class="tg-head"><span class="tg-eye">Recetas con Tres Naranjos</span><h1>Doce tragos, una naranja.</h1><p>Clásicos y criollos que quedan mejor con nuestro triple sec. Escoge uno y te enseñamos cómo.</p></header>
   <div class="tg-grid">{cards}</div>
@@ -54,12 +54,13 @@ main=f'''<main id="top" class="tg wrap">
 a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
 s=s.replace('</head>',CSS+'\n</head>',1)
 BASE=B
-s=s.replace('</head>','<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Tragos con Tres Naranjos"><meta property="og:description" content="Doce recetas de cócteles con Tres Naranjos Triple Sec."><meta property="og:image" content="'+BASE+'/r/img/A1.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="'+BASE+'/tragos.html">\n</head>',1)
+s=s.replace('</head>','<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Tragos con Tres Naranjos"><meta property="og:description" content="Doce recetas de cócteles con Tres Naranjos Triple Sec."><meta property="og:image" content="'+BASE+'/share/margarita.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="'+BASE+'/tragos/">\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS');b=s.index('</script>',a)
-js='''/* ---- old links like tragos.html#A1 go to the drink's own page ---- */
-(function(){const h=(location.hash||'').replace('#','').toUpperCase();if(/^[ABC][1-4]$/.test(h))location.replace('r/'+h+'.html');
+js='''/* ---- old links like tragos/#A1 go to the drink's own page ---- */
+const SL='''+json.dumps({d['code']:d['slug'] for d in D})+''';
+(function(){const h=(location.hash||'').replace('#','').toUpperCase();if(/^[ABC][1-4]$/.test(h))location.replace('tragos/'+(SL[h]||''));
   const nav=document.getElementById('nav');if(nav)document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px')})();
 '''
 s=s[:a]+js+s[b:]
 s=re.sub(r'<style>\.t-page\{[^<]*</style>\n','',s)
-open(A+'tragos.html','w').write(s);print('ok')
+os.makedirs(A+'tragos',exist_ok=True);s=s.replace('<meta charset','<base href="../">\n<meta charset',1);open(A+'tragos/index.html','w').write(s);print('ok')

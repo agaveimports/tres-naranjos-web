@@ -1,4 +1,4 @@
-# Builds the WhatsApp preview cards in site/r/img/ (1200x630) from the drink photos.
+# Builds the WhatsApp preview cards in site/share/ (1200x630) from the drink photos.
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'
@@ -10,6 +10,8 @@ A=SITE+'assets/'
 CREMA=(255,244,230);NEGRO=(45,41,38);NAR=(232,86,26)
 import json
 D=[(d['code'],d['name'],'tragos/'+d['photo']+'.webp') for d in json.load(open(TOOLS+'drinks.json'))]
+SLUG={d['code']:d['slug'] for d in json.load(open(TOOLS+'drinks.json'))}
+os.makedirs(SITE+'share',exist_ok=True)
 TAGS_ALL={d['code']:d['tags'] for d in json.load(open(TOOLS+'drinks.json'))}
 f=lambda n,s:ImageFont.truetype(S+n,s)
 def tw(d,t,fo,ls=0): return d.textlength(t,font=fo)+ls*max(0,len(t)-1)
@@ -74,5 +76,5 @@ for code,name,src in D:
   ew=int(d.textlength('E',font=fo))+2;e=Image.new('RGBA',(ew,int(wm*1.5)),(0,0,0,0));ImageDraw.Draw(e).text((0,0),'E',font=fo,fill=NAR);e=ImageOps.mirror(e)
   img.paste(e,(int(x),int(yy)),e);x+=d.textlength('E',font=fo);d.text((x,yy),'S NARANJOS',font=fo,fill=NAR)
   spaced(d,(W-M-8-310,y0+4),'',f('cp7.ttf',16),NEGRO,2)
-  img.save(A+f'../r/img/{code}.jpg',quality=93,optimize=True,progressive=True,subsampling=0)
+  img.save(SITE+f'share/{SLUG[code]}.jpg',quality=93,optimize=True,progressive=True,subsampling=0)
 print('done')

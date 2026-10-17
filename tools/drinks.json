@@ -64,7 +64,8 @@
     "mezcal"
    ],
    "lima"
-  ]
+  ],
+  "slug": "margarita"
  },
  {
   "code": "A2",
@@ -123,7 +124,8 @@
   "needs": [
    "mezcal",
    "lima"
-  ]
+  ],
+  "slug": "mezcalita"
  },
  {
   "code": "A3",
@@ -182,7 +184,8 @@
   "needs": [
    "espumoso",
    "china"
-  ]
+  ],
+  "slug": "spritz-de-china"
  },
  {
   "code": "A4",
@@ -241,7 +244,8 @@
    "vodka",
    "lima",
    "arandano"
-  ]
+  ],
+  "slug": "cosmo"
  },
  {
   "code": "B1",
@@ -295,7 +299,8 @@
   "needs": [
    "cognac",
    "lima"
-  ]
+  ],
+  "slug": "sidecar"
  },
  {
   "code": "B2",
@@ -353,7 +358,8 @@
   "needs": [
    "ron",
    "china"
-  ]
+  ],
+  "slug": "ponche-de-naranja"
  },
  {
   "code": "B3",
@@ -421,7 +427,8 @@
    "tequila",
    "parcha",
    "lima"
-  ]
+  ],
+  "slug": "margarita-de-parcha"
  },
  {
   "code": "B4",
@@ -480,7 +487,8 @@
    "tequila",
    "tamarindo",
    "lima"
-  ]
+  ],
+  "slug": "margarita-de-tamarindo"
  },
  {
   "code": "C1",
@@ -533,7 +541,8 @@
   "needs": [
    "vodka",
    "lima"
-  ]
+  ],
+  "slug": "kamikaze"
  },
  {
   "code": "C2",
@@ -592,7 +601,8 @@
   "needs": [
    "ron",
    "lima"
-  ]
+  ],
+  "slug": "mai-tai"
  },
  {
   "code": "C3",
@@ -649,7 +659,8 @@
   "needs": [
    "vino",
    "china"
-  ]
+  ],
+  "slug": "sangria-de-la-casa"
  },
  {
   "code": "C4",
@@ -702,6 +713,7 @@
   "needs": [
    "espumoso",
    "china"
-  ]
+  ],
+  "slug": "mimosa-naranjosa"
  }
 ]

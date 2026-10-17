@@ -4,6 +4,7 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'
 SITE=ROOT+'site/'
 A=SITE
+os.makedirs(SITE+'tragos',exist_ok=True)
 import json as _j
 B=_j.load(open(TOOLS+'config.json'))['site_url'].rstrip('/')
 D=json.load(open(TOOLS+'drinks.json'))
@@ -209,8 +210,8 @@ for i,d in enumerate(D):
   s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{esc(desc)}">',s,count=1)
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
-    f'<meta property="og:image" content="{B}/r/img/{c}.jpg?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
-    f'<meta property="og:url" content="{B}/r/{c}.html"><meta name="twitter:card" content="summary_large_image">\n')
+    f'<meta property="og:image" content="{B}/share/{d['slug']}.jpg?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
+    f'<meta property="og:url" content="{B}/tragos/{d['slug']}"><meta name="twitter:card" content="summary_large_image">\n')
   s=s.replace('<meta charset',head_extra+'<meta charset',1) if '<meta charset' in s[:400] else s.replace('<head>','<head>'+head_extra,1)
   s=s.replace('</head>',CSS+'\n</head>',1)
   def iso(t):
@@ -220,16 +221,16 @@ for i,d in enumerate(D):
     if a is None: return n
     w=int(a);f=round((a-w)*4)/4;fr={0:'',.25:'1/4',.5:'1/2',.75:'3/4'}[f];q=(str(w) if w else '')+(' ' if w and fr else '')+fr
     return f'{q} oz {n[0].lower()+n[1:] if not n.startswith("Tres") else n}'
-  LD={"@context":"https://schema.org","@type":"Recipe","name":name,"description":desc,"image":[B+'/r/img/'+c+'.jpg',B+'/assets/tragos/'+PHOTO[c]+'.webp'],
+  LD={"@context":"https://schema.org","@type":"Recipe","name":name,"description":desc,"image":[B+'/share/'+d['slug']+'.jpg',B+'/assets/tragos/'+PHOTO[c]+'.webp'],
       "author":{"@type":"Organization","name":"Tres Naranjos"},"recipeCategory":"Cóctel","recipeCuisine":"Puertorriqueña","keywords":', '.join(tg+['triple sec','cóctel',name.lower()]),
       "prepTime":iso(d['time']),"totalTime":iso(d['time']),"recipeYield":str(d['serves'])+(' porción' if d['serves']==1 else ' porciones'),
       "recipeIngredient":[amt(i[0],i[1],len(i)>2 and i[2]) for i in d['ing']],
       "recipeInstructions":[{"@type":"HowToStep","text":x} for x in d['steps']]}
-  s=s.replace('</head>','<link rel="canonical" href="'+B+'/r/'+c+'.html"><script type="application/ld+json">'+json.dumps(LD,ensure_ascii=False)+'</script>\n</head>',1)
-  s=s.replace('<a href="tragos.html" aria-current="page">','<a href="tragos.html">',1)
+  s=s.replace('</head>','<link rel="canonical" href="'+B+'/tragos/'+d['slug']+'"><script type="application/ld+json">'+json.dumps(LD,ensure_ascii=False)+'</script>\n</head>',1)
+  s=s.replace('<a href="tragos/" aria-current="page">','<a href="tragos/">',1)
   main=f'''<main id="top" class="rp wrap">
-  <a class="rp-back" href="tragos.html" aria-label="Todos los tragos" title="Todos los tragos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
-  <nav class="rp-pager" aria-label="Otros tragos"><a class="rp-pg prev" href="r/{prv['code']}.html" rel="prev"><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><img src="assets/tragos/sm/{PHOTO[prv['code']]}.webp" alt=""><span class="rp-pgt"><small>Anterior</small><b>{esc(prv['name'])}</b></span></a><a class="rp-pg next" href="r/{nxt['code']}.html" rel="next"><span class="rp-pgt"><small>Siguiente</small><b>{esc(nxt['name'])}</b></span><img src="assets/tragos/sm/{PHOTO[nxt['code']]}.webp" alt=""><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></nav>
+  <a class="rp-back" href="tragos/" aria-label="Todos los tragos" title="Todos los tragos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+  <nav class="rp-pager" aria-label="Otros tragos"><a class="rp-pg prev" href="tragos/{prv['slug']}" rel="prev"><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><img src="assets/tragos/sm/{PHOTO[prv['code']]}.webp" alt=""><span class="rp-pgt"><small>Anterior</small><b>{esc(prv['name'])}</b></span></a><a class="rp-pg next" href="tragos/{nxt['slug']}" rel="next"><span class="rp-pgt"><small>Siguiente</small><b>{esc(nxt['name'])}</b></span><img src="assets/tragos/sm/{PHOTO[nxt['code']]}.webp" alt=""><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></nav>
   <div class="rp-grid">
     <div class="rp-body">
       <div class="rp-top"><figure class="rp-photo"><img src="assets/tragos/sm/{PHOTO[c]}.webp" alt="{esc(name)} con Tres Naranjos Triple Sec"></figure>
@@ -251,14 +252,14 @@ for i,d in enumerate(D):
   a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
   fa=s.index('<footer');fb=s.index('</footer>',fa)+9
   s=s[:fa]+'''<footer class="rp-foot wrap">
-  <nav class="rp-flinks"><a href="tragos.html">Tragos</a><span>·</span><a href="donde-comprar.html">Dónde comprar</a><span>·</span><a href="preguntas.html">Preguntas</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
+  <nav class="rp-flinks"><a href="tragos/">Tragos</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="preguntas">Preguntas</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
   <p><strong>Disfruta con responsabilidad.</strong> © Tres Naranjos 2026. Importado por Agave Imports LLC, San Juan, PR. Producido y embotellado por Bodegas Collado, S.A. de C.V., Ciudad de México.</p>
   <p><strong>GOVERNMENT WARNING:</strong> (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.</p>
 </footer>'''+s[fb:]
   # keep shared scripts (WhatsApp, giants, age gate), drop the tragos picker
   a=s.index('/* =====================================================================\n   RECETAS');b=s.index('</script>',a)
   js='''/* ---- recipe page ---- */
-const R='''+json.dumps({'code':c,'name':name,'serves':d['serves'],'ing':d['ing'],'tags':tg})+''';
+const R='''+json.dumps({'code':c,'slug':d['slug'],'name':name,'serves':d['serves'],'ing':d['ing'],'tags':tg})+''';
 (function(){
   const $=id=>document.getElementById(id);let ppl=R.serves,unit='oz';
   const step=R.serves>1?R.serves/2:1;
@@ -275,11 +276,11 @@ const R='''+json.dumps({'code':c,'name':name,'serves':d['serves'],'ing':d['ing']
   render();
   addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;const a=document.querySelector(e.key==='ArrowLeft'?'.rp-pg.prev':e.key==='ArrowRight'?'.rp-pg.next':'x');if(a)location.href=a.href});
   const site=new URL('.',document.baseURI).href.replace(/\\/$/,'');
-  const txt='*'+R.name.toUpperCase()+'*\\n_con Tres Naranjos Triple Sec_\\n'+R.tags[0]+' y '+R.tags[1].toLowerCase()+'. La receta completa aquí:\\n'+site+'/r/'+R.code+'.html';
+  const txt='*'+R.name.toUpperCase()+'*\\n_con Tres Naranjos Triple Sec_\\n'+R.tags[0]+' y '+R.tags[1].toLowerCase()+'. La receta completa aquí:\\n'+site+'/tragos/'+R.slug;
   $('share').href='https://wa.me/?text='+encodeURIComponent(txt);
   const nav=$('nav');if(nav)document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');
 })();
 '''
   s=s[:a]+js+s[b:]
-  open(A+f'r/{c}.html','w').write(s)
+  open(A+f"tragos/{d['slug']}.html",'w').write(s)
 print('built',len(D))

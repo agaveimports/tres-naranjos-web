@@ -8,7 +8,7 @@ s=open(TOOLS+'tragos_base.html').read()
 esc=lambda t:html.escape(t,quote=True)
 s=re.sub(r'<title>.*?</title>','<title>Preguntas frecuentes | Tres Naranjos</title>',s,count=1)
 s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Todo sobre Tres Naranjos Triple Sec: qué es, de dónde es, cuánto alcohol tiene, dónde comprarlo en Puerto Rico y qué tragos hacer.">',s,count=1)
-s=s.replace('<a href="tragos.html" aria-current="page">','<a href="tragos.html">',1)
+s=s.replace('<a href="tragos/" aria-current="page">','<a href="tragos/">',1)
 plain=lambda a:re.sub(r'<[^>]+>','',a)
 LD={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":f['q'],"acceptedAnswer":{"@type":"Answer","text":plain(f['a'])}} for f in FAQ]}
 CSS='''<style>
@@ -36,7 +36,7 @@ main=f'''<main id="top" class="fq wrap">
   <p class="fq-more">¿Otra pregunta? Escríbenos por WhatsApp o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
 </main>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]
-s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Preguntas frecuentes | Tres Naranjos"><meta property="og:image" content="{B}/r/img/home.jpg"><link rel="canonical" href="{B}/preguntas.html"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
+s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Preguntas frecuentes | Tres Naranjos"><meta property="og:image" content="{B}/share/home.jpg"><link rel="canonical" href="{B}/preguntas"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS'); b=s.index('</script>',a)
 s=s[:a]+"(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n"+s[b:]
 s=re.sub(r'<style>\.t-page\{[^<]*</style>\n','',s)
