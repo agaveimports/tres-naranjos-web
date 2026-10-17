@@ -19,6 +19,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1308,10 +1310,15 @@ const STREET_LAYERS_TOP=[
       const near=st.stores.slice().sort((a,b)=>Math.hypot(a.ll[0]-me[0],a.ll[1]-me[1])-Math.hypot(b.ll[0]-me[0],b.ll[1]-me[1])).slice(0,4);
       hideHint();
       if(wide()){fitLL([me,...near.map(s=>s.ll)],70,15);return}
-      /* phones: no scrolling; the map grows in place to fill the screen under the button, then zooms to you */
+      /* phones: no scrolling; the map grows in place to fill the screen under the button, then zooms to about a 10 mile radius
+         around you (wider, up to 20 miles, when the closest place is farther than that) */
+      clearTimeout(ht);$('hint').style.opacity=0;
       const mc=document.querySelector('.mapcol'),top=Math.max(0,mc.getBoundingClientRect().top);
       mc.style.setProperty('height',Math.max(280,Math.round(innerHeight-top))+'px','important');map.resize();
-      fitLL([me,...near.map(s=>s.ll)],60,15);
+      const mi=(a,b)=>Math.hypot((a[0]-b[0])*69*Math.cos(b[1]*Math.PI/180),(a[1]-b[1])*69);
+      const r=Math.min(20,Math.max(10,near.length?mi(near[0].ll,me)*1.15:10)),dy=r/69,dx=r/(69*Math.cos(me[1]*Math.PI/180));
+      /* wait for the map to finish adjusting to its new size, otherwise it snaps back to the whole island */
+      setTimeout(()=>map.fitBounds([[me[0]-dx,me[1]-dy],[me[0]+dx,me[1]+dy]],{padding:16,maxZoom:14,animate:!reduce,duration:900}),260);
     },()=>fail(),{timeout:8000})}catch(e){fail()}
   });
 
