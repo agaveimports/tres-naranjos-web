@@ -13,7 +13,7 @@ site/                    published folder (Netlify "publish" directory)
   preguntas.html         FAQ page (GENERATED from tools/faq.json)
   tragos/index.html      drinks grid, served at /tragos/ (GENERATED, do not edit by hand)
   tragos/<slug>.html     one page per drink, served at /tragos/<slug> e.g. /tragos/mezcalita (GENERATED)
-  share/<slug>.jpg       WhatsApp share cards, 1200x630 (GENERATED); share/home.jpg is hand-made
+  share/<slug>.jpg       WhatsApp share cards, 1200x630: the drink photo untouched on the left, name and tags on the right (GENERATED); share/home.jpg is hand-made. After changing cards, bump the ?v= number on og:image in build_recipes.py so WhatsApp fetches the new image
   _redirects             old /r/A1.html style links -> new addresses (keep these)
   assets/                photos (.webp), video, fonts
   assets/tragos/         drink photos 960x1200; assets/tragos/sm/ = 560x560 thumbnails
@@ -65,7 +65,7 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 - Fonts: El Camino (display and logo), Hanken Grotesk (body and buttons), Courier Prime (small labels, ingredient lists; regular-weight ingredient lines get `-webkit-text-stroke:.4px currentColor` so they read on screen). All self-hosted in `site/assets/fonts/`.
 - Buttons are flat pills: no outlines, no hard drop shadows, no animated borders. Hover only makes a button a touch lighter, never darker (one shared rule at the end of each page). Animation is minimal (section headlines fade up once).
 - Never invent reviews, testimonials or ratings.
-- Keep the designer credit line ("Diseño por Alfonso Rodriguez", class `credit`) at the bottom of every page. It is required by the designer and must not be removed.
+- Keep the designer credit line ("Diseño por Alfonso Rodriguez", class `credit`, linking to https://www.linkedin.com/in/alfonsorodz until his portfolio site exists) at the bottom of every page. It is required by the designer and must not be removed.
 - Keep the age gate, "Disfruta con responsabilidad" and the GOVERNMENT WARNING on every page.
 
 ## Before finishing any change

@@ -1034,7 +1034,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
   </div>
   <div class="foot-giant"><span class="giant" aria-hidden="true">TR<span class="rev">E</span>S NARANJOS</span></div>
 </footer>
-<div class="credit">Diseño por Alfonso Rodriguez</div>
+<div class="credit">Diseño por <a href="https://www.linkedin.com/in/alfonsorodz" target="_blank" rel="noopener">Alfonso Rodriguez</a></div>
 
 <script>
 /* ===== Drop your video files here later (MP4, muted loops). Leave '' for none. ===== */
@@ -1168,7 +1168,7 @@ const SITE=new URL('.',location.href).href.replace(/\/$/,'');   // links follow 
 const SHARE_CODE={margarita:'margarita',mezcalita:'mezcalita',spritz:'spritz-de-china',cosmo:'cosmo',sidecar:'sidecar',ponche:'ponche-de-naranja'};
 const SHARE_TAGS={margarita:'Cítrico y fresco',mezcalita:'Ahumado y picantito',spritz:'Burbujeante y ligero',cosmo:'Ácido y frutal',sidecar:'Seco y robusto',ponche:'Frutal y refrescante'};
 function shareText(k){const r=RECIPES[k];
-  return '*'+r.name.toUpperCase()+'*\n_con Tres Naranjos Triple Sec_\n'+(SHARE_TAGS[k]||'')+'. La receta completa aquí:\n'+SITE+'/tragos/'+(SHARE_CODE[k]||'margarita')}
+  return 'Pana, tienes que hacer este trago: *'+r.name+'*\n'+SITE+'/tragos/'+(SHARE_CODE[k]||'margarita')}
 /* ---- recipes picker ---- */
 (function(){
   const words=document.getElementById('words'),menu=document.getElementById('menu'),foot=document.getElementById('recipe-foot');
@@ -1315,5 +1315,5 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 :root:root body .btn.btn--wa:hover,:root:root body .btn.btn--wa:focus-visible,:root:root body .rp-acts .rp-wa:hover{background-color:#1E8E4F!important}
 :root:root body button.btn#near:hover,:root:root body button.btn#near:focus-visible{background-color:#fff!important;filter:none!important}
 </style>
-<style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}</style>
+<style>.credit{background:#FFF4E6;color:rgba(45,41,38,.6);font:600 12.5px/1.4 "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.04em;text-align:center;padding:14px max(16px,env(safe-area-inset-left,0px)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px dotted rgba(45,41,38,.35)}.listcol .credit{background:none;border-top:0;padding:10px 0 0;text-align:left}.credit a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.credit a:hover{color:#2D2926}</style>
 </body></html>
