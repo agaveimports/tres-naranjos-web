@@ -8,6 +8,12 @@ A=SITE
 exec(open(TOOLS+'build_recipes.py').read().split("base=open")[0])  # PHOTO, TAGS, D
 s=open(TOOLS+'tragos_base.html').read()
 CSS='''<style>
+/* tragos grid: white page, cream nav and footer */
+html{background:var(--crema)}
+body{background:#fff!important}
+.nav{background:var(--crema)!important}
+footer{background:var(--crema)}
+
 /* ---------- tragos: photo grid, every drink opens its own page ---------- */
 .tg{padding-top:calc(var(--navh,84px) + clamp(48px,6vw,88px));padding-bottom:clamp(64px,8vw,110px)}
 .tg-head{text-align:center;max-width:760px;margin:0 auto clamp(32px,4vw,56px)}
