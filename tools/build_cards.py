@@ -48,14 +48,13 @@ for dr in json.load(open(TOOLS + 'drinks.json')):
     # right panel
     x0 = M + ph_w + 56; maxw = W - M - 20 - x0
     y = M + 26
-    spaced(d, x0, y, 'RECETA', f('cp7.ttf', 22), NAR, 3.5)
     name = dr['name'].upper()
     size = 132
     while size > 70:
         lines = wrap(d, name, f('elc.ttf', size), maxw)
         if len(lines) <= 2 and all(d.textlength(l, font=f('elc.ttf', size)) <= maxw for l in lines): break
         size -= 4
-    fo = f('elc.ttf', size); y += 52
+    fo = f('elc.ttf', size); y += 4
     for l in lines:
         d.text((x0 - 4, y), l, font=fo, fill=NEGRO); y += int(size * 0.9)
     y += 14
