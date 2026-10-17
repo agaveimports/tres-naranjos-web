@@ -63,6 +63,10 @@
 
 
 
+
+
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -637,7 +641,8 @@ main#top{padding-top:calc(var(--navh) + env(safe-area-inset-top,0px))}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .split{display:grid;grid-template-columns:minmax(380px,42fr) 58fr;align-items:start}
-.listcol{min-width:0;padding-block:20px 28px}
+.listcol{min-width:0;padding-block:20px 28px;overflow-x:hidden;overscroll-behavior-x:none} /* the list only scrolls up and down */
+html,body{overflow-x:clip}
 .listcol:focus-visible{outline:3px solid var(--rojo);outline-offset:-3px}
 @media (min-width:901px){
   html,body{height:100%;overflow:hidden}
