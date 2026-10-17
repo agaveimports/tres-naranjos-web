@@ -41,6 +41,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -460,6 +462,7 @@ footer{padding-block:clamp(50px,6vw,80px) 0;overflow:hidden}
 }
 @media (max-width:900px){.mapcol .ctrl{display:none!important}}
 @media (max-width:900px) and (hover:none){.store:hover{background:transparent!important}}
+@media (max-width:700px){#results.solo .pueblo h3{display:none!important}#results.solo .store.on{background:transparent!important;box-shadow:none!important}#results.solo .store{border-bottom:0!important}#results.solo{padding-top:0!important}#results.solo .store{padding-top:4px!important}} /* phones: a tapped place shows just the venue, no town header */
 @media (max-width:700px){ /* phones: filters live in the header under the search; "Ver toda la isla" floats on the map */
   .dc-hero .chips{display:flex;flex-wrap:nowrap;gap:6px;margin:10px 0 0;padding:0;overflow:visible;width:100%}
   .dc-hero .chip{flex:1 1 auto;min-width:0;justify-content:center;gap:.35em;font-size:13px!important;padding:.55em .5em .45em!important;
@@ -1253,7 +1256,8 @@ const STREET_LAYERS_TOP=[
   /* ---------- list: what's in view ---------- */
   function renderList(){
     let list=filtered().filter(inView); const island=isIsland(); chips();
-    if(!wide()&&st.open!=null){const one=list.filter(x=>x.id===st.open);if(one.length)list=one} /* phones: a tapped pin singles out its place, like Airbnb */
+    let solo=false; if(!wide()&&st.open!=null){const one=list.filter(x=>x.id===st.open);if(one.length){list=one;solo=true}} /* phones: a tapped pin singles out its place, like Airbnb */
+    $('results').classList.toggle('solo',solo);
     map.setFilter('pr-sel',['==',['get','n'],(!island&&st.focus)||'']);
     $('split').classList.toggle('is-empty',!list.length);
     if(!list.length){
