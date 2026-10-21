@@ -53,7 +53,7 @@ The home page section "Una naranja, mil maneras" shows 6 featured drinks from it
 `python3 tools/set_contact.py --whatsapp 1787XXXXXXX` (digits only, starting with 1)
 `python3 tools/set_contact.py --email nuevo@correo.com`
 
-**Change the domain** (for example when tresnaranjos.com goes live)
+**Change the domain** (live domain: https://tresnaranjos.com, on Cloudflare since Oct 2026; tresnaranjoslicor.com forwards to it from GoDaddy)
 `python3 tools/set_domain.py https://tresnaranjos.com`, then run the four build scripts. Also lock the Mapbox token to the new domain in the Mapbox account.
 
 **Stores on Dónde comprar**

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tres-naranjos-web.alfonsorodriguezlebron.workers.dev/sitemap.xml
+Sitemap: https://tresnaranjos.com/sitemap.xml
