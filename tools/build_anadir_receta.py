@@ -1,19 +1,15 @@
-"""Builds site/anadir-receta.html: private page for the team to publish a new recipe (photo required).
-Not in the menu, the sitemap or Google (noindex). Sends the recipe to the Apps Script of the sheet
-"Tres Naranjos: sitio web" (same SCRIPT_URL as anadir-tienda), which saves the photo in Drive, adds a row to the
-Recetas tab and tells GitHub to rebuild (tools/sync_recetas.py)."""
+"""Builds site/anadir-receta.html: private page for the team to publish a new recipe (password first, see team_gate.py).
+Flow: 1) paste the recipe as text  2) "Así va a quedar": the recipe cleaned up, looking like the site, photo beside it,
+one Editar that turns it into plain text  3) Publicar  4) ¡Publicada!
+Cleanup: Claude (Apps Script accion=limpiar, when ANTHROPIC_API_KEY is set in the script) or the rules in this page.
+Publishing goes to the same Apps Script (doPost accion=receta): photo to Drive, row in the Recetas tab, GitHub rebuild.
+Not in the menu, the sitemap or Google (noindex)."""
 from hoist_meta import hoist
-import team_gate
 import json, re, os
+import team_gate
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 TOOLS, SITE = ROOT + 'tools/', ROOT + 'site/'
 SCRIPT_URL = re.search(r"SCRIPT_URL = '([^']+)'", open(TOOLS + 'build_anadir.py').read()).group(1)
-LISTO_MIN = 15   # dispatch + GitHub job + Cloudflare publish; usually 3 to 5 minutes
-
-VASOS = ['Vaso corto', 'Vaso alto', 'Copa', 'Copa de vino', 'Copa o shot', 'Flauta', 'Jarra']
-TAGS = ['Cítrico', 'Fresco', 'Frutal', 'Tropical', 'Ácido', 'Agridulce', 'Burbujeante', 'Ligero', 'Refrescante',
-        'Ahumado', 'Picantito', 'Seco', 'Robusto', 'Intenso', 'Almendrado']
-AMTS = ['', '1/4', '1/2', '3/4', '1', '1 1/4', '1 1/2', '1 3/4', '2', '2 1/2', '3', '4', '6', '8']
 
 s = open(TOOLS + 'tragos_base.html').read()
 s = re.sub(r'<title>.*?</title>', '<title>Añadir una receta | Tres Naranjos</title>', s, count=1)
@@ -23,252 +19,345 @@ s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 
 CSS = '''<style>
 main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
-.ar-in{max-width:980px;margin:0 auto}
+.ar-in{max-width:1060px;margin:0 auto}
 .ar h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
-.ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60)}
-.ar-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
-.ar-photo{position:sticky;top:calc(var(--navh,70px) + 16px)}
-.ar-drop{display:grid;place-items:center;aspect-ratio:4/5;border:1.5px dashed var(--negro);border-radius:18px;background:#fff;cursor:pointer;overflow:hidden;position:relative;text-align:center;padding:16px}
-.ar-drop:hover{background:#FFFBF5}
-.ar-drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ar-drop .ph b{display:block;font-size:17px;margin:10px 0 4px}
-.ar-drop .ph span{font-size:14px;color:var(--negro-60);line-height:1.45}
-.ar-drop svg{width:38px;height:38px;color:#E8561A}
-.ar-drop input{position:absolute;opacity:0;pointer-events:none}
-.ar-change{display:block;margin:10px auto 0;font:600 14px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:none;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.ar-f{display:grid;gap:16px;min-width:0}
-.ar label.l,.ar .l{display:block;font-weight:700;font-size:15px;margin:0 0 7px}
-.ar .l small{font-weight:400;color:var(--negro-60)}
-.ar input[type=text],.ar input[type=password],.ar textarea,.ar select{box-sizing:border-box;width:100%;min-width:0;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:14px;padding:.7em .9em;outline:none}
-.ar input[type=text]:focus,.ar input[type=password]:focus,.ar textarea:focus,.ar select:focus{border-color:#E8561A}
-.ar textarea{resize:vertical;min-height:52px;line-height:1.45}
-.ar-two{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:12px}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chips label{display:inline-flex;align-items:center;min-height:36px;padding:0 .95em;border-radius:999px;background:#F6E2C8;font-weight:600;font-size:14px;cursor:pointer;user-select:none}
-.chips label:hover{background:#F9EAD6}
-.chips input{position:absolute;opacity:0;pointer-events:none}
-.chips label:has(input:checked){background:var(--negro);color:var(--crema)}
-.chips label:has(input:focus-visible){outline:2px solid #E8561A;outline-offset:2px}
-.rows{display:grid;gap:8px}
-.row{display:grid;grid-template-columns:118px minmax(0,1fr) 40px;gap:8px;align-items:center}
-.row.step{grid-template-columns:28px minmax(0,1fr) 40px;align-items:start}
-.row .n{font:700 15px "Courier Prime",monospace;padding-top:.8em;text-align:center}
-.row.tn input[type=text]{border-color:#E8561A;color:#C2410C;font-weight:700}
-.row select{padding-left:.6em;padding-right:.3em;font-size:15px}
-.x{width:40px;height:40px;border:0!important;box-shadow:none!important;border-radius:50%;background:transparent!important;color:var(--negro-60);font-size:20px;cursor:pointer}
-.x:hover{background:#F6E2C8;color:var(--negro)}
-.add{justify-self:start;font:700 14px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.btn-a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.8em 1.6em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60);max-width:62ch}
+.ar .l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
+.ar textarea{box-sizing:border-box;width:100%;resize:vertical;font:400 15px/1.6 "Courier Prime",monospace;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:18px;padding:16px 18px;outline:none}
+.ar textarea:focus{border-color:#E8561A}
+#pega{min-height:clamp(260px,42vh,420px)}
+.hint{margin:8px 0 0;font-size:14px;color:var(--negro-60)}
+.btn-a{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:.8em 1.7em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none}
 .btn-a.go{background:#EE5F1C;color:var(--crema)}.btn-a.go:hover{background:#F26F31}
+.btn-a.dark{background:var(--negro);color:var(--crema)}.btn-a.dark:hover{background:#433D39}
 .btn-a.soft{background:#F1D5B2;color:var(--negro)}.btn-a.soft:hover{background:#F6E2C8}
+.btn-a.sm{min-height:40px;padding:0 1.2em;font-size:13px}
 .btn-a[disabled]{opacity:.45;cursor:default}.btn-a.go[disabled]:hover{background:#EE5F1C}
 .btn-a:focus{outline:none}.btn-a:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
-.acts{display:flex;gap:8px;flex-wrap:wrap}
-.msg{margin:0;font-size:15px;line-height:1.5}.msg:empty{display:none}.msg.err{color:#B3361A;font-weight:600}
-.wait{display:flex;align-items:center;gap:10px;color:var(--negro-60)}
+.btn-a svg{width:15px;height:15px}
+.link{font:600 15px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.link:hover{color:#E04F12}
+.acts{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}
+.msg{margin:12px 0 0;font-size:15px;line-height:1.5}.msg:empty{display:none}.msg.err{color:#B3361A;font-weight:600}
+.wait{display:inline-flex;align-items:center;gap:10px;color:var(--negro-60)}
 .wait i{width:16px;height:16px;border-radius:50%;border:2px solid #F1D5B2;border-top-color:#E8561A;animation:arspin .8s linear infinite}
 @keyframes arspin{to{transform:rotate(360deg)}}
-.pv{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:start;border:1.5px solid var(--negro);border-radius:18px;background:#fff;padding:clamp(14px,2vw,22px)}
-.pv img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;display:block}
-.pv .q{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 6px}
-.pv h2{font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:.95;margin:0 0 6px;text-transform:uppercase}
-.pv .meta{margin:0 0 14px;color:var(--negro-60)}
-.pv ul{list-style:none;margin:0 0 14px;padding:0;font-family:"Courier Prime",monospace;font-size:16px}
-.pv li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dotted rgba(45,41,38,.45);-webkit-text-stroke:.4px currentColor}
-.pv li.tn{font-weight:700;color:#C2410C;-webkit-text-stroke:0}
-.pv li .a{white-space:nowrap;font-weight:700}
-.pv ol{margin:0 0 16px;padding-left:1.4em;line-height:1.5;list-style:decimal}.pv ol li{display:list-item;border:0;padding:4px 0;font-family:inherit;-webkit-text-stroke:0}
-.done{padding:22px 20px;border-radius:18px;background:#F6E2C8;max-width:640px}
-.done h2{font-family:var(--display);font-size:clamp(30px,4vw,42px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
-.done p{margin:0 0 16px;line-height:1.5}
-@media (max-width:760px){.ar-grid,.pv{grid-template-columns:1fr}.ar-photo{position:static;max-width:300px;width:100%;margin:0 auto}.pv img{max-width:300px;margin:0 auto}.acts .btn-a{flex:1}}
-@media (max-width:420px){.row{grid-template-columns:108px minmax(0,1fr) 34px;gap:6px}.x{width:36px;height:36px}}
+.pv-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 14px}
+.pv-top .eye{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 4px}
+.pv-top p{margin:0;font-size:15px;color:var(--negro-60);line-height:1.45}
+.rx-card{border:1.5px solid var(--negro);border-radius:22px;background:#fff;padding:clamp(16px,2.2vw,28px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start}
+.ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden}
+.rx-drop{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;border:1.5px dashed #E8561A;border-radius:16px;background:#FFFBF5;cursor:pointer}
+.rx-drop:hover{background:#FFF6EA}
+.rx-drop b{font-size:17px}.rx-drop span{font-size:14px;color:var(--negro-60)}
+.rx-drop svg{width:38px;height:38px;color:#E8561A}
+.rx-drop input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph-btns{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;justify-content:center}
+.ph-btns .btn-a.soft{background:var(--crema)}
+.ct{min-width:0;display:flex;flex-direction:column;gap:20px}
+.ct h2{font-family:var(--display);font-size:clamp(34px,4vw,56px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
+.ct .desc{margin:6px 0 0;font-size:17px;color:var(--negro-60)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{padding:6px 12px;border-radius:999px;background:#F6E2C8;font-size:13px;font-weight:600}
+.ct .sec{font-weight:700;font-size:15px;margin:0 0 6px}
+.rx-ing{list-style:none;margin:0;padding:0;font-family:"Courier Prime",monospace;font-size:17px}
+.rx-ing li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dotted rgba(45,41,38,.45);-webkit-text-stroke:.4px currentColor}
+.rx-ing li.tn{color:#C2410C;font-weight:700;-webkit-text-stroke:0}
+.rx-ing li b{white-space:nowrap}
+.steps{margin:0;padding-left:1.4em;list-style:decimal;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.5}
+.steps li{display:list-item}
+#ed{min-height:470px;font-size:16px;line-height:1.6}
+.ed-acts{display:flex;align-items:center;gap:16px;margin-top:10px}
+.miss{font-size:14px;color:#B3361A;font-weight:600}
+.done{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+.done img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
+.done-box{padding:clamp(20px,2.4vw,28px);border-radius:20px;background:#F6E2C8}
+.done-box h2{font-family:var(--display);font-size:clamp(38px,4.4vw,52px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
+.done-box p{margin:0 0 10px;font-size:17px;line-height:1.5}
+.done-box p.s{font-size:15px;color:rgba(45,41,38,.7);margin-bottom:18px}
+@media (max-width:760px){
+  .rx-card,.done{grid-template-columns:1fr}
+  .ph,.done img{width:min(340px,100%);justify-self:center;margin:0}
+  .pv-top{flex-direction:column;align-items:flex-start}
+  #ed{min-height:380px}
+  .acts .btn-a.go{flex:1}
+}
 </style>'''
 
-chip = lambda name, typ, v: f'<label><input type="{typ}" name="{name}" value="{v}"><span>{v}</span></label>'
-amt_opts = ''.join(f'<option value="{a}">{a + " oz" if a else "Sin medida"}</option>' for a in AMTS)
+CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'
+PEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>'
 
 main = f'''<main id="top" class="ar"><div class="ar-in">
 {team_gate.html('Añadir una receta')}
 <div id="team-app" hidden>
-  <h1>Añadir una receta</h1>
-  <p class="ar-lead">Llena la receta y sube la foto. Antes de publicar, ves cómo va a quedar.</p>
 
-  <form id="ar-form" novalidate>
-  <div class="ar-grid" id="ar-edit">
-    <div class="ar-photo">
-      <label class="ar-drop" id="ar-drop">
-        <input type="file" id="ar-file" accept="image/*">
-        <span class="ph" id="ar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
-          <b>Sube la foto</b><span>Vertical, con el trago en el centro. Se recorta a 4:5.</span></span>
-        <img id="ar-img" alt="" hidden>
-      </label>
-      <button type="button" class="ar-change" id="ar-change" hidden>Cambiar foto</button>
+  <section id="s-pega">
+    <h1>Añadir una receta</h1>
+    <p class="ar-lead">Pega la receta y la arreglamos por ti. Antes de publicar, ves cómo va a quedar.</p>
+    <label class="l" for="pega">Pega la receta</label>
+    <textarea id="pega" spellcheck="false" placeholder="Paloma de toronja&#10;Fresca y fácil, para el calor.&#10;&#10;Ingredientes:&#10;- 2 oz tequila blanco&#10;- 15 ml Tres Naranjos&#10;- 3 oz jugo de toronja&#10;&#10;Preparación:&#10;1. Llena un vaso alto con hielo.&#10;2. Añade todo y completa con soda."></textarea>
+    <p class="hint">De Claude, ChatGPT, una nota o WhatsApp. Las medidas en ml se pasan a oz.</p>
+    <p class="msg" id="m1" role="status" aria-live="polite"></p>
+    <div class="acts"><button type="button" class="btn-a go" id="llenar">Llenar la receta</button><button type="button" class="link" id="amano">Prefiero llenarla a mano</button></div>
+  </section>
+
+  <section id="s-prev" hidden>
+    <div class="pv-top">
+      <div><span class="eye">Así va a quedar</span><p id="nota"></p></div>
+      <button type="button" class="btn-a soft sm" id="editar">{PEN}Editar</button>
     </div>
-
-    <div class="ar-f">
-      <div class="ar-two">
-        <div><label class="l" for="ar-name">Nombre</label><input type="text" id="ar-name" maxlength="60" placeholder="Paloma de toronja" autocomplete="off"></div>
-        <div><label class="l" for="ar-serves">Porciones</label><select id="ar-serves">{''.join(f'<option>{n}</option>' for n in (1, 2, 4, 6, 8, 10))}</select></div>
+    <div class="rx-card">
+      <div class="ph" id="ph">
+        <label class="rx-drop" id="drop"><input type="file" id="file" accept="image/*">{CAM}<b>Sube la foto</b><span>o arrástrala aquí · vertical, el trago en el centro</span></label>
+        <img id="foto" alt="Foto del trago" hidden>
+        <div class="ph-btns" id="ph-btns" hidden><button type="button" class="btn-a soft sm" id="cambiar">Cambiar</button><button type="button" class="btn-a dark sm" id="quitar">Quitar</button></div>
       </div>
-      <div><label class="l" for="ar-sub">Descripción corta <small>(2 o 3 palabras)</small></label><input type="text" id="ar-sub" maxlength="40" placeholder="Para el calor" autocomplete="off"></div>
-      <div><span class="l">Vaso</span><div class="chips">{''.join(chip('vaso', 'radio', v) for v in VASOS)}</div></div>
-      <div><span class="l">Sabor <small>(escoge 2)</small></span><div class="chips" id="ar-tags">{''.join(chip('tag', 'checkbox', t) for t in TAGS)}</div></div>
-      <div><span class="l">Ingredientes</span><div class="rows" id="ar-ing"></div><button type="button" class="add" id="ar-add-ing">+ Añadir ingrediente</button></div>
-      <div><span class="l">Pasos</span><div class="rows" id="ar-steps"></div><button type="button" class="add" id="ar-add-step">+ Añadir paso</button></div>
-      <p class="msg" id="ar-msg" role="status" aria-live="polite"></p>
-      <div class="acts"><button type="submit" class="btn-a go" id="ar-review">Revisar receta</button></div>
-    </div>
-  </div>
-  </form>
-
-  <div id="ar-pv" hidden>
-    <div class="pv">
-      <img id="pv-img" alt="">
-      <div>
-        <p class="q">Así va a quedar</p>
-        <h2 id="pv-name"></h2>
-        <p class="meta" id="pv-meta"></p>
-        <ul id="pv-ing"></ul>
-        <ol id="pv-steps"></ol>
-        <div class="acts"><button type="button" class="btn-a go" id="ar-pub">Publicar</button><button type="button" class="btn-a soft" id="ar-back">Editar</button></div>
-        <p class="msg" id="pv-msg" role="status" aria-live="polite" style="margin-top:12px"></p>
+      <div class="ct" id="view">
+        <div>
+          <h2 id="v-name"></h2>
+          <p class="desc" id="v-desc"></p>
+          <div class="tags" id="v-tags"></div>
+        </div>
+        <div><p class="sec">Ingredientes</p><ul class="rx-ing" id="v-ing"></ul></div>
+        <div><p class="sec">Pasos</p><ol class="steps" id="v-steps"></ol></div>
+      </div>
+      <div class="ct" id="edit" hidden>
+        <div>
+          <label class="l" for="ed">Editar la receta</label>
+          <textarea id="ed" spellcheck="false"></textarea>
+          <div class="ed-acts"><button type="button" class="btn-a dark sm" id="listo">Listo</button><button type="button" class="link" id="cancelar">Cancelar</button></div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="acts"><button type="button" class="btn-a go" id="publicar">Publicar</button><span class="miss" id="miss"></span></div>
+    <p class="msg" id="m2" role="status" aria-live="polite"></p>
+  </section>
 
-  <div class="done" id="ar-done" hidden>
-    <h2>¡Publicada!</h2>
-    <p id="ar-done-txt"></p>
-    <button type="button" class="btn-a go" id="ar-otra">Añadir otra</button>
-  </div>
+  <section id="s-done" hidden>
+    <div class="done">
+      <img id="d-foto" alt="">
+      <div class="done-box">
+        <h2>¡Publicada!</h2>
+        <p id="d-txt"></p>
+        <p class="s">Para cambiarla o quitarla después, se hace en la hoja de recetas.</p>
+        <button type="button" class="btn-a go" id="otra">Añadir otra</button>
+      </div>
+    </div>
+  </section>
+
 </div>
 </div></main>'''
 
-JS = '''<script>
+JS = r'''<script>
 (function(){
-  const SCRIPT_URL = %s, LISTO_MIN = %d, AMTS = %s;
+  const SCRIPT_URL = %s;
   const $ = id => document.getElementById(id);
   const esc = s => String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const norm = s => String(s || '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();
-  const isTN = s => /\\b(tres|3)\\s*naranjos?\\b/.test(norm(s));
-  let photo = null, busy = false;
+  const norm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+  const isTN = s => /\b(tres|3)\s*naranjos?\b/.test(norm(s));
+  const VASOS = ['Vaso corto','Vaso alto','Copa','Copa de vino','Copa o shot','Flauta','Jarra'];
+  const SHORT = {'Vaso corto':'corto','Vaso alto':'alto'};
+  let R = null, photo = null, busy = false, fixes = [];
 
-  /* ---- photo: shrink on the phone before sending ---- */
+  function fmtA(x){ let w = Math.floor(x), f = Math.round((x - w) * 4) / 4; if (f === 1) { w++; f = 0; }
+    const fr = {0:'', .25:'1/4', .5:'1/2', .75:'3/4'}[f]; return ((w ? w : '') + (w && fr ? ' ' : '') + fr) || '1/4'; }
+  function num(t){ t = t.trim().replace(',', '.'); let m;
+    if ((m = t.match(/^(\d+)\s+(\d)\/(\d)$/))) return +m[1] + m[2] / m[3];
+    if ((m = t.match(/^(\d)\/(\d)$/))) return m[1] / m[2];
+    if (/^\d+(\.\d+)?$/.test(t)) return +t; return null; }
+  const N = '(\\d+\\s+\\d\\/\\d|\\d\\/\\d|\\d+(?:[.,]\\d+)?)';
+  const U = '(oz|onzas?|ml|mililitros?|cl)\\.?';
+  const PRE = new RegExp('^' + N + '\\s*' + U + '\\s+(?:de\\s+)?(.+)$', 'i');
+  const POST = new RegExp('^(.+?)\\s*[:\\-,]?\\s*' + N + '\\s*' + U + '$', 'i');
+  const BARE = new RegExp('^' + N + '\\s+(.+)$');
+
+  function ingLine(line, inSection){
+    let a = '', n = line, m, unit = 'oz', q = null;
+    if ((m = line.match(PRE))) { q = num(m[1]); unit = m[2].toLowerCase(); n = m[3]; }
+    else if ((m = line.match(POST))) { n = m[1]; q = num(m[2]); unit = m[3].toLowerCase(); }
+    else if (inSection && (m = line.match(BARE)) && num(m[1]) !== null && num(m[1]) <= 8) { q = num(m[1]); n = m[2]; }
+    if (q !== null) {
+      if (/^ml|^mili/.test(unit)) { q = q / 30; fixes.push('ml'); } else if (unit === 'cl') { q = q / 3; fixes.push('ml'); }
+      a = fmtA(Math.max(.25, Math.round(q * 4) / 4));
+    }
+    n = n.replace(/\b(tres naranjos(\s+triple\s+sec)?|triple\s*sec|cointreau|licor de naranja)\b/ig, 'Tres Naranjos')
+         .replace(/\bnaranjas\b/ig, 'chinas').replace(/\bnaranja\b/ig, 'china').replace(/\s+/g, ' ').trim();
+    return {a, n: cap(n)};
+  }
+
+  function clean(raw){
+    fixes = [];
+    const lines = String(raw || '').replace(/\r/g, '').replace(/\s*[—–]\s*/g, ', ')
+      .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').split('\n')
+      .map(l => l.replace(/\*\*|__|`/g, '').replace(/^\s*(#+|[-*•·>]+)\s*/, '').replace(/\s+/g, ' ').trim());
+    const ING = /^(ingredientes?|lo que necesitas|necesitas)\s*:?\s*(.*)$/i;
+    const PAS = /^(pasos?|preparaci[oó]n|instrucciones|modo de preparaci[oó]n|elaboraci[oó]n|c[oó]mo (se )?(hace|prepara)(lo)?)\s*:?\s*(.*)$/i;
+    const META = /^vaso\s*:/i;
+    const VERB = /^(llena|añade|anade|agrega|agita|cuela|sirve|mezcla|echa|echale|pon|decora|revuelve|vierte|corta|escarcha|exprime|licua|licúa|completa|termina|enfria|enfría|bate|refrigera|pica|machaca|frota|pasa|usa|deja|tapa|sacude)\b/i;
+    // one-line message ("paloma: 2oz tequila, 15ml triple sec, ... echale hielo ...") -> split it
+    const filled = lines.filter(Boolean);
+    if (filled.length === 1 && /[:,]/.test(filled[0])) {
+      const one = filled[0], c = one.indexOf(':'), nm = c > 0 && c < 40 ? one.slice(0, c) : '';
+      const rest = nm ? one.slice(c + 1) : one, sent = rest.split(/\.\s+|\.$/).map(x => x.trim()).filter(Boolean);
+      lines.length = 0; if (nm) lines.push(nm);
+      lines.push('Ingredientes'); (sent[0] || '').split(/,|\s+y\s+/).forEach(x => x.trim() && lines.push(x.trim()));
+      if (sent.length > 1) { lines.push('Pasos'); sent.slice(1).forEach(x => lines.push(x)); }
+    }
+    const head = [], ing = [], steps = []; let mode = 'head', meta = '';
+    for (const l of lines) {
+      if (!l) continue; let m;
+      if (META.test(l)) { meta = l; continue; }
+      if ((m = l.match(ING))) { mode = 'ing'; if (m[2]) m[2].split(/[,;]/).forEach(x => x.trim() && ing.push(x.trim())); continue; }
+      if ((m = l.match(PAS))) { mode = 'pas'; const rest = m[m.length - 1]; if (rest) steps.push(rest); continue; }
+      if (mode === 'head') {
+        if (head.length >= 1 && (PRE.test(l) || POST.test(l))) { mode = 'ing'; ing.push(l); }
+        else if ((/^(paso\s*)?\d+\s*[.)]\s+\D/i.test(l) || VERB.test(l)) && head.length >= 1) { mode = 'pas'; steps.push(l); }
+        else head.push(l);
+      } else if (mode === 'ing') {
+        if ((/^(paso\s*)?\d+\s*[.)]\s+\D/i.test(l) && !PRE.test(l)) || (VERB.test(l) && !PRE.test(l) && !POST.test(l))) { mode = 'pas'; steps.push(l); }
+        else ing.push(l);
+      } else steps.push(l);
+    }
+    const name = cap((head[0] || '').replace(/[.:]$/, '').trim());
+    const desc = head[1] && head[1].length <= 90 ? cap(head[1].replace(/\.$/, '')) + '.' : '';
+    if (head.length > 2 && !steps.length) steps.push(...head.slice(2));
+    if (steps.some(x => /^(paso\s*)?\d+\s*[.)]/i.test(x))) fixes.push('num');
+    const pasos = steps.map(x => x.replace(/^(paso\s*)?\d+\s*[.):\-]\s*/i, '').trim()).filter(Boolean)
+      .map(x => { x = cap(x); return /[.!?]$/.test(x) ? x : x + '.'; });
+    const ingr = ing.map(l => ingLine(l, true)).filter(x => x.n);
+
+    const all = norm(raw); let vaso = '', tags = [], serves = 1, m2;
+    if (meta) {
+      const v = (meta.match(/vaso\s*:\s*([^·|]+)/i) || [])[1]; if (v) { const t = norm(v); vaso = VASOS.find(x => norm(x) === t || norm(SHORT[x] || '') === t) || ''; }
+      const sb = (meta.match(/sabor\s*:\s*([^·|]+)/i) || [])[1]; if (sb) tags = sb.split(/,|\by\b/).map(x => cap(x.trim())).filter(Boolean).slice(0, 2);
+      const pr = (meta.match(/porciones\s*:\s*(\d+)/i) || [])[1]; if (pr) serves = Math.min(20, +pr);
+    }
+    if (!vaso) vaso = /vaso alto|highball|collins/.test(all) ? 'Vaso alto' : /copa de vino|wine/.test(all) ? 'Copa de vino' : /flauta|champ|mimosa/.test(all) ? 'Flauta'
+      : /jarra|pitcher|ponchera/.test(all) ? 'Jarra' : /shot/.test(all) ? 'Copa o shot' : /\bcopa\b|coupe|martini/.test(all) ? 'Copa' : 'Vaso corto';
+    if (!tags.length) {
+      const score = [['Cítrico',/lima|limon|toronja|china/],['Burbujeante',/soda|prosecco|cava|champ|espumoso|tonica|ginger/],['Tropical',/parcha|pina|coco|mango|guayaba|tamarindo/],
+        ['Frutal',/fresa|frambuesa|arandano|fruta|sangria|melocoton/],['Ahumado',/mezcal|ahumad/],['Picantito',/tajin|picante|jalapeno|chile/],['Fresco',/hierbabuena|menta|pepino|albahaca/]];
+      tags = score.filter(([, re]) => re.test(all)).map(([t]) => t).slice(0, 2);
+      if (tags.length < 2) tags.push(...['Refrescante', 'Cítrico'].filter(t => !tags.includes(t)).slice(0, 2 - tags.length));
+    }
+    if (!meta && (m2 = all.match(/(\d+)\s*(porciones|personas)/))) serves = Math.min(20, +m2[1]);
+    return {nombre: name, descripcion: desc, vaso, etiquetas: tags, porciones: serves, ing: ingr, pasos};
+  }
+
+  function toText(r){
+    const meta = 'Vaso: ' + (SHORT[r.vaso] || r.vaso) + ' · Sabor: ' + r.etiquetas.join(', ') + (r.porciones > 1 ? ' · Porciones: ' + r.porciones : '');
+    return [r.nombre, r.descripcion, meta, '', 'Ingredientes', ...r.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), '', 'Pasos', ...r.pasos.map((p, i) => (i + 1) + '. ' + p)].join('\n');
+  }
+  function fromAI(a){
+    const r = {nombre: a.nombre || '', descripcion: a.descripcion || '', vaso: a.vaso || 'Vaso corto', etiquetas: (a.etiquetas || []).slice(0, 2), porciones: a.porciones || 1,
+      ing: (a.ingredientes || []).map(x => ({a: x.cantidad || '', n: x.ingrediente || ''})), pasos: a.pasos || []};
+    const out = clean(toText(r)); fixes = []; return out;
+  }
+
+  const show = id => { ['s-pega','s-prev','s-done'].forEach(x => $(x).hidden = x !== id); scrollTo({top: 0}); };
+  function render(){
+    $('v-name').textContent = R.nombre || 'Sin nombre';
+    $('v-desc').textContent = R.descripcion; $('v-desc').hidden = !R.descripcion;
+    $('v-tags').innerHTML = [R.vaso, ...R.etiquetas, R.porciones > 1 ? R.porciones + ' porciones' : ''].filter(Boolean).map(t => '<span>' + esc(t) + '</span>').join('');
+    $('v-ing').innerHTML = R.ing.map(x => '<li class="' + (isTN(x.n) ? 'tn' : '') + '"><span>' + esc(x.n) + '</span><b>' + (x.a ? esc(x.a) + ' oz' : '') + '</b></li>').join('');
+    $('v-steps').innerHTML = R.pasos.map(p => '<li>' + esc(p) + '</li>').join('');
+    check();
+  }
+  function problems(){
+    const p = [];
+    if (!photo) p.push('Falta la foto.');
+    if (!R.nombre) p.push('Falta el nombre.');
+    if (R.ing.length < 2) p.push('Faltan ingredientes.');
+    else if (!R.ing.some(x => isTN(x.n))) p.push('La receta no lleva Tres Naranjos. Toca Editar y añádelo.');
+    if (!R.pasos.length) p.push('Faltan los pasos.');
+    return p;
+  }
+  function check(){ const p = problems(); $('miss').textContent = p.join(' '); $('publicar').disabled = !!p.length || busy; }
+  function note(){
+    const n = fixes.filter(x => x === 'ml').length, parts = [];
+    if (n) parts.push(n === 1 ? 'una medida en ml pasó a oz' : n + ' medidas en ml pasaron a oz');
+    if (R.pasos.length) parts.push('pasos numerados');
+    return (parts.length ? 'Lo arreglamos: ' + parts.join(', ') + '. ' : '') + 'Si algo no quedó bien, toca Editar.';
+  }
+  const say = (id, h, err) => { const m = $(id); m.className = 'msg' + (err ? ' err' : ''); m.innerHTML = h; };
+
+  $('llenar').addEventListener('click', async () => {
+    const raw = $('pega').value.trim();
+    if (!raw) return say('m1', 'Pega la receta primero.', true);
+    if (busy) return; busy = true; $('llenar').disabled = true;
+    let r = null, by = '';
+    if (window.tnIA) {
+      say('m1', '<span class="wait"><i></i>Claude está arreglando la receta…</span>');
+      try {
+        const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 25000);
+        const res = await fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify({accion: 'limpiar', clave: window.tnClave(), texto: raw}), signal: ctl.signal}).then(x => x.json());
+        clearTimeout(t);
+        if (res.error === 'clave') { busy = false; $('llenar').disabled = false; say('m1', ''); return window.tnLock(); }
+        if (res.ok) { r = fromAI(res.receta); by = 'ia'; }
+      } catch (e) {}
+    }
+    if (!r) r = clean(raw);
+    busy = false; $('llenar').disabled = false; say('m1', '');
+    R = r; render();
+    $('nota').textContent = by === 'ia' ? 'Claude la arregló y la puso en el formato del site. Si algo no quedó bien, toca Editar.' : note();
+    view(); show('s-prev');
+  });
+  $('amano').addEventListener('click', () => {
+    R = {nombre: '', descripcion: '', vaso: 'Vaso corto', etiquetas: ['Cítrico', 'Fresco'], porciones: 1, ing: [], pasos: []};
+    render(); $('nota').textContent = 'Escribe la receta. Al tocar Listo la ponemos en el formato del site.';
+    show('s-prev'); edit('Nombre del trago\nDescripción corta\nVaso: corto · Sabor: Cítrico, Fresco\n\nIngredientes\n1 1/2 oz \n1/2 oz Tres Naranjos\n\nPasos\n1. ');
+  });
+
+  function edit(text){ $('ed').value = text != null ? text : toText(R); $('view').hidden = true; $('edit').hidden = false; $('editar').hidden = true; $('ed').focus({preventScroll: true}); }
+  function view(){ $('view').hidden = false; $('edit').hidden = true; $('editar').hidden = false; }
+  $('editar').addEventListener('click', () => edit());
+  $('cancelar').addEventListener('click', view);
+  $('listo').addEventListener('click', () => { R = clean($('ed').value); fixes = []; render(); view(); });
+
   function loadPhoto(file){
-    if (!file || !/^image\\//.test(file.type)) return;
+    if (!file || !/^image\//.test(file.type)) return;
     const img = new Image(), url = URL.createObjectURL(file);
     img.onload = () => {
       const k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
       const c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
       c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-      photo = c.toDataURL('image/jpeg', .86);
-      $('ar-img').src = photo; $('ar-img').hidden = false; $('ar-ph').hidden = true; $('ar-change').hidden = false;
-      URL.revokeObjectURL(url); say('');
+      photo = c.toDataURL('image/jpeg', .86); URL.revokeObjectURL(url);
+      $('foto').src = photo; $('foto').hidden = false; $('ph-btns').hidden = false; $('drop').hidden = true; check();
     };
     img.src = url;
   }
-  $('ar-file').addEventListener('change', e => loadPhoto(e.target.files[0]));
-  $('ar-change').addEventListener('click', () => $('ar-file').click());
-  const drop = $('ar-drop');
-  drop.addEventListener('dragover', e => { e.preventDefault(); });
-  drop.addEventListener('drop', e => { e.preventDefault(); loadPhoto(e.dataTransfer.files[0]); });
+  $('file').addEventListener('change', e => { loadPhoto(e.target.files[0]); e.target.value = ''; });
+  $('cambiar').addEventListener('click', () => $('file').click());
+  $('quitar').addEventListener('click', () => { photo = null; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; check(); });
+  $('ph').addEventListener('dragover', e => e.preventDefault());
+  $('ph').addEventListener('drop', e => { e.preventDefault(); loadPhoto(e.dataTransfer.files[0]); });
 
-  /* ---- rows ---- */
-  function ingRow(amt, name){
-    const r = document.createElement('div'); r.className = 'row';
-    r.innerHTML = '<select aria-label="Cantidad">' + AMTS.map(a => '<option value="' + a + '">' + (a ? a + ' oz' : 'Sin medida') + '</option>').join('') + '</select>' +
-      '<input type="text" aria-label="Ingrediente" placeholder="Ingrediente" maxlength="70"><button type="button" class="x" aria-label="Quitar">×</button>';
-    r.querySelector('select').value = amt || ''; const inp = r.querySelector('input'); inp.value = name || '';
-    const mark = () => r.classList.toggle('tn', isTN(inp.value)); inp.addEventListener('input', mark); mark();
-    r.querySelector('.x').addEventListener('click', () => { r.remove(); });
-    $('ar-ing').appendChild(r); return inp;
-  }
-  function stepRow(text){
-    const r = document.createElement('div'); r.className = 'row step';
-    r.innerHTML = '<span class="n"></span><textarea rows="1" aria-label="Paso" placeholder="Qué hacer" maxlength="240"></textarea><button type="button" class="x" aria-label="Quitar">×</button>';
-    const t = r.querySelector('textarea'); t.value = text || '';
-    const fit = () => { t.style.height = 'auto'; t.style.height = t.scrollHeight + 3 + 'px'; }; t.addEventListener('input', fit);
-    r.querySelector('.x').addEventListener('click', () => { r.remove(); number(); });
-    $('ar-steps').appendChild(r); number(); return t;
-  }
-  function number(){ [...$('ar-steps').children].forEach((r, i) => r.querySelector('.n').textContent = (i + 1) + '.'); }
-  function fresh(){
-    $('ar-ing').innerHTML = ''; $('ar-steps').innerHTML = '';
-    ingRow('1 1/2', ''); ingRow('1/2', 'Tres Naranjos'); ingRow('1/2', ''); stepRow(''); stepRow('');
-  }
-  fresh();
-  $('ar-add-ing').addEventListener('click', () => ingRow('', '').focus());
-  $('ar-add-step').addEventListener('click', () => stepRow('').focus());
-  $('ar-tags').addEventListener('change', e => { const on = $('ar-tags').querySelectorAll('input:checked'); if (on.length > 2) e.target.checked = false; });
-
-  /* ---- collect + check ---- */
-  const say = (h, err) => { const m = $('ar-msg'); m.className = 'msg' + (err ? ' err' : ''); m.innerHTML = h; };
-  const say2 = (h, err) => { const m = $('pv-msg'); m.className = 'msg' + (err ? ' err' : ''); m.innerHTML = h; };
-  function collect(){
-    const ing = [...$('ar-ing').children].map(r => ({a: r.querySelector('select').value, n: r.querySelector('input').value.trim()})).filter(x => x.n);
-    return {
-      nombre: $('ar-name').value.trim(), descripcion: $('ar-sub').value.trim(),
-      vaso: (document.querySelector('input[name=vaso]:checked') || {}).value || '',
-      etiquetas: [...document.querySelectorAll('input[name=tag]:checked')].map(x => x.value),
-      porciones: +$('ar-serves').value, ing,
-      pasos: [...$('ar-steps').querySelectorAll('textarea')].map(t => t.value.trim()).filter(Boolean)
-    };
-  }
-  function problem(d){
-    if (!photo) return 'Sube la foto del trago.';
-    if (!d.nombre) return 'Escribe el nombre de la receta.';
-    if (!d.vaso) return 'Escoge el vaso.';
-    if (d.etiquetas.length < 1) return 'Escoge el sabor (1 o 2).';
-    if (d.ing.length < 2) return 'Añade por lo menos 2 ingredientes.';
-    if (!d.ing.some(x => isTN(x.n))) return 'Esta receta no lleva Tres Naranjos. Añádelo a los ingredientes.';
-    if (!d.pasos.length) return 'Añade los pasos.';
-    return '';
-  }
-
-  $('ar-form').addEventListener('submit', e => {
-    e.preventDefault();
-    const d = collect(), p = problem(d);
-    if (p) return say(p, true);
-    say('');
-    $('pv-img').src = photo; $('pv-name').textContent = d.nombre;
-    $('pv-meta').textContent = [d.descripcion, d.vaso, d.porciones > 1 ? d.porciones + ' porciones' : ''].filter(Boolean).join(' · ');
-    $('pv-ing').innerHTML = d.ing.map(x => '<li class="' + (isTN(x.n) ? 'tn' : '') + '"><span>' + esc(x.n) + '</span><span class="a">' + (x.a ? esc(x.a) + ' oz' : '') + '</span></li>').join('');
-    $('pv-steps').innerHTML = d.pasos.map(s => '<li>' + esc(s) + '</li>').join('');
-    say2(''); $('ar-pub').disabled = false;
-    $('ar-form').hidden = true; $('ar-pv').hidden = false; scrollTo({top: 0});
-  });
-  $('ar-back').addEventListener('click', () => { $('ar-pv').hidden = true; $('ar-form').hidden = false; scrollTo({top: 0}); });
-
-  $('ar-pub').addEventListener('click', () => {
-    if (busy) return;
-    const d = collect();
-    busy = true; $('ar-pub').disabled = true; $('ar-back').disabled = true;
-    say2('<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
-    const body = {accion: 'receta', clave: window.tnClave(), nombre: d.nombre, descripcion: d.descripcion, vaso: d.vaso,
-      etiquetas: d.etiquetas, porciones: d.porciones, pasos: d.pasos,
-      ingredientes: d.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
+  $('publicar').addEventListener('click', () => {
+    if (!$('edit').hidden) { R = clean($('ed').value); fixes = []; render(); view(); }
+    if (problems().length || busy) return check();
+    busy = true; check(); say('m2', '<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
+    const body = {accion: 'receta', clave: window.tnClave(), nombre: R.nombre, descripcion: R.descripcion, vaso: R.vaso, etiquetas: R.etiquetas,
+      porciones: R.porciones, pasos: R.pasos, ingredientes: R.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
-        const t = new Date(Date.now() + LISTO_MIN * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
-        $('ar-done-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>.';
-        $('ar-pv').hidden = true; $('ar-done').hidden = false; scrollTo({top: 0}); return;
+        const t = new Date(Date.now() + (r.rapido ? 10 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
+        $('d-foto').src = photo; $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
+        say('m2', ''); show('s-done'); return;
       }
       if (r.error === 'clave') return window.tnLock();
-      const m = { sin_tn: 'La receta tiene que llevar Tres Naranjos.',
-        ya_esta: 'Ya hay una receta con ese nombre.', faltan: 'Faltan datos. Vuelve a Editar y revisa.'}[r.error] || 'No se pudo publicar. Vuelve a intentar en un momento.';
-      say2(m, true);
-    }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
-      .finally(() => { busy = false; $('ar-pub').disabled = false; $('ar-back').disabled = false; });
+      say('m2', {sin_tn: 'La receta tiene que llevar Tres Naranjos.', ya_esta: 'Ya hay una receta con ese nombre. Cámbialo en Editar.', faltan: 'Faltan datos. Revisa la receta.'}[r.error] || 'No se pudo publicar. Vuelve a intentar en un momento.', true);
+    }).catch(() => say('m2', 'No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
+      .finally(() => { busy = false; check(); });
+  });
+  $('otra').addEventListener('click', () => {
+    R = null; photo = null; $('pega').value = ''; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; view(); show('s-pega');
   });
 
-  $('ar-otra').addEventListener('click', () => {
-    photo = null; $('ar-img').hidden = true; $('ar-ph').hidden = false; $('ar-change').hidden = true; $('ar-file').value = '';
-    $('ar-form').reset();
-    fresh(); $('ar-done').hidden = true; $('ar-form').hidden = false; scrollTo({top: 0});
-  });
+  window.__tnClean = clean; window.__tnToText = toText;
 })();
-</script>''' % (repr(SCRIPT_URL), LISTO_MIN, json.dumps(AMTS))
+</script>''' % repr(SCRIPT_URL)
 
 a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
 s = s.replace('<head>', '<head>\n<base href="/">\n' + team_gate.HEAD, 1)

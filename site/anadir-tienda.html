@@ -1001,14 +1001,17 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   const lock = msg => { set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
-  if (get()) open(); else lock('');
+  window.tnIA = false;
+  const check = k => fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json());
+  if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; }).catch(() => {}); }
+  else lock('');
   document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
     const k = document.getElementById('pw-key').value.trim(), btn = document.getElementById('pw-go'), m = document.getElementById('pw-msg');
     if (!k) return;
     btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
-    fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json()).then(r => {
-      if (r.ok) { set(k); m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+    check(k).then(r => {
+      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
     }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
   });
