@@ -343,6 +343,7 @@ p{margin:0}
 .ig .tile img.mini{height:70%;top:12%}
 
 .ig .tile video.photo{width:100%;height:100%;object-fit:cover}
+.ig-post .ig-corner{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:#FFF4E6;color:#2D2926;display:grid;place-items:center;opacity:0;transition:opacity .25s ease;z-index:2;pointer-events:none}.ig-post .ig-corner svg{width:18px;height:18px}@media (hover:hover){.ig-post:hover .ig-corner{opacity:1}}.ig-post:focus-visible .ig-corner{opacity:1}
 .ig-post .ig-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}.ig-post .ig-vid.on{opacity:1}
 .reel-ico{position:absolute;top:14px;right:14px;width:22px;height:22px;color:#fff;z-index:2;filter:drop-shadow(0 1px 3px rgba(0,0,0,.35))}
 .reel-foot{position:absolute;left:14px;right:14px;bottom:16px;z-index:2;display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:4px;align-items:center;color:#fff;font-size:13px;text-shadow:0 1px 3px rgba(0,0,0,.35)}
@@ -1486,7 +1487,7 @@ const IG_FEED_URL='https://feeds.behold.so/y9Us941u0nkHzeqMUZSs';
         const alt=String(p.prunedCaption||p.caption||'Publicación de @tresnaranjosoficial').split('\n')[0].slice(0,120);
         /* reels: the real video, muted and looping; the cover image shows until it plays (and if it can't) */
         const vid=p.mediaType==='VIDEO'&&p.mediaUrl?`<video class="photo ig-vid" muted loop playsinline preload="none" poster="${esc(src)}" data-src="${esc(p.mediaUrl)}" aria-hidden="true"></video>`:'';
-        return `<a class="tile ig-post" href="${esc(p.permalink)}" target="_blank" rel="noopener" draggable="false"><img class="photo" src="${esc(src)}"${back} alt="${esc(alt)}" loading="lazy" draggable="false" referrerpolicy="no-referrer">${vid}</a>`;
+        return `<a class="tile ig-post" href="${esc(p.permalink)}" target="_blank" rel="noopener" draggable="false"><img class="photo" src="${esc(src)}"${back} alt="${esc(alt)}" loading="lazy" draggable="false" referrerpolicy="no-referrer">${vid}<span class="ig-corner" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor" stroke="none"/></svg></span></a>`;
       }).join('');
       if(!html) return;
       reel.innerHTML=html;
