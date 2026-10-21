@@ -546,7 +546,7 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .rx-drop b{font-size:17px}.rx-drop span{font-size:14px;color:var(--negro-60)}
 .rx-drop svg{width:38px;height:38px;color:#E8561A}
 .rx-drop input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:object-position .5s ease}
 .ph-btns{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;justify-content:center}
 .ph-btns .btn-a.soft{background:var(--crema)}
 .ct{min-width:0;display:flex;flex-direction:column;gap:20px}
@@ -1252,20 +1252,24 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
       const r = await fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify({accion: 'fotoia', clave: window.tnClave(), nombre: R.nombre, vaso: R.vaso, ingredientes: ingList(), cambio: cambio || ''})}).then(x => x.json());
       if (r.error === 'clave') return window.tnLock();
       if (!r.ok) return fail(r.error === 'sin_saldo' ? 'Se acabó el saldo de Krea para fotos.' : '');
-      for (let i = 0; i < 45; i++) {
-        await new Promise(ok => setTimeout(ok, 3500));
+      for (let i = 0; i < 75; i++) {
+        await new Promise(ok => setTimeout(ok, i < 5 ? 4000 : 2000)); /* nothing comes back before ~20s; then check every 2s */
         if (my !== aiGen) return;
         const e = await fetch(SCRIPT_URL + '?' + new URLSearchParams({accion: 'fotoestado', clave: window.tnClave(), job: r.job})).then(x => x.json()).catch(() => ({ok: true}));
         if (my !== aiGen) return;
         if (!e.ok) return fail('');
         if (e.listo) {
-          const fd = await fetch(SCRIPT_URL + '?' + new URLSearchParams({accion: 'fotodatos', clave: window.tnClave(), url: e.url})).then(x => x.json()).catch(() => ({}));
-          if (my !== aiGen) return;
-          const src = fd.ok ? 'data:' + fd.mime + ';base64,' + fd.b64 : e.url;
+          /* show it right away from Krea; centre on the glass a moment later, once the script has passed us the pixels */
           const im = new Image();
-          im.onload = () => { if (my !== aiGen) return; gx = fd.ok ? glassX(im) : .25; photoUrl = e.url; photo = null; $('foto').src = src; aiBusy = false; say('m2', ''); photoState(''); };
+          im.onload = () => {
+            if (my !== aiGen) return; gx = .25; photoUrl = e.url; photo = null; $('foto').src = e.url; aiBusy = false; say('m2', ''); photoState('');
+            fetch(SCRIPT_URL + '?' + new URLSearchParams({accion: 'fotodatos', clave: window.tnClave(), url: e.url})).then(x => x.json()).then(fd => {
+              if (my !== aiGen || !fd.ok) return;
+              const d = new Image(); d.onload = () => { if (my !== aiGen) return; gx = glassX(d); fit($('foto')); }; d.src = 'data:' + fd.mime + ';base64,' + fd.b64;
+            }).catch(() => {});
+          };
           im.onerror = () => fail('');
-          im.src = src; return;
+          im.src = e.url; return;
         }
       }
       fail('La foto está tardando mucho.');
