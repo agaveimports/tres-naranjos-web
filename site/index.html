@@ -98,6 +98,8 @@
 
 
 
+
+
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script>/* age check: decided before the page paints, so it never flashes once confirmed */try{if(localStorage.getItem('tn-age')==='1')document.documentElement.classList.add('age-ok')}catch(e){}</script>
 <script>/* motion: only when the visitor allows it */if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mo')</script>
 <style>.age-ok .gate{display:none!important}</style>
@@ -1636,4 +1638,33 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 (function(){const v=document.querySelector('.prod-video');if(!v)return;const go=()=>{v.preload='auto';v.load();v.play().catch(()=>{})};
 if(!('IntersectionObserver' in window))return go();
 const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();go()}},{rootMargin:'100px 0px'});io.observe(v)})();</script>
+<script>/* Store numbers on the home page come from the same Google Sheet as the Dónde comprar map
+   ("Tres Naranjos: tiendas del mapa"). The hand-written HTML is the backup if Google doesn't answer. */
+(function(){
+  const CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5OQRzkyMDQrvhycsZlB2yi5957xG7qHC6P2jrYdnyV6LPNOl_vv8uYyq9k7qxFN8P4_a0lBr4AwD-/pub?gid=2038343892&single=true&output=csv';
+  const ZONA={'condado / miramar':'San Juan','santurce':'San Juan','viejo san juan':'San Juan','hato rey':'San Juan','rio piedras':'San Juan','condado':'San Juan','miramar':'San Juan','isla verde':'Carolina'};
+  const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  const esc=t=>String(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function parse(t){const rows=[];let row=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+    else if(c=='"')q=true;else if(c==','){row.push(f);f=''}else if(c=='\n'||c=='\r'){if(c=='\r'&&t[i+1]=='\n')i++;row.push(f);rows.push(row);row=[];f=''}else f+=c}
+    if(f||row.length){row.push(f);rows.push(row)}return rows}
+  fetch(CSV,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
+    const rows=parse(t);if(rows.length&&norm(rows[0][0])==='nombre')rows.shift();
+    const stores=rows.map(r=>{const m=String(r[6]||r[5]||'').match(/(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/);
+      const p=String(r[3]||'').trim();return{n:String(r[0]||'').trim(),p,town:ZONA[norm(p)]||p,ll:m?[+m[1],+m[2]]:null}}).filter(s=>s.n);
+    if(!stores.length)return;
+    const count=(arr,key)=>{const m=new Map();arr.forEach(s=>{const k=s[key];if(k)m.set(k,(m.get(k)||0)+1)});return[...m.entries()].sort((a,b)=>b[1]-a[1]).map(e=>e[0])};
+    const towns=count(stores,'town'),names=count(stores,'n'),n=stores.length,k=towns.length;
+    const label=n+(n===1?' lugar':' lugares')+' en '+k+(k===1?' pueblo':' pueblos');
+    const hl=document.querySelector('.cierre-copy .hl');if(hl)hl.textContent=label+'.';
+    const tw=document.querySelector('.cierre-towns');if(tw)tw.innerHTML=towns.map(x=>'<span>'+esc(x)+'</span>').join('');
+    const pl=document.querySelector('.proof-list');if(pl)pl.innerHTML=names.slice(0,5).map(x=>'<li>'+esc(x)+'</li>').join('');
+    const isla=document.querySelector('.cierre-map svg.isla');if(isla)isla.setAttribute('aria-label','Mapa de Puerto Rico con '+label+' donde comprar Tres Naranjos');
+    const g=document.querySelector('.cierre-map g.dots');
+    if(g)g.innerHTML=stores.filter(s=>s.ll&&s.ll[0]>17.8&&s.ll[0]<18.6&&s.ll[1]>-67.4&&s.ll[1]<-65.1).map(s=>
+      '<circle cx="'+(480.7944*s.ll[1]+32352.645).toFixed(1)+'" cy="'+(-506.087*s.ll[0]+9377.819).toFixed(1)+'" r="8" fill="#F7C45A" data-n="'+esc(s.n)+'" data-p="'+esc(s.p)+'"/>').join('');
+  }).catch(()=>{});
+})();
+</script>
 </body></html>
