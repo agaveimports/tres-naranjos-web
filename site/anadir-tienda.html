@@ -494,11 +494,11 @@ document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a
 },true);
 })();</script>
 <style>
-main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(48px,6vw,80px)) var(--gutter,16px) clamp(56px,8vw,100px)}
-.at-in{max-width:560px;margin:0 auto}
+main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
+.at-in{max-width:760px;margin:0 auto}
 .at-eye{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
-.at h1{font-family:var(--display);font-size:clamp(40px,5.5vw,68px);line-height:.95;margin:.2em 0 .3em;text-transform:uppercase;text-wrap:balance}
-.at-lead{font-size:clamp(16px,1.3vw,18px);line-height:1.55;margin:0 0 26px;color:var(--negro-60)}
+.at h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase;text-wrap:balance}
+.at-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 18px;color:var(--negro-60)}
 .at-lead b{color:var(--negro)}
 .at label.l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
 .at-field{display:flex;gap:8px}
@@ -514,33 +514,35 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .at-btn[disabled]{opacity:.45;cursor:default}
 .at-btn:focus{outline:none}.at-btn:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
 .at-btn.go[disabled]:hover{background:#EE5F1C}
-.at-msg{margin:14px 0 0;font-size:15px;line-height:1.5;min-height:1.5em}
+.at-msg{margin:10px 0 0;font-size:15px;line-height:1.5}.at-msg:empty{display:none}
 .at-msg.err{color:#B3361A;font-weight:600}
 .at-wait{display:flex;align-items:center;gap:10px;color:var(--negro-60)}
 .at-wait i{width:16px;height:16px;border-radius:50%;border:2px solid #F1D5B2;border-top-color:#E8561A;animation:atspin .8s linear infinite}
 @keyframes atspin{to{transform:rotate(360deg)}}
-.at-card{margin-top:22px;border:1.5px solid var(--negro);border-radius:18px;overflow:hidden;background:#fff}
-.at-card img{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#F6E2C8}
-.at-info{padding:16px 18px 18px}
+.at-card{margin-top:16px;border:1.5px solid var(--negro);border-radius:18px;overflow:hidden;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.at-mapbox{position:relative;min-height:260px;background:#F6E2C8;border-right:1.5px solid var(--negro)}.at-mapbox img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.at-info{padding:18px 20px 20px;min-width:0}
 .at-info .q{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 6px}
 .at-info .n{font-weight:700;font-size:21px;line-height:1.25;margin:0}
 .at-info .a{font-size:15px;line-height:1.45;margin:4px 0 0;color:var(--negro-60)}
-.at-tipos{margin:20px 0 0}
-.at-tipos legend{font-weight:700;font-size:15px;margin:0 0 8px;padding:0}
+.at-tipos{margin:16px 0 0}
+.at-tipos legend{font-weight:700;font-size:14px;margin:0 0 8px;padding:0}
 .at-tipos fieldset{border:0;margin:0;padding:0;min-width:0}
-.at-tipos label{margin:0 6px 8px 0;display:inline-flex;align-items:center;min-height:42px;padding:0 1.1em;border-radius:999px;background:#F6E2C8;font-weight:600;font-size:15px;cursor:pointer;user-select:none}
+.at-tipos label{margin:0 6px 8px 0;display:inline-flex;align-items:center;min-height:38px;padding:0 1em;border-radius:999px;background:#F6E2C8;font-weight:600;font-size:15px;cursor:pointer;user-select:none}
 .at-tipos label:hover{background:#F9EAD6}
 .at-tipos input{position:absolute;opacity:0;pointer-events:none}
 .at-tipos label:has(input:checked){background:var(--negro);color:var(--crema)}
 .at-tipos input:focus-visible+span{outline:2px solid #E8561A;outline-offset:4px;border-radius:4px}
 .at-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.at-done{margin-top:22px;padding:22px 20px;border-radius:18px;background:#F6E2C8}
+.at-done{margin-top:16px;padding:22px 20px;border-radius:18px;background:#F6E2C8}
 .at-done h2{font-family:var(--display);font-size:clamp(30px,4vw,42px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
 .at-done p{margin:0 0 16px;line-height:1.5}
-.at-help{margin-top:34px;padding-top:18px;border-top:1.5px dashed var(--negro);font-size:15px;line-height:1.55;color:var(--negro-60)}
+.at-help{margin-top:28px;padding-top:16px;border-top:1.5px dashed var(--negro);font-size:15px;line-height:1.55;color:var(--negro-60)}
 .at-help b{color:var(--negro)}
 .at-help ol{margin:8px 0 0;padding-left:1.2em}
-@media (max-width:560px){.at-field{flex-direction:column}.at-field .at-btn,.at-acts .at-btn{width:100%}}
+.at-add{width:100%;margin-top:8px}
+@media (max-width:640px){.at-card{grid-template-columns:1fr}.at-mapbox{min-height:0;aspect-ratio:5/2;border-right:0;border-bottom:1.5px solid var(--negro)}.at-info{padding:14px 16px 16px}.at-info .n{font-size:19px}.at-field .at-btn,.at-acts .at-btn{width:auto}}
+@media (max-width:420px){.at-acts .at-btn{width:100%}}
 </style><meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -836,9 +838,8 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 <main id="top" class="at"><div class="at-in">
-  <span class="at-eye">Para el equipo</span>
   <h1>Añadir una tienda</h1>
-  <p class="at-lead">Pega el link de Google Maps de la tienda. Te enseñamos cuál es antes de añadirla al mapa de <b>Dónde comprar</b>.</p>
+  <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
 
   <form id="at-form" autocomplete="off" novalidate>
     <label class="l" for="at-link">Link de Google Maps</label>
@@ -851,23 +852,21 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
   <div id="at-res" hidden>
     <div class="at-card">
-      <img id="at-map" alt="">
+      <div class="at-mapbox"><img id="at-map" alt=""></div>
       <div class="at-info">
         <p class="q">¿Es esta la tienda?</p>
         <p class="n" id="at-name"></p>
         <p class="a" id="at-addr"></p>
+        <div class="at-tipos"><fieldset><legend>Tipo de tienda</legend>
+          <label><input type="radio" name="tipo" value="Licorería"><span>Licorería</span></label>
+          <label><input type="radio" name="tipo" value="Supermercado"><span>Supermercado</span></label>
+          <label><input type="radio" name="tipo" value="Cash &amp; Carry"><span>Cash &amp; Carry</span></label>
+          <label><input type="radio" name="tipo" value="Tienda"><span>Tienda</span></label>
+        </fieldset></div>
+        <button class="at-btn go at-add" id="at-si" type="button">Sí, añadir al mapa</button>
+        <p class="at-msg" id="at-msg2" role="status" aria-live="polite"></p>
       </div>
     </div>
-    <div class="at-tipos"><fieldset><legend>Tipo de tienda</legend>
-      <label><input type="radio" name="tipo" value="Licorería"><span>Licorería</span></label>
-      <label><input type="radio" name="tipo" value="Supermercado"><span>Supermercado</span></label>
-      <label><input type="radio" name="tipo" value="Cash &amp; Carry"><span>Cash &amp; Carry</span></label>
-      <label><input type="radio" name="tipo" value="Tienda"><span>Tienda</span></label>
-    </fieldset></div>
-    <div class="at-acts">
-      <button class="at-btn go" id="at-si" type="button">Sí, añadir al mapa</button>
-    </div>
-    <p class="at-msg" id="at-msg2" role="status" aria-live="polite"></p>
   </div>
 
   <div class="at-done" id="at-done" hidden>
@@ -1001,7 +1000,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
       current = {link, t};
       $('at-name').textContent = t.nombre;
       $('at-addr').textContent = [t.dir, t.pueblo].filter(Boolean).join(', ');
-      $('at-map').src = 'https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+e8561a(' + ll[1] + ',' + ll[0] + ')/' + ll[1] + ',' + ll[0] + ',15.5/640x320@2x?logo=false&access_token=' + TOKEN;
+      $('at-map').src = 'https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+e8561a(' + ll[1] + ',' + ll[0] + ')/' + ll[1] + ',' + ll[0] + ',15.5/600x520@2x?logo=false&access_token=' + TOKEN;
       $('at-map').alt = 'Mapa de ' + t.nombre;
       res.hidden = false;
       if (res.getBoundingClientRect().top > innerHeight * .6) res.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
