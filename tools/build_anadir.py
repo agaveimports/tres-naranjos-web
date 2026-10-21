@@ -2,6 +2,7 @@
 Not in the menu, the sitemap or Google (noindex). Paste a Google Maps link, see the store and its pin, pick the type, confirm.
 Talks to the Apps Script web app of the sheet "Tres Naranjos: tiendas del mapa" (SCRIPT_URL below)."""
 from hoist_meta import hoist
+import team_gate
 import re, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 TOOLS, SITE = ROOT + 'tools/', ROOT + 'site/'
@@ -69,6 +70,8 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 </style>'''
 
 main = '''<main id="top" class="at"><div class="at-in">
+''' + team_gate.HTML + '''
+<div id="team-app" hidden>
   <h1>Añadir una tienda</h1>
   <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
 
@@ -117,6 +120,7 @@ main = '''<main id="top" class="at"><div class="at-in">
     </ol>
     <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, avísale a Paul.</p>
   </div>
+</div>
 </div></main>'''
 
 JS = '''<script>
@@ -171,9 +175,10 @@ JS = '''<script>
     const tipo = tipoSel();
     if (!tipo) return;
     busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
-    call({accion:'anadir', link: current.link, tipo}).then(d => {
+    call({accion:'anadir', link: current.link, tipo, clave: window.tnClave()}).then(d => {
       if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
         $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> sale en el mapa no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
+      if (d.error === 'clave') return window.tnLock();
       if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
       say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
@@ -184,9 +189,9 @@ JS = '''<script>
 
 a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
 s = s.replace('<head>', '<head>\n<base href="/">', 1)
-s = s.replace('</head>', CSS + '<meta name="robots" content="noindex, nofollow">\n</head>', 1)
+s = s.replace('</head>', CSS + team_gate.CSS + '<meta name="robots" content="noindex, nofollow">\n</head>', 1)
 a = s.index('/* =====================================================================\n   RECETAS'); b = s.index('</script>', a)
 s = s[:a] + "(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
-s = s.replace('</body>', JS + '\n</body>', 1)
+s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
 open(SITE + 'anadir-tienda.html', 'w').write(hoist(s)); print('ok anadir-tienda')

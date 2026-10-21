@@ -555,6 +555,18 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .done p{margin:0 0 16px;line-height:1.5}
 @media (max-width:760px){.ar-grid,.pv{grid-template-columns:1fr}.ar-photo{position:static;max-width:300px;width:100%;margin:0 auto}.pv img{max-width:300px;margin:0 auto}.acts .btn-a{flex:1}}
 @media (max-width:420px){.row{grid-template-columns:108px minmax(0,1fr) 34px;gap:6px}.x{width:36px;height:36px}}
+</style><style>
+.gate{max-width:420px;margin:clamp(20px,6vh,70px) auto 0;text-align:center}
+.gate h1{font-family:var(--display);font-size:clamp(34px,4.2vw,50px);line-height:.95;margin:0 0 .3em;text-transform:uppercase}
+.gate p{margin:0 0 18px;color:var(--negro-60);line-height:1.5}
+.gate form{display:flex;gap:8px}
+.gate input{flex:1;min-width:0;box-sizing:border-box;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
+.gate input:focus{border-color:#E8561A}
+.gate button{min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--negro);color:var(--crema)}
+.gate button:hover{background:#433D39}.gate button[disabled]{opacity:.5;cursor:default}
+.gate button:focus{outline:none}.gate button:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.gate .gmsg{margin:12px 0 0;font-size:15px;min-height:1.4em}.gate .gmsg.err{color:#B3361A;font-weight:600}
+@media (max-width:420px){.gate form{flex-direction:column}}
 </style><meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -850,6 +862,13 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 <main id="top" class="ar"><div class="ar-in">
+<div class="gate" id="gate-team" hidden>
+  <h1>Para el equipo</h1>
+  <p>Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
+  <form id="gate-form" autocomplete="off"><input type="password" id="gate-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="gate-go">Entrar</button></form>
+  <p class="gmsg" id="gate-msg" role="status" aria-live="polite"></p>
+</div>
+<div id="team-app" hidden>
   <h1>Añadir una receta</h1>
   <p class="ar-lead">Llena la receta y sube la foto. Antes de publicar, ves cómo va a quedar.</p>
 
@@ -875,7 +894,6 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
       <div><span class="l">Sabor <small>(escoge 2)</small></span><div class="chips" id="ar-tags"><label><input type="checkbox" name="tag" value="Cítrico"><span>Cítrico</span></label><label><input type="checkbox" name="tag" value="Fresco"><span>Fresco</span></label><label><input type="checkbox" name="tag" value="Frutal"><span>Frutal</span></label><label><input type="checkbox" name="tag" value="Tropical"><span>Tropical</span></label><label><input type="checkbox" name="tag" value="Ácido"><span>Ácido</span></label><label><input type="checkbox" name="tag" value="Agridulce"><span>Agridulce</span></label><label><input type="checkbox" name="tag" value="Burbujeante"><span>Burbujeante</span></label><label><input type="checkbox" name="tag" value="Ligero"><span>Ligero</span></label><label><input type="checkbox" name="tag" value="Refrescante"><span>Refrescante</span></label><label><input type="checkbox" name="tag" value="Ahumado"><span>Ahumado</span></label><label><input type="checkbox" name="tag" value="Picantito"><span>Picantito</span></label><label><input type="checkbox" name="tag" value="Seco"><span>Seco</span></label><label><input type="checkbox" name="tag" value="Robusto"><span>Robusto</span></label><label><input type="checkbox" name="tag" value="Intenso"><span>Intenso</span></label><label><input type="checkbox" name="tag" value="Almendrado"><span>Almendrado</span></label></div></div>
       <div><span class="l">Ingredientes</span><div class="rows" id="ar-ing"></div><button type="button" class="add" id="ar-add-ing">+ Añadir ingrediente</button></div>
       <div><span class="l">Pasos</span><div class="rows" id="ar-steps"></div><button type="button" class="add" id="ar-add-step">+ Añadir paso</button></div>
-      <div><label class="l" for="ar-key">Clave del equipo</label><input type="password" id="ar-key" autocomplete="off" placeholder="La clave que te dio Paul"></div>
       <p class="msg" id="ar-msg" role="status" aria-live="polite"></p>
       <div class="acts"><button type="submit" class="btn-a go" id="ar-review">Revisar receta</button></div>
     </div>
@@ -902,6 +920,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
     <p id="ar-done-txt"></p>
     <button type="button" class="btn-a go" id="ar-otra">Añadir otra</button>
   </div>
+</div>
 </div></main>
 
 <footer class="wrap">
@@ -989,13 +1008,33 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
 <script>
 (function(){
+  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('team-app'), gate = document.getElementById('gate-team');
+  const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
+  const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
+  const open = () => { gate.hidden = true; app.hidden = false; };
+  const lock = msg => { set(''); app.hidden = true; gate.hidden = false; document.getElementById('gate-msg').textContent = msg || ''; document.getElementById('gate-msg').className = 'gmsg' + (msg ? ' err' : ''); document.getElementById('gate-key').focus(); };
+  window.tnClave = get;
+  window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
+  if (get()) open(); else lock('');
+  document.getElementById('gate-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const k = document.getElementById('gate-key').value.trim(), btn = document.getElementById('gate-go'), m = document.getElementById('gate-msg');
+    if (!k) return;
+    btn.disabled = true; m.className = 'gmsg'; m.textContent = 'Revisando…';
+    fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json()).then(r => {
+      if (r.ok) { set(k); m.textContent = ''; open(); } else { m.className = 'gmsg err'; m.textContent = 'Contraseña incorrecta.'; }
+    }).catch(() => { m.className = 'gmsg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
+      .finally(() => { btn.disabled = false; });
+  });
+})();
+</script><script>
+(function(){
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', LISTO_MIN = 15, AMTS = ["", "1/4", "1/2", "3/4", "1", "1 1/4", "1 1/2", "1 3/4", "2", "2 1/2", "3", "4", "6", "8"];
   const $ = id => document.getElementById(id);
   const esc = s => String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const isTN = s => /\b(tres|3)\s*naranjos?\b/.test(norm(s));
   let photo = null, busy = false;
-  try { $('ar-key').value = localStorage.getItem('tn-clave') || ''; } catch (e) {}
 
   /* ---- photo: shrink on the phone before sending ---- */
   function loadPhoto(file){
@@ -1055,8 +1094,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
       vaso: (document.querySelector('input[name=vaso]:checked') || {}).value || '',
       etiquetas: [...document.querySelectorAll('input[name=tag]:checked')].map(x => x.value),
       porciones: +$('ar-serves').value, ing,
-      pasos: [...$('ar-steps').querySelectorAll('textarea')].map(t => t.value.trim()).filter(Boolean),
-      clave: $('ar-key').value.trim()
+      pasos: [...$('ar-steps').querySelectorAll('textarea')].map(t => t.value.trim()).filter(Boolean)
     };
   }
   function problem(d){
@@ -1067,7 +1105,6 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     if (d.ing.length < 2) return 'Añade por lo menos 2 ingredientes.';
     if (!d.ing.some(x => isTN(x.n))) return 'Esta receta no lleva Tres Naranjos. Añádelo a los ingredientes.';
     if (!d.pasos.length) return 'Añade los pasos.';
-    if (!d.clave) return 'Escribe la clave del equipo.';
     return '';
   }
 
@@ -1090,17 +1127,17 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     const d = collect();
     busy = true; $('ar-pub').disabled = true; $('ar-back').disabled = true;
     say2('<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
-    const body = {accion: 'receta', clave: d.clave, nombre: d.nombre, descripcion: d.descripcion, vaso: d.vaso,
+    const body = {accion: 'receta', clave: window.tnClave(), nombre: d.nombre, descripcion: d.descripcion, vaso: d.vaso,
       etiquetas: d.etiquetas, porciones: d.porciones, pasos: d.pasos,
       ingredientes: d.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
-        try { localStorage.setItem('tn-clave', d.clave); } catch (e) {}
         const t = new Date(Date.now() + LISTO_MIN * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
         $('ar-done-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>.';
         $('ar-pv').hidden = true; $('ar-done').hidden = false; scrollTo({top: 0}); return;
       }
-      const m = {clave: 'La clave del equipo no es correcta.', sin_tn: 'La receta tiene que llevar Tres Naranjos.',
+      if (r.error === 'clave') return window.tnLock();
+      const m = { sin_tn: 'La receta tiene que llevar Tres Naranjos.',
         ya_esta: 'Ya hay una receta con ese nombre.', faltan: 'Faltan datos. Vuelve a Editar y revisa.'}[r.error] || 'No se pudo publicar. Vuelve a intentar en un momento.';
       say2(m, true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
@@ -1109,7 +1146,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
   $('ar-otra').addEventListener('click', () => {
     photo = null; $('ar-img').hidden = true; $('ar-ph').hidden = false; $('ar-change').hidden = true; $('ar-file').value = '';
-    $('ar-form').reset(); try { $('ar-key').value = localStorage.getItem('tn-clave') || ''; } catch (e) {}
+    $('ar-form').reset();
     fresh(); $('ar-done').hidden = true; $('ar-form').hidden = false; scrollTo({top: 0});
   });
 })();

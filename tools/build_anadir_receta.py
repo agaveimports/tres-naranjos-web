@@ -3,6 +3,7 @@ Not in the menu, the sitemap or Google (noindex). Sends the recipe to the Apps S
 "Tres Naranjos: sitio web" (same SCRIPT_URL as anadir-tienda), which saves the photo in Drive, adds a row to the
 Recetas tab and tells GitHub to rebuild (tools/sync_recetas.py)."""
 from hoist_meta import hoist
+import team_gate
 import json, re, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 TOOLS, SITE = ROOT + 'tools/', ROOT + 'site/'
@@ -88,6 +89,8 @@ chip = lambda name, typ, v: f'<label><input type="{typ}" name="{name}" value="{v
 amt_opts = ''.join(f'<option value="{a}">{a + " oz" if a else "Sin medida"}</option>' for a in AMTS)
 
 main = f'''<main id="top" class="ar"><div class="ar-in">
+{team_gate.HTML}
+<div id="team-app" hidden>
   <h1>Añadir una receta</h1>
   <p class="ar-lead">Llena la receta y sube la foto. Antes de publicar, ves cómo va a quedar.</p>
 
@@ -113,7 +116,6 @@ main = f'''<main id="top" class="ar"><div class="ar-in">
       <div><span class="l">Sabor <small>(escoge 2)</small></span><div class="chips" id="ar-tags">{''.join(chip('tag', 'checkbox', t) for t in TAGS)}</div></div>
       <div><span class="l">Ingredientes</span><div class="rows" id="ar-ing"></div><button type="button" class="add" id="ar-add-ing">+ Añadir ingrediente</button></div>
       <div><span class="l">Pasos</span><div class="rows" id="ar-steps"></div><button type="button" class="add" id="ar-add-step">+ Añadir paso</button></div>
-      <div><label class="l" for="ar-key">Clave del equipo</label><input type="password" id="ar-key" autocomplete="off" placeholder="La clave que te dio Paul"></div>
       <p class="msg" id="ar-msg" role="status" aria-live="polite"></p>
       <div class="acts"><button type="submit" class="btn-a go" id="ar-review">Revisar receta</button></div>
     </div>
@@ -140,6 +142,7 @@ main = f'''<main id="top" class="ar"><div class="ar-in">
     <p id="ar-done-txt"></p>
     <button type="button" class="btn-a go" id="ar-otra">Añadir otra</button>
   </div>
+</div>
 </div></main>'''
 
 JS = '''<script>
@@ -150,7 +153,6 @@ JS = '''<script>
   const norm = s => String(s || '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();
   const isTN = s => /\\b(tres|3)\\s*naranjos?\\b/.test(norm(s));
   let photo = null, busy = false;
-  try { $('ar-key').value = localStorage.getItem('tn-clave') || ''; } catch (e) {}
 
   /* ---- photo: shrink on the phone before sending ---- */
   function loadPhoto(file){
@@ -210,8 +212,7 @@ JS = '''<script>
       vaso: (document.querySelector('input[name=vaso]:checked') || {}).value || '',
       etiquetas: [...document.querySelectorAll('input[name=tag]:checked')].map(x => x.value),
       porciones: +$('ar-serves').value, ing,
-      pasos: [...$('ar-steps').querySelectorAll('textarea')].map(t => t.value.trim()).filter(Boolean),
-      clave: $('ar-key').value.trim()
+      pasos: [...$('ar-steps').querySelectorAll('textarea')].map(t => t.value.trim()).filter(Boolean)
     };
   }
   function problem(d){
@@ -222,7 +223,6 @@ JS = '''<script>
     if (d.ing.length < 2) return 'Añade por lo menos 2 ingredientes.';
     if (!d.ing.some(x => isTN(x.n))) return 'Esta receta no lleva Tres Naranjos. Añádelo a los ingredientes.';
     if (!d.pasos.length) return 'Añade los pasos.';
-    if (!d.clave) return 'Escribe la clave del equipo.';
     return '';
   }
 
@@ -245,17 +245,17 @@ JS = '''<script>
     const d = collect();
     busy = true; $('ar-pub').disabled = true; $('ar-back').disabled = true;
     say2('<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
-    const body = {accion: 'receta', clave: d.clave, nombre: d.nombre, descripcion: d.descripcion, vaso: d.vaso,
+    const body = {accion: 'receta', clave: window.tnClave(), nombre: d.nombre, descripcion: d.descripcion, vaso: d.vaso,
       etiquetas: d.etiquetas, porciones: d.porciones, pasos: d.pasos,
       ingredientes: d.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
-        try { localStorage.setItem('tn-clave', d.clave); } catch (e) {}
         const t = new Date(Date.now() + LISTO_MIN * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
         $('ar-done-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>.';
         $('ar-pv').hidden = true; $('ar-done').hidden = false; scrollTo({top: 0}); return;
       }
-      const m = {clave: 'La clave del equipo no es correcta.', sin_tn: 'La receta tiene que llevar Tres Naranjos.',
+      if (r.error === 'clave') return window.tnLock();
+      const m = { sin_tn: 'La receta tiene que llevar Tres Naranjos.',
         ya_esta: 'Ya hay una receta con ese nombre.', faltan: 'Faltan datos. Vuelve a Editar y revisa.'}[r.error] || 'No se pudo publicar. Vuelve a intentar en un momento.';
       say2(m, true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
@@ -264,7 +264,7 @@ JS = '''<script>
 
   $('ar-otra').addEventListener('click', () => {
     photo = null; $('ar-img').hidden = true; $('ar-ph').hidden = false; $('ar-change').hidden = true; $('ar-file').value = '';
-    $('ar-form').reset(); try { $('ar-key').value = localStorage.getItem('tn-clave') || ''; } catch (e) {}
+    $('ar-form').reset();
     fresh(); $('ar-done').hidden = true; $('ar-form').hidden = false; scrollTo({top: 0});
   });
 })();
@@ -272,9 +272,9 @@ JS = '''<script>
 
 a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
 s = s.replace('<head>', '<head>\n<base href="/">', 1)
-s = s.replace('</head>', CSS + '<meta name="robots" content="noindex, nofollow">\n</head>', 1)
+s = s.replace('</head>', CSS + team_gate.CSS + '<meta name="robots" content="noindex, nofollow">\n</head>', 1)
 a = s.index('/* =====================================================================\n   RECETAS'); b = s.index('</script>', a)
 s = s[:a] + "(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
-s = s.replace('</body>', JS + '\n</body>', 1)
+s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
 open(SITE + 'anadir-receta.html', 'w').write(hoist(s)); print('ok anadir-receta')

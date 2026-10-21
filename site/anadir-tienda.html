@@ -543,6 +543,18 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .at-add{width:100%;margin-top:8px}
 @media (max-width:640px){.at-card{grid-template-columns:1fr}.at-mapbox{min-height:0;aspect-ratio:5/2;border-right:0;border-bottom:1.5px solid var(--negro)}.at-info{padding:14px 16px 16px}.at-info .n{font-size:19px}.at-field .at-btn,.at-acts .at-btn{width:auto}}
 @media (max-width:420px){.at-acts .at-btn{width:100%}}
+</style><style>
+.gate{max-width:420px;margin:clamp(20px,6vh,70px) auto 0;text-align:center}
+.gate h1{font-family:var(--display);font-size:clamp(34px,4.2vw,50px);line-height:.95;margin:0 0 .3em;text-transform:uppercase}
+.gate p{margin:0 0 18px;color:var(--negro-60);line-height:1.5}
+.gate form{display:flex;gap:8px}
+.gate input{flex:1;min-width:0;box-sizing:border-box;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
+.gate input:focus{border-color:#E8561A}
+.gate button{min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--negro);color:var(--crema)}
+.gate button:hover{background:#433D39}.gate button[disabled]{opacity:.5;cursor:default}
+.gate button:focus{outline:none}.gate button:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.gate .gmsg{margin:12px 0 0;font-size:15px;min-height:1.4em}.gate .gmsg.err{color:#B3361A;font-weight:600}
+@media (max-width:420px){.gate form{flex-direction:column}}
 </style><meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -838,6 +850,13 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 <main id="top" class="at"><div class="at-in">
+<div class="gate" id="gate-team" hidden>
+  <h1>Para el equipo</h1>
+  <p>Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
+  <form id="gate-form" autocomplete="off"><input type="password" id="gate-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="gate-go">Entrar</button></form>
+  <p class="gmsg" id="gate-msg" role="status" aria-live="polite"></p>
+</div>
+<div id="team-app" hidden>
   <h1>Añadir una tienda</h1>
   <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
 
@@ -886,6 +905,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
     </ol>
     <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, avísale a Paul.</p>
   </div>
+</div>
 </div></main>
 
 <footer class="wrap">
@@ -973,6 +993,27 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
 <script>
 (function(){
+  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('team-app'), gate = document.getElementById('gate-team');
+  const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
+  const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
+  const open = () => { gate.hidden = true; app.hidden = false; };
+  const lock = msg => { set(''); app.hidden = true; gate.hidden = false; document.getElementById('gate-msg').textContent = msg || ''; document.getElementById('gate-msg').className = 'gmsg' + (msg ? ' err' : ''); document.getElementById('gate-key').focus(); };
+  window.tnClave = get;
+  window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
+  if (get()) open(); else lock('');
+  document.getElementById('gate-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const k = document.getElementById('gate-key').value.trim(), btn = document.getElementById('gate-go'), m = document.getElementById('gate-msg');
+    if (!k) return;
+    btn.disabled = true; m.className = 'gmsg'; m.textContent = 'Revisando…';
+    fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json()).then(r => {
+      if (r.ok) { set(k); m.textContent = ''; open(); } else { m.className = 'gmsg err'; m.textContent = 'Contraseña incorrecta.'; }
+    }).catch(() => { m.className = 'gmsg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
+      .finally(() => { btn.disabled = false; });
+  });
+})();
+</script><script>
+(function(){
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', TOKEN = 'pk.eyJ1IjoiYWxmb25zb3JvZHoxIiwiYSI6ImNtdmIydWt0eDAyc3MzNHB5emVseDRuMnEifQ.25ngv3uGQKI1fmtaWga5fQ';
   const $ = id => document.getElementById(id);
   const LISTO_MIN = 5; /* measured Oct 2026: the published sheet updates in seconds; Google promises within 5 minutes */
@@ -1023,9 +1064,10 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     const tipo = tipoSel();
     if (!tipo) return;
     busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
-    call({accion:'anadir', link: current.link, tipo}).then(d => {
+    call({accion:'anadir', link: current.link, tipo, clave: window.tnClave()}).then(d => {
       if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
         $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> sale en el mapa no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
+      if (d.error === 'clave') return window.tnLock();
       if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
       say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
