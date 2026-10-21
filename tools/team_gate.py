@@ -68,12 +68,10 @@ def no_footer(page):
 
 
 def admin_header(page):
-    """Team pages get a slim header instead of the public menu: logo + EQUIPO tag, and one 'Ver el sitio' link."""
+    """Team pages get a slim header instead of the public menu: just the Tres Naranjos logo (goes to the home page)."""
     import re
     hdr = ('<header class="nav solid adm" id="nav">\n'
-           '  <a class="logo" href="equipo/" aria-label="Equipo Tres Naranjos">TR<span class="rev">E</span>S NARANJOS</a>\n'
-           '  <span class="adm-tag">Equipo</span>\n'
-           '  <a class="adm-site" href="./" target="_blank" rel="noopener">Ver el sitio <span aria-hidden="true">↗</span></a>\n'
+           '  <a class="logo" href="./" aria-label="Tres Naranjos, inicio">TR<span class="rev">E</span>S NARANJOS</a>\n'
            '</header>')
     page = re.sub(r'<header class="nav[^"]*" id="nav">[\s\S]*?</header>', hdr, page, count=1)
     css = ('<style>.nav.adm{display:flex;align-items:center;gap:14px}'
