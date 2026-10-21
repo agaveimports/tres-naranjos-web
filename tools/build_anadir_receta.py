@@ -48,6 +48,21 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .pv-top p{margin:0;font-size:15px;color:var(--negro-60);line-height:1.45}
 .rx-card{border:1.5px solid var(--negro);border-radius:22px;background:#fff;padding:clamp(16px,2.2vw,28px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start}
 .ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden}
+.ph-col{display:grid;gap:10px;min-width:0;align-content:start}
+.ai-wait,.ai-err{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;border-radius:16px}
+.ai-wait{background:linear-gradient(110deg,#F6E2C8 20%,#FBEEDC 40%,#F6E2C8 60%) 0 0/250% 100%;animation:aishim 1.6s linear infinite}
+.ai-wait b,.ai-err b{font-size:17px}.ai-wait span{font-size:14px;color:var(--negro-60);max-width:24ch;line-height:1.4}
+.ai-err{background:#FFFBF5;border:1.5px dashed #E8561A}
+.ai-spin{width:30px;height:30px;border-radius:50%;border:3px solid rgba(45,41,38,.15);border-top-color:#E8561A;animation:arspin .9s linear infinite}
+@keyframes aishim{to{background-position:-250% 0}}
+@media (prefers-reduced-motion:reduce){.ai-wait{animation:none}.ai-spin{animation-duration:2.4s}}
+.ai-tools{display:flex;gap:8px}
+.ai-tools input{flex:1;min-width:0;box-sizing:border-box;font:500 15px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid rgba(45,41,38,.35);border-radius:999px;padding:.7em 1em;outline:none}
+.ai-tools input:focus{border-color:#E8561A}
+.ai-tools .btn-a{white-space:nowrap}
+.ai-up{justify-self:center;background:none;border:0;padding:4px;font:600 14px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro-60);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.ai-up:hover{color:#E04F12}
+
 .rx-drop{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;border:1.5px dashed #E8561A;border-radius:16px;background:#FFFBF5;cursor:pointer}
 .rx-drop:hover{background:#FFF6EA}
 .rx-drop b{font-size:17px}.rx-drop span{font-size:14px;color:var(--negro-60)}
@@ -79,7 +94,8 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .done-box p.s{font-size:15px;color:rgba(45,41,38,.7);margin-bottom:18px}
 @media (max-width:760px){
   .rx-card,.done{grid-template-columns:1fr}
-  .ph,.done img{width:min(340px,100%);justify-self:center;margin:0}
+  .ph-col,.done img{width:min(340px,100%);justify-self:center;margin:0}
+  .ai-tools{flex-wrap:wrap}.ai-tools input,.ai-tools .btn-a{flex:1 1 100%}
   .pv-top{flex-direction:column;align-items:flex-start}
   #ed{min-height:380px}
   .acts .btn-a.go{flex:1}
@@ -110,10 +126,16 @@ main = f'''<main id="top" class="ar"><div class="ar-in">
       <button type="button" class="btn-a soft sm" id="editar">{PEN}Editar</button>
     </div>
     <div class="rx-card">
+      <div class="ph-col">
       <div class="ph" id="ph">
         <label class="rx-drop" id="drop"><input type="file" id="file" accept="image/*">{CAM}<b>Sube la foto</b><span>o arrástrala aquí · vertical, el trago en el centro</span></label>
         <img id="foto" alt="Foto del trago" hidden>
+        <div class="ai-wait" id="ai-wait" hidden><span class="ai-spin" aria-hidden="true"></span><b>Creando la foto…</b><span>Unos 30 segundos. Mientras, revisa la receta.</span></div>
+        <div class="ai-err" id="ai-err" hidden><b id="ai-err-t">No se pudo crear la foto.</b><button type="button" class="btn-a dark sm" id="ai-retry">Intentar otra vez</button></div>
         <div class="ph-btns" id="ph-btns" hidden><button type="button" class="btn-a soft sm" id="cambiar">Cambiar</button><button type="button" class="btn-a dark sm" id="quitar">Quitar</button></div>
+      </div>
+      <form class="ai-tools" id="ai-tools" autocomplete="off" hidden><input id="ai-cambio" maxlength="200" placeholder="¿Qué le cambiarías? (opcional)" aria-label="Qué le cambiarías a la foto"><button type="submit" class="btn-a soft sm" id="ai-otra">Otra versión</button></form>
+      <button type="button" class="ai-up" id="ai-subir" hidden>o sube tu foto</button>
       </div>
       <div class="ct" id="view">
         <div>
@@ -161,7 +183,7 @@ JS = r'''<script>
   const isTN = s => /\b(tres|3)\s*naranjos?\b/.test(norm(s));
   const VASOS = ['Vaso corto','Vaso alto','Copa','Copa de vino','Copa o shot','Flauta','Jarra'];
   const SHORT = {'Vaso corto':'corto','Vaso alto':'alto'};
-  let R = null, photo = null, busy = false, fixes = [];
+  let R = null, photo = null, photoUrl = null, aiGen = 0, aiBusy = false, busy = false, fixes = [];
 
   function fmtA(x){ let w = Math.floor(x), f = Math.round((x - w) * 4) / 4; if (f === 1) { w++; f = 0; }
     const fr = {0:'', .25:'1/4', .5:'1/2', .75:'3/4'}[f]; return ((w ? w : '') + (w && fr ? ' ' : '') + fr) || '1/4'; }
@@ -269,7 +291,7 @@ JS = r'''<script>
   }
   function problems(){
     const p = [];
-    if (!photo) p.push('Falta la foto.');
+    if (!photo && !photoUrl) p.push(aiBusy ? 'La foto se está creando.' : 'Falta la foto.');
     if (!R.nombre) p.push('Falta el nombre.');
     if (R.ing.length < 2) p.push('Faltan ingredientes.');
     else if (!R.ing.some(x => isTN(x.n))) p.push('La receta no lleva Tres Naranjos. Toca Editar y añádelo.');
@@ -305,6 +327,7 @@ JS = r'''<script>
     R = r; render();
     $('nota').textContent = by === 'ia' ? 'Claude la arregló y la puso en el formato del site. Si algo no quedó bien, toca Editar.' : note();
     view(); show('s-prev');
+    if (window.tnFoto && !photo && !photoUrl) genPhoto('');
   });
   $('amano').addEventListener('click', () => {
     R = {nombre: '', descripcion: '', vaso: 'Vaso corto', etiquetas: ['Cítrico', 'Fresco'], porciones: 1, ing: [], pasos: []};
@@ -316,8 +339,50 @@ JS = r'''<script>
   function view(){ $('view').hidden = false; $('edit').hidden = true; $('editar').hidden = false; }
   $('editar').addEventListener('click', () => edit());
   $('cancelar').addEventListener('click', view);
-  $('listo').addEventListener('click', () => { R = clean($('ed').value); fixes = []; render(); view(); });
+  $('listo').addEventListener('click', () => { R = clean($('ed').value); fixes = []; render(); view();
+    if (window.tnFoto && !photo && !photoUrl && !aiBusy && R.nombre) genPhoto(''); });
 
+  const ingList = () => R.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n);
+  function fit(img){ const r = img.naturalWidth / img.naturalHeight; if (r <= 1.2) { img.style.objectPosition = '50%% 50%%'; return; }
+    const f = .8 / r, x = Math.min(1, Math.max(0, (.25 - f / 2) / (1 - f))); img.style.objectPosition = (x * 100).toFixed(1) + '%% 50%%'; } /* wide AI photo: crop centred on the glass (a quarter in), same as sync_recetas.py */
+  $('foto').addEventListener('load', () => fit($('foto')));
+  function photoState(st, msg){
+    $('ai-wait').hidden = st !== 'wait'; $('ai-err').hidden = st !== 'err';
+    if (st === 'err') $('ai-err-t').textContent = msg || 'No se pudo crear la foto.';
+    const has = !!(photo || photoUrl); $('foto').hidden = !has;
+    $('drop').hidden = has || !!window.tnFoto || st === 'wait';
+    $('ph-btns').hidden = !photo;
+    $('ai-tools').hidden = !photoUrl || st === 'wait';
+    $('ai-subir').hidden = !window.tnFoto || !!photo || st === 'wait';
+    $('ai-otra').disabled = aiBusy; if (R) check();
+  }
+  async function genPhoto(cambio){
+    if (!R) return;
+    const my = ++aiGen; aiBusy = true; $('ai-retry').textContent = 'Intentar otra vez'; photoState('wait');
+    const fail = m => { if (my !== aiGen) return; aiBusy = false; photoState(photoUrl ? '' : 'err', m); if (photoUrl) say('m2', m || 'No se pudo crear otra versión.', true); };
+    try {
+      const r = await fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify({accion: 'fotoia', clave: window.tnClave(), nombre: R.nombre, vaso: R.vaso, ingredientes: ingList(), cambio: cambio || ''})}).then(x => x.json());
+      if (r.error === 'clave') return window.tnLock();
+      if (!r.ok) return fail(r.error === 'sin_saldo' ? 'Se acabó el saldo de Krea para fotos.' : '');
+      for (let i = 0; i < 45; i++) {
+        await new Promise(ok => setTimeout(ok, 3500));
+        if (my !== aiGen) return;
+        const e = await fetch(SCRIPT_URL + '?' + new URLSearchParams({accion: 'fotoestado', clave: window.tnClave(), job: r.job})).then(x => x.json()).catch(() => ({ok: true}));
+        if (my !== aiGen) return;
+        if (!e.ok) return fail('');
+        if (e.listo) {
+          const im = new Image();
+          im.onload = () => { if (my !== aiGen) return; photoUrl = e.url; photo = null; $('foto').src = e.url; aiBusy = false; say('m2', ''); photoState(''); };
+          im.onerror = () => fail('');
+          im.src = e.url; return;
+        }
+      }
+      fail('La foto está tardando mucho.');
+    } catch (err) { fail(''); }
+  }
+  $('ai-retry').addEventListener('click', () => genPhoto(''));
+  $('ai-tools').addEventListener('submit', e => { e.preventDefault(); if (aiBusy) return; const c = $('ai-cambio').value.trim(); genPhoto(c); $('ai-cambio').value = ''; });
+  $('ai-subir').addEventListener('click', () => $('file').click());
   function loadPhoto(file){
     if (!file || !/^image\//.test(file.type)) return;
     const img = new Image(), url = URL.createObjectURL(file);
@@ -326,13 +391,13 @@ JS = r'''<script>
       const c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
       c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
       photo = c.toDataURL('image/jpeg', .86); URL.revokeObjectURL(url);
-      $('foto').src = photo; $('foto').hidden = false; $('ph-btns').hidden = false; $('drop').hidden = true; check();
+      aiGen++; aiBusy = false; photoUrl = null; $('foto').src = photo; photoState('');
     };
     img.src = url;
   }
   $('file').addEventListener('change', e => { loadPhoto(e.target.files[0]); e.target.value = ''; });
   $('cambiar').addEventListener('click', () => $('file').click());
-  $('quitar').addEventListener('click', () => { photo = null; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; check(); });
+  $('quitar').addEventListener('click', () => { photo = null; if (window.tnFoto) photoState('err', 'Sin foto.'), $('ai-retry').textContent = 'Crear foto con IA'; else photoState(''); });
   $('ph').addEventListener('dragover', e => e.preventDefault());
   $('ph').addEventListener('drop', e => { e.preventDefault(); loadPhoto(e.dataTransfer.files[0]); });
 
@@ -341,11 +406,12 @@ JS = r'''<script>
     if (problems().length || busy) return check();
     busy = true; check(); say('m2', '<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
     const body = {accion: 'receta', clave: window.tnClave(), nombre: R.nombre, descripcion: R.descripcion, vaso: R.vaso, etiquetas: R.etiquetas,
-      porciones: R.porciones, pasos: R.pasos, ingredientes: R.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
+      porciones: R.porciones, pasos: R.pasos, ingredientes: ingList()};
+    if (photoUrl) body.foto_url = photoUrl; else body.foto = photo.split(',')[1];
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
         const t = new Date(Date.now() + (r.rapido ? 10 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
-        $('d-foto').src = photo; $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
+        $('d-foto').src = photoUrl || photo; fit($('d-foto')); $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
         say('m2', ''); show('s-done'); return;
       }
       if (r.error === 'clave') return window.tnLock();
@@ -354,7 +420,7 @@ JS = r'''<script>
       .finally(() => { busy = false; check(); });
   });
   $('otra').addEventListener('click', () => {
-    R = null; photo = null; $('pega').value = ''; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; view(); show('s-pega');
+    R = null; photo = null; photoUrl = null; aiGen++; aiBusy = false; $('ai-retry').textContent = 'Intentar otra vez'; $('pega').value = ''; photoState(''); view(); show('s-pega');
   });
 
   window.__tnClean = clean; window.__tnToText = toText;

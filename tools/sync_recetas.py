@@ -31,9 +31,16 @@ def drive_id(foto):
     return m.group(1) if m else None
 
 
-def save_photo(img_bytes, name):
+def save_photo(img_bytes, name, slug=None):
+    """A wide photo (the AI photos from /equipo/receta are 16:9, glass in the left third) becomes:
+    the recipe photo cropped 4:5 from the glass side, and tools/share-src/<slug>.jpg so its WhatsApp card is the full wide photo."""
     from PIL import Image, ImageOps
     im = ImageOps.exif_transpose(Image.open(io.BytesIO(img_bytes))).convert('RGB')
+    W, H = im.size
+    if slug and W / H > 1.3:
+        im.resize((1600, round(1600 * H / W)), Image.LANCZOS).save(TOOLS + f'share-src/{slug}.jpg', quality=92)
+        cw = round(H * 0.8); x0 = max(0, min(W - cw, round(W * 0.25 - cw / 2)))  # centred on the glass, same as the page preview
+        im = im.crop((x0, 0, x0 + cw, H))
     ImageOps.fit(im, (960, 1200), Image.LANCZOS, centering=(0.5, 0.5)).save(SITE + f'assets/tragos/{name}.webp', 'WEBP', quality=80)
     ImageOps.fit(im, (560, 560), Image.LANCZOS, centering=(0.5, 0.45)).save(SITE + f'assets/tragos/sm/{name}.webp', 'WEBP', quality=80)
 
@@ -67,7 +74,7 @@ def main():
                 f = get({'accion': 'foto', 'id': fid})
                 if not f.get('ok'):
                     skipped.append((d['name'], 'foto no disponible')); continue
-                save_photo(base64.b64decode(f['b64']), d['photo'])
+                save_photo(base64.b64decode(f['b64']), d['photo'], d['slug'])
         if not os.path.exists(SITE + f"assets/tragos/{d['photo']}.webp"):
             skipped.append((d['name'], 'sin foto')); continue
         if not d['ing'] or not d['steps']:

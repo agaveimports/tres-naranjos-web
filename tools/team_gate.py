@@ -41,9 +41,9 @@ def js(script_url, app_id, hub=False):
   const lock = msg => { if (!HUB) { set(''); return toHub(msg); } set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
-  window.tnIA = false;
+  window.tnIA = false; window.tnFoto = false;
   const check = k => fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json());
-  if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; }).catch(() => {}); }
+  if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; window.tnFoto = !!r.foto; }).catch(() => {}); }
   else lock(HUB && new URLSearchParams(location.search).get('m') ? 'La contraseña cambió. Escribe la nueva.' : '');
   document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
@@ -51,7 +51,7 @@ def js(script_url, app_id, hub=False):
     if (!k) return;
     btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
     check(k).then(r => {
-      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; const ir = new URLSearchParams(location.search).get('ir') || ''; if (ir.indexOf('/equipo/') === 0 && /^[a-z/-]+$/.test(ir) && ir.length > 8) return location.replace(ir); open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+      if (r.ok) { set(k); window.tnIA = !!r.ia; window.tnFoto = !!r.foto; m.textContent = ''; const ir = new URLSearchParams(location.search).get('ir') || ''; if (ir.indexOf('/equipo/') === 0 && /^[a-z/-]+$/.test(ir) && ir.length > 8) return location.replace(ir); open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
     }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
   });
