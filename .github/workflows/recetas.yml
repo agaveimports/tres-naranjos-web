@@ -1,0 +1,43 @@
+# Brings recipe changes from the Google Sheet "Tres Naranjos: sitio web" (tab Recetas) into the site.
+# Runs when the sheet tells it to (repository_dispatch "recetas", sent by the sheet's Apps Script),
+# every 15 minutes as a backup, or by hand from the Actions tab. Pushing to main publishes on Cloudflare.
+name: Recetas desde la hoja
+on:
+  repository_dispatch:
+    types: [recetas]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Reconstruir aunque la hoja no haya cambiado'
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: recetas
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow numpy
+      - run: python3 tools/sync_recetas.py ${{ inputs.force && '--force' || '' }}
+      - name: Publish if something changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "Recetas (hoja)"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Recetas: actualizadas desde la hoja"
+            git pull --rebase origin main
+            git push
+          else
+            echo "Nada cambió"
+          fi
