@@ -33,10 +33,10 @@
  },
  {
   "q": "Soy un restaurante o barra. ¿Cómo pido Tres Naranjos?",
-  "a": "Escríbenos a Agave Imports por <a class=\"fq-wa\" href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al 939-373-0729 o a info@agaveimportspr.com y te conectamos con ventas."
+  "a": "Escríbenos a Agave Imports por <a class=\"fq-wa\" href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al <a class=\"copy-tel\" href=\"tel:+19393730729\" data-copy=\"939-373-0729\" aria-label=\"Copiar 939-373-0729\"><span>939-373-0729</span></a> o a <button type=\"button\" class=\"copy-mail\" data-mail=\"info@agaveimportspr.com\" aria-label=\"Copiar info@agaveimportspr.com\"><span>info@agaveimportspr.com</span></button> y te conectamos con ventas."
  },
  {
   "q": "Soy un supermercado o tienda. ¿Cómo lo vendo?",
-  "a": "Comunícate con Insular Trading al <a href=\"tel:+17872707272\">787-270-7272</a> o a info@insulartradingpr.com."
+  "a": "Comunícate con Insular Trading al <a class=\"copy-tel\" href=\"tel:+17872707272\" data-copy=\"787-270-7272\" aria-label=\"Copiar 787-270-7272\"><span>787-270-7272</span></a> o a <button type=\"button\" class=\"copy-mail\" data-mail=\"info@insulartradingpr.com\" aria-label=\"Copiar info@insulartradingpr.com\"><span>info@insulartradingpr.com</span></button>."
  }
 ]

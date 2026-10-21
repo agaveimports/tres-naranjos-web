@@ -33,7 +33,8 @@ main#top.fq{padding-top:clamp(36px,4.5vw,64px)!important;padding-bottom:clamp(64
 .fq details[open] summary::after{transform:rotate(45deg)}
 .fq summary:hover{color:#E04F12}
 .fq summary:focus:not(:focus-visible){outline:none}
-.fq .ans{padding:0 0 20px;font-size:16px;line-height:1.6;max-width:62ch}
+.fq .ans{padding:0 0 22px;font-size:17px;line-height:1.6;max-width:none}
+.fq .ans .copy-tel,.fq .ans .copy-mail{display:inline;font:inherit;font-weight:700;color:var(--negro);background:none;border:0;padding:0;text-decoration:none;cursor:pointer}.fq .ans .copy-tel:hover,.fq .ans .copy-mail:hover{color:#E04F12}
 .fq .ans a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .fq .ans a:hover{color:#E04F12}
 .fq-more{margin-top:clamp(28px,3vw,40px);font-size:16px}
