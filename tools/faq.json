@@ -32,7 +32,11 @@
   "a": "Sí. Úsalo en la misma cantidad en cualquier receta que pida triple sec, Cointreau o licor de naranja."
  },
  {
-  "q": "Tengo un bar, restaurante o tienda. ¿Cómo lo vendo?",
-  "a": "Si es un restaurante o barra, escríbele a Agave Imports por <a class=\"js-wa-sell\" href=\"https://wa.me/19393730729\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> o a info@agaveimportspr.com. Si es un supermercado o tienda, comunícate con Insular Trading al <a href=\"tel:+17872707272\">787-270-7272</a> o a info@insulartradingpr.com."
+  "q": "Soy un restaurante o barra. ¿Cómo pido Tres Naranjos?",
+  "a": "Escríbenos a Agave Imports por <a href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al 939-373-0729 o a info@agaveimportspr.com y te conectamos con ventas."
+ },
+ {
+  "q": "Soy un supermercado o tienda. ¿Cómo lo vendo?",
+  "a": "Comunícate con Insular Trading al <a href=\"tel:+17872707272\">787-270-7272</a> o a info@insulartradingpr.com."
  }
 ]
