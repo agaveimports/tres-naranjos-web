@@ -7,7 +7,7 @@ TOOLS, SITE = ROOT + 'tools/', ROOT + 'site/'
 s = open(TOOLS + 'tragos_base.html').read()
 s = re.sub(r'<title>.*?</title>', '<title>Página no encontrada | Tres Naranjos</title>', s, count=1)
 s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página no existe. Vuelve al inicio de Tres Naranjos o escoge un trago.">', s, count=1)
-s = s.replace('<a href="tragos/" aria-current="page">', '<a href="tragos/">')
+s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 CSS = '''<style>
 main#top.nf{min-height:calc(100svh - var(--navh,70px));box-sizing:border-box;display:grid;place-items:center;text-align:center;
   padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,6vw,72px)) var(--gutter,16px) clamp(56px,8vw,100px)}
@@ -30,7 +30,7 @@ main = f'''<main id="top" class="nf"><div class="nf-in">
   <span class="nf-eye">Error 404</span>
   <h1>Esta página no existe.</h1>
   <p>Se nos perdió esta naranja. Puede que el enlace esté mal escrito o que la página se haya movido.</p>
-  <div class="nf-ctas"><a class="a1" href="./">Ir al inicio</a><a class="a2" href="tragos/">Ver los tragos</a></div>
+  <div class="nf-ctas"><a class="a1" href="./">Ir al inicio</a><a class="a2" href="recetas/">Ver las recetas</a></div>
 </div></main>'''
 a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
 # served at any address, so every link and asset is resolved from the site root

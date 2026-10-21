@@ -1,12 +1,38 @@
 [
- {"q": "¿Qué es Tres Naranjos?", "a": "Tres Naranjos Triple Sec es un licor de naranja endulzado con miel de agave. Lo imaginamos para Puerto Rico, para que tus margaritas, mezcalitas y cócteles con tequila o mezcal queden como en la barra."},
- {"q": "¿Qué es un triple sec?", "a": "Es un licor de naranja transparente, hecho con cáscaras de naranja. Nació en Francia en el siglo XIX y hoy está en muchísimos clásicos: margarita, cosmo, sidecar, kamikaze y más. Aunque <em>sec</em> quiere decir seco en francés, es dulce: le da al trago el toque cítrico y dulce que lo balancea."},
- {"q": "¿Qué lo hace diferente de otros triple sec?", "a": "La miel de agave. Le da un dulzor más redondo y hace que se lleve perfecto con tequila y mezcal, que vienen de la misma planta."},
- {"q": "¿Cuánto alcohol tiene?", "a": "25% de alcohol por volumen. Viene en botella de 750 ml."},
- {"q": "¿De dónde es Tres Naranjos?", "a": "Imaginado para Puerto Rico y hecho en México. Lo produce y embotella Bodegas Collado en Ciudad de México, y lo importa Agave Imports LLC en San Juan."},
- {"q": "¿Dónde lo puedo comprar?", "a": "En más de 80 barras, restaurantes y tiendas por toda la isla. Búscalos por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a>."},
- {"q": "¿Qué tragos puedo hacer con Tres Naranjos?", "a": "Margarita, mezcalita, cosmo, sidecar, spritz de china, sangría y más. Tenemos <a href=\"tragos/\">doce recetas</a> paso a paso, y puedes ajustar las cantidades para uno o para muchos."},
- {"q": "¿Lo puedo usar en vez de otro licor de naranja?", "a": "Sí. Úsalo en la misma cantidad en cualquier receta que pida triple sec, Cointreau o licor de naranja."},
- {"q": "¿Qué relación tiene con Tres Santos Mezcal?", "a": "Somos de la misma casa. Agave Imports trae Tres Santos y Tres Naranjos, y juntos hacen la mezcalita como debe ser."},
- {"q": "Tengo un bar, restaurante o tienda. ¿Cómo lo vendo?", "a": "Escríbenos por <a class=\"js-wa-sell\" href=\"https://wa.me/17876471157\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> o a info@agaveimportspr.com y te conectamos con nuestro equipo de ventas."}
+ {
+  "q": "¿Qué es Tres Naranjos?",
+  "a": "Tres Naranjos Triple Sec es un licor de naranja endulzado con miel de agave, hecho para que tus margaritas, mezcalitas y cócteles con tequila o mezcal queden como en la barra."
+ },
+ {
+  "q": "¿Qué es un triple sec?",
+  "a": "Es un licor de naranja transparente, hecho con cáscaras de naranja. Nació en Francia en el siglo XIX y hoy está en muchísimos clásicos: margarita, cosmo, sidecar, kamikaze y más. Aunque <em>sec</em> quiere decir seco en francés, es dulce: le da al trago el toque cítrico y dulce que lo balancea."
+ },
+ {
+  "q": "¿Qué lo hace diferente de otros triple sec?",
+  "a": "La miel de agave. Le da un dulzor más redondo y hace que se lleve perfecto con tequila y mezcal, que vienen de la misma planta."
+ },
+ {
+  "q": "¿Cuánto alcohol tiene?",
+  "a": "25% de alcohol por volumen. Viene en botella de 750 ml."
+ },
+ {
+  "q": "¿De dónde es Tres Naranjos?",
+  "a": "Se hace en México. Lo produce y embotella Bodegas Collado en Ciudad de México, y lo importa Agave Imports LLC en San Juan."
+ },
+ {
+  "q": "¿Dónde lo puedo comprar?",
+  "a": "En supermercados, cash and carry y licorerías por toda la isla. Búscalos por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a>."
+ },
+ {
+  "q": "¿Qué recetas puedo hacer con Tres Naranjos?",
+  "a": "Margarita, mezcalita, cosmo, sidecar, spritz de china, sangría y más. Tenemos <a href=\"recetas/\">doce recetas</a> paso a paso, y puedes ajustar las cantidades para uno o para muchos."
+ },
+ {
+  "q": "¿Lo puedo usar en vez de otro licor de naranja?",
+  "a": "Sí. Úsalo en la misma cantidad en cualquier receta que pida triple sec, Cointreau o licor de naranja."
+ },
+ {
+  "q": "Tengo un bar, restaurante o tienda. ¿Cómo lo vendo?",
+  "a": "Escríbenos por <a class=\"js-wa-sell\" href=\"https://wa.me/17876471157\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> o a info@agaveimportspr.com y te conectamos con nuestro equipo de ventas."
+ }
 ]

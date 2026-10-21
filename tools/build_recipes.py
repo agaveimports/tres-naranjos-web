@@ -5,7 +5,7 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'
 SITE=ROOT+'site/'
 A=SITE
-os.makedirs(SITE+'tragos',exist_ok=True)
+os.makedirs(SITE+'recetas',exist_ok=True)
 import json as _j
 B=_j.load(open(TOOLS+'config.json'))['site_url'].rstrip('/')
 D=json.load(open(TOOLS+'drinks.json'))
@@ -250,7 +250,7 @@ for i,d in enumerate(D):
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
     f'<meta property="og:image" content="{B}/share/{d['slug']}.jpg?v=13"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
-    f'<meta property="og:url" content="{B}/tragos/{d['slug']}"><meta name="twitter:card" content="summary_large_image">\n')
+    f'<meta property="og:url" content="{B}/recetas/{d['slug']}"><meta name="twitter:card" content="summary_large_image">\n')
   s=s.replace('<meta charset',head_extra+'<meta charset',1) if '<meta charset' in s[:400] else s.replace('<head>','<head>'+head_extra,1)
   s=s.replace('</head>',CSS+'\n</head>',1)
   def iso(t):
@@ -265,11 +265,11 @@ for i,d in enumerate(D):
       "prepTime":iso(d['time']),"totalTime":iso(d['time']),"recipeYield":str(d['serves'])+(' porción' if d['serves']==1 else ' porciones'),
       "recipeIngredient":[amt(i[0],i[1],len(i)>2 and i[2]) for i in d['ing']],
       "recipeInstructions":[{"@type":"HowToStep","text":x} for x in d['steps']]}
-  s=s.replace('</head>','<link rel="canonical" href="'+B+'/tragos/'+d['slug']+'"><script type="application/ld+json">'+json.dumps(LD,ensure_ascii=False)+'</script>\n</head>',1)
-  s=s.replace('<a href="tragos/" aria-current="page">','<a href="tragos/">',1)
+  s=s.replace('</head>','<link rel="canonical" href="'+B+'/recetas/'+d['slug']+'"><script type="application/ld+json">'+json.dumps(LD,ensure_ascii=False)+'</script>\n</head>',1)
+  s=s.replace('<a href="recetas/" aria-current="page">','<a href="recetas/">',1)
   main=f'''<main id="top" class="rp wrap">
-  <a class="rp-back" href="tragos/" aria-label="Todos los tragos" title="Todos los tragos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
-  <nav class="rp-pager" aria-label="Otros tragos"><a class="rp-pg prev" href="tragos/{prv['slug']}" rel="prev"><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><img src="assets/tragos/sm/{PHOTO[prv['code']]}.webp" alt=""><span class="rp-pgt"><small>Anterior</small><b>{esc(prv['name'])}</b></span></a><a class="rp-pg next" href="tragos/{nxt['slug']}" rel="next"><span class="rp-pgt"><small>Siguiente</small><b>{esc(nxt['name'])}</b></span><img src="assets/tragos/sm/{PHOTO[nxt['code']]}.webp" alt=""><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></nav>
+  <a class="rp-back" href="recetas/" aria-label="Todas las recetas" title="Todas las recetas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+  <nav class="rp-pager" aria-label="Otras recetas"><a class="rp-pg prev" href="recetas/{prv['slug']}" rel="prev"><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><img src="assets/tragos/sm/{PHOTO[prv['code']]}.webp" alt=""><span class="rp-pgt"><small>Anterior</small><b>{esc(prv['name'])}</b></span></a><a class="rp-pg next" href="recetas/{nxt['slug']}" rel="next"><span class="rp-pgt"><small>Siguiente</small><b>{esc(nxt['name'])}</b></span><img src="assets/tragos/sm/{PHOTO[nxt['code']]}.webp" alt=""><span class="rp-arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></nav>
   <div class="rp-grid">
     <div class="rp-body">
       <div class="rp-top"><figure class="rp-photo"><img src="assets/tragos/sm/{PHOTO[c]}.webp" alt="{esc(name)} con Tres Naranjos Triple Sec"></figure>
@@ -282,7 +282,7 @@ for i,d in enumerate(D):
       <ul class="rp-ing" id="ing"></ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
-      <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Trago anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Trago siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+      <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Receta anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Receta siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
     </div>
   </div>
 
@@ -290,9 +290,8 @@ for i,d in enumerate(D):
   a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
   fa=s.index('<footer');fb=s.index('</footer>',fa)+9
   s=s[:fa]+'''<footer class="rp-foot wrap">
-  <nav class="rp-flinks"><a href="tragos/">Tragos</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="preguntas">Preguntas</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
+  <nav class="rp-flinks"><a href="recetas/">Recetas</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="sobre-nosotros">Sobre nosotros</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
   <p><strong>Disfruta con responsabilidad.</strong> © Tres Naranjos 2026. Importado por Agave Imports LLC, San Juan, PR. Producido y embotellado por Bodegas Collado, S.A. de C.V., Ciudad de México. <a href="privacidad" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacidad</a></p>
-  <p><strong>GOVERNMENT WARNING:</strong> (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. (2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems.</p>
 </footer>'''+s[fb:]
   # keep shared scripts (WhatsApp, giants, age gate), drop the tragos picker
   a=s.index('/* =====================================================================\n   RECETAS');b=s.index('</script>',a)
@@ -315,7 +314,7 @@ const ALL='''+ALLJS+''';
   render();
   addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;if(e.key==='ArrowLeft')go(cur-1,true);else if(e.key==='ArrowRight')go(cur+1,true)});
   const site=new URL('.',document.baseURI).href.replace(/\\/$/,'');
-  function share(){const txt='Chequéate esta receta de *'+R.name+'* 🍊\\n'+site+'/tragos/'+R.slug;
+  function share(){const txt='Chequéate esta receta de *'+R.name+'* 🍊\\n'+site+'/recetas/'+R.slug;
     $('share').href='https://wa.me/?text='+encodeURIComponent(txt)}
   share();
   /* ---- smooth drink-to-drink: swap the recipe in place, no page reload ---- */
@@ -342,12 +341,12 @@ const ALL='''+ALLJS+''';
     const d=ALL[i],prv=ALL[mod(i-1)],nxt=ALL[mod(i+1)];cur=i;
     body(d);
     const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
-    [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='tragos/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
+    [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='recetas/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
     document.title=d.name+' | Receta con Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
     share();warm();
   }
   function go(i,push){i=mod(i);if(i===cur)return;
-    const run=()=>{fill(i);if(push)history.pushState({slug:ALL[i].slug},'','tragos/'+ALL[i].slug);if(scrollY>0)scrollTo(0,0)};
+    const run=()=>{fill(i);if(push)history.pushState({slug:ALL[i].slug},'','recetas/'+ALL[i].slug);if(scrollY>0)scrollTo(0,0)};
     const im=new Image();im.src=sm(ALL[i]);
     const swap=()=>{if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.startViewTransition(run);else run()};
     (im.decode?im.decode():Promise.resolve()).then(swap,swap);
@@ -365,5 +364,5 @@ const ALL='''+ALLJS+''';
 })();
 '''
   s=s[:a]+js+s[b:]
-  open(A+f"tragos/{d['slug']}.html",'w').write(hoist(s))
+  open(A+f"recetas/{d['slug']}.html",'w').write(hoist(s))
 print('built',len(D))

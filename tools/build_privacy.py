@@ -14,14 +14,14 @@ TEXT = [
   ('El mapa', 'El mapa de Dónde comprar lo provee Mapbox. Para mostrarlo, tu navegador le pide las imágenes del mapa a Mapbox, que recibe datos técnicos como tu dirección IP y el tipo de navegador, igual que cualquier sitio que visitas.'),
   ('El hosting', 'El sitio está alojado en Cloudflare. Como cualquier servidor, Cloudflare recibe datos técnicos de cada visita (dirección IP, navegador, página visitada) para entregar el sitio y protegerlo.'),
   ('Estadísticas', 'Podemos usar herramientas como Microsoft Clarity y Cloudflare Web Analytics para entender cómo se usa el sitio: qué páginas se visitan, dónde se toca y hasta dónde se baja. Esa información es anónima y no la usamos para identificarte.'),
-  ('Enlaces a otros sitios', 'Los botones de WhatsApp, Instagram, Google Maps y Tres Santos te llevan a esos servicios, que tienen sus propias políticas de privacidad.'),
+  ('Enlaces a otros sitios', 'Los botones de WhatsApp, Instagram y Google Maps te llevan a esos servicios, que tienen sus propias políticas de privacidad.'),
   ('Edad', 'Este sitio es para personas con la edad legal para consumir alcohol en su país.'),
   ('Preguntas', f'Si tienes alguna pregunta sobre tu privacidad, escríbenos a <button type="button" class="copy-mail" data-mail="{EMAIL}" aria-label="Copiar {EMAIL}"><span>{EMAIL}</span></button>.'),
 ]
 s = open(TOOLS + 'tragos_base.html').read()
 s = re.sub(r'<title>.*?</title>', '<title>Privacidad | Tres Naranjos</title>', s, count=1)
 s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Cómo Tres Naranjos maneja tu información en este sitio: qué se guarda, qué no y con quién se comparte.">', s, count=1)
-s = s.replace('<a href="tragos/" aria-current="page">', '<a href="tragos/">')
+s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 CSS = '''<style>
 main#top.pv{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(36px,6vw,80px));padding-bottom:clamp(64px,8vw,110px);max-width:720px;margin-inline:auto}
 .pv-eye{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
