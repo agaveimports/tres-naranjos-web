@@ -511,7 +511,9 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .at-btn.dark:hover{background:#433D39}
 .at-btn.soft{background:#F1D5B2;color:var(--negro)}
 .at-btn.soft:hover{background:#F6E2C8}
-.at-btn[disabled]{opacity:.5;cursor:default}
+.at-btn[disabled]{opacity:.45;cursor:default}
+.at-btn:focus{outline:none}.at-btn:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.at-btn.go[disabled]:hover{background:#EE5F1C}
 .at-msg{margin:14px 0 0;font-size:15px;line-height:1.5;min-height:1.5em}
 .at-msg.err{color:#B3361A;font-weight:600}
 .at-wait{display:flex;align-items:center;gap:10px;color:var(--negro-60)}
@@ -864,7 +866,6 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
     </fieldset></div>
     <div class="at-acts">
       <button class="at-btn go" id="at-si" type="button">Sí, añadir al mapa</button>
-      <button class="at-btn soft" id="at-no" type="button">No es esta</button>
     </div>
     <p class="at-msg" id="at-msg2" role="status" aria-live="polite"></p>
   </div>
@@ -986,7 +987,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   const call = p => fetch(SCRIPT_URL + '?' + new URLSearchParams(p)).then(r => r.json());
 
   function reset(keepLink){ current = null; res.hidden = true; done.hidden = true; say(''); say2(''); if(!keepLink){ input.value = ''; }
-    document.querySelectorAll('input[name=tipo]').forEach(r => r.checked = false); }
+    document.querySelectorAll('input[name=tipo]').forEach(r => r.checked = false); $('at-si').disabled = true; }
 
   function buscar(){
     const link = linkOf(input.value);
@@ -1005,26 +1006,30 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
       res.hidden = false;
       if (res.getBoundingClientRect().top > innerHeight * .6) res.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
       say(''); say2(d.ya ? 'Esta tienda ya está en el mapa (<b>' + esc(d.ya) + '</b>).' : '', !!d.ya);
-      $('at-si').disabled = !!d.ya;
+      current.ya = !!d.ya; syncAdd();
     }).catch(() => say('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
       .finally(() => { busy = false; $('at-buscar').disabled = false; });
   }
 
+  const tipoSel = () => (document.querySelector('input[name=tipo]:checked') || {}).value;
+  function syncAdd(){ $('at-si').disabled = busy || !current || current.ya || !tipoSel(); }
+  document.querySelectorAll('input[name=tipo]').forEach(r => r.addEventListener('change', () => { say2(''); syncAdd(); }));
+  /* clearing or changing the link hides the old store */
+  input.addEventListener('input', () => { if (!current && done.hidden) return; if (linkOf(input.value) !== (current && current.link)) { reset(true); } });
   form.addEventListener('submit', e => { e.preventDefault(); if (!busy) buscar(); });
   input.addEventListener('paste', () => setTimeout(() => { if (!busy && linkOf(input.value)) buscar(); }, 0));
-  $('at-no').addEventListener('click', () => { reset(false); say('Busca la tienda en Google Maps, ábrela y comparte el link desde ahí (no desde la lista de resultados).'); input.focus(); });
   $('at-otra').addEventListener('click', () => { reset(false); input.focus(); });
   $('at-si').addEventListener('click', () => {
     if (!current || busy) return;
-    const tipo = (document.querySelector('input[name=tipo]:checked') || {}).value;
-    if (!tipo) return say2('Escoge el tipo de tienda.', true);
+    const tipo = tipoSel();
+    if (!tipo) return;
     busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
     call({accion:'anadir', link: current.link, tipo}).then(d => {
       if (d.ok) { res.hidden = true; say2(''); input.value = ''; $('at-done-txt').textContent = d.tienda.nombre + ' sale en el mapa en unos minutos.'; done.hidden = false; return; }
       if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
       say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
-      .finally(() => { busy = false; if (!done.hidden) return; $('at-si').disabled = false; });
+      .finally(() => { busy = false; if (done.hidden) syncAdd(); });
   });
 })();
 </script>
