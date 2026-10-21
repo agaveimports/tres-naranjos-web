@@ -1439,17 +1439,13 @@ const STREET_LAYERS_TOP=[
   });
 
   /* ---------- start ---------- */
-  /* The sheet is the list: wait for it so a deleted store never flashes. The built-in TIENDAS list is only the backup
-     if Google doesn't answer in 5 seconds or the sheet comes back empty. */
+  load(toStores(TIENDAS),false);
   if(STORES_CSV_URL){
-    let done=false;const backup=()=>{if(!done){done=true;load(toStores(TIENDAS),false)}};
-    const timer=setTimeout(backup,5000);
-    fetch(STORES_CSV_URL,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
+    fetch(STORES_CSV_URL).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
       const rows=parseCSV(t); if(rows.length&&norm(rows[0][0])==='nombre')rows.shift();
-      const s=toStores(rows); if(!s.length)return backup();
-      clearTimeout(timer); if(done){load(s,false)}else{done=true;load(s,false)}
-    }).catch(backup);
-  } else load(toStores(TIENDAS),false);
+      const s=toStores(rows); if(s.length)load(s,false);
+    }).catch(()=>{});
+  }
 })();
 
 /* ---- newsletter ---- */
