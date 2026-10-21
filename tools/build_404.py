@@ -6,7 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 TOOLS, SITE = ROOT + 'tools/', ROOT + 'site/'
 s = open(TOOLS + 'tragos_base.html').read()
 s = re.sub(r'<title>.*?</title>', '<title>Página no encontrada | Tres Naranjos</title>', s, count=1)
-s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página no existe. Vuelve al inicio de Tres Naranjos o escoge un trago.">', s, count=1)
+s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Esta página no existe. Vuelve al inicio de Tres Naranjos o escoge una receta.">', s, count=1)
 s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 CSS = '''<style>
 main#top.nf{min-height:calc(100svh - var(--navh,70px));box-sizing:border-box;display:grid;place-items:center;text-align:center;
