@@ -6,7 +6,7 @@ TOOLS=ROOT+'tools/'; SITE=ROOT+'site/'
 B=json.load(open(TOOLS+'config.json'))['site_url'].rstrip('/')
 FAQ=json.load(open(TOOLS+'faq.json'))
 # photo next to the page title; swap for any photo in site/assets (portrait works best)
-PHOTO='assets/sobre-banner.webp'
+PHOTO='assets/sobre-banner-3.webp'
 PHOTO_ALT='Etiqueta de Tres Naranjos Triple Sec al sol con media china'
 s=open(TOOLS+'tragos_base.html').read()
 esc=lambda t:html.escape(t,quote=True)
@@ -17,10 +17,10 @@ s=s.replace('<li class="nav-faq"><a href="sobre-nosotros">','<li class="nav-faq"
 plain=lambda a:re.sub(r'<[^>]+>','',a)
 LD={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":f['q'],"acceptedAnswer":{"@type":"Answer","text":plain(f['a'])}} for f in FAQ]}
 CSS='''<style>
-main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(28px,5vw,72px));padding-bottom:clamp(64px,8vw,110px);max-width:880px;margin-inline:auto}
-.fq-banner{margin:0 0 clamp(28px,3.5vw,44px);aspect-ratio:4/1;border-radius:var(--radius,24px);overflow:hidden;background:#F6E2C8}
-.fq-banner img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;display:block}
-@media (max-width:700px){.fq-banner{aspect-ratio:2/1}.fq-banner img{object-position:66% 45%}main#top.fq{padding-top:calc(var(--fqnav,77px) + 20px)!important}}
+main#top.fq{padding-top:clamp(36px,4.5vw,64px)!important;padding-bottom:clamp(64px,8vw,110px);max-width:880px;margin-inline:auto}
+.fq-hero{margin:var(--fqnav,77px) 0 0;height:clamp(170px,17vw,300px);overflow:hidden;background:#F6E2C8;border-bottom:1.5px dashed var(--negro)}
+.fq-hero img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
+@media (max-width:700px){.fq-hero{height:190px}.fq-hero img{object-position:50% 40%}main#top.fq{padding-top:28px!important}}
 .fq-head{margin-bottom:clamp(20px,2.5vw,28px)}
 .fq-eye{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
 .fq h1{font-family:var(--display);font-size:clamp(36px,4vw,56px);line-height:.95;margin:.2em 0 .3em;text-transform:uppercase}
@@ -41,13 +41,13 @@ main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + c
 @media (min-width:1800px){.fq{zoom:1.2}}
 </style>'''
 items=''.join(f'<details name="faq"><summary>{esc(f["q"])}</summary><div class="ans">{f["a"]}</div></details>' for f in FAQ)
-main=f'''<main id="top" class="fq wrap">
+main=f'''<div class="fq-hero"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="2600" height="494" fetchpriority="high"></div>
+<main id="top" class="fq wrap">
   <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/19393730729" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
-  <figure class="fq-banner"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="1600" height="397" fetchpriority="high"></figure>
   {items}
   <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/19393730729" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
 </main>
-<script>/* space under the fixed header (phones) */(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>
+<script>/* space under the fixed header */(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>
 <script>/* one answer open at a time (older browsers that ignore name="faq") */document.querySelectorAll('.fq details').forEach(d=>d.addEventListener('toggle',()=>{{if(d.open)document.querySelectorAll('.fq details[open]').forEach(o=>{{if(o!==d)o.open=false}})}}))</script>
 <script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.js-wa-sell').forEach(a=>a.href='https://wa.me/'+(typeof WHATSAPP!=='undefined'?WHATSAPP:'19393730729')+'?text='+encodeURIComponent('¡Hola! Tengo un negocio y me interesa vender Tres Naranjos.')))</script>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]

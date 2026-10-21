@@ -1435,21 +1435,30 @@ function shareText(k){const r=RECIPES[k];
 /* ---- instagram reel ----
    Live feed: paste the Behold.so JSON feed URL below (behold.so > Feeds > JSON).
    It refreshes on its own as @tresnaranjosoficial posts. Empty or failing = brand tiles below. */
-const IG_FEED_URL='';
+const IG_FEED_URL='https://feeds.behold.so/y9Us941u0nkHzeqMUZSs';
 (function(){
   const reel=document.getElementById('reel');
   const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const PLAY='<svg class="reel-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></svg>';
   if(IG_FEED_URL){
     fetch(IG_FEED_URL).then(r=>r.ok?r.json():Promise.reject()).then(d=>{
-      const posts=(Array.isArray(d)?d:d.posts||[]).slice(0,12);
+      const posts=(Array.isArray(d)?d:d.posts||[]).filter(p=>p.visibility!=='hidden').slice(0,12);
       if(posts.length<4) return;
       const html=posts.map(p=>{
-        const sz=p.sizes&&(p.sizes.medium||p.sizes.large);
-        const src=(sz&&sz.mediaUrl)||(p.mediaType==='VIDEO'?p.thumbnailUrl:p.mediaUrl);
-        if(!src) return '';
-        return `<a class="tile" href="${esc(p.permalink)}" target="_blank" rel="noopener" tabindex="-1"><img class="photo" src="${esc(src)}" alt="" loading="lazy"></a>`;
+        /* tall originals first (the cards are portrait); Behold's square copy is the backup if Instagram's link fails */
+        const sz=p.sizes&&(p.sizes.large||p.sizes.medium);const sq=sz&&sz.mediaUrl;
+        const first=p.children&&p.children[0];
+        const orig=p.mediaType==='VIDEO'?p.thumbnailUrl:(p.mediaType==='CAROUSEL_ALBUM'&&first&&first.mediaType!=='VIDEO'?first.mediaUrl:p.mediaUrl);
+        const src=orig||sq; if(!src) return '';
+        const back=(sq&&sq!==src)?` data-sq="${esc(sq)}"`:'';
+        const alt=String(p.prunedCaption||p.caption||'Publicación de @tresnaranjosoficial').split('\n')[0].slice(0,120);
+        return `<a class="tile ig-post" href="${esc(p.permalink)}" target="_blank" rel="noopener" draggable="false"><img class="photo" src="${esc(src)}"${back} alt="${esc(alt)}" loading="lazy" draggable="false" referrerpolicy="no-referrer">${p.mediaType==='VIDEO'?PLAY:''}</a>`;
       }).join('');
-      reel.innerHTML=html+html;
+      if(!html) return;
+      reel.innerHTML=html;
+      reel.querySelectorAll('img[data-sq]').forEach(i=>{const swap=()=>{if(i.dataset.sq){i.src=i.dataset.sq;delete i.dataset.sq}};
+        i.addEventListener('error',swap,{once:true});if(i.complete&&!i.naturalWidth)swap()});
+      if(window.__igEmbla) window.__igEmbla.reInit();
     }).catch(()=>{});
   }
 })();
@@ -1512,7 +1521,7 @@ t.addEventListener('click',()=>{const i=Math.round(t.scrollLeft/t.clientWidth);g
 //# sourceMappingURL=embla-carousel-wheel-gestures.umd.js.map
 </script>
 <script>(()=>{const v=document.querySelector('.ig .reel');if(!v||!window.EmblaCarousel)return;
-const ems=EmblaCarousel(v,{align:'start',containScroll:'trimSnaps',dragFree:false,skipSnaps:true,duration:28},[EmblaCarouselWheelGestures({forceWheelAxis:'x'})]);
+const ems=window.__igEmbla=EmblaCarousel(v,{align:'start',containScroll:'trimSnaps',dragFree:false,skipSnaps:true,duration:28},[EmblaCarouselWheelGestures({forceWheelAxis:'x'})]);
 /* no rubber-band past the first or last card: pin to the edge instead */
 const pin=api=>{const e=api.internalEngine(),{limit,target,location,offsetLocation,scrollTo,translate,scrollBody}=e;let edge=null;
   if(limit.reachedMax(target.get()))edge=limit.max;if(limit.reachedMin(target.get()))edge=limit.min;
