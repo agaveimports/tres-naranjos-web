@@ -6,8 +6,8 @@ TOOLS=ROOT+'tools/'; SITE=ROOT+'site/'
 B=json.load(open(TOOLS+'config.json'))['site_url'].rstrip('/')
 FAQ=json.load(open(TOOLS+'faq.json'))
 # photo next to the page title; swap for any photo in site/assets (portrait works best)
-PHOTO='assets/prod-loop-poster.webp'
-PHOTO_ALT='Botella de Tres Naranjos Triple Sec con naranjas al sol'
+PHOTO='assets/sobre-banner.webp'
+PHOTO_ALT='Etiqueta de Tres Naranjos Triple Sec al sol con media china'
 s=open(TOOLS+'tragos_base.html').read()
 esc=lambda t:html.escape(t,quote=True)
 s=re.sub(r'<title>.*?</title>','<title>Sobre nosotros | Tres Naranjos</title>',s,count=1)
@@ -17,12 +17,11 @@ s=s.replace('<li class="nav-faq"><a href="sobre-nosotros">','<li class="nav-faq"
 plain=lambda a:re.sub(r'<[^>]+>','',a)
 LD={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":f['q'],"acceptedAnswer":{"@type":"Answer","text":plain(f['a'])}} for f in FAQ]}
 CSS='''<style>
-main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(28px,5vw,72px));padding-bottom:clamp(64px,8vw,110px);max-width:1120px;margin-inline:auto}
-.fq-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(32px,6vw,96px);align-items:start}
-.fq-photo{margin:0;position:sticky;top:calc(var(--navh,70px) + 24px);aspect-ratio:4/5;border-radius:var(--radius,24px);overflow:hidden;background:#F6E2C8}
-.fq-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.fq-head{margin-bottom:clamp(24px,3vw,36px)}
-@media (max-width:820px){.fq-top{grid-template-columns:1fr;gap:28px}.fq-photo{position:static;order:-1;aspect-ratio:1/1}.fq-photo img{object-position:50% 38%}main#top.fq{padding-top:calc(var(--fqnav,77px) + 16px)!important}}
+main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(28px,5vw,72px));padding-bottom:clamp(64px,8vw,110px);max-width:880px;margin-inline:auto}
+.fq-banner{margin:0 0 clamp(28px,3.5vw,44px);aspect-ratio:4/1;border-radius:var(--radius,24px);overflow:hidden;background:#F6E2C8}
+.fq-banner img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;display:block}
+@media (max-width:700px){.fq-banner{aspect-ratio:2/1}.fq-banner img{object-position:66% 45%}main#top.fq{padding-top:calc(var(--fqnav,77px) + 20px)!important}}
+.fq-head{margin-bottom:clamp(20px,2.5vw,28px)}
 .fq-eye{font-family:var(--type);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
 .fq h1{font-family:var(--display);font-size:clamp(36px,4vw,56px);line-height:.95;margin:.2em 0 .3em;text-transform:uppercase}
 .fq-head p{font-size:16px;margin:0;color:var(--negro-60)}
@@ -43,14 +42,10 @@ main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + c
 </style>'''
 items=''.join(f'<details name="faq"><summary>{esc(f["q"])}</summary><div class="ans">{f["a"]}</div></details>' for f in FAQ)
 main=f'''<main id="top" class="fq wrap">
- <div class="fq-top">
- <div class="fq-col">
   <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
+  <figure class="fq-banner"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="1600" height="397" fetchpriority="high"></figure>
   {items}
   <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
- </div>
- <figure class="fq-photo"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="1000" height="1256" fetchpriority="high"></figure>
- </div>
 </main>
 <script>/* space under the fixed header (phones) */(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>
 <script>/* one answer open at a time (older browsers that ignore name="faq") */document.querySelectorAll('.fq details').forEach(d=>d.addEventListener('toggle',()=>{{if(d.open)document.querySelectorAll('.fq details[open]').forEach(o=>{{if(o!==d)o.open=false}})}}))</script>
