@@ -33,7 +33,7 @@
  },
  {
   "q": "Soy un restaurante o barra. ¿Cómo pido Tres Naranjos?",
-  "a": "Escríbenos a Agave Imports por <a href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al 939-373-0729 o a info@agaveimportspr.com y te conectamos con ventas."
+  "a": "Escríbenos a Agave Imports por <a class=\"fq-wa\" href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al 939-373-0729 o a info@agaveimportspr.com y te conectamos con ventas."
  },
  {
   "q": "Soy un supermercado o tienda. ¿Cómo lo vendo?",

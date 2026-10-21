@@ -38,7 +38,7 @@ main#top.fq{padding-top:clamp(36px,4.5vw,64px)!important;padding-bottom:clamp(64
 .fq-more{margin-top:clamp(28px,3vw,40px);font-size:16px}
 .fq-head p a,.fq-more a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .fq-head p a:hover,.fq-more a:hover{color:#E04F12}
-.fq .fq-wa{color:#1E8E4F!important;white-space:nowrap}.fq .fq-wa svg{width:1.05em;height:1.05em;vertical-align:-.17em;margin-right:.3em}.fq .fq-wa:hover{color:#25A05B!important}
+.fq .fq-wa,.fq .ans a.fq-wa{color:#1E8E4F!important;white-space:nowrap}.fq .fq-wa svg{width:1.05em;height:1.05em;vertical-align:-.17em;margin-right:.3em}.fq .fq-wa:hover{color:#25A05B!important}
 .fq .fq-mail{display:inline-flex;align-items:center;gap:.3em;font:inherit;font-weight:700;padding:0;text-decoration:none!important;cursor:pointer;color:var(--negro)}.fq .fq-mail .cp{width:14px;height:14px;opacity:.45}.fq .fq-mail:hover{color:#E04F12}.fq .fq-mail:hover .cp{opacity:1}
 @media (min-width:1800px){.fq{zoom:1.2}}
 </style>'''
