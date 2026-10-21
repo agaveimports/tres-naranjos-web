@@ -34,7 +34,8 @@ main#top.fq{padding-top:clamp(36px,4.5vw,64px)!important;padding-bottom:clamp(64
 .fq summary:hover{color:#E04F12}
 .fq summary:focus:not(:focus-visible){outline:none}
 .fq .ans{padding:0 0 20px;font-size:16px;line-height:1.6;max-width:62ch}
-.fq .ans a{color:#E04F12;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fq .ans a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.fq .ans a:hover{color:#E04F12}
 .fq-more{margin-top:clamp(28px,3vw,40px);font-size:16px}
 .fq-head p a,.fq-more a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .fq-head p a:hover,.fq-more a:hover{color:#E04F12}
