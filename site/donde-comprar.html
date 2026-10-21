@@ -1236,8 +1236,8 @@ const STREET_LAYERS_TOP=[
   /* ---------- filters ---------- */
     const inGroup=(s,g)=>g==='Todos'||KIND_OF(s.tipo)===g;
   const filtered=()=>{const q=norm(st.q);return st.stores.filter(s=>inGroup(s,st.tipo)&&(!q||muniKey[q]||norm(s.nombre+' '+s.pueblo+' '+s.dir+' '+s.tipo).includes(q)))};
-  const inView=s=>{const p=map.project(s.ll),c=map.getContainer(),m=28; /* counts a store if any part of its pin shows, even at the very edge */
-    return p.x>=-m&&p.x<=c.clientWidth+m&&p.y>=-m&&p.y<=c.clientHeight+m};
+  const inView=s=>{const p=project(s.ll); /* counts a store when at least half of its pin shows (pin centre inside the visible map) */
+    return p.x>=0&&p.x<=box.clientWidth&&p.y>=0&&p.y<=box.clientHeight};
   /* phones: chip counts follow what the list shows: the search and the part of the map in view (the whole island when zoomed out);
      a type with nothing here is hidden unless it is the one selected */
   function chips(){
