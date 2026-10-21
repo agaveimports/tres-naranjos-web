@@ -1211,9 +1211,27 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   $('listo').addEventListener('click', () => { R = clean($('ed').value); fixes = []; render(); view();
     if (window.tnFoto && !photo && !photoUrl && !aiBusy && R.nombre) genPhoto(''); });
 
+  let gx = .25;
+  /* where the glass is in a wide AI photo (fraction of the width); same logic as glass_x() in tools/sync_recetas.py */
+  function glassX(img){
+    try {
+      const w = 160, h = Math.max(1, Math.round(img.naturalHeight * w / img.naturalWidth)), c = document.createElement('canvas');
+      c.width = w; c.height = h; const g = c.getContext('2d'); g.drawImage(img, 0, 0, w, h); const d = g.getImageData(0, 0, w, h).data;
+      const ch = (x, y) => { const i = (y * w + x) * 4, t = d[i] + d[i + 1] + d[i + 2] + 1; return [d[i] / t, d[i + 1] / t, d[i + 2] / t]; };
+      const bgs = [[], [], []];
+      for (let y = 0; y < h; y++) for (let x = Math.floor(w * .75); x < w; x++) { const v = ch(x, y); bgs[0].push(v[0]); bgs[1].push(v[1]); bgs[2].push(v[2]); }
+      const bg = bgs.map(a => a.sort((p, q) => p - q)[a.length >> 1]);
+      const y0 = Math.floor(h * .4), y1 = Math.floor(h * .8), xs = Math.floor(w * .75), sc = [];
+      for (let x = 0; x < xs; x++) { let n = 0; for (let y = y0; y < y1; y++) { const v = ch(x, y); if (Math.hypot(v[0] - bg[0], v[1] - bg[1], v[2] - bg[2]) * 100 > 6) n++; } sc.push(n / (y1 - y0)); }
+      const mx = Math.max(...sc); if (mx < .15) return .25;
+      let best = [0, 0, 0], st = -1;
+      sc.concat([0]).forEach((v, i) => { const on = i < sc.length && v >= mx * .5; if (on && st < 0) st = i; if (!on && st >= 0) { if (i - st > best[0]) best = [i - st, st, i]; st = -1; } });
+      return best[2] > best[1] ? ((best[1] + best[2]) / 2) / w : .25;
+    } catch (e) { return .25; }
+  }
   const ingList = () => R.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n);
   function fit(img){ const r = img.naturalWidth / img.naturalHeight; if (r <= 1.2) { img.style.objectPosition = '50% 50%'; return; }
-    const f = .8 / r, x = Math.min(1, Math.max(0, (.25 - f / 2) / (1 - f))); img.style.objectPosition = (x * 100).toFixed(1) + '% 50%'; } /* wide AI photo: crop centred on the glass (a quarter in), same as sync_recetas.py */
+    const f = .8 / r, x = Math.min(1, Math.max(0, (gx - f / 2) / (1 - f))); img.style.objectPosition = (x * 100).toFixed(1) + '% 50%'; } /* wide AI photo: crop centred on the glass (a quarter in), same as sync_recetas.py */
   $('foto').addEventListener('load', () => fit($('foto')));
   function photoState(st, msg){
     $('ai-wait').hidden = st !== 'wait'; $('ai-err').hidden = st !== 'err';
@@ -1240,10 +1258,13 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
         if (my !== aiGen) return;
         if (!e.ok) return fail('');
         if (e.listo) {
+          const fd = await fetch(SCRIPT_URL + '?' + new URLSearchParams({accion: 'fotodatos', clave: window.tnClave(), url: e.url})).then(x => x.json()).catch(() => ({}));
+          if (my !== aiGen) return;
+          const src = fd.ok ? 'data:' + fd.mime + ';base64,' + fd.b64 : e.url;
           const im = new Image();
-          im.onload = () => { if (my !== aiGen) return; photoUrl = e.url; photo = null; $('foto').src = e.url; aiBusy = false; say('m2', ''); photoState(''); };
+          im.onload = () => { if (my !== aiGen) return; gx = fd.ok ? glassX(im) : .25; photoUrl = e.url; photo = null; $('foto').src = src; aiBusy = false; say('m2', ''); photoState(''); };
           im.onerror = () => fail('');
-          im.src = e.url; return;
+          im.src = src; return;
         }
       }
       fail('La foto está tardando mucho.');
@@ -1280,7 +1301,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
         const t = new Date(Date.now() + (r.rapido ? 10 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
-        $('d-foto').src = photoUrl || photo; fit($('d-foto')); $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
+        $('d-foto').src = $('foto').src; fit($('d-foto')); $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
         say('m2', ''); show('s-done'); return;
       }
       if (r.error === 'clave') return window.tnLock();

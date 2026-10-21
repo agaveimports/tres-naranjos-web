@@ -31,6 +31,29 @@ def drive_id(foto):
     return m.group(1) if m else None
 
 
+def glass_x(im):
+    """Where the glass is in a wide AI photo, as a fraction of the width (same logic as the /equipo/receta preview).
+    Backdrop colour = right quarter (always empty); the glass is the widest run of columns, in the lower-middle band,
+    whose colour differs from it. Chromaticity only, so light and leaf shadows on the backdrop don't count."""
+    import numpy as np
+    w = 160; h = max(1, round(im.height * w / im.width))
+    a = np.asarray(im.convert('RGB').resize((w, h))).astype(float)
+    c = a / (a.sum(2, keepdims=True) + 1)
+    bg = np.median(c[:, int(w * .75):].reshape(-1, 3), 0)
+    d = np.sqrt(((c - bg) ** 2).sum(2)) * 100
+    score = (d[int(h * .40):int(h * .80), :int(w * .75)] > 6).mean(0)
+    if score.max() < .15: return .25
+    on = score >= score.max() * .5
+    best, start = (0, 0, 0), None
+    for i, v in enumerate(list(on) + [False]):
+        if v and start is None: start = i
+        if not v and start is not None:
+            if i - start > best[0]: best = (i - start, start, i)
+            start = None
+    _, s, e = best
+    return ((s + e) / 2) / w if e > s else .25
+
+
 def save_photo(img_bytes, name, slug=None):
     """A wide photo (the AI photos from /equipo/receta are 16:9, glass in the left third) becomes:
     the recipe photo cropped 4:5 from the glass side, and tools/share-src/<slug>.jpg so its WhatsApp card is the full wide photo."""
@@ -39,7 +62,7 @@ def save_photo(img_bytes, name, slug=None):
     W, H = im.size
     if slug and W / H > 1.3:
         im.resize((1600, round(1600 * H / W)), Image.LANCZOS).save(TOOLS + f'share-src/{slug}.jpg', quality=92)
-        cw = round(H * 0.8); x0 = max(0, min(W - cw, round(W * 0.25 - cw / 2)))  # centred on the glass, same as the page preview
+        cw = round(H * 0.8); x0 = max(0, min(W - cw, round(W * glass_x(im) - cw / 2)))  # glass in the middle of the recipe photo
         im = im.crop((x0, 0, x0 + cw, H))
     ImageOps.fit(im, (960, 1200), Image.LANCZOS, centering=(0.5, 0.5)).save(SITE + f'assets/tragos/{name}.webp', 'WEBP', quality=80)
     ImageOps.fit(im, (560, 560), Image.LANCZOS, centering=(0.5, 0.45)).save(SITE + f'assets/tragos/sm/{name}.webp', 'WEBP', quality=80)
