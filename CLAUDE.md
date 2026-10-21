@@ -59,6 +59,9 @@ The home page section "Una naranja, mil maneras" shows 6 featured drinks from it
 **Stores on Dónde comprar**
 Only places where you can buy a bottle (supermarkets, cash and carry, liquor stores); no bars or restaurants (Paul, Oct 2026). The list is the `const TIENDAS = [...]` array in `site/donde-comprar.html`: name, type, address, town, phone, "lat, lng" (start with `~` when approximate). It can instead read a published Google Sheet CSV: paste the link into `STORES_CSV_URL` in the same file (instructions are in the comment above it). The home page closing section ("10 lugares en 7 pueblos", its town list and its small map pins) is hand-written in `site/index.html`; update it when the store list changes a lot. The "Disponible en" strip under the hero is also in `site/index.html`.
 
+**Instagram row (home page)**
+Live from Behold (free plan: 6 posts, refreshes daily, about 1,200 views a month): `IG_FEED_URL` in `site/index.html` = https://feeds.behold.so/y9Us941u0nkHzeqMUZSs (account in Behold connected to @tresnaranjosoficial). If the feed fails or runs out of views, the hand-picked photos below it in the same script show instead. Once the real domain is live, consider caching the feed through Cloudflare so views never run out.
+
 **Edit the FAQ**
 Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3 tools/build_faq.py`.
 
