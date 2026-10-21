@@ -65,3 +65,22 @@ def no_footer(page):
     page = re.sub(r'<footer[\s\S]*?</footer>\n?', '', page, count=1)
     page = re.sub(r'<div class="credit">.*?</div>\n?', '', page, count=1)
     return page
+
+
+def admin_header(page):
+    """Team pages get a slim header instead of the public menu: logo + EQUIPO tag, and one 'Ver el sitio' link."""
+    import re
+    hdr = ('<header class="nav solid adm" id="nav">\n'
+           '  <a class="logo" href="equipo/" aria-label="Equipo Tres Naranjos">TR<span class="rev">E</span>S NARANJOS</a>\n'
+           '  <span class="adm-tag">Equipo</span>\n'
+           '  <a class="adm-site" href="./" target="_blank" rel="noopener">Ver el sitio <span aria-hidden="true">↗</span></a>\n'
+           '</header>')
+    page = re.sub(r'<header class="nav[^"]*" id="nav">[\s\S]*?</header>', hdr, page, count=1)
+    css = ('<style>.nav.adm{display:flex;align-items:center;gap:14px}'
+           '.adm-tag{font:700 12px var(--mono,monospace);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px 5px;border-radius:999px;background:var(--negro);color:var(--crema)}'
+           '.adm-site{margin-left:auto;font-weight:700;font-size:15px;color:var(--negro);text-decoration:none}.adm-site:hover{color:#E04F12}'
+           '.nav.adm .menu-btn,.nav.adm .burger,.nav.adm button{display:none!important}'
+           '.nav.adm{display:flex!important;grid-template-columns:none!important;justify-content:flex-start!important}'
+           ':root:root:root .nav.adm .logo{position:static!important;left:auto!important;right:auto!important;transform:none!important;translate:none!important;margin:0!important}'
+           '@media (max-width:700px){.nav.adm{gap:10px}:root:root:root .nav.adm .logo{font-size:20px!important}.adm-tag{font-size:10px;padding:5px 8px 4px}.adm-site{font-size:14px}}</style>\n')
+    return page.replace('</head>', css + '</head>', 1)
