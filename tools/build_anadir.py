@@ -104,8 +104,7 @@ main = '''<main id="top" class="at"><div class="at-in">
     <h2>¡Listo!</h2>
     <p id="at-done-txt"></p>
     <div class="at-acts" style="margin-top:0">
-      <a class="at-btn go" href="donde-comprar">Ver el mapa</a>
-      <button class="at-btn soft" id="at-otra" type="button">Añadir otra</button>
+      <button class="at-btn go" id="at-otra" type="button">Añadir otra</button>
     </div>
   </div>
 
@@ -174,7 +173,7 @@ JS = '''<script>
     busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
     call({accion:'anadir', link: current.link, tipo}).then(d => {
       if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
-        $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> ya está en el mapa. Si todavía no la ves, sale no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
+        $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> sale en el mapa no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
       if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
       say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
