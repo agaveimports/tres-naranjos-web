@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <base href="/">
+<script>document.documentElement.classList.add('age-ok')</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Añadir una tienda | Tres Naranjos</title><meta name="description" content="Añadir una tienda al mapa de Dónde comprar.">
@@ -544,17 +545,17 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 @media (max-width:640px){.at-card{grid-template-columns:1fr}.at-mapbox{min-height:0;aspect-ratio:5/2;border-right:0;border-bottom:1.5px solid var(--negro)}.at-info{padding:14px 16px 16px}.at-info .n{font-size:19px}.at-field .at-btn,.at-acts .at-btn{width:auto}}
 @media (max-width:420px){.at-acts .at-btn{width:100%}}
 </style><style>
-.gate{max-width:420px;margin:clamp(20px,6vh,70px) auto 0;text-align:center}
-.gate h1{font-family:var(--display);font-size:clamp(34px,4.2vw,50px);line-height:.95;margin:0 0 .3em;text-transform:uppercase}
-.gate p{margin:0 0 18px;color:var(--negro-60);line-height:1.5}
-.gate form{display:flex;gap:8px}
-.gate input{flex:1;min-width:0;box-sizing:border-box;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
-.gate input:focus{border-color:#E8561A}
-.gate button{min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--negro);color:var(--crema)}
-.gate button:hover{background:#433D39}.gate button[disabled]{opacity:.5;cursor:default}
-.gate button:focus{outline:none}.gate button:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
-.gate .gmsg{margin:12px 0 0;font-size:15px;min-height:1.4em}.gate .gmsg.err{color:#B3361A;font-weight:600}
-@media (max-width:420px){.gate form{flex-direction:column}}
+main#top{min-height:100svh}
+.pw{max-width:560px}
+.pw h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
+.pw .pw-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 18px;color:var(--negro-60)}
+.pw form{display:flex;gap:8px}
+.pw input{flex:1;min-width:0;box-sizing:border-box;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
+.pw input:focus{border-color:#E8561A}
+.pw button{min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--negro);color:var(--crema)}
+.pw button:hover{background:#433D39}.pw button[disabled]{opacity:.5;cursor:default}
+.pw button:focus{outline:none}.pw button:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.pw .pw-msg{margin:10px 0 0;font-size:15px;line-height:1.5}.pw .pw-msg:empty{display:none}.pw .pw-msg.err{color:#B3361A;font-weight:600}
 </style><meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -850,11 +851,11 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 <main id="top" class="at"><div class="at-in">
-<div class="gate" id="gate-team" hidden>
-  <h1>Para el equipo</h1>
-  <p>Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
-  <form id="gate-form" autocomplete="off"><input type="password" id="gate-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="gate-go">Entrar</button></form>
-  <p class="gmsg" id="gate-msg" role="status" aria-live="polite"></p>
+<div class="pw" id="pw-team" hidden>
+  <h1>Añadir una tienda</h1>
+  <p class="pw-lead">Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
+  <form id="pw-form" autocomplete="off"><input type="password" id="pw-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="pw-go">Entrar</button></form>
+  <p class="pw-msg" id="pw-msg" role="status" aria-live="polite"></p>
 </div>
 <div id="team-app" hidden>
   <h1>Añadir una tienda</h1>
@@ -948,7 +949,7 @@ addEventListener('resize',fitGiants);
 })();
 
 
-(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();
+(function(){const n=document.getElementById('nav');if(!n)return;const f=()=>document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();
 </script>
 
 <script>document.querySelectorAll(".js-wa-contact").forEach(a=>a.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("¡Hola! Tengo una pregunta sobre Tres Naranjos."))</script>
@@ -993,22 +994,22 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
 <script>
 (function(){
-  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('team-app'), gate = document.getElementById('gate-team');
+  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('team-app'), pw = document.getElementById('pw-team');
   const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
   const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
-  const open = () => { gate.hidden = true; app.hidden = false; };
-  const lock = msg => { set(''); app.hidden = true; gate.hidden = false; document.getElementById('gate-msg').textContent = msg || ''; document.getElementById('gate-msg').className = 'gmsg' + (msg ? ' err' : ''); document.getElementById('gate-key').focus(); };
+  const open = () => { pw.hidden = true; app.hidden = false; };
+  const lock = msg => { set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
   if (get()) open(); else lock('');
-  document.getElementById('gate-form').addEventListener('submit', e => {
+  document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
-    const k = document.getElementById('gate-key').value.trim(), btn = document.getElementById('gate-go'), m = document.getElementById('gate-msg');
+    const k = document.getElementById('pw-key').value.trim(), btn = document.getElementById('pw-go'), m = document.getElementById('pw-msg');
     if (!k) return;
-    btn.disabled = true; m.className = 'gmsg'; m.textContent = 'Revisando…';
+    btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
     fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json()).then(r => {
-      if (r.ok) { set(k); m.textContent = ''; open(); } else { m.className = 'gmsg err'; m.textContent = 'Contraseña incorrecta.'; }
-    }).catch(() => { m.className = 'gmsg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
+      if (r.ok) { set(k); m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+    }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
   });
 })();

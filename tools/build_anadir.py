@@ -70,7 +70,7 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 </style>'''
 
 main = '''<main id="top" class="at"><div class="at-in">
-''' + team_gate.HTML + '''
+''' + team_gate.html('Añadir una tienda') + '''
 <div id="team-app" hidden>
   <h1>Añadir una tienda</h1>
   <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
@@ -188,10 +188,10 @@ JS = '''<script>
 </script>''' % (repr(SCRIPT_URL), repr(MAPBOX_TOKEN))
 
 a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
-s = s.replace('<head>', '<head>\n<base href="/">', 1)
+s = s.replace('<head>', '<head>\n<base href="/">\n' + team_gate.HEAD, 1)
 s = s.replace('</head>', CSS + team_gate.CSS + '<meta name="robots" content="noindex, nofollow">\n</head>', 1)
 a = s.index('/* =====================================================================\n   RECETAS'); b = s.index('</script>', a)
-s = s[:a] + "(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n" + s[b:]
+s = s[:a] + "(function(){const n=document.getElementById('nav');if(!n)return;const f=()=>document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
 s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
 open(SITE + 'anadir-tienda.html', 'w').write(hoist(s)); print('ok anadir-tienda')
