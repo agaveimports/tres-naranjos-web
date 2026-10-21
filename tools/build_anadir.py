@@ -124,6 +124,7 @@ JS = '''<script>
 (function(){
   const SCRIPT_URL = %s, TOKEN = %s;
   const $ = id => document.getElementById(id);
+  const LISTO_MIN = 5; /* measured Oct 2026: the published sheet updates in seconds; Google promises within 5 minutes */
   const form = $('at-form'), input = $('at-link'), msg = $('at-msg'), res = $('at-res'), done = $('at-done');
   let current = null, busy = false;
   const say = (html, err) => { msg.className = 'at-msg' + (err ? ' err' : ''); msg.innerHTML = html; };
@@ -172,7 +173,8 @@ JS = '''<script>
     if (!tipo) return;
     busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
     call({accion:'anadir', link: current.link, tipo}).then(d => {
-      if (d.ok) { res.hidden = true; say2(''); input.value = ''; $('at-done-txt').textContent = d.tienda.nombre + ' sale en el mapa en unos minutos.'; done.hidden = false; return; }
+      if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
+        $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> ya está en el mapa. Si todavía no la ves, sale no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
       if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
       say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
     }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
