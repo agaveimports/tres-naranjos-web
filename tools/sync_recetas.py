@@ -31,6 +31,31 @@ def drive_id(foto):
     return m.group(1) if m else None
 
 
+def grain(img, seed=7, size=2.2, amount=11):
+    """film grain, same as build_cards.grain (the house look on every drink photo)"""
+    import numpy as np
+    from PIL import Image, ImageFilter
+    a = np.asarray(img).astype(np.float32); h, w = a.shape[:2]
+    gh, gw = max(1, int(h / size)), max(1, int(w / size))
+    g = np.random.default_rng(seed).normal(0, 1, (gh, gw)).astype(np.float32)
+    g = np.asarray(Image.fromarray(((g * 40) + 128).clip(0, 255).astype('uint8')).resize((w, h), Image.BICUBIC)
+                   .filter(ImageFilter.GaussianBlur(0.6))).astype(np.float32) - 128
+    lum = a.mean(2, keepdims=True) / 255
+    a += (g[..., None] / 40) * (amount + 5 * (1 - lum))
+    return Image.fromarray(a.clip(0, 255).astype('uint8'))
+
+
+def house_look(img):
+    """The look of the original drink photos: a little faded (softer blacks), slightly warm, slightly less saturated."""
+    import numpy as np
+    from PIL import Image
+    a = np.asarray(img).astype(np.float32)
+    g = a.mean(2, keepdims=True); a = g + (a - g) * 0.88          # a touch less saturated
+    a = a * 0.9 + 255 * 0.06                                       # lifted blacks, softer contrast
+    a *= np.array([1.03, 1.0, 0.95], dtype=np.float32)             # warm
+    return Image.fromarray(a.clip(0, 255).astype('uint8'))
+
+
 def glass_x(im):
     """Where the glass is in a wide AI photo, as a fraction of the width (same logic as the /equipo/receta preview).
     Backdrop colour = right quarter (always empty); the glass is the widest run of columns, in the lower-middle band,
@@ -41,7 +66,7 @@ def glass_x(im):
     c = a / (a.sum(2, keepdims=True) + 1)
     bg = np.median(c[:, int(w * .75):].reshape(-1, 3), 0)
     d = np.sqrt(((c - bg) ** 2).sum(2)) * 100
-    score = (d[int(h * .40):int(h * .80), :int(w * .75)] > 6).mean(0)
+    score = (d[int(h * .28):int(h * .62), :int(w * .75)] > 6).mean(0)  # upper glass only: shadows on the table stay out
     if score.max() < .15: return .25
     on = score >= score.max() * .5
     best, start = (0, 0, 0), None
@@ -61,9 +86,10 @@ def save_photo(img_bytes, name, slug=None):
     im = ImageOps.exif_transpose(Image.open(io.BytesIO(img_bytes))).convert('RGB')
     W, H = im.size
     if slug and W / H > 1.3:
-        im.resize((1600, round(1600 * H / W)), Image.LANCZOS).save(TOOLS + f'share-src/{slug}.jpg', quality=92)
+        house_look(im.resize((1600, round(1600 * H / W)), Image.LANCZOS)).save(TOOLS + f'share-src/{slug}.jpg', quality=92)  # card gets its grain in build_cards
         cw = round(H * 0.8); x0 = max(0, min(W - cw, round(W * glass_x(im) - cw / 2)))  # glass in the middle of the recipe photo
         im = im.crop((x0, 0, x0 + cw, H))
+        im = grain(house_look(ImageOps.fit(im, (960, 1200), Image.LANCZOS)), amount=7)  # faded warm look + film grain, like the original drink photos
     ImageOps.fit(im, (960, 1200), Image.LANCZOS, centering=(0.5, 0.5)).save(SITE + f'assets/tragos/{name}.webp', 'WEBP', quality=80)
     ImageOps.fit(im, (560, 560), Image.LANCZOS, centering=(0.5, 0.45)).save(SITE + f'assets/tragos/sm/{name}.webp', 'WEBP', quality=80)
 

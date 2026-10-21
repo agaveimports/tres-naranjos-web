@@ -525,6 +525,7 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .pv-top p{margin:0;font-size:15px;color:var(--negro-60);line-height:1.45}
 .rx-card{border:1.5px solid var(--negro);border-radius:22px;background:#fff;padding:clamp(16px,2.2vw,28px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start}
 .ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden}
+.ph.ai::after,.done-ph.ai::after{content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;opacity:.16;mix-blend-mode:overlay;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 .ph-col{display:grid;gap:10px;min-width:0;align-content:start}
 .ai-wait,.ai-err{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;border-radius:16px}
 .ai-wait{background:linear-gradient(110deg,#F6E2C8 20%,#FBEEDC 40%,#F6E2C8 60%) 0 0/250% 100%;animation:aishim 1.6s linear infinite}
@@ -1221,7 +1222,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
       const bgs = [[], [], []];
       for (let y = 0; y < h; y++) for (let x = Math.floor(w * .75); x < w; x++) { const v = ch(x, y); bgs[0].push(v[0]); bgs[1].push(v[1]); bgs[2].push(v[2]); }
       const bg = bgs.map(a => a.sort((p, q) => p - q)[a.length >> 1]);
-      const y0 = Math.floor(h * .4), y1 = Math.floor(h * .8), xs = Math.floor(w * .75), sc = [];
+      const y0 = Math.floor(h * .28), y1 = Math.floor(h * .62), xs = Math.floor(w * .75), sc = []; /* upper glass only: shadows on the table stay out */
       for (let x = 0; x < xs; x++) { let n = 0; for (let y = y0; y < y1; y++) { const v = ch(x, y); if (Math.hypot(v[0] - bg[0], v[1] - bg[1], v[2] - bg[2]) * 100 > 6) n++; } sc.push(n / (y1 - y0)); }
       const mx = Math.max(...sc); if (mx < .15) return .25;
       let best = [0, 0, 0], st = -1;
@@ -1241,7 +1242,7 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
     $('ph-btns').hidden = !photo;
     $('ai-tools').hidden = !photoUrl || st === 'wait';
     $('ai-subir').hidden = !window.tnFoto || !!photo || st === 'wait';
-    $('ai-otra').disabled = aiBusy; if (R) check();
+    $('ai-otra').disabled = aiBusy; $('ph').classList.toggle('ai', !!photoUrl && st !== 'wait'); if (R) check();
   }
   async function genPhoto(cambio){
     if (!R) return;
