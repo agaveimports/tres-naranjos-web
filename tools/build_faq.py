@@ -42,14 +42,14 @@ main#top.fq{padding-top:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + c
 </style>'''
 items=''.join(f'<details name="faq"><summary>{esc(f["q"])}</summary><div class="ans">{f["a"]}</div></details>' for f in FAQ)
 main=f'''<main id="top" class="fq wrap">
-  <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
+  <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos</h1><p>Lo que más nos preguntan. ¿No ves la tuya? <a class="js-wa-contact" href="https://wa.me/19393730729" target="_blank" rel="noopener">Escríbenos</a>.</p></header>
   <figure class="fq-banner"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="1600" height="397" fetchpriority="high"></figure>
   {items}
-  <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/17876471157" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
+  <p class="fq-more">¿Otra pregunta? Escríbenos por <a class="js-wa-contact" href="https://wa.me/19393730729" target="_blank" rel="noopener">WhatsApp</a> o a <button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><span>info@agaveimportspr.com</span></button>.</p>
 </main>
 <script>/* space under the fixed header (phones) */(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>
 <script>/* one answer open at a time (older browsers that ignore name="faq") */document.querySelectorAll('.fq details').forEach(d=>d.addEventListener('toggle',()=>{{if(d.open)document.querySelectorAll('.fq details[open]').forEach(o=>{{if(o!==d)o.open=false}})}}))</script>
-<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.js-wa-sell').forEach(a=>a.href='https://wa.me/'+(typeof WHATSAPP!=='undefined'?WHATSAPP:'17876471157')+'?text='+encodeURIComponent('¡Hola! Tengo un negocio y me interesa vender Tres Naranjos.')))</script>'''
+<script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.js-wa-sell').forEach(a=>a.href='https://wa.me/'+(typeof WHATSAPP!=='undefined'?WHATSAPP:'19393730729')+'?text='+encodeURIComponent('¡Hola! Tengo un negocio y me interesa vender Tres Naranjos.')))</script>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]
 s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Sobre nosotros | Tres Naranjos"><meta property="og:image" content="{B}/share/home.jpg?v=2"><link rel="canonical" href="{B}/sobre-nosotros"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS'); b=s.index('</script>',a)
