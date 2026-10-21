@@ -57,7 +57,7 @@ The home page section "Una naranja, mil maneras" shows 6 featured drinks from it
 `python3 tools/set_domain.py https://tresnaranjos.com`, then run the four build scripts. Also lock the Mapbox token to the new domain in the Mapbox account.
 
 **Stores on Dónde comprar**
-Only places where you can buy a bottle (supermarkets, cash and carry, liquor stores); no bars or restaurants (Paul, Oct 2026). The list is the `const TIENDAS = [...]` array in `site/donde-comprar.html`: name, type, address, town, phone, "lat, lng" (start with `~` when approximate). It can instead read a published Google Sheet CSV: paste the link into `STORES_CSV_URL` in the same file (instructions are in the comment above it). The home page closing section ("9 lugares en 6 pueblos", its town list and its small map pins) is hand-written in `site/index.html`; update it when the store list changes a lot. The "Disponible en" strip under the hero is also in `site/index.html`.
+Only places where you can buy a bottle (supermarkets, cash and carry, liquor stores); no bars or restaurants (Paul, Oct 2026). The list is the `const TIENDAS = [...]` array in `site/donde-comprar.html`: name, type, address, town, phone, "lat, lng" (start with `~` when approximate). It can instead read a published Google Sheet CSV: paste the link into `STORES_CSV_URL` in the same file (instructions are in the comment above it). The home page closing section ("10 lugares en 7 pueblos", its town list and its small map pins) is hand-written in `site/index.html`; update it when the store list changes a lot. The "Disponible en" strip under the hero is also in `site/index.html`.
 
 **Edit the FAQ**
 Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3 tools/build_faq.py`.
