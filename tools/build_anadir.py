@@ -120,7 +120,7 @@ main = '''<main id="top" class="at"><div class="at-in">
       <li>Toca <b>Compartir</b> y luego <b>Copiar enlace</b>.</li>
       <li>Pégalo aquí arriba.</li>
     </ol>
-    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, borra su fila en la <a href="https://docs.google.com/spreadsheets/d/15rUOE9lmcXHpuN0paVIG2eGAeZwaiGeAVqqqK9mEvdA/edit" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-underline-offset:3px">hoja de Google</a>.</p>
+    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, borra su fila en el <a href="https://docs.google.com/spreadsheets/d/15rUOE9lmcXHpuN0paVIG2eGAeZwaiGeAVqqqK9mEvdA/edit" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-underline-offset:3px">Google Sheet</a>.</p>
   </div>
 </div>
 </div></main>'''

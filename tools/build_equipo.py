@@ -31,10 +31,20 @@ main#top.eq{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .eq-go{margin-top:auto;padding-top:8px;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#C2410C}
 .eq-sheet{margin:22px 0 0;font-size:16px;line-height:1.5;color:var(--negro-60)}
 .eq-sheet a{color:var(--negro);font-weight:700;text-underline-offset:3px}.eq-sheet a:hover{color:#E04F12}
+.eq-wide{margin-top:14px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px;padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px);border-radius:22px;background:#F6E2C8;color:var(--negro);text-decoration:none;transition:background .15s}
+.eq-wide:hover{background:#F9EAD6}
+.eq-wide:focus{outline:none}.eq-wide:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.eq-ico.soft{background:#188038}
+.eq-wide h2{font-family:var(--display);font-size:clamp(24px,2.2vw,30px);line-height:.95;margin:0 0 4px;text-transform:uppercase}
+.eq-wide p{margin:0;font-size:16px;line-height:1.45;color:var(--negro-60)}
+.eq-open{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#188038;color:#fff;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.eq-wide:hover .eq-open{background:#1E9445}
+@media (max-width:640px){.eq-wide{grid-template-columns:auto minmax(0,1fr);align-items:start}.eq-open{grid-column:1/-1;justify-content:center}}
 @media (max-width:640px){.eq-pick{grid-template-columns:1fr}.eq-card{min-height:0}}
 </style>'''
 
 GLASS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14l-7 8z"/><path d="M12 12v8M8 20h8"/></svg>'
+SHEET = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><rect x="8.5" y="11" width="7" height="6.5" rx=".5"/><path d="M8.5 14.2h7M12 11v6.5"/></svg>'
 PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
 
 main = f'''<main id="top" class="eq"><div class="eq-in">
@@ -46,7 +56,7 @@ main = f'''<main id="top" class="eq"><div class="eq-in">
     <a class="eq-card" href="equipo/receta"><span class="eq-ico">{GLASS}</span><h2>Añadir una receta</h2><p>Pega la receta, sube la foto, revisa cómo va a quedar y publica.</p><span class="eq-go">Empezar →</span></a>
     <a class="eq-card" href="equipo/tienda"><span class="eq-ico">{PIN}</span><h2>Añadir una tienda</h2><p>Pega el link de Google Maps de la tienda y escoge el tipo.</p><span class="eq-go">Empezar →</span></a>
   </div>
-  <p class="eq-sheet">Para cambiar o quitar una receta o una tienda, usa la <a href="{SHEET_URL}" target="_blank" rel="noopener">hoja de Google</a>.</p>
+  <a class="eq-wide" href="{SHEET_URL}" target="_blank" rel="noopener"><span class="eq-ico soft">{SHEET}</span><span class="eq-wt"><h2>Editar o quitar en Google Sheet</h2><p>Cambia o esconde una receta, o borra una tienda. Todo está en el Google Sheet.</p></span><span class="eq-open">Abrir Google Sheet ↗</span></a>
 </div>
 </div></main>'''
 
