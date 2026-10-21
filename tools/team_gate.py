@@ -7,7 +7,6 @@ The code is remembered on that phone or computer (localStorage 'tn-clave'); if i
 HEAD = "<script>document.documentElement.classList.add('age-ok')</script>"
 
 CSS = '''<style>
-main#top{min-height:100svh}
 .pw{max-width:560px}
 .pw h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
 .pw .pw-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 18px;color:var(--negro-60)}
@@ -58,3 +57,11 @@ def js(script_url, app_id, hub=False):
   });
 })();
 </script>''' % (script_url, app_id, 'true' if hub else 'false'))
+
+
+def no_footer(page):
+    """Team pages are tools, not public pages: no footer, wordmark or credit line (Alfonso, Oct 2026)."""
+    import re
+    page = re.sub(r'<footer[\s\S]*?</footer>\n?', '', page, count=1)
+    page = re.sub(r'<div class="credit">.*?</div>\n?', '', page, count=1)
+    return page

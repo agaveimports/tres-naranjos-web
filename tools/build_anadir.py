@@ -196,4 +196,4 @@ a = s.index('/* ================================================================
 s = s[:a] + "(function(){const n=document.getElementById('nav');if(!n)return;const f=()=>document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
 s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
-os.makedirs(SITE + 'equipo', exist_ok=True); open(SITE + 'equipo/tienda.html', 'w').write(hoist(s)); print('ok equipo/tienda')
+os.makedirs(SITE + 'equipo', exist_ok=True); open(SITE + 'equipo/tienda.html', 'w').write(hoist(team_gate.no_footer(s))); print('ok equipo/tienda')

@@ -68,4 +68,4 @@ s = s[:a] + "(function(){const n=document.getElementById('nav');if(!n)return;con
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
 s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'eq-app', hub=True) + '\n</body>', 1)
 os.makedirs(SITE + 'equipo', exist_ok=True)
-open(SITE + 'equipo/index.html', 'w').write(hoist(s)); print('ok equipo')
+open(SITE + 'equipo/index.html', 'w').write(hoist(team_gate.no_footer(s))); print('ok equipo')
