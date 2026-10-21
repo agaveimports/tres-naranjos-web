@@ -87,6 +87,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1446,7 +1448,7 @@ const STREET_LAYERS_TOP=[
   if(STORES_CSV_URL){
     let done=false;const backup=()=>{if(!done){done=true;load(toStores(TIENDAS),false)}};
     const timer=setTimeout(backup,4000);
-    fetch(STORES_CSV_URL,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
+    fetch(STORES_CSV_URL+'&t='+Math.floor(Date.now()/60000),{cache:'no-store'}) /* new t each minute = Google sends a fresh copy */.then(r=>r.ok?r.text():Promise.reject()).then(t=>{
       const rows=parseCSV(t); if(rows.length&&norm(rows[0][0])==='nombre')rows.shift();
       const s=toStores(rows); if(!s.length)return backup();
       clearTimeout(timer); done=true; load(s,false);
