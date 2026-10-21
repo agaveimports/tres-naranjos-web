@@ -81,6 +81,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -625,7 +627,28 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 .mail-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);background:var(--negro);color:var(--crema);font:700 14px var(--mono);padding:.8em 1.3em .7em;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .3s ease;z-index:200}
 .mail-toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
-<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/donde-comprar*"}}]},"eagerness":"moderate"}]}</script></head>
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/donde-comprar*"}}]},"eagerness":"moderate"}]}</script><script>/* Analytics: Microsoft Clarity (project z1a9it5war). Only on the real domain, so test visits aren't counted. */
+(function(){if(!/(^|\.)tresnaranjos\.com$/.test(location.hostname))return;
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","z1a9it5war");
+/* events (Clarity > Dashboard > Smart events / filters "Custom events") */
+const ev=n=>{try{clarity('event',n)}catch(e){}};
+document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a)return;const h=a.getAttribute('href')||'',c=a.className||'',t=(a.textContent||'').trim();
+  if(/wa\.me/.test(h)||a.classList.contains('js-wa-biz')||a.classList.contains('js-wa-contact')||a.classList.contains('js-wa-sell')){
+    if(/Mándasela/i.test(t)||/rp-wa|btn--wa/.test(c)&&/pana/i.test(t))return ev('receta_compartida_whatsapp');
+    if(a.classList.contains('js-wa-biz'))return ev('whatsapp_agave_imports');
+    if(a.classList.contains('js-wa-sell'))return ev('whatsapp_ventas');
+    return ev('whatsapp_contacto')}
+  if(a.classList.contains('copy-tel')||a.classList.contains('copy-mail'))return ev('copiar_contacto');
+  if(/^tel:/.test(h))return ev(/7272/.test(h)?'llamar_insular':'llamar_agave_imports');
+  if(/^mailto:/.test(h))return ev(/insular/.test(h)?'email_insular':'email_agave_imports');
+  if(/google\.com\/maps/.test(h))return ev('como_llegar_tienda');
+  if(/donde-comprar/.test(h))return ev('clic_donde_comprar');
+  if(/instagram\.com\/(p|reel)\//.test(h))return ev('instagram_post');
+  if(/instagram\.com/.test(h))return ev('instagram_perfil');
+  if(/(^|\/)recetas\/[a-z]/.test(h))return ev('abrir_receta');
+},true);
+})();</script>
+</head>
 <body>
 <!-- page styles live here (top of body) so they apply on the first paint -->
 <style>

@@ -472,6 +472,27 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 .mail-toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 <script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/donde-comprar*"}}]},"eagerness":"moderate"}]}</script><style>.foot-left{justify-content:flex-start!important;gap:0!important}.foot-contacts{display:grid;margin-top:clamp(18px,2.5vw,26px);max-width:580px}.fc-row{padding:14px 0}.fc-row+.fc-row{border-top:1.5px dashed var(--negro)}.fc-row:first-child{padding-top:4px}.fc-row:last-child{padding-bottom:0}.fc-row p{margin:0}.fc-who{font-size:15px!important;line-height:1.35!important;color:#7a706a}.fc-name{font-weight:700;font-size:17px!important;line-height:1.35!important;margin:2px 0 3px!important}.fc-line{font-size:15px!important;line-height:1.5!important;font-weight:600}.fc-line a{color:inherit;text-decoration:none}.fc-line a:hover,.fc-line button:hover{color:#E04F12}.fc-line .fc-wa{color:#1E8E4F;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}.fc-line .copy-mail{font:inherit;padding:0;vertical-align:baseline}.fc-line .copy-tel,.fc-line .copy-mail{display:inline-flex;align-items:center;gap:.3em;text-decoration:none!important;cursor:pointer}.fc-line .cp{width:14px;height:14px;flex:none;opacity:.45;transition:opacity .15s}.fc-line .copy-tel:hover .cp,.fc-line .copy-mail:hover .cp{opacity:1}.fc-btns{display:none}@media (max-width:700px){.foot-left{padding-bottom:24px!important}.fc-line{display:none}.fc-btns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.fc-b{display:flex;align-items:center;justify-content:center;gap:.45em;min-height:46px;border-radius:999px;background:#F1D5B2;color:var(--negro);font:600 15px "Hanken Grotesk",system-ui,sans-serif;text-decoration:none}.fc-b svg{width:17px;height:17px;flex:none}.fc-b:hover{background:#F6E2C8}.fc-b.wa{background:#1E8E4F;color:#fff}.fc-b.wa:hover{background:#25A05B}}</style>
+<script>/* Analytics: Microsoft Clarity (project z1a9it5war). Only on the real domain, so test visits aren't counted. */
+(function(){if(!/(^|\.)tresnaranjos\.com$/.test(location.hostname))return;
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","z1a9it5war");
+/* events (Clarity > Dashboard > Smart events / filters "Custom events") */
+const ev=n=>{try{clarity('event',n)}catch(e){}};
+document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a)return;const h=a.getAttribute('href')||'',c=a.className||'',t=(a.textContent||'').trim();
+  if(/wa\.me/.test(h)||a.classList.contains('js-wa-biz')||a.classList.contains('js-wa-contact')||a.classList.contains('js-wa-sell')){
+    if(/Mándasela/i.test(t)||/rp-wa|btn--wa/.test(c)&&/pana/i.test(t))return ev('receta_compartida_whatsapp');
+    if(a.classList.contains('js-wa-biz'))return ev('whatsapp_agave_imports');
+    if(a.classList.contains('js-wa-sell'))return ev('whatsapp_ventas');
+    return ev('whatsapp_contacto')}
+  if(a.classList.contains('copy-tel')||a.classList.contains('copy-mail'))return ev('copiar_contacto');
+  if(/^tel:/.test(h))return ev(/7272/.test(h)?'llamar_insular':'llamar_agave_imports');
+  if(/^mailto:/.test(h))return ev(/insular/.test(h)?'email_insular':'email_agave_imports');
+  if(/google\.com\/maps/.test(h))return ev('como_llegar_tienda');
+  if(/donde-comprar/.test(h))return ev('clic_donde_comprar');
+  if(/instagram\.com\/(p|reel)\//.test(h))return ev('instagram_post');
+  if(/instagram\.com/.test(h))return ev('instagram_perfil');
+  if(/(^|\/)recetas\/[a-z]/.test(h))return ev('abrir_receta');
+},true);
+})();</script>
 <style>
 main#top.nf{min-height:calc(100svh - var(--navh,70px));box-sizing:border-box;display:grid;place-items:center;text-align:center;
   padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,6vw,72px)) var(--gutter,16px) clamp(56px,8vw,100px)}

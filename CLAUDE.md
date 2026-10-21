@@ -62,6 +62,9 @@ Only places where you can buy a bottle (supermarkets, cash and carry, liquor sto
 **Instagram row (home page)**
 Live from Behold (free plan: 6 posts, refreshes daily, about 1,200 views a month): `IG_FEED_URL` in `site/index.html` = https://feeds.behold.so/y9Us941u0nkHzeqMUZSs (account in Behold connected to @tresnaranjosoficial). If the feed fails or runs out of views, the hand-picked photos below it in the same script show instead. Once the real domain is live, consider caching the feed through Cloudflare so views never run out.
 
+**Analytics**
+Microsoft Clarity (project `z1a9it5war`, account Alfonso's) plus Cloudflare Web Analytics (turned on in the Cloudflare dashboard for tresnaranjos.com, no code). The Clarity snippet sits before `</head>` in `site/index.html`, `site/donde-comprar.html` and `tools/tragos_base.html` and only loads on tresnaranjos.com. It sends click events: whatsapp_agave_imports, whatsapp_ventas, whatsapp_contacto, receta_compartida_whatsapp, copiar_contacto, llamar_agave_imports / llamar_insular, email_agave_imports / email_insular, como_llegar_tienda, clic_donde_comprar, abrir_receta, instagram_post, instagram_perfil. Keep the privacy page in step if tools change.
+
 **Edit the FAQ**
 Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3 tools/build_faq.py`.
 

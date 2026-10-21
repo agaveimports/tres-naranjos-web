@@ -13,7 +13,7 @@ TEXT = [
   ('Tu ubicación', 'Si tocas "Cerca de mí" en Dónde comprar, tu navegador te pide permiso para usar tu ubicación. La usamos solo en tu pantalla para mostrarte los lugares más cercanos. No la guardamos ni la enviamos a nadie.'),
   ('El mapa', 'El mapa de Dónde comprar lo provee Mapbox. Para mostrarlo, tu navegador le pide las imágenes del mapa a Mapbox, que recibe datos técnicos como tu dirección IP y el tipo de navegador, igual que cualquier sitio que visitas.'),
   ('El hosting', 'El sitio está alojado en Cloudflare. Como cualquier servidor, Cloudflare recibe datos técnicos de cada visita (dirección IP, navegador, página visitada) para entregar el sitio y protegerlo.'),
-  ('Estadísticas', 'Podemos usar herramientas como Microsoft Clarity y Cloudflare Web Analytics para entender cómo se usa el sitio: qué páginas se visitan, dónde se toca y hasta dónde se baja. Esa información es anónima y no la usamos para identificarte.'),
+  ('Estadísticas', 'Usamos Microsoft Clarity y Cloudflare Web Analytics para entender cómo se usa el sitio: qué páginas se visitan, dónde se toca y hasta dónde se baja. Esa información es anónima y no la usamos para identificarte.'),
   ('Enlaces a otros sitios', 'Los botones de WhatsApp, Instagram y Google Maps te llevan a esos servicios, que tienen sus propias políticas de privacidad.'),
   ('Edad', 'Este sitio es para personas con la edad legal para consumir alcohol en su país.'),
   ('Preguntas', f'Si tienes alguna pregunta sobre tu privacidad, escríbenos a <button type="button" class="copy-mail" data-mail="{EMAIL}" aria-label="Copiar {EMAIL}"><span>{EMAIL}</span></button>.'),
