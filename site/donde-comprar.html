@@ -89,6 +89,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1222,11 +1224,11 @@ const STREET_LAYERS_TOP=[
     }).filter(s=>s.nombre&&s.ll);
   }
   function load(stores,sample){
-    st.stores=stores;
+    st.stores=stores; st.got=true;
     const towns=[...new Set(stores.map(s=>ZONA[s.pueblo]||s.pueblo))];
     const apply=()=>map.setFilter('pr-has',['in',['get','n'],['literal',towns]]);
     map.isStyleLoaded()?apply():map.once('load',apply);
-    chips(); legend(); if(islandZoom!=null) settle();
+    chips(); legend(); if(islandZoom!=null){settle();requestAnimationFrame(ready)}
   }
   function legend(){const ks=Object.keys(KINDS).filter(k=>st.stores.some(s=>KIND_OF(s.tipo)===k));$('legend').innerHTML=ks.length>1?ks.map(k=>'<span><i style="background:'+KINDS[k].c+'"></i>'+KINDS[k].label+'</span>').join(''):'';$('legend').hidden=ks.length<2}
   legend();
@@ -1314,6 +1316,7 @@ const STREET_LAYERS_TOP=[
 
   /* ---------- list: what's in view ---------- */
   function renderList(){
+    if(!st.got)return; /* keep the skeleton until the store list has arrived (no empty-card flash) */
     let list=filtered().filter(inView); const island=isIsland(); chips();
     let solo=false; if(!wide()&&st.open!=null){const one=list.filter(x=>x.id===st.open);if(one.length){list=one;solo=true}} /* phones: a tapped pin singles out its place, like Airbnb */
     $('results').classList.toggle('solo',solo);
@@ -1343,8 +1346,8 @@ const STREET_LAYERS_TOP=[
 
   /* ---------- interaction ---------- */
   const split=$('split');
-  function ready(){if(!split.classList.contains('loading'))return;split.classList.remove('loading');split.removeAttribute('aria-busy')}
-  setTimeout(()=>{if(islandZoom==null){islandZoom=map.getZoom();settle()}ready()},8000);
+  function ready(force){if(!split.classList.contains('loading')||(!st.got&&!force))return;split.classList.remove('loading');split.removeAttribute('aria-busy')}
+  setTimeout(()=>{if(islandZoom==null){islandZoom=map.getZoom();settle()}ready(true)},8000);
   // deep link from the home page: donde-comprar#pueblo=Rincón
   function fromHash(){const m=decodeURIComponent(location.hash||'').match(/pueblo=(.+)$/);if(!m)return;const n=muniKey[norm(m[1])]||Object.keys(muni).find(k=>norm(k)===norm(m[1]));if(!n)return;const qi=$('q');if(qi)qi.value=n;st.q='';st.focus=n;setTimeout(()=>{goTown(n)},350)}
   map.on('load',()=>{lockIsland();settle();requestAnimationFrame(ready);fromHash();
