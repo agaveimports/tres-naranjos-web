@@ -1198,7 +1198,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a
 <section class="producto wrap" aria-label="El producto">
   <div class="prod-photo">
     <div class="pg-track" id="pg-track">
-      <div class="pg-slide"><video class="prod-video" autoplay muted loop playsinline preload="auto" poster="assets/prod-loop-poster.webp" aria-label="Botella de Tres Naranjos Triple Sec con naranjas frescas al sol"><source src="assets/prod-loop.webm" type="video/webm"><source src="assets/prod-loop.mp4" type="video/mp4"></video></div>
+      <div class="pg-slide"><video class="prod-video" muted loop playsinline preload="none" poster="assets/prod-loop-poster.webp" aria-label="Botella de Tres Naranjos Triple Sec con naranjas frescas al sol"><source src="assets/prod-loop.webm" type="video/webm"><source src="assets/prod-loop.mp4" type="video/mp4"></video></div>
       <div class="pg-slide"><img src="assets/prod-pour.webp" alt="Sirviendo Tres Naranjos en una coctelera con hielo" loading="lazy"></div>
       <div class="pg-slide"><img src="assets/prod-back.webp" alt="Etiqueta trasera de Tres Naranjos con la receta para margaritas" loading="lazy"></div>
     </div>
@@ -1630,4 +1630,8 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
 
 
+<script>/* product video: start downloading only when the section is about to scroll into view (the poster shows until then) */
+(function(){const v=document.querySelector('.prod-video');if(!v)return;const go=()=>{v.preload='auto';v.load();v.play().catch(()=>{})};
+if(!('IntersectionObserver' in window))return go();
+const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();go()}},{rootMargin:'100px 0px'});io.observe(v)})();</script>
 </body></html>
