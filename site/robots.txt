@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /equipo
 
 Sitemap: https://tresnaranjos.com/sitemap.xml

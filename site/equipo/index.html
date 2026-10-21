@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('age-ok')</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Añadir una tienda | Tres Naranjos</title><meta name="description" content="Añadir una tienda al mapa de Dónde comprar.">
+<title>Equipo | Tres Naranjos</title><meta name="description" content="Página del equipo de Tres Naranjos.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
@@ -495,55 +495,22 @@ document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a
 },true);
 })();</script>
 <style>
-main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
-.at-in{max-width:760px;margin:0 auto}
-.at-eye{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
-.at h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase;text-wrap:balance}
-.at-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 18px;color:var(--negro-60)}
-.at-lead b{color:var(--negro)}
-.at label.l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
-.at-field{display:flex;gap:8px}
-.at-field input{flex:1;min-width:0;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
-.at-field input:focus{border-color:#E8561A}
-.at-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none}
-.at-btn.go{background:#EE5F1C;color:var(--crema)}
-.at-btn.go:hover{background:#F26F31}
-.at-btn.dark{background:var(--negro);color:var(--crema)}
-.at-btn.dark:hover{background:#433D39}
-.at-btn.soft{background:#F1D5B2;color:var(--negro)}
-.at-btn.soft:hover{background:#F6E2C8}
-.at-btn[disabled]{opacity:.45;cursor:default}
-.at-btn:focus{outline:none}.at-btn:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
-.at-btn.go[disabled]:hover{background:#EE5F1C}
-.at-msg{margin:10px 0 0;font-size:15px;line-height:1.5}.at-msg:empty{display:none}
-.at-msg.err{color:#B3361A;font-weight:600}
-.at-wait{display:flex;align-items:center;gap:10px;color:var(--negro-60)}
-.at-wait i{width:16px;height:16px;border-radius:50%;border:2px solid #F1D5B2;border-top-color:#E8561A;animation:atspin .8s linear infinite}
-@keyframes atspin{to{transform:rotate(360deg)}}
-.at-card{margin-top:16px;border:1.5px solid var(--negro);border-radius:18px;overflow:hidden;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
-.at-mapbox{position:relative;min-height:260px;background:#F6E2C8;border-right:1.5px solid var(--negro)}.at-mapbox img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
-.at-info{padding:18px 20px 20px;min-width:0}
-.at-info .q{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 6px}
-.at-info .n{font-weight:700;font-size:21px;line-height:1.25;margin:0}
-.at-info .a{font-size:15px;line-height:1.45;margin:4px 0 0;color:var(--negro-60)}
-.at-tipos{margin:16px 0 0}
-.at-tipos legend{font-weight:700;font-size:14px;margin:0 0 8px;padding:0}
-.at-tipos fieldset{border:0;margin:0;padding:0;min-width:0}
-.at-tipos label{margin:0 6px 8px 0;display:inline-flex;align-items:center;min-height:38px;padding:0 1em;border-radius:999px;background:#F6E2C8;font-weight:600;font-size:15px;cursor:pointer;user-select:none}
-.at-tipos label:hover{background:#F9EAD6}
-.at-tipos input{position:absolute;opacity:0;pointer-events:none}
-.at-tipos label:has(input:checked){background:var(--negro);color:var(--crema)}
-.at-tipos input:focus-visible+span{outline:2px solid #E8561A;outline-offset:4px;border-radius:4px}
-.at-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.at-done{margin-top:16px;padding:22px 20px;border-radius:18px;background:#F6E2C8}
-.at-done h2{font-family:var(--display);font-size:clamp(30px,4vw,42px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
-.at-done p{margin:0 0 16px;line-height:1.5}
-.at-help{margin-top:28px;padding-top:16px;border-top:1.5px dashed var(--negro);font-size:15px;line-height:1.55;color:var(--negro-60)}
-.at-help b{color:var(--negro)}
-.at-help ol{margin:8px 0 0;padding-left:1.2em}
-.at-add{width:100%;margin-top:8px}
-@media (max-width:640px){.at-card{grid-template-columns:1fr}.at-mapbox{min-height:0;aspect-ratio:5/2;border-right:0;border-bottom:1.5px solid var(--negro)}.at-info{padding:14px 16px 16px}.at-info .n{font-size:19px}.at-field .at-btn,.at-acts .at-btn{width:auto}}
-@media (max-width:420px){.at-acts .at-btn{width:100%}}
+main#top.eq{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
+.eq-in{max-width:880px;margin:0 auto}
+.eq h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .3em;text-transform:uppercase;text-wrap:balance}
+.eq-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 22px;color:var(--negro-60)}
+.eq-pick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.eq-card{display:grid;align-content:start;gap:10px;padding:clamp(20px,2.4vw,30px);border-radius:22px;background:#fff;border:1.5px solid var(--negro);color:var(--negro);text-decoration:none;min-height:190px;transition:background .15s}
+.eq-card:hover{background:#FFFBF5}
+.eq-card:focus{outline:none}.eq-card:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.eq-ico{width:52px;height:52px;border-radius:50%;background:#EE5F1C;color:var(--crema);display:grid;place-items:center}
+.eq-ico svg{width:26px;height:26px}
+.eq-card h2{font-family:var(--display);font-size:clamp(28px,2.8vw,38px);line-height:.95;margin:6px 0 0;text-transform:uppercase}
+.eq-card p{margin:0;font-size:16px;line-height:1.45;color:var(--negro-60)}
+.eq-go{margin-top:auto;padding-top:8px;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#C2410C}
+.eq-sheet{margin:22px 0 0;font-size:16px;line-height:1.5;color:var(--negro-60)}
+.eq-sheet a{color:var(--negro);font-weight:700;text-underline-offset:3px}.eq-sheet a:hover{color:#E04F12}
+@media (max-width:640px){.eq-pick{grid-template-columns:1fr}.eq-card{min-height:0}}
 </style><style>
 main#top{min-height:100svh}
 .pw{max-width:560px}
@@ -850,62 +817,21 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 
-<main id="top" class="at"><div class="at-in">
+<main id="top" class="eq"><div class="eq-in">
 <div class="pw" id="pw-team" hidden>
-  <h1>Añadir una tienda</h1>
+  <h1>Equipo Tres Naranjos</h1>
   <p class="pw-lead">Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
   <form id="pw-form" autocomplete="off"><input type="password" id="pw-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="pw-go">Entrar</button></form>
   <p class="pw-msg" id="pw-msg" role="status" aria-live="polite"></p>
 </div>
-<div id="team-app" hidden>
-  <h1>Añadir una tienda</h1>
-  <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
-
-  <form id="at-form" autocomplete="off" novalidate>
-    <label class="l" for="at-link">Link de Google Maps</label>
-    <div class="at-field">
-      <input id="at-link" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/..." required>
-      <button class="at-btn dark" id="at-buscar" type="submit">Buscar</button>
-    </div>
-  </form>
-  <p class="at-msg" id="at-msg" role="status" aria-live="polite"></p>
-
-  <div id="at-res" hidden>
-    <div class="at-card">
-      <div class="at-mapbox"><img id="at-map" alt=""></div>
-      <div class="at-info">
-        <p class="q">¿Es esta la tienda?</p>
-        <p class="n" id="at-name"></p>
-        <p class="a" id="at-addr"></p>
-        <div class="at-tipos"><fieldset><legend>Tipo de tienda</legend>
-          <label><input type="radio" name="tipo" value="Licorería"><span>Licorería</span></label>
-          <label><input type="radio" name="tipo" value="Supermercado"><span>Supermercado</span></label>
-          <label><input type="radio" name="tipo" value="Cash &amp; Carry"><span>Cash &amp; Carry</span></label>
-          <label><input type="radio" name="tipo" value="Tienda"><span>Tienda</span></label>
-        </fieldset></div>
-        <button class="at-btn go at-add" id="at-si" type="button">Sí, añadir al mapa</button>
-        <p class="at-msg" id="at-msg2" role="status" aria-live="polite"></p>
-      </div>
-    </div>
+<div id="eq-app" hidden>
+  <h1>¿Qué quieres hacer?</h1>
+  <p class="eq-lead">Todo lo que añadas aquí sale en tresnaranjos.com.</p>
+  <div class="eq-pick">
+    <a class="eq-card" href="equipo/receta"><span class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14l-7 8z"/><path d="M12 12v8M8 20h8"/></svg></span><h2>Añadir una receta</h2><p>Pega la receta, sube la foto, revisa cómo va a quedar y publica.</p><span class="eq-go">Empezar →</span></a>
+    <a class="eq-card" href="equipo/tienda"><span class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h2>Añadir una tienda</h2><p>Pega el link de Google Maps de la tienda y escoge el tipo.</p><span class="eq-go">Empezar →</span></a>
   </div>
-
-  <div class="at-done" id="at-done" hidden>
-    <h2>¡Listo!</h2>
-    <p id="at-done-txt"></p>
-    <div class="at-acts" style="margin-top:0">
-      <button class="at-btn go" id="at-otra" type="button">Añadir otra</button>
-    </div>
-  </div>
-
-  <div class="at-help">
-    <b>¿Cómo copio el link?</b>
-    <ol>
-      <li>Busca la tienda en Google Maps y ábrela (que salga su nombre y su foto).</li>
-      <li>Toca <b>Compartir</b> y luego <b>Copiar enlace</b>.</li>
-      <li>Pégalo aquí arriba.</li>
-    </ol>
-    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, avísale a Paul.</p>
-  </div>
+  <p class="eq-sheet">Para cambiar o quitar una receta o una tienda, usa la <a href="https://docs.google.com/spreadsheets/d/15rUOE9lmcXHpuN0paVIG2eGAeZwaiGeAVqqqK9mEvdA/edit" target="_blank" rel="noopener">hoja de Google</a>.</p>
 </div>
 </div></main>
 
@@ -994,88 +920,28 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
 
 <script>
 (function(){
-  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('team-app'), pw = document.getElementById('pw-team');
+  const URL_ = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', app = document.getElementById('eq-app'), pw = document.getElementById('pw-team');
   const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
   const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
   const open = () => { pw.hidden = true; app.hidden = false; };
-  const lock = msg => { set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
+  const HUB = true;
+  const toHub = m => location.replace('/equipo/?' + new URLSearchParams(Object.assign({ir: location.pathname}, m ? {m: 1} : {})));
+  const lock = msg => { if (!HUB) { set(''); return toHub(msg); } set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
   window.tnIA = false;
   const check = k => fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json());
   if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; }).catch(() => {}); }
-  else lock('');
+  else lock(HUB && new URLSearchParams(location.search).get('m') ? 'La contraseña cambió. Escribe la nueva.' : '');
   document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
     const k = document.getElementById('pw-key').value.trim(), btn = document.getElementById('pw-go'), m = document.getElementById('pw-msg');
     if (!k) return;
     btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
     check(k).then(r => {
-      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; const ir = new URLSearchParams(location.search).get('ir') || ''; if (ir.indexOf('/equipo/') === 0 && /^[a-z/-]+$/.test(ir) && ir.length > 8) return location.replace(ir); open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
     }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
-  });
-})();
-</script><script>
-(function(){
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', TOKEN = 'pk.eyJ1IjoiYWxmb25zb3JvZHoxIiwiYSI6ImNtdmIydWt0eDAyc3MzNHB5emVseDRuMnEifQ.25ngv3uGQKI1fmtaWga5fQ';
-  const $ = id => document.getElementById(id);
-  const LISTO_MIN = 5; /* measured Oct 2026: the published sheet updates in seconds; Google promises within 5 minutes */
-  const form = $('at-form'), input = $('at-link'), msg = $('at-msg'), res = $('at-res'), done = $('at-done');
-  let current = null, busy = false;
-  const say = (html, err) => { msg.className = 'at-msg' + (err ? ' err' : ''); msg.innerHTML = html; };
-  const wait = t => say('<span class="at-wait"><i></i>' + t + '</span>');
-  const say2 = (html, err) => { const m = $('at-msg2'); m.className = 'at-msg' + (err ? ' err' : ''); m.innerHTML = html; };
-  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const linkOf = v => (String(v).match(/https?:\/\/\S+/) || [''])[0];
-  const call = p => fetch(SCRIPT_URL + '?' + new URLSearchParams(p)).then(r => r.json());
-
-  function reset(keepLink){ current = null; res.hidden = true; done.hidden = true; say(''); say2(''); if(!keepLink){ input.value = ''; }
-    document.querySelectorAll('input[name=tipo]').forEach(r => r.checked = false); $('at-si').disabled = true; }
-
-  function buscar(){
-    const link = linkOf(input.value);
-    reset(true);
-    if (!link) return say('Pega el link que copiaste de Google Maps (empieza con https://).', true);
-    if (!SCRIPT_URL) return say('Esta página todavía no está conectada a la hoja.', true);
-    busy = true; $('at-buscar').disabled = true; wait('Buscando la tienda… puede tardar unos segundos.');
-    call({accion:'ver', link}).then(d => {
-      if (!d.ok) return say('No pudimos encontrar esa tienda con ese link. Ábrela en Google Maps (que salga su nombre), toca Compartir y copia el link otra vez.', true);
-      const t = d.tienda, ll = t.ll.split(',').map(Number);
-      current = {link, t};
-      $('at-name').textContent = t.nombre;
-      $('at-addr').textContent = [t.dir, t.pueblo].filter(Boolean).join(', ');
-      $('at-map').src = 'https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+e8561a(' + ll[1] + ',' + ll[0] + ')/' + ll[1] + ',' + ll[0] + ',15.5/600x520@2x?logo=false&access_token=' + TOKEN;
-      $('at-map').alt = 'Mapa de ' + t.nombre;
-      res.hidden = false;
-      if (res.getBoundingClientRect().top > innerHeight * .6) res.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
-      say(''); say2(d.ya ? 'Esta tienda ya está en el mapa (<b>' + esc(d.ya) + '</b>).' : '', !!d.ya);
-      current.ya = !!d.ya; syncAdd();
-    }).catch(() => say('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
-      .finally(() => { busy = false; $('at-buscar').disabled = false; });
-  }
-
-  const tipoSel = () => (document.querySelector('input[name=tipo]:checked') || {}).value;
-  function syncAdd(){ $('at-si').disabled = busy || !current || current.ya || !tipoSel(); }
-  document.querySelectorAll('input[name=tipo]').forEach(r => r.addEventListener('change', () => { say2(''); syncAdd(); }));
-  /* clearing or changing the link hides the old store */
-  input.addEventListener('input', () => { if (!current && done.hidden) return; if (linkOf(input.value) !== (current && current.link)) { reset(true); } });
-  form.addEventListener('submit', e => { e.preventDefault(); if (!busy) buscar(); });
-  input.addEventListener('paste', () => setTimeout(() => { if (!busy && linkOf(input.value)) buscar(); }, 0));
-  $('at-otra').addEventListener('click', () => { reset(false); input.focus(); });
-  $('at-si').addEventListener('click', () => {
-    if (!current || busy) return;
-    const tipo = tipoSel();
-    if (!tipo) return;
-    busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
-    call({accion:'anadir', link: current.link, tipo, clave: window.tnClave()}).then(d => {
-      if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
-        $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> sale en el mapa no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
-      if (d.error === 'clave') return window.tnLock();
-      if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
-      say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
-    }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
-      .finally(() => { busy = false; if (done.hidden) syncAdd(); });
   });
 })();
 </script>

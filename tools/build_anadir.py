@@ -1,4 +1,4 @@
-"""Builds site/anadir-tienda.html: private page for the team to add a store to the Dónde comprar map.
+"""Builds site/equipo/tienda.html (served at /equipo/tienda): private page for the team to add a store to the Dónde comprar map.
 Not in the menu, the sitemap or Google (noindex). Paste a Google Maps link, see the store and its pin, pick the type, confirm.
 Talks to the Apps Script web app of the sheet "Tres Naranjos: tiendas del mapa" (SCRIPT_URL below)."""
 from hoist_meta import hoist
@@ -18,6 +18,7 @@ s = re.sub(r'<link rel="canonical"[^>]*>\n?', '', s)
 s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 
 CSS = '''<style>
+.eq-back{display:inline-flex;align-items:center;gap:6px;margin:0 0 18px;font-weight:700;font-size:15px;color:var(--negro);text-decoration:none}.eq-back:hover{color:#E04F12}
 main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
 .at-in{max-width:760px;margin:0 auto}
 .at-eye{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
@@ -71,6 +72,7 @@ main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 
 main = '''<main id="top" class="at"><div class="at-in">
 ''' + team_gate.html('Añadir una tienda') + '''
+<a class="eq-back" href="equipo/"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Equipo</a>
 <div id="team-app" hidden>
   <h1>Añadir una tienda</h1>
   <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
@@ -118,7 +120,7 @@ main = '''<main id="top" class="at"><div class="at-in">
       <li>Toca <b>Compartir</b> y luego <b>Copiar enlace</b>.</li>
       <li>Pégalo aquí arriba.</li>
     </ol>
-    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, avísale a Paul.</p>
+    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, borra su fila en la <a href="https://docs.google.com/spreadsheets/d/15rUOE9lmcXHpuN0paVIG2eGAeZwaiGeAVqqqK9mEvdA/edit" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-underline-offset:3px">hoja de Google</a>.</p>
   </div>
 </div>
 </div></main>'''
@@ -194,4 +196,4 @@ a = s.index('/* ================================================================
 s = s[:a] + "(function(){const n=document.getElementById('nav');if(!n)return;const f=()=>document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
 s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
-open(SITE + 'anadir-tienda.html', 'w').write(hoist(s)); print('ok anadir-tienda')
+os.makedirs(SITE + 'equipo', exist_ok=True); open(SITE + 'equipo/tienda.html', 'w').write(hoist(s)); print('ok equipo/tienda')

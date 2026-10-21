@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('age-ok')</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Añadir una receta | Tres Naranjos</title><meta name="description" content="Publicar una receta nueva en Tres Naranjos.">
+<title>Añadir una tienda | Tres Naranjos</title><meta name="description" content="Añadir una tienda al mapa de Dónde comprar.">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
@@ -495,71 +495,56 @@ document.addEventListener('click',e=>{const a=e.target.closest('a,button');if(!a
 },true);
 })();</script>
 <style>
-main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
-.ar-in{max-width:1060px;margin:0 auto}
-.ar h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
-.ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60);max-width:62ch}
-.ar .l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
-.ar textarea{box-sizing:border-box;width:100%;resize:vertical;font:400 15px/1.6 "Courier Prime",monospace;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:18px;padding:16px 18px;outline:none}
-.ar textarea:focus{border-color:#E8561A}
-#pega{min-height:clamp(260px,42vh,420px)}
-.hint{margin:8px 0 0;font-size:14px;color:var(--negro-60)}
-.btn-a{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:.8em 1.7em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none}
-.btn-a.go{background:#EE5F1C;color:var(--crema)}.btn-a.go:hover{background:#F26F31}
-.btn-a.dark{background:var(--negro);color:var(--crema)}.btn-a.dark:hover{background:#433D39}
-.btn-a.soft{background:#F1D5B2;color:var(--negro)}.btn-a.soft:hover{background:#F6E2C8}
-.btn-a.sm{min-height:40px;padding:0 1.2em;font-size:13px}
-.btn-a[disabled]{opacity:.45;cursor:default}.btn-a.go[disabled]:hover{background:#EE5F1C}
-.btn-a:focus{outline:none}.btn-a:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
-.btn-a svg{width:15px;height:15px}
-.link{font:600 15px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.link:hover{color:#E04F12}
-.acts{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}
-.msg{margin:12px 0 0;font-size:15px;line-height:1.5}.msg:empty{display:none}.msg.err{color:#B3361A;font-weight:600}
-.wait{display:inline-flex;align-items:center;gap:10px;color:var(--negro-60)}
-.wait i{width:16px;height:16px;border-radius:50%;border:2px solid #F1D5B2;border-top-color:#E8561A;animation:arspin .8s linear infinite}
-@keyframes arspin{to{transform:rotate(360deg)}}
-.pv-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 14px}
-.pv-top .eye{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 4px}
-.pv-top p{margin:0;font-size:15px;color:var(--negro-60);line-height:1.45}
-.rx-card{border:1.5px solid var(--negro);border-radius:22px;background:#fff;padding:clamp(16px,2.2vw,28px);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start}
-.ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden}
-.rx-drop{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;border:1.5px dashed #E8561A;border-radius:16px;background:#FFFBF5;cursor:pointer}
-.rx-drop:hover{background:#FFF6EA}
-.rx-drop b{font-size:17px}.rx-drop span{font-size:14px;color:var(--negro-60)}
-.rx-drop svg{width:38px;height:38px;color:#E8561A}
-.rx-drop input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ph-btns{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;justify-content:center}
-.ph-btns .btn-a.soft{background:var(--crema)}
-.ct{min-width:0;display:flex;flex-direction:column;gap:20px}
-.ct h2{font-family:var(--display);font-size:clamp(34px,4vw,56px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
-.ct .desc{margin:6px 0 0;font-size:17px;color:var(--negro-60)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.tags span{padding:6px 12px;border-radius:999px;background:#F6E2C8;font-size:13px;font-weight:600}
-.ct .sec{font-weight:700;font-size:15px;margin:0 0 6px}
-.rx-ing{list-style:none;margin:0;padding:0;font-family:"Courier Prime",monospace;font-size:17px}
-.rx-ing li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dotted rgba(45,41,38,.45);-webkit-text-stroke:.4px currentColor}
-.rx-ing li.tn{color:#C2410C;font-weight:700;-webkit-text-stroke:0}
-.rx-ing li b{white-space:nowrap}
-.steps{margin:0;padding-left:1.4em;list-style:decimal;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.5}
-.steps li{display:list-item}
-#ed{min-height:470px;font-size:16px;line-height:1.6}
-.ed-acts{display:flex;align-items:center;gap:16px;margin-top:10px}
-.miss{font-size:14px;color:#B3361A;font-weight:600}
-.done{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
-.done img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
-.done-box{padding:clamp(20px,2.4vw,28px);border-radius:20px;background:#F6E2C8}
-.done-box h2{font-family:var(--display);font-size:clamp(38px,4.4vw,52px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
-.done-box p{margin:0 0 10px;font-size:17px;line-height:1.5}
-.done-box p.s{font-size:15px;color:rgba(45,41,38,.7);margin-bottom:18px}
-@media (max-width:760px){
-  .rx-card,.done{grid-template-columns:1fr}
-  .ph,.done img{width:min(340px,100%);justify-self:center;margin:0}
-  .pv-top{flex-direction:column;align-items:flex-start}
-  #ed{min-height:380px}
-  .acts .btn-a.go{flex:1}
-}
+.eq-back{display:inline-flex;align-items:center;gap:6px;margin:0 0 18px;font-weight:700;font-size:15px;color:var(--negro);text-decoration:none}.eq-back:hover{color:#E04F12}
+main#top.at{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
+.at-in{max-width:760px;margin:0 auto}
+.at-eye{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E8561A}
+.at h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase;text-wrap:balance}
+.at-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 18px;color:var(--negro-60)}
+.at-lead b{color:var(--negro)}
+.at label.l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
+.at-field{display:flex;gap:8px}
+.at-field input{flex:1;min-width:0;font:500 16px "Hanken Grotesk",system-ui,sans-serif;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:999px;padding:.85em 1.2em;outline:none}
+.at-field input:focus{border-color:#E8561A}
+.at-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:.8em 1.5em .7em;border:0;border-radius:999px;font:700 14px "Hanken Grotesk",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.at-btn.go{background:#EE5F1C;color:var(--crema)}
+.at-btn.go:hover{background:#F26F31}
+.at-btn.dark{background:var(--negro);color:var(--crema)}
+.at-btn.dark:hover{background:#433D39}
+.at-btn.soft{background:#F1D5B2;color:var(--negro)}
+.at-btn.soft:hover{background:#F6E2C8}
+.at-btn[disabled]{opacity:.45;cursor:default}
+.at-btn:focus{outline:none}.at-btn:focus-visible{outline:2px solid #E8561A;outline-offset:3px}
+.at-btn.go[disabled]:hover{background:#EE5F1C}
+.at-msg{margin:10px 0 0;font-size:15px;line-height:1.5}.at-msg:empty{display:none}
+.at-msg.err{color:#B3361A;font-weight:600}
+.at-wait{display:flex;align-items:center;gap:10px;color:var(--negro-60)}
+.at-wait i{width:16px;height:16px;border-radius:50%;border:2px solid #F1D5B2;border-top-color:#E8561A;animation:atspin .8s linear infinite}
+@keyframes atspin{to{transform:rotate(360deg)}}
+.at-card{margin-top:16px;border:1.5px solid var(--negro);border-radius:18px;overflow:hidden;background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.at-mapbox{position:relative;min-height:260px;background:#F6E2C8;border-right:1.5px solid var(--negro)}.at-mapbox img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.at-info{padding:18px 20px 20px;min-width:0}
+.at-info .q{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro-60);margin:0 0 6px}
+.at-info .n{font-weight:700;font-size:21px;line-height:1.25;margin:0}
+.at-info .a{font-size:15px;line-height:1.45;margin:4px 0 0;color:var(--negro-60)}
+.at-tipos{margin:16px 0 0}
+.at-tipos legend{font-weight:700;font-size:14px;margin:0 0 8px;padding:0}
+.at-tipos fieldset{border:0;margin:0;padding:0;min-width:0}
+.at-tipos label{margin:0 6px 8px 0;display:inline-flex;align-items:center;min-height:38px;padding:0 1em;border-radius:999px;background:#F6E2C8;font-weight:600;font-size:15px;cursor:pointer;user-select:none}
+.at-tipos label:hover{background:#F9EAD6}
+.at-tipos input{position:absolute;opacity:0;pointer-events:none}
+.at-tipos label:has(input:checked){background:var(--negro);color:var(--crema)}
+.at-tipos input:focus-visible+span{outline:2px solid #E8561A;outline-offset:4px;border-radius:4px}
+.at-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.at-done{margin-top:16px;padding:22px 20px;border-radius:18px;background:#F6E2C8}
+.at-done h2{font-family:var(--display);font-size:clamp(30px,4vw,42px);line-height:1;margin:0 0 .3em;text-transform:uppercase}
+.at-done p{margin:0 0 16px;line-height:1.5}
+.at-help{margin-top:28px;padding-top:16px;border-top:1.5px dashed var(--negro);font-size:15px;line-height:1.55;color:var(--negro-60)}
+.at-help b{color:var(--negro)}
+.at-help ol{margin:8px 0 0;padding-left:1.2em}
+.at-add{width:100%;margin-top:8px}
+@media (max-width:640px){.at-card{grid-template-columns:1fr}.at-mapbox{min-height:0;aspect-ratio:5/2;border-right:0;border-bottom:1.5px solid var(--negro)}.at-info{padding:14px 16px 16px}.at-info .n{font-size:19px}.at-field .at-btn,.at-acts .at-btn{width:auto}}
+@media (max-width:420px){.at-acts .at-btn{width:100%}}
 </style><style>
 main#top{min-height:100svh}
 .pw{max-width:560px}
@@ -866,69 +851,63 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 
-<main id="top" class="ar"><div class="ar-in">
+<main id="top" class="at"><div class="at-in">
 <div class="pw" id="pw-team" hidden>
-  <h1>Añadir una receta</h1>
+  <h1>Añadir una tienda</h1>
   <p class="pw-lead">Escribe la contraseña para entrar. Solo se pide una vez en este teléfono o computadora.</p>
   <form id="pw-form" autocomplete="off"><input type="password" id="pw-key" placeholder="Contraseña" aria-label="Contraseña"><button type="submit" id="pw-go">Entrar</button></form>
   <p class="pw-msg" id="pw-msg" role="status" aria-live="polite"></p>
 </div>
+<a class="eq-back" href="equipo/"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Equipo</a>
 <div id="team-app" hidden>
+  <h1>Añadir una tienda</h1>
+  <p class="at-lead">Pega el link de Google Maps de la tienda para añadirla al mapa de <b>Dónde comprar</b>.</p>
 
-  <section id="s-pega">
-    <h1>Añadir una receta</h1>
-    <p class="ar-lead">Pega la receta y la arreglamos por ti. Antes de publicar, ves cómo va a quedar.</p>
-    <label class="l" for="pega">Pega la receta</label>
-    <textarea id="pega" spellcheck="false" placeholder="Paloma de toronja&#10;Fresca y fácil, para el calor.&#10;&#10;Ingredientes:&#10;- 2 oz tequila blanco&#10;- 15 ml Tres Naranjos&#10;- 3 oz jugo de toronja&#10;&#10;Preparación:&#10;1. Llena un vaso alto con hielo.&#10;2. Añade todo y completa con soda."></textarea>
-    <p class="hint">De Claude, ChatGPT, una nota o WhatsApp. Las medidas en ml se pasan a oz.</p>
-    <p class="msg" id="m1" role="status" aria-live="polite"></p>
-    <div class="acts"><button type="button" class="btn-a go" id="llenar">Llenar la receta</button><button type="button" class="link" id="amano">Prefiero llenarla a mano</button></div>
-  </section>
-
-  <section id="s-prev" hidden>
-    <div class="pv-top">
-      <div><span class="eye">Así va a quedar</span><p id="nota"></p></div>
-      <button type="button" class="btn-a soft sm" id="editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Editar</button>
+  <form id="at-form" autocomplete="off" novalidate>
+    <label class="l" for="at-link">Link de Google Maps</label>
+    <div class="at-field">
+      <input id="at-link" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/..." required>
+      <button class="at-btn dark" id="at-buscar" type="submit">Buscar</button>
     </div>
-    <div class="rx-card">
-      <div class="ph" id="ph">
-        <label class="rx-drop" id="drop"><input type="file" id="file" accept="image/*"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>Sube la foto</b><span>o arrástrala aquí · vertical, el trago en el centro</span></label>
-        <img id="foto" alt="Foto del trago" hidden>
-        <div class="ph-btns" id="ph-btns" hidden><button type="button" class="btn-a soft sm" id="cambiar">Cambiar</button><button type="button" class="btn-a dark sm" id="quitar">Quitar</button></div>
-      </div>
-      <div class="ct" id="view">
-        <div>
-          <h2 id="v-name"></h2>
-          <p class="desc" id="v-desc"></p>
-          <div class="tags" id="v-tags"></div>
-        </div>
-        <div><p class="sec">Ingredientes</p><ul class="rx-ing" id="v-ing"></ul></div>
-        <div><p class="sec">Pasos</p><ol class="steps" id="v-steps"></ol></div>
-      </div>
-      <div class="ct" id="edit" hidden>
-        <div>
-          <label class="l" for="ed">Editar la receta</label>
-          <textarea id="ed" spellcheck="false"></textarea>
-          <div class="ed-acts"><button type="button" class="btn-a dark sm" id="listo">Listo</button><button type="button" class="link" id="cancelar">Cancelar</button></div>
-        </div>
+  </form>
+  <p class="at-msg" id="at-msg" role="status" aria-live="polite"></p>
+
+  <div id="at-res" hidden>
+    <div class="at-card">
+      <div class="at-mapbox"><img id="at-map" alt=""></div>
+      <div class="at-info">
+        <p class="q">¿Es esta la tienda?</p>
+        <p class="n" id="at-name"></p>
+        <p class="a" id="at-addr"></p>
+        <div class="at-tipos"><fieldset><legend>Tipo de tienda</legend>
+          <label><input type="radio" name="tipo" value="Licorería"><span>Licorería</span></label>
+          <label><input type="radio" name="tipo" value="Supermercado"><span>Supermercado</span></label>
+          <label><input type="radio" name="tipo" value="Cash &amp; Carry"><span>Cash &amp; Carry</span></label>
+          <label><input type="radio" name="tipo" value="Tienda"><span>Tienda</span></label>
+        </fieldset></div>
+        <button class="at-btn go at-add" id="at-si" type="button">Sí, añadir al mapa</button>
+        <p class="at-msg" id="at-msg2" role="status" aria-live="polite"></p>
       </div>
     </div>
-    <div class="acts"><button type="button" class="btn-a go" id="publicar">Publicar</button><span class="miss" id="miss"></span></div>
-    <p class="msg" id="m2" role="status" aria-live="polite"></p>
-  </section>
+  </div>
 
-  <section id="s-done" hidden>
-    <div class="done">
-      <img id="d-foto" alt="">
-      <div class="done-box">
-        <h2>¡Publicada!</h2>
-        <p id="d-txt"></p>
-        <p class="s">Para cambiarla o quitarla después, se hace en la hoja de recetas.</p>
-        <button type="button" class="btn-a go" id="otra">Añadir otra</button>
-      </div>
+  <div class="at-done" id="at-done" hidden>
+    <h2>¡Listo!</h2>
+    <p id="at-done-txt"></p>
+    <div class="at-acts" style="margin-top:0">
+      <button class="at-btn go" id="at-otra" type="button">Añadir otra</button>
     </div>
-  </section>
+  </div>
 
+  <div class="at-help">
+    <b>¿Cómo copio el link?</b>
+    <ol>
+      <li>Busca la tienda en Google Maps y ábrela (que salga su nombre y su foto).</li>
+      <li>Toca <b>Compartir</b> y luego <b>Copiar enlace</b>.</li>
+      <li>Pégalo aquí arriba.</li>
+    </ol>
+    <p style="margin:12px 0 0">Solo tiendas donde se compra la botella (licorerías, supermercados, cash &amp; carry). Para quitar una tienda, borra su fila en la <a href="https://docs.google.com/spreadsheets/d/15rUOE9lmcXHpuN0paVIG2eGAeZwaiGeAVqqqK9mEvdA/edit" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-underline-offset:3px">hoja de Google</a>.</p>
+  </div>
 </div>
 </div></main>
 
@@ -1021,231 +1000,87 @@ function fallback(m){const ta=document.createElement('textarea');ta.value=m;ta.s
   const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
   const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
   const open = () => { pw.hidden = true; app.hidden = false; };
-  const lock = msg => { set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
+  const HUB = false;
+  const toHub = m => location.replace('/equipo/?' + new URLSearchParams(Object.assign({ir: location.pathname}, m ? {m: 1} : {})));
+  const lock = msg => { if (!HUB) { set(''); return toHub(msg); } set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
   window.tnIA = false;
   const check = k => fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json());
   if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; }).catch(() => {}); }
-  else lock('');
+  else lock(HUB && new URLSearchParams(location.search).get('m') ? 'La contraseña cambió. Escribe la nueva.' : '');
   document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
     const k = document.getElementById('pw-key').value.trim(), btn = document.getElementById('pw-go'), m = document.getElementById('pw-msg');
     if (!k) return;
     btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
     check(k).then(r => {
-      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; const ir = new URLSearchParams(location.search).get('ir') || ''; if (ir.indexOf('/equipo/') === 0 && /^[a-z/-]+$/.test(ir) && ir.length > 8) return location.replace(ir); open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
     }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
   });
 })();
 </script><script>
 (function(){
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8qShm5ziNHJrTbTOZC8eJ7ItsOH2Nw0Vz4nIYQ-AQcaH_YDvtSutR0_-YEDz1yPmw/exec', TOKEN = 'pk.eyJ1IjoiYWxmb25zb3JvZHoxIiwiYSI6ImNtdmIydWt0eDAyc3MzNHB5emVseDRuMnEifQ.25ngv3uGQKI1fmtaWga5fQ';
   const $ = id => document.getElementById(id);
+  const LISTO_MIN = 5; /* measured Oct 2026: the published sheet updates in seconds; Google promises within 5 minutes */
+  const form = $('at-form'), input = $('at-link'), msg = $('at-msg'), res = $('at-res'), done = $('at-done');
+  let current = null, busy = false;
+  const say = (html, err) => { msg.className = 'at-msg' + (err ? ' err' : ''); msg.innerHTML = html; };
+  const wait = t => say('<span class="at-wait"><i></i>' + t + '</span>');
+  const say2 = (html, err) => { const m = $('at-msg2'); m.className = 'at-msg' + (err ? ' err' : ''); m.innerHTML = html; };
   const esc = s => String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const norm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
-  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
-  const isTN = s => /\b(tres|3)\s*naranjos?\b/.test(norm(s));
-  const VASOS = ['Vaso corto','Vaso alto','Copa','Copa de vino','Copa o shot','Flauta','Jarra'];
-  const SHORT = {'Vaso corto':'corto','Vaso alto':'alto'};
-  let R = null, photo = null, busy = false, fixes = [];
+  const linkOf = v => (String(v).match(/https?:\/\/\S+/) || [''])[0];
+  const call = p => fetch(SCRIPT_URL + '?' + new URLSearchParams(p)).then(r => r.json());
 
-  function fmtA(x){ let w = Math.floor(x), f = Math.round((x - w) * 4) / 4; if (f === 1) { w++; f = 0; }
-    const fr = {0:'', .25:'1/4', .5:'1/2', .75:'3/4'}[f]; return ((w ? w : '') + (w && fr ? ' ' : '') + fr) || '1/4'; }
-  function num(t){ t = t.trim().replace(',', '.'); let m;
-    if ((m = t.match(/^(\d+)\s+(\d)\/(\d)$/))) return +m[1] + m[2] / m[3];
-    if ((m = t.match(/^(\d)\/(\d)$/))) return m[1] / m[2];
-    if (/^\d+(\.\d+)?$/.test(t)) return +t; return null; }
-  const N = '(\\d+\\s+\\d\\/\\d|\\d\\/\\d|\\d+(?:[.,]\\d+)?)';
-  const U = '(oz|onzas?|ml|mililitros?|cl)\\.?';
-  const PRE = new RegExp('^' + N + '\\s*' + U + '\\s+(?:de\\s+)?(.+)$', 'i');
-  const POST = new RegExp('^(.+?)\\s*[:\\-,]?\\s*' + N + '\\s*' + U + '$', 'i');
-  const BARE = new RegExp('^' + N + '\\s+(.+)$');
+  function reset(keepLink){ current = null; res.hidden = true; done.hidden = true; say(''); say2(''); if(!keepLink){ input.value = ''; }
+    document.querySelectorAll('input[name=tipo]').forEach(r => r.checked = false); $('at-si').disabled = true; }
 
-  function ingLine(line, inSection){
-    let a = '', n = line, m, unit = 'oz', q = null;
-    if ((m = line.match(PRE))) { q = num(m[1]); unit = m[2].toLowerCase(); n = m[3]; }
-    else if ((m = line.match(POST))) { n = m[1]; q = num(m[2]); unit = m[3].toLowerCase(); }
-    else if (inSection && (m = line.match(BARE)) && num(m[1]) !== null && num(m[1]) <= 8) { q = num(m[1]); n = m[2]; }
-    if (q !== null) {
-      if (/^ml|^mili/.test(unit)) { q = q / 30; fixes.push('ml'); } else if (unit === 'cl') { q = q / 3; fixes.push('ml'); }
-      a = fmtA(Math.max(.25, Math.round(q * 4) / 4));
-    }
-    n = n.replace(/\b(tres naranjos(\s+triple\s+sec)?|triple\s*sec|cointreau|licor de naranja)\b/ig, 'Tres Naranjos')
-         .replace(/\bnaranjas\b/ig, 'chinas').replace(/\bnaranja\b/ig, 'china').replace(/\s+/g, ' ').trim();
-    return {a, n: cap(n)};
+  function buscar(){
+    const link = linkOf(input.value);
+    reset(true);
+    if (!link) return say('Pega el link que copiaste de Google Maps (empieza con https://).', true);
+    if (!SCRIPT_URL) return say('Esta página todavía no está conectada a la hoja.', true);
+    busy = true; $('at-buscar').disabled = true; wait('Buscando la tienda… puede tardar unos segundos.');
+    call({accion:'ver', link}).then(d => {
+      if (!d.ok) return say('No pudimos encontrar esa tienda con ese link. Ábrela en Google Maps (que salga su nombre), toca Compartir y copia el link otra vez.', true);
+      const t = d.tienda, ll = t.ll.split(',').map(Number);
+      current = {link, t};
+      $('at-name').textContent = t.nombre;
+      $('at-addr').textContent = [t.dir, t.pueblo].filter(Boolean).join(', ');
+      $('at-map').src = 'https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/pin-l+e8561a(' + ll[1] + ',' + ll[0] + ')/' + ll[1] + ',' + ll[0] + ',15.5/600x520@2x?logo=false&access_token=' + TOKEN;
+      $('at-map').alt = 'Mapa de ' + t.nombre;
+      res.hidden = false;
+      if (res.getBoundingClientRect().top > innerHeight * .6) res.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
+      say(''); say2(d.ya ? 'Esta tienda ya está en el mapa (<b>' + esc(d.ya) + '</b>).' : '', !!d.ya);
+      current.ya = !!d.ya; syncAdd();
+    }).catch(() => say('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
+      .finally(() => { busy = false; $('at-buscar').disabled = false; });
   }
 
-  function clean(raw){
-    fixes = [];
-    const lines = String(raw || '').replace(/\r/g, '').replace(/\s*[—–]\s*/g, ', ')
-      .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').split('\n')
-      .map(l => l.replace(/\*\*|__|`/g, '').replace(/^\s*(#+|[-*•·>]+)\s*/, '').replace(/\s+/g, ' ').trim());
-    const ING = /^(ingredientes?|lo que necesitas|necesitas)\s*:?\s*(.*)$/i;
-    const PAS = /^(pasos?|preparaci[oó]n|instrucciones|modo de preparaci[oó]n|elaboraci[oó]n|c[oó]mo (se )?(hace|prepara)(lo)?)\s*:?\s*(.*)$/i;
-    const META = /^vaso\s*:/i;
-    const VERB = /^(llena|añade|anade|agrega|agita|cuela|sirve|mezcla|echa|echale|pon|decora|revuelve|vierte|corta|escarcha|exprime|licua|licúa|completa|termina|enfria|enfría|bate|refrigera|pica|machaca|frota|pasa|usa|deja|tapa|sacude)\b/i;
-    // one-line message ("paloma: 2oz tequila, 15ml triple sec, ... echale hielo ...") -> split it
-    const filled = lines.filter(Boolean);
-    if (filled.length === 1 && /[:,]/.test(filled[0])) {
-      const one = filled[0], c = one.indexOf(':'), nm = c > 0 && c < 40 ? one.slice(0, c) : '';
-      const rest = nm ? one.slice(c + 1) : one, sent = rest.split(/\.\s+|\.$/).map(x => x.trim()).filter(Boolean);
-      lines.length = 0; if (nm) lines.push(nm);
-      lines.push('Ingredientes'); (sent[0] || '').split(/,|\s+y\s+/).forEach(x => x.trim() && lines.push(x.trim()));
-      if (sent.length > 1) { lines.push('Pasos'); sent.slice(1).forEach(x => lines.push(x)); }
-    }
-    const head = [], ing = [], steps = []; let mode = 'head', meta = '';
-    for (const l of lines) {
-      if (!l) continue; let m;
-      if (META.test(l)) { meta = l; continue; }
-      if ((m = l.match(ING))) { mode = 'ing'; if (m[2]) m[2].split(/[,;]/).forEach(x => x.trim() && ing.push(x.trim())); continue; }
-      if ((m = l.match(PAS))) { mode = 'pas'; const rest = m[m.length - 1]; if (rest) steps.push(rest); continue; }
-      if (mode === 'head') {
-        if (head.length >= 1 && (PRE.test(l) || POST.test(l))) { mode = 'ing'; ing.push(l); }
-        else if ((/^(paso\s*)?\d+\s*[.)]\s+\D/i.test(l) || VERB.test(l)) && head.length >= 1) { mode = 'pas'; steps.push(l); }
-        else head.push(l);
-      } else if (mode === 'ing') {
-        if ((/^(paso\s*)?\d+\s*[.)]\s+\D/i.test(l) && !PRE.test(l)) || (VERB.test(l) && !PRE.test(l) && !POST.test(l))) { mode = 'pas'; steps.push(l); }
-        else ing.push(l);
-      } else steps.push(l);
-    }
-    const name = cap((head[0] || '').replace(/[.:]$/, '').trim());
-    const desc = head[1] && head[1].length <= 90 ? cap(head[1].replace(/\.$/, '')) + '.' : '';
-    if (head.length > 2 && !steps.length) steps.push(...head.slice(2));
-    if (steps.some(x => /^(paso\s*)?\d+\s*[.)]/i.test(x))) fixes.push('num');
-    const pasos = steps.map(x => x.replace(/^(paso\s*)?\d+\s*[.):\-]\s*/i, '').trim()).filter(Boolean)
-      .map(x => { x = cap(x); return /[.!?]$/.test(x) ? x : x + '.'; });
-    const ingr = ing.map(l => ingLine(l, true)).filter(x => x.n);
-
-    const all = norm(raw); let vaso = '', tags = [], serves = 1, m2;
-    if (meta) {
-      const v = (meta.match(/vaso\s*:\s*([^·|]+)/i) || [])[1]; if (v) { const t = norm(v); vaso = VASOS.find(x => norm(x) === t || norm(SHORT[x] || '') === t) || ''; }
-      const sb = (meta.match(/sabor\s*:\s*([^·|]+)/i) || [])[1]; if (sb) tags = sb.split(/,|\by\b/).map(x => cap(x.trim())).filter(Boolean).slice(0, 2);
-      const pr = (meta.match(/porciones\s*:\s*(\d+)/i) || [])[1]; if (pr) serves = Math.min(20, +pr);
-    }
-    if (!vaso) vaso = /vaso alto|highball|collins/.test(all) ? 'Vaso alto' : /copa de vino|wine/.test(all) ? 'Copa de vino' : /flauta|champ|mimosa/.test(all) ? 'Flauta'
-      : /jarra|pitcher|ponchera/.test(all) ? 'Jarra' : /shot/.test(all) ? 'Copa o shot' : /\bcopa\b|coupe|martini/.test(all) ? 'Copa' : 'Vaso corto';
-    if (!tags.length) {
-      const score = [['Cítrico',/lima|limon|toronja|china/],['Burbujeante',/soda|prosecco|cava|champ|espumoso|tonica|ginger/],['Tropical',/parcha|pina|coco|mango|guayaba|tamarindo/],
-        ['Frutal',/fresa|frambuesa|arandano|fruta|sangria|melocoton/],['Ahumado',/mezcal|ahumad/],['Picantito',/tajin|picante|jalapeno|chile/],['Fresco',/hierbabuena|menta|pepino|albahaca/]];
-      tags = score.filter(([, re]) => re.test(all)).map(([t]) => t).slice(0, 2);
-      if (tags.length < 2) tags.push(...['Refrescante', 'Cítrico'].filter(t => !tags.includes(t)).slice(0, 2 - tags.length));
-    }
-    if (!meta && (m2 = all.match(/(\d+)\s*(porciones|personas)/))) serves = Math.min(20, +m2[1]);
-    return {nombre: name, descripcion: desc, vaso, etiquetas: tags, porciones: serves, ing: ingr, pasos};
-  }
-
-  function toText(r){
-    const meta = 'Vaso: ' + (SHORT[r.vaso] || r.vaso) + ' · Sabor: ' + r.etiquetas.join(', ') + (r.porciones > 1 ? ' · Porciones: ' + r.porciones : '');
-    return [r.nombre, r.descripcion, meta, '', 'Ingredientes', ...r.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), '', 'Pasos', ...r.pasos.map((p, i) => (i + 1) + '. ' + p)].join('\n');
-  }
-  function fromAI(a){
-    const r = {nombre: a.nombre || '', descripcion: a.descripcion || '', vaso: a.vaso || 'Vaso corto', etiquetas: (a.etiquetas || []).slice(0, 2), porciones: a.porciones || 1,
-      ing: (a.ingredientes || []).map(x => ({a: x.cantidad || '', n: x.ingrediente || ''})), pasos: a.pasos || []};
-    const out = clean(toText(r)); fixes = []; return out;
-  }
-
-  const show = id => { ['s-pega','s-prev','s-done'].forEach(x => $(x).hidden = x !== id); scrollTo({top: 0}); };
-  function render(){
-    $('v-name').textContent = R.nombre || 'Sin nombre';
-    $('v-desc').textContent = R.descripcion; $('v-desc').hidden = !R.descripcion;
-    $('v-tags').innerHTML = [R.vaso, ...R.etiquetas, R.porciones > 1 ? R.porciones + ' porciones' : ''].filter(Boolean).map(t => '<span>' + esc(t) + '</span>').join('');
-    $('v-ing').innerHTML = R.ing.map(x => '<li class="' + (isTN(x.n) ? 'tn' : '') + '"><span>' + esc(x.n) + '</span><b>' + (x.a ? esc(x.a) + ' oz' : '') + '</b></li>').join('');
-    $('v-steps').innerHTML = R.pasos.map(p => '<li>' + esc(p) + '</li>').join('');
-    check();
-  }
-  function problems(){
-    const p = [];
-    if (!photo) p.push('Falta la foto.');
-    if (!R.nombre) p.push('Falta el nombre.');
-    if (R.ing.length < 2) p.push('Faltan ingredientes.');
-    else if (!R.ing.some(x => isTN(x.n))) p.push('La receta no lleva Tres Naranjos. Toca Editar y añádelo.');
-    if (!R.pasos.length) p.push('Faltan los pasos.');
-    return p;
-  }
-  function check(){ const p = problems(); $('miss').textContent = p.join(' '); $('publicar').disabled = !!p.length || busy; }
-  function note(){
-    const n = fixes.filter(x => x === 'ml').length, parts = [];
-    if (n) parts.push(n === 1 ? 'una medida en ml pasó a oz' : n + ' medidas en ml pasaron a oz');
-    if (R.pasos.length) parts.push('pasos numerados');
-    return (parts.length ? 'Lo arreglamos: ' + parts.join(', ') + '. ' : '') + 'Si algo no quedó bien, toca Editar.';
-  }
-  const say = (id, h, err) => { const m = $(id); m.className = 'msg' + (err ? ' err' : ''); m.innerHTML = h; };
-
-  $('llenar').addEventListener('click', async () => {
-    const raw = $('pega').value.trim();
-    if (!raw) return say('m1', 'Pega la receta primero.', true);
-    if (busy) return; busy = true; $('llenar').disabled = true;
-    let r = null, by = '';
-    if (window.tnIA) {
-      say('m1', '<span class="wait"><i></i>Claude está arreglando la receta…</span>');
-      try {
-        const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 25000);
-        const res = await fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify({accion: 'limpiar', clave: window.tnClave(), texto: raw}), signal: ctl.signal}).then(x => x.json());
-        clearTimeout(t);
-        if (res.error === 'clave') { busy = false; $('llenar').disabled = false; say('m1', ''); return window.tnLock(); }
-        if (res.ok) { r = fromAI(res.receta); by = 'ia'; }
-      } catch (e) {}
-    }
-    if (!r) r = clean(raw);
-    busy = false; $('llenar').disabled = false; say('m1', '');
-    R = r; render();
-    $('nota').textContent = by === 'ia' ? 'Claude la arregló y la puso en el formato del site. Si algo no quedó bien, toca Editar.' : note();
-    view(); show('s-prev');
+  const tipoSel = () => (document.querySelector('input[name=tipo]:checked') || {}).value;
+  function syncAdd(){ $('at-si').disabled = busy || !current || current.ya || !tipoSel(); }
+  document.querySelectorAll('input[name=tipo]').forEach(r => r.addEventListener('change', () => { say2(''); syncAdd(); }));
+  /* clearing or changing the link hides the old store */
+  input.addEventListener('input', () => { if (!current && done.hidden) return; if (linkOf(input.value) !== (current && current.link)) { reset(true); } });
+  form.addEventListener('submit', e => { e.preventDefault(); if (!busy) buscar(); });
+  input.addEventListener('paste', () => setTimeout(() => { if (!busy && linkOf(input.value)) buscar(); }, 0));
+  $('at-otra').addEventListener('click', () => { reset(false); input.focus(); });
+  $('at-si').addEventListener('click', () => {
+    if (!current || busy) return;
+    const tipo = tipoSel();
+    if (!tipo) return;
+    busy = true; $('at-si').disabled = true; say2('<span class="at-wait"><i></i>Añadiendo…</span>');
+    call({accion:'anadir', link: current.link, tipo, clave: window.tnClave()}).then(d => {
+      if (d.ok) { res.hidden = true; say2(''); input.value = ''; const listo = new Date(Date.now() + LISTO_MIN * 60000);
+        $('at-done-txt').innerHTML = '<b>' + esc(d.tienda.nombre) + '</b> sale en el mapa no más tarde de las <b>' + listo.toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'}) + '</b>.'; done.hidden = false; return; }
+      if (d.error === 'clave') return window.tnLock();
+      if (d.error === 'ya_esta') return say2('Esa tienda ya está en el mapa (' + esc(d.ya) + ').', true);
+      say2('No se pudo añadir. Vuelve a intentar en un momento.', true);
+    }).catch(() => say2('No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
+      .finally(() => { busy = false; if (done.hidden) syncAdd(); });
   });
-  $('amano').addEventListener('click', () => {
-    R = {nombre: '', descripcion: '', vaso: 'Vaso corto', etiquetas: ['Cítrico', 'Fresco'], porciones: 1, ing: [], pasos: []};
-    render(); $('nota').textContent = 'Escribe la receta. Al tocar Listo la ponemos en el formato del site.';
-    show('s-prev'); edit('Nombre del trago\nDescripción corta\nVaso: corto · Sabor: Cítrico, Fresco\n\nIngredientes\n1 1/2 oz \n1/2 oz Tres Naranjos\n\nPasos\n1. ');
-  });
-
-  function edit(text){ $('ed').value = text != null ? text : toText(R); $('view').hidden = true; $('edit').hidden = false; $('editar').hidden = true; $('ed').focus({preventScroll: true}); }
-  function view(){ $('view').hidden = false; $('edit').hidden = true; $('editar').hidden = false; }
-  $('editar').addEventListener('click', () => edit());
-  $('cancelar').addEventListener('click', view);
-  $('listo').addEventListener('click', () => { R = clean($('ed').value); fixes = []; render(); view(); });
-
-  function loadPhoto(file){
-    if (!file || !/^image\//.test(file.type)) return;
-    const img = new Image(), url = URL.createObjectURL(file);
-    img.onload = () => {
-      const k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
-      const c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
-      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-      photo = c.toDataURL('image/jpeg', .86); URL.revokeObjectURL(url);
-      $('foto').src = photo; $('foto').hidden = false; $('ph-btns').hidden = false; $('drop').hidden = true; check();
-    };
-    img.src = url;
-  }
-  $('file').addEventListener('change', e => { loadPhoto(e.target.files[0]); e.target.value = ''; });
-  $('cambiar').addEventListener('click', () => $('file').click());
-  $('quitar').addEventListener('click', () => { photo = null; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; check(); });
-  $('ph').addEventListener('dragover', e => e.preventDefault());
-  $('ph').addEventListener('drop', e => { e.preventDefault(); loadPhoto(e.dataTransfer.files[0]); });
-
-  $('publicar').addEventListener('click', () => {
-    if (!$('edit').hidden) { R = clean($('ed').value); fixes = []; render(); view(); }
-    if (problems().length || busy) return check();
-    busy = true; check(); say('m2', '<span class="wait"><i></i>Publicando… puede tardar unos segundos.</span>');
-    const body = {accion: 'receta', clave: window.tnClave(), nombre: R.nombre, descripcion: R.descripcion, vaso: R.vaso, etiquetas: R.etiquetas,
-      porciones: R.porciones, pasos: R.pasos, ingredientes: R.ing.map(x => (x.a ? x.a + ' oz ' : '') + x.n), foto: photo.split(',')[1]};
-    fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
-      if (r.ok) {
-        const t = new Date(Date.now() + (r.rapido ? 10 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
-        $('d-foto').src = photo; $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.');
-        say('m2', ''); show('s-done'); return;
-      }
-      if (r.error === 'clave') return window.tnLock();
-      say('m2', {sin_tn: 'La receta tiene que llevar Tres Naranjos.', ya_esta: 'Ya hay una receta con ese nombre. Cámbialo en Editar.', faltan: 'Faltan datos. Revisa la receta.'}[r.error] || 'No se pudo publicar. Vuelve a intentar en un momento.', true);
-    }).catch(() => say('m2', 'No pudimos conectarnos. Revisa tu internet y vuelve a intentar.', true))
-      .finally(() => { busy = false; check(); });
-  });
-  $('otra').addEventListener('click', () => {
-    R = null; photo = null; $('pega').value = ''; $('foto').hidden = true; $('ph-btns').hidden = true; $('drop').hidden = false; view(); show('s-pega');
-  });
-
-  window.__tnClean = clean; window.__tnToText = toText;
 })();
 </script>
 </body>

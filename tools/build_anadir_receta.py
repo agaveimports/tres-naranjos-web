@@ -1,4 +1,4 @@
-"""Builds site/anadir-receta.html: private page for the team to publish a new recipe (password first, see team_gate.py).
+"""Builds site/equipo/receta.html (served at /equipo/receta): private page for the team to publish a new recipe (password first, see team_gate.py).
 Flow: 1) paste the recipe as text  2) "Así va a quedar": the recipe cleaned up, looking like the site, photo beside it,
 one Editar that turns it into plain text  3) Publicar  4) ¡Publicada!
 Cleanup: Claude (Apps Script accion=limpiar, when ANTHROPIC_API_KEY is set in the script) or the rules in this page.
@@ -18,6 +18,7 @@ s = re.sub(r'<link rel="canonical"[^>]*>\n?', '', s)
 s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 
 CSS = '''<style>
+.eq-back{display:inline-flex;align-items:center;gap:6px;margin:0 0 18px;font-weight:700;font-size:15px;color:var(--negro);text-decoration:none}.eq-back:hover{color:#E04F12}
 main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
 .ar-in{max-width:1060px;margin:0 auto}
 .ar h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
@@ -90,6 +91,7 @@ PEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 
 main = f'''<main id="top" class="ar"><div class="ar-in">
 {team_gate.html('Añadir una receta')}
+<a class="eq-back" href="equipo/"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Equipo</a>
 <div id="team-app" hidden>
 
   <section id="s-pega">
@@ -366,4 +368,4 @@ a = s.index('/* ================================================================
 s = s[:a] + "(function(){const n=document.getElementById('nav');if(!n)return;const f=()=>document.documentElement.style.setProperty('--navh',n.offsetHeight+'px');f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();\n" + s[b:]
 s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
 s = s.replace('</body>', team_gate.js(SCRIPT_URL, 'team-app') + JS + '\n</body>', 1)
-open(SITE + 'anadir-receta.html', 'w').write(hoist(s)); print('ok anadir-receta')
+os.makedirs(SITE + 'equipo', exist_ok=True); open(SITE + 'equipo/receta.html', 'w').write(hoist(s)); print('ok equipo/receta')

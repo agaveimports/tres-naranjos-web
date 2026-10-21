@@ -1,4 +1,5 @@
-"""Shared password screen for the private team pages (anadir-tienda, anadir-receta).
+"""Shared password screen for the private team pages: /equipo (the one link the team gets, asks for the password)
+and its tools /equipo/receta and /equipo/tienda (no password screen of their own: without a saved password they send you to /equipo).
 The page content stays hidden until the code is checked against the sheet's Apps Script (?accion=clave).
 The code is remembered on that phone or computer (localStorage 'tn-clave'); if it stops working, the page asks again."""
 
@@ -29,29 +30,31 @@ def html(title):
 </div>'''
 
 
-def js(script_url, app_id):
-    return '''<script>
+def js(script_url, app_id, hub=False):
+    return ('''<script>
 (function(){
   const URL_ = %r, app = document.getElementById(%r), pw = document.getElementById('pw-team');
   const get = () => { try { return localStorage.getItem('tn-clave') || ''; } catch (e) { return window.__tnKey || ''; } };
   const set = v => { window.__tnKey = v; try { v ? localStorage.setItem('tn-clave', v) : localStorage.removeItem('tn-clave'); } catch (e) {} };
   const open = () => { pw.hidden = true; app.hidden = false; };
-  const lock = msg => { set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
+  const HUB = %s;
+  const toHub = m => location.replace('/equipo/?' + new URLSearchParams(Object.assign({ir: location.pathname}, m ? {m: 1} : {})));
+  const lock = msg => { if (!HUB) { set(''); return toHub(msg); } set(''); app.hidden = true; pw.hidden = false; document.getElementById('pw-msg').textContent = msg || ''; document.getElementById('pw-msg').className = 'pw-msg' + (msg ? ' err' : ''); if (matchMedia('(hover:hover) and (pointer:fine)').matches) document.getElementById('pw-key').focus({preventScroll: true}); };
   window.tnClave = get;
   window.tnLock = () => lock('La contraseña cambió. Escribe la nueva.');
   window.tnIA = false;
   const check = k => fetch(URL_ + '?' + new URLSearchParams({accion: 'clave', clave: k})).then(r => r.json());
   if (get()) { open(); check(get()).then(r => { if (!r.ok) lock('La contraseña cambió. Escribe la nueva.'); else window.tnIA = !!r.ia; }).catch(() => {}); }
-  else lock('');
+  else lock(HUB && new URLSearchParams(location.search).get('m') ? 'La contraseña cambió. Escribe la nueva.' : '');
   document.getElementById('pw-form').addEventListener('submit', e => {
     e.preventDefault();
     const k = document.getElementById('pw-key').value.trim(), btn = document.getElementById('pw-go'), m = document.getElementById('pw-msg');
     if (!k) return;
     btn.disabled = true; m.className = 'pw-msg'; m.textContent = 'Revisando…';
     check(k).then(r => {
-      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
+      if (r.ok) { set(k); window.tnIA = !!r.ia; m.textContent = ''; const ir = new URLSearchParams(location.search).get('ir') || ''; if (ir.indexOf('/equipo/') === 0 && /^[a-z/-]+$/.test(ir) && ir.length > 8) return location.replace(ir); open(); } else { m.className = 'pw-msg err'; m.textContent = 'Contraseña incorrecta.'; }
     }).catch(() => { m.className = 'pw-msg err'; m.textContent = 'No pudimos conectarnos. Vuelve a intentar.'; })
       .finally(() => { btn.disabled = false; });
   });
 })();
-</script>''' % (script_url, app_id)
+</script>''' % (script_url, app_id, 'true' if hub else 'false'))
