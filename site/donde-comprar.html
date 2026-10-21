@@ -83,6 +83,8 @@
 
 
 
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#FFF4E6">
 
 <link rel="preload" href="assets/fonts/ElCaminoCaps.woff2" as="font" type="font/woff2" crossorigin>
@@ -1061,14 +1063,15 @@ addEventListener('resize',fitGiants);
    DÓNDE COMPRAR
    The store list lives in a Google Sheet so the team can update it without code.
    Sheet columns (row 1): nombre | tipo | direccion | pueblo | telefono | ubicacion
-     tipo: Bar, Café y bar, Restaurante, Restaurante y bar, Hotel, Tienda especializada, Cash & Carry...
+     tipo: Licorería, Supermercado, Cash & Carry, Tienda (only places that sell bottles, no bars)
      pueblo: the municipio (San Juan, Guaynabo, Bayamón...)
      ubicacion: "18.4521, -66.0614". In Google Maps, right-click the store and click the numbers to copy them.
                 Start it with ~ when it's approximate. If left empty, the pin goes in the middle of its pueblo.
    In Google Sheets: Archivo > Compartir > Publicar en la web > CSV, then paste the link below.
-   Empty or failing = the sample list further down.
+   The sheet: Tres Naranjos: tiendas del mapa (Drive of alfonsolriholdings@gmail.com).
+   Empty or failing = the backup list TIENDAS further down (keep it roughly in step with the sheet).
    ===================================================================== */
-const STORES_CSV_URL = '';
+const STORES_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5OQRzkyMDQrvhycsZlB2yi5957xG7qHC6P2jrYdnyV6LPNOl_vv8uYyq9k7qxFN8P4_a0lBr4AwD-/pub?gid=2038343892const STORES_CSV_URL = '';single=trueconst STORES_CSV_URL = '';output=csv';
 
 /* Mapbox public token (starts with pk.). Lock it to the site's domain in the Mapbox account before launch. */
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWxmb25zb3JvZHoxIiwiYSI6ImNtdmIydWt0eDAyc3MzNHB5emVseDRuMnEifQ.25ngv3uGQKI1fmtaWga5fQ';
@@ -1436,13 +1439,17 @@ const STREET_LAYERS_TOP=[
   });
 
   /* ---------- start ---------- */
-  load(toStores(TIENDAS),false);
+  /* The sheet is the list: wait for it so a deleted store never flashes. The built-in TIENDAS list is only the backup
+     if Google doesn't answer in 5 seconds or the sheet comes back empty. */
   if(STORES_CSV_URL){
-    fetch(STORES_CSV_URL).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
+    let done=false;const backup=()=>{if(!done){done=true;load(toStores(TIENDAS),false)}};
+    const timer=setTimeout(backup,5000);
+    fetch(STORES_CSV_URL,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{
       const rows=parseCSV(t); if(rows.length&&norm(rows[0][0])==='nombre')rows.shift();
-      const s=toStores(rows); if(s.length)load(s,false);
-    }).catch(()=>{});
-  }
+      const s=toStores(rows); if(!s.length)return backup();
+      clearTimeout(timer); if(done){load(s,false)}else{done=true;load(s,false)}
+    }).catch(backup);
+  } else load(toStores(TIENDAS),false);
 })();
 
 /* ---- newsletter ---- */
