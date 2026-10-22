@@ -261,7 +261,9 @@ for i,d in enumerate(D):
     if a is None: return n
     w=int(a);f=round((a-w)*4)/4;fr={0:'',.25:'1/4',.5:'1/2',.75:'3/4'}[f];q=(str(w) if w else '')+(' ' if w and fr else '')+fr
     return f'{q} oz {n[0].lower()+n[1:] if not n.startswith("Tres") else n}'
-  LD={"@context":"https://schema.org","@type":"Recipe","name":name,"description":desc,"image":[B+'/share/'+d['slug']+'.jpg',B+'/assets/tragos/'+PHOTO[c]+'.webp'],
+  def ozs(a):
+    w=int(a);f=round((a-w)*4)/4;fr={0:'',.25:'1/4',.5:'1/2',.75:'3/4'}[f];return ((str(w) if w else '')+(' ' if w and fr else '')+fr)+' oz'
+  LD={"@context":"https://schema.org","@type":"Recipe","name":name,"description":desc,"image":[B+'/share/'+d['slug']+'.jpg',B+'/assets/tragos/'+PHOTO[c]+'.webp',B+'/assets/tragos/sm/'+PHOTO[c]+'.webp'],
       "author":{"@type":"Organization","name":"Tres Naranjos"},"recipeCategory":"Cóctel","recipeCuisine":"Puertorriqueña","keywords":', '.join(tg+['triple sec','cóctel',name.lower()]),
       "prepTime":iso(d['time']),"totalTime":iso(d['time']),"recipeYield":str(d['serves'])+(' porción' if d['serves']==1 else ' porciones'),
       "recipeIngredient":[amt(i[0],i[1],len(i)>2 and i[2]) for i in d['ing']],
@@ -280,13 +282,14 @@ for i,d in enumerate(D):
       <div class="rp-tags"><span class="t1">{esc(tg[0])}</span><span class="t2">{esc(tg[1])}</span></div></div></div>
       <div class="rp-ctrl"><div class="rp-step">Para <button type="button" id="less" aria-label="Menos personas">−</button><output id="ppl">{d['serves']}</output><button type="button" id="more" aria-label="Más personas">+</button></div>
         <div class="rp-units" role="group" aria-label="Unidades"><button type="button" data-u="oz" aria-pressed="true">OZ</button><button type="button" data-u="ml" aria-pressed="false">ML</button></div></div>
-      <ul class="rp-ing" id="ing"></ul>
+      <ul class="rp-ing" id="ing">{''.join('<li'+(' class="tn"' if len(x)>2 and x[2] else '')+'><span>'+esc('Tres Naranjos Triple Sec' if len(x)>2 and x[2] else x[1])+'</span>'+('<span class="a">'+ozs(x[0])+'</span>' if x[0] is not None else '')+'</li>' for x in d['ing'])}</ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
       <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Receta anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Receta siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
     </div>
   </div>
 
+  <section class="rp-more"><h2>Más cócteles con triple sec</h2><div class="rp-cards">{''.join(f'<a class="rp-card" href="recetas/{m["slug"]}"><img src="assets/tragos/sm/{PHOTO[m["code"]]}.webp" alt="{esc(m["name"])} con triple sec" loading="lazy" decoding="async"><b>{esc(m["name"])}</b></a>' for m in more)}</div></section>
 </main>'''
   a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
   fa=s.index('<footer');fb=s.index('</footer>',fa)+9
