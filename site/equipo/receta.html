@@ -528,7 +528,7 @@ main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-
 .ph.ai img,.done-ph.ai img{filter:url(#tn-look)} /* house look + grain, same as tools/sync_recetas.py */
 .ph-col{display:grid;gap:10px;min-width:0;align-content:start}
 .ai-wait,.ai-err{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;border-radius:16px}
-.ai-wait{background:linear-gradient(110deg,#F6E2C8 20%,#FBEEDC 40%,#F6E2C8 60%) 0 0/250% 100%;animation:aishim 1.6s linear infinite}
+.ai-wait{background:#F6E2C8;gap:12px}
 .ai-glass{width:64px;height:72px;overflow:visible}
 #ai-liq,#ai-wave{transition:transform 1s linear}
 #ai-wave{animation:aiwave 1.4s linear infinite}
@@ -919,7 +919,14 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
   <feColorMatrix type="matrix" values="0.8528 0.0371 0.0371 0 0.0618 0.0360 0.8280 0.0360 0 0.0600 0.0342 0.0342 0.7866 0 0.0570 0 0 0 1 0" result="look"/>
   <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0" result="n"/>
   <feComposite in="look" in2="n" operator="arithmetic" k1="0" k2="1" k3=".42" k4="-.21"/></filter></svg>
-        <div class="ai-wait" id="ai-wait" hidden><span class="ai-spin" aria-hidden="true"></span><b>Creando la foto…</b><span>Tarda como 1 minuto. Mientras, revisa la receta.</span></div>
+        <div class="ai-wait" id="ai-wait" hidden role="status" aria-live="polite">
+          <svg class="ai-glass" viewBox="0 0 64 72" aria-hidden="true"><defs><clipPath id="ai-cup"><path d="M10 8h44l-5 56a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4z"/></clipPath></defs>
+            <g clip-path="url(#ai-cup)"><rect id="ai-liq" x="0" y="72" width="64" height="72" fill="#E8561A"/><path id="ai-wave" d="M0 72q8-4 16 0t16 0 16 0 16 0 16 0 16 0 16 0 16 0v8H0z" fill="#E8561A"/></g>
+            <path d="M10 8h44l-5 56a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4z" fill="none" stroke="#2D2926" stroke-width="3" stroke-linejoin="round"/></svg>
+          <b id="ai-step">Leyendo la receta…</b>
+          <div class="ai-bar" aria-hidden="true"><i id="ai-fill"></i></div>
+          <span><span id="ai-time">0:00</span> · Tarda como 1 minuto. Mientras, revisa la receta.</span>
+        </div>
         <div class="ai-err" id="ai-err" hidden><b id="ai-err-t">No se pudo crear la foto.</b><button type="button" class="btn-a dark sm" id="ai-retry">Intentar otra vez</button></div>
         <div class="ph-btns" id="ph-btns" hidden><button type="button" class="btn-a soft sm" id="cambiar">Cambiar</button><button type="button" class="btn-a dark sm" id="quitar">Quitar</button></div>
       </div>
