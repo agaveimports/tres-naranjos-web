@@ -244,9 +244,9 @@ for i,d in enumerate(D):
   more=[D[(i+k)%len(D)] for k in (2,3,4)]
   prv=D[(i-1)%len(D)];nxt=D[(i+1)%len(D)]
   title=f'{name} con Tres Naranjos'
-  desc=f"Receta de {name} con triple sec: {tg[0].lower()} y {tg[1].lower()}. Ingredientes, medidas y pasos, con Tres Naranjos, el triple sec de Puerto Rico."
+  desc=f"{tg[0]} y {tg[1].lower()}. La receta completa de {name}, con Tres Naranjos Triple Sec."
   s=base
-  s=re.sub(r'<title>.*?</title>',f'<title>{esc(name)} con triple sec | Receta fácil | Tres Naranjos</title>',s,count=1)
+  s=re.sub(r'<title>.*?</title>',f'<title>{esc(name)} | Receta con Tres Naranjos</title>',s,count=1)
   s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{esc(desc)}">',s,count=1)
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
