@@ -120,12 +120,12 @@ main = f'''<main id="top" class="ar"><div class="ar-in">
 
   <section id="s-pega">
     <h1>Añadir una receta</h1>
-    <p class="ar-lead">Pega la receta y la arreglamos por ti. Antes de publicar, ves cómo va a quedar.</p>
+    <p class="ar-lead">Pega la receta y le damos el formato del sitio. Antes de publicar, ves cómo va a quedar.</p>
     <label class="l" for="pega">Pega la receta</label>
     <textarea id="pega" spellcheck="false" placeholder="Paloma de toronja&#10;Fresca y fácil, para el calor.&#10;&#10;Ingredientes:&#10;- 2 oz tequila blanco&#10;- 15 ml Tres Naranjos&#10;- 3 oz jugo de toronja&#10;&#10;Preparación:&#10;1. Llena un vaso alto con hielo.&#10;2. Añade todo y completa con soda."></textarea>
     <p class="hint">De Claude, ChatGPT, una nota o WhatsApp. Las medidas en ml se pasan a oz.</p>
     <p class="msg" id="m1" role="status" aria-live="polite"></p>
-    <div class="acts"><button type="button" class="btn-a go" id="llenar">Llenar la receta</button><button type="button" class="link" id="amano">Prefiero llenarla a mano</button></div>
+    <div class="acts"><button type="button" class="btn-a go" id="llenar">Continuar</button></div>
   </section>
 
   <section id="s-prev" hidden>
@@ -350,11 +350,6 @@ JS = r'''<script>
     $('nota').textContent = by === 'ia' ? 'Claude la arregló y la puso en el formato del site. Si algo no quedó bien, toca Editar.' : note();
     view(); show('s-prev');
     if (window.tnFoto && !photo && !photoUrl) genPhoto('');
-  });
-  $('amano').addEventListener('click', () => {
-    R = {nombre: '', descripcion: '', vaso: 'Vaso corto', etiquetas: ['Cítrico', 'Fresco'], porciones: 1, ing: [], pasos: []};
-    render(); $('nota').textContent = 'Escribe la receta. Al tocar Listo la ponemos en el formato del site.';
-    show('s-prev'); edit('Nombre del trago\nDescripción corta\nVaso: corto · Sabor: Cítrico, Fresco\n\nIngredientes\n1 1/2 oz \n1/2 oz Tres Naranjos\n\nPasos\n1. ');
   });
 
   function edit(text){ $('ed').value = text != null ? text : toText(R); $('view').hidden = true; $('edit').hidden = false; $('editar').hidden = true; $('ed').focus({preventScroll: true}); }
