@@ -29,6 +29,8 @@ jobs:
           python-version: '3.12'
       - run: pip install pillow numpy
       - run: python3 tools/sync_recetas.py ${{ inputs.force && '--force' || '' }}
+        env:
+          KREA_API_KEY: ${{ secrets.KREA_API_KEY }}  # wide WhatsApp card for new recipes (optional)
       - name: Publish if something changed
         run: |
           if [ -n "$(git status --porcelain)" ]; then

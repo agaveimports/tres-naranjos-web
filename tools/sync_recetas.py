@@ -10,7 +10,7 @@ Can also be run by hand from the repo root:  python3 tools/sync_recetas.py  [--f
 4. Rebuilds the recipe pages, the Recetas grid, the WhatsApp cards and the sitemap. Removes pages of
    recipes that are no longer published.
 """
-import base64, io, json, os, re, subprocess, sys, urllib.parse, urllib.request
+import base64, io, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from recetas_sheet import row_to_drink, published
 
@@ -79,7 +79,7 @@ def glass_x(im):
     return ((s + e) / 2) / w if e > s else .25
 
 
-def save_photo(img_bytes, name, slug=None):
+def save_photo(img_bytes, name, slug=None, ai=False):
     """A wide photo (the AI photos from /equipo/receta are 16:9, glass in the left third) becomes:
     the recipe photo cropped 4:5 from the glass side, and tools/share-src/<slug>.jpg so its WhatsApp card is the full wide photo."""
     from PIL import Image, ImageOps
@@ -90,8 +90,55 @@ def save_photo(img_bytes, name, slug=None):
         cw = round(H * 0.8); x0 = max(0, min(W - cw, round(W * glass_x(im) - cw / 2)))  # glass in the middle of the recipe photo
         im = im.crop((x0, 0, x0 + cw, H))
         im = grain(house_look(ImageOps.fit(im, (960, 1200), Image.LANCZOS)), amount=7)  # faded warm look + film grain, like the original drink photos
+    if ai and not (slug and W / H > 1.3):
+        im = grain(house_look(ImageOps.fit(im, (960, 1200), Image.LANCZOS)), amount=7)  # AI photo (4:5): house look + film grain
     ImageOps.fit(im, (960, 1200), Image.LANCZOS, centering=(0.5, 0.5)).save(SITE + f'assets/tragos/{name}.webp', 'WEBP', quality=80)
     ImageOps.fit(im, (560, 560), Image.LANCZOS, centering=(0.5, 0.45)).save(SITE + f'assets/tragos/sm/{name}.webp', 'WEBP', quality=80)
+
+
+KREA = 'https://api.krea.ai'
+EXTEND_PROMPT = ('Extend this exact photograph into a wide landscape image. Keep the same glass, the same drink, the same garnish, '
+                 'the same hard warm sunlight, the same backdrop color, the same soft leaf shadows and the same fine film grain. '
+                 'Do not redraw or change the glass or the drink. Place the glass in the left third of the frame. The right two '
+                 'thirds is the same continuous seamless backdrop with soft dappled leaf shadows, plain and empty, with room for a '
+                 'title. No text, no logos, no extra objects.')
+
+
+def extend_cards(drinks):
+    """New recipes get the wide WhatsApp card like the originals: once the recipe photo is live on the site, Krea extends
+    it sideways (same prompt as the originals, see build_cards.py) into tools/share-src/<slug>.jpg. Needs the KREA_API_KEY
+    secret in GitHub. Each recipe is tried once (tools/share-src/.intentos.json); until then it has the boxed card."""
+    key = os.environ.get('KREA_API_KEY', '').strip()
+    if not key: return False
+    tried_f = TOOLS + 'share-src/.intentos.json'
+    tried = json.load(open(tried_f)) if os.path.exists(tried_f) else []
+    site = json.load(open(TOOLS + 'config.json')).get('site_url', 'https://tresnaranjos.com').rstrip('/')
+    made = False
+    for d in drinks:
+        if os.path.exists(TOOLS + f"share-src/{d['slug']}.jpg") or d['slug'] in tried: continue
+        url = f"{site}/assets/tragos/{d['photo']}.webp"
+        try:
+            urllib.request.urlopen(urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'tres-naranjos-sync'}), timeout=20)
+        except Exception:
+            continue  # not live yet: next run
+        tried.append(d['slug']); json.dump(tried, open(tried_f, 'w'))
+        try:
+            hdr = {'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json', 'User-Agent': 'tres-naranjos-sync'}
+            body = json.dumps({'prompt': EXTEND_PROMPT, 'image_urls': [url], 'aspect_ratio': '16:9', 'resolution': '2K'}).encode()
+            job = json.loads(urllib.request.urlopen(urllib.request.Request(KREA + '/generate/image/google/nano-banana-pro', data=body, headers=hdr), timeout=60).read())
+            for _ in range(60):
+                time.sleep(5)
+                j = json.loads(urllib.request.urlopen(urllib.request.Request(KREA + '/jobs/' + job['job_id'], headers=hdr), timeout=60).read())
+                if j.get('status') in ('failed', 'cancelled'): break
+                out = (j.get('result') or {}).get('urls') or []
+                if j.get('status') == 'completed' and out:
+                    from PIL import Image
+                    im = Image.open(io.BytesIO(urllib.request.urlopen(out[0], timeout=120).read())).convert('RGB')
+                    im.resize((1600, round(1600 * im.height / im.width)), Image.LANCZOS).save(TOOLS + f"share-src/{d['slug']}.jpg", quality=92)
+                    print('wide card made for', d['slug']); made = True; break
+        except Exception as e:
+            print('wide card failed for', d['slug'], e)
+    return made
 
 
 def main():
@@ -104,7 +151,10 @@ def main():
         print('sheet did not answer or is empty; nothing changed'); return 0
     old_version = open(VERSION_FILE).read().strip() if os.path.exists(VERSION_FILE) else ''
     if data['version'] == old_version and not force:
-        print('no changes in the sheet'); return 0
+        print('no changes in the sheet')
+        if extend_cards(json.load(open(TOOLS + 'drinks.json'))):
+            subprocess.run([sys.executable, TOOLS + 'build_cards.py'], check=True, cwd=ROOT)
+        return 0
 
     old = json.load(open(TOOLS + 'drinks.json'))
     by_code = {d['code']: d for d in old}
@@ -123,7 +173,7 @@ def main():
                 f = get({'accion': 'foto', 'id': fid})
                 if not f.get('ok'):
                     skipped.append((d['name'], 'foto no disponible')); continue
-                save_photo(base64.b64decode(f['b64']), d['photo'], d['slug'])
+                save_photo(base64.b64decode(f['b64']), d['photo'], d['slug'], ai=str(f.get('name', '')).startswith('ia-'))
         if not os.path.exists(SITE + f"assets/tragos/{d['photo']}.webp"):
             skipped.append((d['name'], 'sin foto')); continue
         if not d['ing'] or not d['steps']:
