@@ -21,7 +21,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,6 +38,22 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "Recetas: actualizadas desde la hoja"
+            git pull --rebase origin main
+            git push
+          else
+            echo "Nada cambió"
+          fi
+      - name: Tarjetas anchas de WhatsApp (espera la de Krea si la receta es nueva)
+        run: python3 tools/sync_recetas.py --anchas
+        env:
+          KREA_API_KEY: ${{ secrets.KREA_API_KEY }}
+      - name: Publish the WhatsApp cards
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "Recetas (hoja)"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Recetas: tarjetas de WhatsApp"
             git pull --rebase origin main
             git push
           else

@@ -104,7 +104,7 @@ EXTEND_PROMPT = ('Extend this exact photograph into a wide landscape image. Keep
                  'title. No text, no logos, no extra objects.')
 
 
-def extend_cards(drinks):
+def extend_cards(drinks, skip=()):
     """New recipes get the wide WhatsApp card like the originals: once the recipe photo is live on the site, Krea extends
     it sideways (same prompt as the originals, see build_cards.py) into tools/share-src/<slug>.jpg. Needs the KREA_API_KEY
     secret in GitHub. Each recipe is tried once (tools/share-src/.intentos.json); until then it has the boxed card."""
@@ -115,7 +115,7 @@ def extend_cards(drinks):
     site = json.load(open(TOOLS + 'config.json')).get('site_url', 'https://tresnaranjos.com').rstrip('/')
     made = False
     for d in drinks:
-        if os.path.exists(TOOLS + f"share-src/{d['slug']}.jpg") or d['slug'] in tried: continue
+        if os.path.exists(TOOLS + f"share-src/{d['slug']}.jpg") or d['slug'] in tried or d['slug'] in skip: continue
         url = f"{site}/assets/tragos/{d['photo']}.webp"
         try:
             urllib.request.urlopen(urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'tres-naranjos-sync'}), timeout=20)
@@ -141,7 +141,42 @@ def extend_cards(drinks):
     return made
 
 
+def save_wide(url, slug):
+    from PIL import Image
+    im = Image.open(io.BytesIO(urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'tres-naranjos-sync'}), timeout=120).read())).convert('RGB')
+    im.resize((1600, round(1600 * im.height / im.width)), Image.LANCZOS).save(TOOLS + f"share-src/{slug}.jpg", quality=92)
+
+
+def wide_cards():
+    """Second step of every run (python3 tools/sync_recetas.py --anchas), after the recipes are already live.
+    AI recipes: the sheet's Apps Script asked Krea for the wide photo when the recipe was published; wait for it here
+    (up to ~4 min) and make the WhatsApp card. Everything else without a wide photo: extend_cards() from the live site."""
+    drinks = json.load(open(TOOLS + 'drinks.json'))
+    todo = [d for d in drinks if not os.path.exists(TOOLS + f"share-src/{d['slug']}.jpg")]
+    made, waiting, t0 = False, [d['slug'] for d in todo], time.time()
+    while waiting and time.time() - t0 < 240:
+        for slug in list(waiting):
+            try:
+                r = get({'accion': 'fotoancha', 'slug': slug})
+            except Exception:
+                r = {}
+            if r.get('job') and r.get('listo'):
+                try:
+                    save_wide(r['url'], slug); made = True; print('wide card from the sheet for', slug)
+                except Exception as e:
+                    print('wide card download failed for', slug, e)
+                waiting.remove(slug)
+            elif not r.get('job'):
+                waiting.remove(slug)  # no job in the sheet (uploaded photo, old recipe, or failed): extend_cards() below
+        if waiting: time.sleep(10)
+    if extend_cards(drinks, skip=set(waiting)): made = True  # still waiting on Krea: try again next run
+    if made:
+        subprocess.run([sys.executable, TOOLS + 'build_cards.py'], check=True, cwd=ROOT)
+    return 0
+
+
 def main():
+    if '--anchas' in sys.argv: return wide_cards()
     force = '--force' in sys.argv
     if '--from' in sys.argv:
         data = json.load(open(sys.argv[sys.argv.index('--from') + 1]))
@@ -151,10 +186,7 @@ def main():
         print('sheet did not answer or is empty; nothing changed'); return 0
     old_version = open(VERSION_FILE).read().strip() if os.path.exists(VERSION_FILE) else ''
     if data['version'] == old_version and not force:
-        print('no changes in the sheet')
-        if extend_cards(json.load(open(TOOLS + 'drinks.json'))):
-            subprocess.run([sys.executable, TOOLS + 'build_cards.py'], check=True, cwd=ROOT)
-        return 0
+        print('no changes in the sheet'); return 0
 
     old = json.load(open(TOOLS + 'drinks.json'))
     by_code = {d['code']: d for d in old}
