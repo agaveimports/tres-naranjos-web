@@ -65,16 +65,16 @@ def avg_color(name):
     except Exception: return '#F6E2C8'
 cards=''.join(f'''<a class="tg-card" href="recetas/{d['slug']}"><div class="tg-ph" style="--ph:{avg_color(PHOTO[d['code']])}"><img src="assets/tragos/sm/{PHOTO[d['code']]}.webp" onload="this.parentNode.classList.add('ld')" decoding="async" alt="{esc(d['name'])} con Tres Naranjos" loading="eager"{' fetchpriority="high"' if i<6 else ''}><div class="tg-tags"><span class="t1">{esc(TAGS[d['code']][0])}</span><span class="t2">{esc(TAGS[d['code']][1])}</span></div></div><span class="tg-name">{esc(d['name'])}</span></a>''' for i,d in enumerate(D))
 main=f'''<main id="top" class="tg wrap">
-  <header class="tg-head"><span class="tg-eye">Recetas con Tres Naranjos</span><h1>Tragos con triple sec</h1><p>Margaritas, cosmos, sangría y más. Clásicos y criollos que quedan mejor con nuestro triple sec, y en cualquier receta que pida Cointreau o Grand Marnier, usa la misma medida.</p></header>
+  <header class="tg-head"><span class="tg-eye">Recetas con Tres Naranjos</span><h1>Cócteles con triple sec</h1><p>Margaritas, cosmos, sangría y más. Clásicos y criollos que quedan mejor con nuestro triple sec, y en cualquier receta que pida Cointreau o Grand Marnier, usa la misma medida.</p></header>
   <div class="tg-grid">{cards}</div>
 </main>'''
 a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
 s=s.replace('</head>',CSS+'\n</head>',1)
-# SEO: what people search ("tragos / bebidas / cócteles con triple sec") goes in the title and description
-s=re.sub(r'<title>.*?</title>','<title>Tragos con triple sec: recetas fáciles | Tres Naranjos</title>',s,count=1)
-s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Tragos y cócteles con triple sec: margarita, cosmo, sangría, mezcalita y más. Recetas fáciles con Tres Naranjos, el triple sec de Puerto Rico.">',s,count=1)
+# SEO: what people search ("cócteles / bebidas / recetas con triple sec"; never "tragos") goes in the title and description
+s=re.sub(r'<title>.*?</title>','<title>Cócteles con triple sec: recetas fáciles | Tres Naranjos</title>',s,count=1)
+s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Cócteles y bebidas con triple sec: margarita, cosmo, sangría, mezcalita y más. Recetas fáciles con Tres Naranjos, el triple sec de Puerto Rico.">',s,count=1)
 BASE=B
-s=s.replace('</head>','<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Tragos con triple sec | Tres Naranjos"><meta property="og:description" content="Recetas fáciles de tragos y cócteles con triple sec: margarita, cosmo, sangría y más."><meta property="og:image" content="'+BASE+'/share/margarita.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="'+BASE+'/recetas/">\n</head>',1)
+s=s.replace('</head>','<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Cócteles con triple sec | Tres Naranjos"><meta property="og:description" content="Recetas fáciles de cócteles y bebidas con triple sec: margarita, cosmo, sangría y más."><meta property="og:image" content="'+BASE+'/share/margarita.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="'+BASE+'/recetas/">\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS');b=s.index('</script>',a)
 js='''/* ---- old links like recetas/#A1 go to the drink's own page ---- */
 const SL='''+json.dumps({d['code']:d['slug'] for d in D})+''';

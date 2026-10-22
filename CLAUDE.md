@@ -83,7 +83,7 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 - Never invent reviews, testimonials or ratings.
 - Keep the designer credit line ("Diseño por Alfonso Rodriguez", class `credit`, linking to https://www.linkedin.com/in/alfonsorodz until his portfolio site exists) at the bottom of every page. It is required by the designer and must not be removed.
 - Keep the age gate and "Disfruta con responsabilidad" on every public page. The private team pages under /equipo are tools: no footer, no credit line, no age gate (Alfonso, Oct 2026; `team_gate.no_footer`). The GOVERNMENT WARNING was removed from the footer at Paul's request (Oct 2026).
-- Words: the menu says "Recetas" (never "Tragos") and "Sobre nosotros". Tres Naranjos stands on its own: no "Imaginado para Puerto Rico" line and no links or "sister brand" copy for Tres Santos (Paul wants the brands as cousins, not sisters).
+- Words: never use "trago" or "tragos" in new copy, anywhere (Alfonso, Oct 2026: they don't want the word; say cóctel, bebida or receta). The menu says "Recetas" and "Sobre nosotros". Tres Naranjos stands on its own: no "Imaginado para Puerto Rico" line and no links or "sister brand" copy for Tres Santos (Paul wants the brands as cousins, not sisters).
 
 ## Before finishing any change
 
