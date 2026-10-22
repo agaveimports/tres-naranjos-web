@@ -22,6 +22,7 @@ CSS = '''<style>
 main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
 .ar-in{max-width:1060px;margin:0 auto}
 .ar h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
+#pega::placeholder{color:rgba(45,41,38,.32);-webkit-text-stroke:0;opacity:1} /* lighter so it reads as an example */
 .ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60);max-width:none}
 .ar .l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
 .ar textarea{box-sizing:border-box;width:100%;resize:vertical;font:400 15px/1.6 "Courier Prime",monospace;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:18px;padding:16px 18px;outline:none}
