@@ -446,7 +446,7 @@ JS = r'''<script>
     if (photoUrl) body.foto_url = photoUrl; else body.foto = photo.split(',')[1];
     fetch(SCRIPT_URL, {method: 'POST', body: JSON.stringify(body)}).then(r => r.json()).then(r => {
       if (r.ok) {
-        const t = new Date(Date.now() + (r.rapido ? 10 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
+        const t = new Date(Date.now() + (r.rapido ? 4 : 35) * 60000).toLocaleTimeString('es-PR', {hour: 'numeric', minute: '2-digit'});
         $('d-foto').src = $('foto').src; $('d-txt').innerHTML = '<b>' + esc(r.nombre) + '</b> sale en Recetas no más tarde de las <b>' + t + '</b>' + (/\.$/.test(t) ? '' : '.') + (photoUrl ? ' Para compartirla por WhatsApp, espera unos 5 minutos.' : '');
         say('m2', ''); show('s-done'); return;
       }
