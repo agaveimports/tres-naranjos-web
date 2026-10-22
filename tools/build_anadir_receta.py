@@ -22,7 +22,7 @@ CSS = '''<style>
 main#top.ar{box-sizing:border-box;padding:calc(var(--navh,70px) + env(safe-area-inset-top,0px) + clamp(32px,3.2vw,44px)) var(--gutter,16px) clamp(40px,6vw,72px)}
 .ar-in{max-width:1060px;margin:0 auto}
 .ar h1{font-family:var(--display);font-size:clamp(34px,4.2vw,54px);line-height:.95;margin:0 0 .25em;text-transform:uppercase}
-.ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60);max-width:62ch}
+.ar-lead{font-size:clamp(15px,1.2vw,17px);line-height:1.5;margin:0 0 20px;color:var(--negro-60);max-width:none}
 .ar .l{display:block;font-weight:700;font-size:15px;margin:0 0 8px}
 .ar textarea{box-sizing:border-box;width:100%;resize:vertical;font:400 15px/1.6 "Courier Prime",monospace;color:var(--negro);background:#fff;border:1.5px solid var(--negro);border-radius:18px;padding:16px 18px;outline:none}
 .ar textarea:focus{border-color:#E8561A}
@@ -120,10 +120,9 @@ main = f'''<main id="top" class="ar"><div class="ar-in">
 
   <section id="s-pega">
     <h1>Añadir una receta</h1>
-    <p class="ar-lead">Pega la receta y le damos el formato del sitio. Antes de publicar, ves cómo va a quedar.</p>
+    <p class="ar-lead">Pega la receta como la tengas y el AI la organiza.</p>
     <label class="l" for="pega">Pega la receta</label>
     <textarea id="pega" spellcheck="false" placeholder="Paloma de toronja&#10;Fresca y fácil, para el calor.&#10;&#10;Ingredientes:&#10;- 2 oz tequila blanco&#10;- 15 ml Tres Naranjos&#10;- 3 oz jugo de toronja&#10;&#10;Preparación:&#10;1. Llena un vaso alto con hielo.&#10;2. Añade todo y completa con soda."></textarea>
-    <p class="hint">De Claude, ChatGPT, una nota o WhatsApp. Las medidas en ml se pasan a oz.</p>
     <p class="msg" id="m1" role="status" aria-live="polite"></p>
     <div class="acts"><button type="button" class="btn-a go" id="llenar">Continuar</button></div>
   </section>
