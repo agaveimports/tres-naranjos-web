@@ -37,6 +37,7 @@ tools/
   set_contact.py         change WhatsApp number or email everywhere
   set_domain.py          change the site address everywhere (links, share cards, sitemap)
   hoist_meta.py          moves title/description/share-preview tags to the top of <head> (builders run it; run by hand after editing index.html or donde-comprar.html)
+  sitemap_lastmod.py     keeps <lastmod> in sitemap.xml honest: a page's date changes only when its text changes (dates kept in sitemap_fechas.json; never set them by hand). The recipes workflow runs it every 15 minutes, so hand edits get dated too
 ```
 
 ## Common tasks
@@ -48,7 +49,7 @@ tools/
 2. New drink photo: 960x1200 WebP in `site/assets/tragos/<photo>.webp` plus a 560x560 crop in `site/assets/tragos/sm/<photo>.webp`. Match the existing look: one glass, flat colored backdrop, hard warm sunlight, leaf shadows, film grain.
 3. Run, from the repo root:
    `python3 tools/build_recipes.py && python3 tools/build_tragos.py && python3 tools/build_faq.py && python3 tools/build_404.py && python3 tools/build_privacy.py && python3 tools/build_cards.py`
-4. Add `/recetas/<slug>` to `site/sitemap.xml`.
+4. Add `/recetas/<slug>` to `site/sitemap.xml`, then run `python3 tools/sitemap_lastmod.py` (adds the <lastmod> dates).
 
 Links between pages: generated pages in `site/recetas/` use `<base href="../">`, so write links relative to the site root (`recetas/mezcalita`, `assets/...`). Link to drinks without `.html` (Cloudflare serves `recetas/mezcalita.html` at `/recetas/mezcalita`).
 
@@ -87,6 +88,7 @@ Edit `tools/faq.json` (answers may contain simple HTML links), then run `python3
 
 ## Before finishing any change
 
+- The age gate question is a <p class="gate-title">, not a heading, so the page's first heading is its real H1 (Google and AI scanners read headings in order). Keep it that way.
 - WhatsApp/Google previews: title, description, og: and twitter: tags, canonical and JSON-LD must sit inside <head>, near the top. After hand-editing `site/index.html` or `site/donde-comprar.html`, run `python3 tools/hoist_meta.py site/index.html site/donde-comprar.html`.
 - Every push to `main` goes live on Cloudflare in about a minute. Batch related changes into one push.
 

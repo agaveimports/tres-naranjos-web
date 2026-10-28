@@ -396,7 +396,7 @@ footer{padding-block:clamp(50px,6vw,80px) 0;overflow:hidden}
 .gate{position:fixed;inset:0;z-index:100;background:var(--naranja);display:grid;place-items:center;padding:var(--gutter);text-align:center}
 .gate-box{display:grid;gap:clamp(22px,3vw,34px);justify-items:center;max-width:720px}
 .gate img{width:clamp(110px,12vw,160px)}
-.gate h2{font-family:var(--display);font-size:clamp(48px,7vw,104px);line-height:.92;color:var(--negro)}
+.gate .gate-title{text-wrap:balance;font-family:var(--display);font-size:clamp(48px,7vw,104px);line-height:.92;color:var(--negro)}
 .gate-actions{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
 .gate .no-msg{font-weight:700;min-height:1.5em}
 .gate small{font-size:13px;max-width:44ch}
@@ -454,7 +454,7 @@ a.btn[href="donde-comprar"]::before,.nav .pill::before{display:none!important;an
 
 /* age gate: brand orange, cream type, one clear action */
 .gate{background:#E8561A!important}
-.gate h2{color:var(--crema)!important}
+.gate .gate-title{color:var(--crema)!important}
 .gate small,.gate .no-msg{color:var(--crema)!important}
 .gate small{opacity:.85}
 .gate-actions{align-items:center;gap:28px!important}
@@ -778,7 +778,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-box">
     <img src="assets/icon.webp" alt="">
-    <h2 id="gate-title">¿Tienes 18 años o más?</h2>
+    <p id="gate-title" class="gate-title">¿Tienes 18 años o más?</p>
     <div class="gate-actions">
       <span class="btn-wrap"><button class="btn btn--crema" id="gate-yes">Sí, entrar</button></span>
       <span class="btn-wrap"><button class="btn" id="gate-no">No</button></span>

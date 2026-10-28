@@ -227,8 +227,10 @@ def main():
     sm = open(SITE + 'sitemap.xml').read()
     base = re.search(r'<loc>(https?://[^/<]+)/</loc>', sm).group(1)
     lines = ''.join(f'  <url><loc>{base}/recetas/{d["slug"]}</loc></url>\n' for d in new)
-    sm = re.sub(r'(?:  <url><loc>[^<]*/recetas/[^<]+</loc></url>\n)+', lambda m: lines, sm, count=1)
+    sm = re.sub(r'(?:  <url><loc>[^<]*/recetas/[^<]+</loc>(?:<lastmod>[^<]*</lastmod>)?</url>\n)+', lambda m: lines, sm, count=1)
     open(SITE + 'sitemap.xml', 'w').write(sm)
+    # put the <lastmod> dates back (new or changed pages get today's date)
+    subprocess.run([sys.executable, TOOLS + 'sitemap_lastmod.py'], cwd=ROOT)
 
     open(VERSION_FILE, 'w').write(data['version'] + '\n')
     print(f'{len(new)} recipes published', ('| skipped: ' + str(skipped)) if skipped else '')

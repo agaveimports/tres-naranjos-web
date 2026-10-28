@@ -237,6 +237,18 @@ CSS='''<style>
 }
 </style>'''
 def esc(t): return html.escape(t,quote=True)
+def oz_txt(oz):
+  # same as fmt() in the page script (unit oz): whole number + nearest quarter
+  import math
+  w=math.floor(oz);f=math.floor((oz-w)*4+0.5)/4
+  if f==1: w+=1;f=0
+  fr={0:'',.25:'1/4',.5:'1/2',.75:'3/4'}[f]
+  return ((str(w) if w else '')+(' ' if w and fr else '')+fr or '0')+' oz'
+def ing_html(d):
+  # the page script redraws this list on load (and when servings or units change); printing it here lets
+  # search engines and AI tools read the ingredients without running JavaScript
+  return ''.join('<li'+(' class="tn"' if len(x)>2 and x[2] else '')+'><span>'+esc('Tres Naranjos Triple Sec' if len(x)>2 and x[2] else x[1])+'</span>'
+                 +('<span class="a">'+oz_txt(x[0])+'</span>' if x[0] is not None else '')+'</li>' for x in d['ing'])
 order=[d['code'] for d in D]
 ALLJS=json.dumps([{'code':x['code'],'slug':x['slug'],'name':x['name'],'sub':x['sub'],'vaso':x['vaso'],'serves':x['serves'],'ing':x['ing'],'steps':x['steps'],'tags':x['tags'],'photo':x['photo']} for x in D],ensure_ascii=False,separators=(',',':'))
 for i,d in enumerate(D):
@@ -246,7 +258,7 @@ for i,d in enumerate(D):
   title=f'{name} con Tres Naranjos'
   desc=f"{tg[0]} y {tg[1].lower()}. La receta completa de {name}, con Tres Naranjos Triple Sec."
   s=base
-  s=re.sub(r'<title>.*?</title>',f'<title>{esc(name)} | Receta con Tres Naranjos</title>',s,count=1)
+  s=re.sub(r'<title>.*?</title>',f'<title>{esc(name)}: receta con triple sec | Tres Naranjos</title>',s,count=1)
   s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{esc(desc)}">',s,count=1)
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
@@ -280,7 +292,7 @@ for i,d in enumerate(D):
       <div class="rp-tags"><span class="t1">{esc(tg[0])}</span><span class="t2">{esc(tg[1])}</span></div></div></div>
       <div class="rp-ctrl"><div class="rp-step">Para <button type="button" id="less" aria-label="Menos personas">−</button><output id="ppl">{d['serves']}</output><button type="button" id="more" aria-label="Más personas">+</button></div>
         <div class="rp-units" role="group" aria-label="Unidades"><button type="button" data-u="oz" aria-pressed="true">OZ</button><button type="button" data-u="ml" aria-pressed="false">ML</button></div></div>
-      <ul class="rp-ing" id="ing"></ul>
+      <ul class="rp-ing" id="ing">{ing_html(d)}</ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
       <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Receta anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Receta siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
@@ -343,7 +355,7 @@ const ALL='''+ALLJS+''';
     body(d);
     const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
     [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='recetas/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
-    document.title=d.name+' | Receta con Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
+    document.title=d.name+': receta con triple sec | Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
     share();warm();
   }
   function go(i,push){i=mod(i);if(i===cur)return;
