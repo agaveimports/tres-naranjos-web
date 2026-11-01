@@ -1,0 +1,36 @@
+# Asks ChatGPT and Gemini (via OpenRouter, native web search) the Tres Naranjos test questions
+# and saves the results in tools/ai-visibilidad/. Runs the 1st of each month and by hand.
+# Needs the OPENROUTER_API_KEY secret (Settings > Secrets and variables > Actions).
+name: AI visibilidad
+on:
+  schedule:
+    - cron: '17 12 1 * *'   # 1st of the month, 8:17 am Puerto Rico
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: 'Veces que se hace cada pregunta'
+        default: '3'
+permissions:
+  contents: write
+concurrency:
+  group: ai-visibilidad
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 tools/ai_visibilidad.py --runs ${{ inputs.runs || 3 }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      - name: Guardar resultados
+        run: |
+          git config user.name "AI visibilidad"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/ai-visibilidad
+          git commit -m "AI visibilidad: corrida $(date +%F)" || echo "Nada nuevo"
+          git pull --rebase origin main
+          git push
