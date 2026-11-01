@@ -17,7 +17,7 @@ def _tiendas_txt():
         if pb not in pueblos: pueblos.append(pb)
         if n not in nombres: nombres.append(n)
     return (f"En {len(rows)} licorerías, supermercados y tiendas de Puerto Rico, en {', '.join(pueblos[:-1])} y {pueblos[-1]}: "
-            f"{', '.join(nombres[:-1])} y {nombres[-1]}. Búscalas por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a>.")
+            f"{', '.join(nombres[:-1])} y {nombres[-1]}. Búscalas por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a> o lee <a href=\"guia/donde-comprar-triple-sec-en-puerto-rico\">¿Dónde comprar triple sec en Puerto Rico?</a>.")
 for f in FAQ:
     if f['a']=='{{TIENDAS}}': f['a']=_tiendas_txt()
 # photo next to the page title; swap for any photo in site/assets (portrait works best)

@@ -66,10 +66,12 @@ def main():
     js = ',\n'.join(f'  {json.dumps([n, t, d, pb, "", ""], ensure_ascii=False)}' for n, t, d, pb in rows)
     # keep coordinates that already exist in the backup for the same store
     m = re.search(r'const TIENDAS\s*=\s*\[(.*?)\];', s, re.S)
-    old = {(r[0], r[3]): r for r in json.loads('[' + m.group(1) + ']')}
+    old = {(r[0], r[2], r[3]): r for r in json.loads('[' + m.group(1) + ']')}
     arr = []
-    for n, t, d, pb in rows:
-        o = old.get((n, pb)); arr.append([n, t, d, pb, o[4] if o else '', o[5] if o else ''])
+    for st in rows:
+        n, t, d, pb = st
+        o = old.get((n, d, pb)); ll = getattr(st, 'll', '') or (o[5] if o else '')
+        arr.append([n, t, d, pb, o[4] if o else '', ll])
     js = ',\n'.join('  ' + json.dumps(r, ensure_ascii=False) for r in arr)
     s = s[:m.start(1)] + '\n' + js + '\n' + s[m.end(1):]
     open(p, 'w', encoding='utf8').write(s)

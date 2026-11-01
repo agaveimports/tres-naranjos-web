@@ -14,6 +14,11 @@ BASE = CFG['site_url'].rstrip('/')
 DC = open(os.path.join(ROOT, 'site/donde-comprar.html'), encoding='utf8').read()
 
 
+class Store(tuple):
+    """(nombre, tipo, direccion, pueblo) plus .ll = 'lat, lng' (from the sheet's 'ubicacion (automática)' or the backup list)"""
+    ll = ''
+
+
 def stores():
     m = re.search(r"STORES_CSV_URL\s*=\s*'([^']+)'", DC)
     rows = []
@@ -22,14 +27,16 @@ def stores():
             with urllib.request.urlopen(m.group(1), timeout=15) as r:
                 for row in csv.DictReader(io.StringIO(r.read().decode('utf8'))):
                     if row.get('nombre', '').strip():
-                        rows.append((row['nombre'].strip(), row.get('tipo', '').strip(),
-                                     row.get('direccion', '').strip(), row.get('pueblo', '').strip()))
+                        st = Store((row['nombre'].strip(), row.get('tipo', '').strip(),
+                                    row.get('direccion', '').strip(), row.get('pueblo', '').strip()))
+                        st.ll = (row.get('ubicacion (automática)') or row.get('link de Google Maps (opcional)') or '').strip()
+                        rows.append(st)
         except Exception:
             rows = []
     if not rows:  # backup list in the page
         m = re.search(r'const TIENDAS\s*=\s*\[(.*?)\];', DC, re.S)
         for row in json.loads('[' + m.group(1) + ']'):
-            rows.append((row[0], row[1], row[2], row[3]))
+            st = Store((row[0], row[1], row[2], row[3])); st.ll = str(row[5] or '').lstrip('~'); rows.append(st)
     return rows
 
 

@@ -258,7 +258,7 @@ for i,d in enumerate(D):
   title=f'{name} con Tres Naranjos'
   desc=f"{tg[0]} y {tg[1].lower()}. La receta completa de {name}, con Tres Naranjos Triple Sec."
   s=base
-  s=re.sub(r'<title>.*?</title>',f'<title>{esc(name)}: receta con triple sec | Tres Naranjos</title>',s,count=1)
+  s=re.sub(r'<title>.*?</title>',f'<title>Cómo hacer {esc(name)}: receta con Tres Naranjos Triple Sec</title>',s,count=1)
   s=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{esc(desc)}">',s,count=1)
   head_extra=(f'<base href="../">\n<meta property="og:type" content="article"><meta property="og:site_name" content="Tres Naranjos">'
     f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
@@ -355,7 +355,7 @@ const ALL='''+ALLJS+''';
     body(d);
     const im=q('.rp-photo img');im.src=sm(d);im.alt=d.name+' con Tres Naranjos Triple Sec';
     [['.rp-pg.prev',prv],['.rp-pg.next',nxt]].forEach(([s,x])=>{const a=q(s);a.href='recetas/'+x.slug;txt(a.querySelector('b'),x.name);const pi=a.querySelector('img');if(pi)pi.src=sm(x)});
-    document.title=d.name+': receta con triple sec | Tres Naranjos';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
+    document.title='Cómo hacer '+d.name+': receta con Tres Naranjos Triple Sec';const cn=q('link[rel=canonical]');if(cn)cn.href=cn.href.replace(/[^/]+$/,d.slug);
     share();warm();
   }
   function go(i,push){i=mod(i);if(i===cur)return;

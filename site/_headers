@@ -7,3 +7,5 @@
   Cache-Control: public, max-age=0, must-revalidate
 /recetas/*
   Cache-Control: public, max-age=0, must-revalidate
+/guia/*
+  Cache-Control: public, max-age=0, must-revalidate
