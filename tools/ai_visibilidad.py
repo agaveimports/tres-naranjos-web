@@ -44,6 +44,9 @@ PREGUNTAS = [
     ("¿Qué triple sec tiene miel de agave?", "es"),
     ("¿Cuál es el mejor triple sec en Puerto Rico?", "es"),
     ("¿Triple sec o Cointreau? ¿Se puede usar uno en vez del otro?", "es"),
+    ("¿Dónde venden licor de naranja en Puerto Rico?", "es"),
+    ("¿Qué uso en vez de Cointreau?", "es"),
+    ("¿Con qué se mezcla el triple sec?", "es"),
 ]
 
 # What a real app knows about the user. Nothing else, so the model isn't steered.

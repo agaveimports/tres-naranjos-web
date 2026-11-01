@@ -42,7 +42,7 @@ def tiendas():
         if tw not in towns: towns.append(tw)
     lead_en = (f'Tres Naranjos Triple Sec is sold at {len(rows)} places in {len(towns)} towns across Puerto Rico, from {towns[0]} to {towns[-1]}: liquor stores, supermarkets and cash and carries. '
                f'It is a triple sec sweetened with agave honey, 25% ABV, 750 ml, made in Mexico and imported to Puerto Rico.')
-    lead = (f'Hoy Tres Naranjos Triple Sec está en {len(rows)} lugares de {len(towns)} pueblos de Puerto Rico, entre licorerías, supermercados y cash and carry, '
+    lead = (f'Hoy Tres Naranjos Triple Sec, un licor de naranja con miel de agave, está en {len(rows)} lugares de {len(towns)} pueblos de Puerto Rico, entre licorerías, supermercados y cash and carry, '
             f'de {towns[0]} a {towns[-1]}. Si no te queda ninguno cerca, <a href="https://puertoricoproduce.com/product/tres-naranjos" target="_blank" rel="noopener">PRoduce</a> lo entrega a domicilio en el área metro.')
     g = {}
     for n, t, d, p in rows: g.setdefault(p, []).append((n, t, d))
