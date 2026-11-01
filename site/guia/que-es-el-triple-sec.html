@@ -513,6 +513,19 @@ main#top.gu{padding-top:calc(var(--fqnav,77px) + clamp(36px,4.5vw,64px))!importa
 .gu .gu-specs{list-style:none;margin:0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
 .gu .gu-specs li{margin:0;display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1.5px dashed var(--negro);font-family:var(--type);font-size:15.5px;-webkit-text-stroke:.4px currentColor}
 .gu-specs b{font-weight:700}
+.gu-cmp-wrap{margin:18px 0 4px}
+.gu .gu-cmp{width:100%;border-collapse:collapse;border-top:1.5px dashed var(--negro);font-size:15.5px}
+.gu-cmp th{font-family:var(--type);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;text-align:left;font-weight:700;padding:10px 14px 10px 0;border-bottom:1.5px dashed var(--negro);white-space:nowrap}
+.gu-cmp td{padding:13px 14px 13px 0;border-bottom:1px dotted rgba(45,41,38,.45);vertical-align:top;line-height:1.45}
+.gu-cmp tbody tr:last-child td{border-bottom:1.5px dashed var(--negro)}
+.gu-cmp td b{display:block;font-size:16.5px}
+.gu-cmp tr.tn td b{color:#C2410C}
+.gu-cmp .gu-cmp-where{display:block;font-size:13.5px;color:var(--negro-60);margin-top:2px}
+.gu .gu-cmp .gu-cmp-where a{font-weight:400;text-underline-offset:3px;text-decoration-thickness:1px}
+.gu-cmp td.n{font-family:var(--type);font-weight:700;-webkit-text-stroke:.4px currentColor;white-space:nowrap}
+.gu .gu-cmp-src{font-size:13.5px;line-height:1.5;color:var(--negro-60);margin:10px 0 0}
+.gu .gu-cmp-src a{font-weight:400}
+@media (max-width:640px){.gu-cmp thead{display:none}.gu-cmp,.gu-cmp tbody,.gu-cmp tr,.gu-cmp td{display:block;width:100%}.gu-cmp tr{padding:12px 0;border-bottom:1px dotted rgba(45,41,38,.45)}.gu-cmp tbody tr:last-child{border-bottom:1.5px dashed var(--negro)}.gu-cmp td,.gu-cmp tbody tr:last-child td{border:0;padding:3px 0}.gu-cmp td[data-label]:not(:first-child){display:flex;gap:10px}.gu-cmp td[data-label]:not(:first-child)::before{content:attr(data-label);flex:0 0 92px;font-family:var(--type);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;padding-top:3px}.gu-cmp td:first-child{padding-bottom:6px}}
 .gu-rec{margin:28px 0 8px;padding:18px 0 0;border-top:1.5px dashed var(--negro);max-width:520px}
 .gu-rec-t{font-family:var(--display);font-size:clamp(22px,2vw,28px);line-height:1;text-transform:uppercase;margin:0 0 10px}
 .gu .gu-rec .rp-ing{list-style:none;margin:0;padding:0;font-family:var(--type);font-size:15.5px;-webkit-text-stroke:.4px currentColor}
