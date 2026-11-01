@@ -13,7 +13,7 @@
    "{{TIENDAS_LISTA}}",
    "<p>Con mapa, direcciones y el botón de cómo llegar, está todo en <a href=\"donde-comprar\">Dónde comprar</a>. Cuando entra una tienda nueva, aparece ahí primero.</p>",
    "<h2>¿No hay ninguna cerca?</h2>",
-   "<p>PRoduce lo lleva a tu casa en el área metro desde su tienda en línea. Y si tu supermercado o licorería de siempre no lo tiene, pídeselo: Insular Trading (787-270-7272) se lo lleva a cualquier tienda de la isla.</p>",
+   "<p><a href=\"https://puertoricoproduce.com/product/tres-naranjos\" target=\"_blank\" rel=\"noopener\">PRoduce</a> lo lleva a tu casa en el área metro desde su tienda en línea. Y si tu supermercado o licorería de siempre no lo tiene, pídeselo: Insular Trading (787-270-7272) se lo lleva a cualquier tienda de la isla.</p>",
    "<p>Si lo que tienes es un bar, un restaurante o una tienda, escríbele a Agave Imports por <a href=\"https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio.\" target=\"_blank\" rel=\"noopener\">WhatsApp</a> al 939-373-0729. Ellos importan y distribuyen Tres Naranjos en Puerto Rico.</p>",
    "<h2>Lo que te llevas</h2>",
    "<p>Un triple sec hecho con miel de agave en vez de azúcar, 25% de alcohol, botella de 750 ml. Se produce en Ciudad de México y se importa a Puerto Rico. Sirve para margaritas, mezcalitas, cosmos y cualquier receta que pida triple sec, en la misma medida.</p>",
@@ -37,7 +37,7 @@
   "desc": "Cointreau es un triple sec de 40%; Tres Naranjos es un triple sec de 25% con miel de agave. Se usan en la misma medida. Qué cambia en la margarita y cuál escoger.",
   "photo": "assets/hero-mobile-scene.webp",
   "photo_alt": "Botella de Tres Naranjos con una margarita y naranjas",
-  "lead": "Cointreau es un triple sec. Lo que cambia es que tiene 40% de alcohol y se endulza con azúcar; Tres Naranjos tiene 25% y se endulza con miel de agave. En la receta se usa la misma medida, pero la margarita sale más suave y con más naranja.",
+  "lead": "Cointreau es un triple sec. Lo que cambia es que tiene 40% de alcohol y se endulza con azúcar; Tres Naranjos tiene 25% y se endulza con miel de agave. Puedes usar uno en vez del otro en la misma medida: con Cointreau la margarita sale más fuerte, y con Tres Naranjos, más suave y con más naranja.",
   "body": [
    "<h2>¿Se puede usar uno en vez del otro?</h2>",
    "<p>Sí, siempre. Cualquier receta que pida Cointreau, triple sec o licor de naranja lleva la misma medida de Tres Naranjos. Lo que notas es el golpe: con 40% el trago queda más seco y más fuerte; con 25% queda más suave y la miel de agave redondea el dulzor, sobre todo con tequila y mezcal, que vienen de la misma planta.</p>",
@@ -124,10 +124,10 @@
   "desc": "El triple sec es un licor de naranja transparente hecho con cáscaras de naranja. Qué cócteles lo llevan, cuánto alcohol tiene y en qué se diferencia del curaçao y del Grand Marnier.",
   "photo": "assets/guia/cascaras-de-naranja-2.webp",
   "photo_alt": "Botella de Tres Naranjos Triple Sec acostada entre cáscaras de naranja secas",
-  "lead": "El triple sec es un licor de naranja transparente: cáscaras de naranja maceradas en alcohol neutro, destiladas y endulzadas. Nació en Francia en el siglo XIX y es el licor de naranja de la margarita, el cosmo, el sidecar, el kamikaze y el mai tai. Según la marca, tiene entre 15% y 40% de alcohol.",
+  "lead": "El triple sec es un licor de naranja transparente: se hace con cáscaras de naranja maceradas en alcohol neutro, destiladas y endulzadas. Es el licor de naranja que llevan la margarita, el cosmo, el sidecar, el kamikaze y el mai tai, y nació en Francia en el siglo XIX. Hay triple sec desde 15% hasta 40% de alcohol; Tres Naranjos tiene 25%.",
   "body": [
    "<h2>¿Por qué \"sec\" si es dulce?</h2>",
-   "<p><i>Sec</i> es seco en francés, pero el triple sec es dulce. El nombre viene de cómo se hace, no de cómo sabe: \"triple\" por tres destilaciones o por tres tipos de cáscara, según la casa que lo cuente.</p>",
+   "<p><i>Sec</i> es seco en francés. Cuando nació en el siglo XIX, era más seco que los curaçaos de la época, que eran mucho más dulces; con los años casi todos los triple sec se endulzaron. Lo de \"triple\" tiene varias versiones: tres destilaciones o tres tipos de cáscara, según la casa que lo cuente.</p>",
    "<h2>Triple sec, curaçao, Cointreau y Grand Marnier</h2>",
    "<p>El <b>curaçao</b> es el primo caribeño, de la naranja laraha de Curazao, a veces teñido de azul. <b>Cointreau</b> es una marca francesa de triple sec, de 40%; la comparación completa está en <a href=\"guia/triple-sec-o-cointreau\">Triple sec o Cointreau</a>. <b>Grand Marnier</b> no es triple sec: es licor de naranja con base de coñac, ámbar y más pesado.</p>",
    "<h2>Los cócteles que lo llevan</h2>",
@@ -153,8 +153,8 @@
   "q": "¿Cuál es el mejor triple sec en Puerto Rico?",
   "title": "¿Cuál es el mejor triple sec que se consigue en Puerto Rico?",
   "desc": "Los triple sec que encuentras en la góndola en Puerto Rico, qué distingue a Tres Naranjos (miel de agave, 25%, 750 ml) y dónde comprarlo por pueblo.",
-  "photo": "assets/hero-mobile-scene.webp",
-  "photo_alt": "Botella de Tres Naranjos con una margarita y naranjas",
+  "photo": "assets/prod-pour.webp",
+  "photo_alt": "Sirviendo Tres Naranjos Triple Sec en una coctelera con hielo",
   "lead": "Depende de para qué lo quieres. En la góndola de Puerto Rico vas a ver un triple sec económico de supermercado, Cointreau o Grand Marnier en las tiendas grandes, y Tres Naranjos: un triple sec hecho con miel de agave en vez de azúcar, 25% de alcohol, 750 ml, importado a la isla por Agave Imports. Para margaritas y mezcalitas en casa, ese es el nuestro.",
   "body": [
    "<h2>Los que hay</h2>",
@@ -165,7 +165,7 @@
    "<h2>Dónde lo consigues</h2>",
    "{{LOGOS}}",
    "{{TIENDAS_LISTA}}",
-   "<p>Con mapa y cómo llegar, en <a href=\"donde-comprar\">Dónde comprar</a>. PRoduce entrega a domicilio en el área metro. Bares y restaurantes lo piden a Agave Imports por <a href=\"https://wa.me/19393730729\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>, 939-373-0729.</p>",
+   "<p>Con mapa y cómo llegar, en <a href=\"donde-comprar\">Dónde comprar</a>. <a href=\"https://puertoricoproduce.com/product/tres-naranjos\" target=\"_blank\" rel=\"noopener\">PRoduce</a> entrega a domicilio en el área metro. Bares y restaurantes lo piden a Agave Imports por <a href=\"https://wa.me/19393730729\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>, 939-373-0729.</p>",
    "{{SPECS}}"
   ],
   "links": [
@@ -177,7 +177,6 @@
     "Dónde comprar",
     "donde-comprar"
    ]
-  ],
-  "map": true
+  ]
  }
 ]
