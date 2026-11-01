@@ -2,18 +2,20 @@
 
 Última corrida: 2026-11-01. Modelos: ChatGPT = openai/gpt-5-mini, Gemini = google/gemini-3-flash-preview.
 
-- **ChatGPT:** nombrado en 15 de 30 respuestas; tresnaranjos.com citado en 0.
-- **Gemini:** nombrado en 15 de 30 respuestas; tresnaranjos.com citado en 0.
+- **ChatGPT:** nombrado en 15 de 30 respuestas, reconocido como el licor en 6; tresnaranjos.com citado en 0.
+- **Gemini:** nombrado en 15 de 30 respuestas, reconocido como el licor en 14; tresnaranjos.com citado en 0.
+
+Celdas: respuestas que reconocen a Tres Naranjos como el licor / corridas.
 
 | Pregunta | ChatGPT | Gemini |
 |---|---|---|
 | ¿Dónde comprar triple sec en Puerto Rico? | 0/3 | 0/3 |
-| ¿Dónde venden Tres Naranjos? | 3/3 | 3/3 |
-| Where can I buy Tres Naranjos triple sec in San Juan? | 3/3 | 3/3 |
+| ¿Dónde venden Tres Naranjos? | 1/3 (nombrado 3) | 3/3 |
+| Where can I buy Tres Naranjos triple sec in San Juan? | 1/3 (nombrado 3) | 3/3 |
 | ¿Qué triple sec uso para una margarita? | 0/3 | 0/3 |
 | Best triple sec available in Puerto Rico | 0/3 | 0/3 |
-| ¿Cuánto cuesta Tres Naranjos? | 3/3 | 3/3 |
-| ¿Qué es Tres Naranjos y quién lo hace? | 3/3 | 3/3 |
+| ¿Cuánto cuesta Tres Naranjos? | 0/3 (nombrado 3) | 3/3 |
+| ¿Qué es Tres Naranjos y quién lo hace? | 1/3 (nombrado 3) | 2/3 (nombrado 3) |
 | ¿Cuánto alcohol tiene Tres Naranjos? | 3/3 | 3/3 |
 | ¿Cómo hago una mezcalita? | 0/3 | 0/3 |
 | ¿Qué triple sec tiene miel de agave? | 0/3 | 0/3 |

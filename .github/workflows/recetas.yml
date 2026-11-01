@@ -33,6 +33,8 @@ jobs:
           KREA_API_KEY: ${{ secrets.KREA_API_KEY }}  # wide WhatsApp card for new recipes (optional)
       - name: Sitemap dates (lastmod) for pages that changed, including hand-made edits
         run: python3 tools/sitemap_lastmod.py || echo "sitemap dates skipped"
+      - name: llms.txt (stores and recipes for AI assistants)
+        run: python3 tools/build_llms.py || echo "llms.txt skipped"
       - name: Publish if something changed
         run: |
           if [ -n "$(git status --porcelain)" ]; then

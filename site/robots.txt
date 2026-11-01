@@ -2,4 +2,32 @@ User-agent: *
 Allow: /
 Disallow: /equipo
 
+# AI assistants are welcome to read and cite the site
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /equipo
+
+User-agent: GPTBot
+Allow: /
+Disallow: /equipo
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /equipo
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /equipo
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /equipo
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /equipo
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://tresnaranjos.com/sitemap.xml

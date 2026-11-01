@@ -37,6 +37,8 @@ tools/
   set_contact.py         change WhatsApp number or email everywhere
   set_domain.py          change the site address everywhere (links, share cards, sitemap)
   hoist_meta.py          moves title/description/share-preview tags to the top of <head> (builders run it; run by hand after editing index.html or donde-comprar.html)
+  build_llms.py          builds site/llms.txt (plain-text site summary for AI assistants: facts, store list from the sheet, recipes). The recipes workflow runs it every 15 min
+  ai_visibilidad.py      monthly AI visibility test: asks ChatGPT and Gemini (OpenRouter, native web search) 10 questions x3, saves tools/ai-visibilidad/<date>.json + resumen.md. Runs the 1st of each month (.github/workflows/ai-visibilidad.yml, secret OPENROUTER_API_KEY). Google AI Overview is checked by hand; results in the Drive sheet "Tres Naranjos: AI visibilidad" (folder SEO Experimentation)
   sitemap_lastmod.py     keeps <lastmod> in sitemap.xml honest: a page's date changes only when its text changes (dates kept in sitemap_fechas.json; never set them by hand). The recipes workflow runs it every 15 minutes, so hand edits get dated too
 ```
 

@@ -45,7 +45,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -85,7 +86,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -119,7 +121,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -139,7 +142,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -169,7 +173,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -189,7 +194,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -215,7 +221,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -241,7 +248,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -269,7 +277,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -295,7 +304,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -322,7 +332,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -349,7 +360,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -387,7 +399,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -426,7 +439,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -465,7 +479,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -485,7 +500,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -513,7 +529,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -533,7 +550,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -563,7 +581,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -593,7 +612,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -623,7 +643,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -653,7 +674,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -673,7 +695,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -693,7 +716,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -715,7 +739,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -737,7 +762,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -759,7 +785,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -790,7 +817,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -818,7 +846,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -842,7 +871,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -877,7 +907,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -903,7 +934,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -936,7 +968,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -970,7 +1003,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1004,7 +1038,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1032,7 +1067,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1061,7 +1097,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1095,7 +1132,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1136,7 +1174,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1177,7 +1216,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1204,7 +1244,8 @@
    "precio": [],
    "dice_25": true,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1246,7 +1287,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1284,7 +1326,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1322,7 +1365,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1366,7 +1410,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1395,7 +1440,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1429,7 +1475,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1463,7 +1510,8 @@
    ],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1499,7 +1547,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1529,7 +1578,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1561,7 +1611,8 @@
    "precio": [],
    "dice_25": true,
    "miel_de_agave": true,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1585,7 +1636,8 @@
    "precio": [],
    "dice_25": true,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1609,7 +1661,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": true
+   "menciona_pr": true,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1637,7 +1690,8 @@
    "precio": [],
    "dice_25": true,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": true
   },
   {
    "fecha": "2026-11-01",
@@ -1660,7 +1714,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1683,7 +1738,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1706,7 +1762,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": false,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1748,7 +1805,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1778,7 +1836,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   },
   {
    "fecha": "2026-11-01",
@@ -1810,7 +1869,8 @@
    "precio": [],
    "dice_25": false,
    "miel_de_agave": true,
-   "menciona_pr": false
+   "menciona_pr": false,
+   "reconocido": false
   }
  ]
 }

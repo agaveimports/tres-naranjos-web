@@ -108,8 +108,11 @@ def ask(model, question, key):
 
 def analyze(text, urls):
     t = text.lower()
+    # "nombrado" = the words appear; "reconocido" = it knows it's the liquor (not the Costa Rican coffee)
+    cerca = r"(triple sec|licor|liqueur|miel de agave|agave)[^.]{0,120}tres naranjos|tres naranjos[^.]{0,120}(triple sec|licor|liqueur|miel de agave|agave)"
     return {
         "nombrado": "tres naranjos" in t,
+        "reconocido": bool(re.search(cerca, t)),
         "citado": any("tresnaranjos.com" in u for u in urls),
         "paginas_citadas": [u for u in urls if "tresnaranjos.com" in u],
         "otras_fuentes": [u for u in urls if "tresnaranjos.com" not in u][:8],
@@ -150,12 +153,12 @@ def main():
 
 
 def tabla(rows):
-    """{(asistente, pregunta): (named, cited, total)}"""
+    """{(asistente, pregunta): (named, cited, total, recognized as the liquor)}"""
     out = {}
     for r in rows:
         k = (r["asistente"], r["pregunta"])
-        n, c, t = out.get(k, (0, 0, 0))
-        out[k] = (n + r["nombrado"], c + r["citado"], t + 1)
+        n, c, t, rc = out.get(k, (0, 0, 0, 0))
+        out[k] = (n + r["nombrado"], c + r["citado"], t + 1, rc + r.get("reconocido", 0))
     return out
 
 
@@ -168,20 +171,21 @@ def resumen(today, rows, models):
          + ", ".join(f"{k} = {v}" for k, v in models.items()) + ".", ""]
     for a in asistentes:
         n = sum(cur[k][0] for k in cur if k[0] == a); t = sum(cur[k][2] for k in cur if k[0] == a)
-        c = sum(cur[k][1] for k in cur if k[0] == a)
-        line = f"- **{a}:** nombrado en {n} de {t} respuestas; tresnaranjos.com citado en {c}."
+        c = sum(cur[k][1] for k in cur if k[0] == a); rc = sum(cur[k][3] for k in cur if k[0] == a)
+        line = f"- **{a}:** nombrado en {n} de {t} respuestas, reconocido como el licor en {rc}; tresnaranjos.com citado en {c}."
         if old:
             on = sum(old[k][0] for k in old if k[0] == a); ot = sum(old[k][2] for k in old if k[0] == a)
             line += f" Antes ({prev[-1][:10]}): {on} de {ot}."
         L.append(line)
-    L += ["", "| Pregunta | " + " | ".join(asistentes) + " |", "|---|" + "---|" * len(asistentes)]
+    L += ["", "Celdas: respuestas que reconocen a Tres Naranjos como el licor / corridas.", "",
+          "| Pregunta | " + " | ".join(asistentes) + " |", "|---|" + "---|" * len(asistentes)]
     for q, _ in PREGUNTAS:
         cells = []
         for a in asistentes:
-            n, c, t = cur.get((a, q), (0, 0, 0))
-            s = f"{n}/{t}" + (" · cita" if c else "")
+            n, c, t, rc = cur.get((a, q), (0, 0, 0, 0))
+            s = f"{rc}/{t}" + (f" (nombrado {n})" if n != rc else "") + (" · cita" if c else "")
             if old and (a, q) in old:
-                s += f" (antes {old[(a, q)][0]}/{old[(a, q)][2]})"
+                s += f" (antes {old[(a, q)][3]}/{old[(a, q)][2]})"
             cells.append(s)
         L.append(f"| {q} | " + " | ".join(cells) + " |")
     comp = {}
