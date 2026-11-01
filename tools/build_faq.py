@@ -25,7 +25,7 @@ PHOTO='assets/sobre-banner-3.webp'
 PHOTO_ALT='Etiqueta de Tres Naranjos Triple Sec al sol con media china'
 s=open(TOOLS+'tragos_base.html').read()
 esc=lambda t:html.escape(t,quote=True)
-s=re.sub(r'<title>.*?</title>','<title>Sobre nosotros | Tres Naranjos</title>',s,count=1)
+s=re.sub(r'<title>.*?</title>','<title>Sobre nosotros | Tres Naranjos Triple Sec</title>',s,count=1)
 s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="Todo sobre Tres Naranjos Triple Sec: qué es, de dónde es, cuánto alcohol tiene, dónde comprarlo en Puerto Rico y qué cócteles hacer.">',s,count=1)
 s=s.replace('<a href="recetas/" aria-current="page">','<a href="recetas/">',1)
 s=s.replace('<li class="nav-faq"><a href="sobre-nosotros">','<li class="nav-faq"><a href="sobre-nosotros" aria-current="page">',1)
@@ -62,14 +62,14 @@ main#top.fq{padding-top:clamp(36px,4.5vw,64px)!important;padding-bottom:clamp(64
 items=''.join(f'<details name="faq"><summary>{esc(f["q"])}</summary><div class="ans">{f["a"]}</div></details>' for f in FAQ)
 main=f'''<div class="fq-hero"><img src="{PHOTO}" alt="{PHOTO_ALT}" width="2600" height="494" fetchpriority="high"></div>
 <main id="top" class="fq wrap">
-  <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos</h1><p>¿No ves tu pregunta? <a class="js-wa-contact fq-wa" href="https://wa.me/19393730729" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Escríbenos</a></p></header>
+  <header class="fq-head"><span class="fq-eye">Sobre nosotros</span><h1>Conoce todo sobre Tres Naranjos Triple Sec</h1><p>¿No ves tu pregunta? <a class="js-wa-contact fq-wa" href="https://wa.me/19393730729" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.4-1.8-.2-.3 0-.4.1-.5l.4-.4.3-.4c.1-.2 0-.3 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5z"/></svg>Escríbenos</a></p></header>
   {items}
 </main>
 <script>/* space under the fixed header */(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>
 <script>/* one answer open at a time (older browsers that ignore name="faq") */document.querySelectorAll('.fq details').forEach(d=>d.addEventListener('toggle',()=>{{if(d.open)document.querySelectorAll('.fq details[open]').forEach(o=>{{if(o!==d)o.open=false}})}}))</script>
 <script>addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.js-wa-sell').forEach(a=>a.href='https://wa.me/'+(typeof WHATSAPP!=='undefined'?WHATSAPP:'19393730729')+'?text='+encodeURIComponent('¡Hola! Tengo un negocio y me interesa vender Tres Naranjos.')))</script>'''
 a=s.index('<main id="top">'); b=s.index('</main>',a)+7; s=s[:a]+main+s[b:]
-s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Sobre nosotros | Tres Naranjos"><meta property="og:image" content="{B}/share/home.jpg?v=2"><link rel="canonical" href="{B}/sobre-nosotros"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
+s=s.replace('</head>',CSS+f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="Sobre nosotros | Tres Naranjos Triple Sec"><meta property="og:image" content="{B}/share/home.jpg?v=2"><link rel="canonical" href="{B}/sobre-nosotros"><script type="application/ld+json">{json.dumps(LD,ensure_ascii=False)}</script>\n</head>',1)
 a=s.index('/* =====================================================================\n   RECETAS'); b=s.index('</script>',a)
 s=s[:a]+"(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n"+s[b:]
 s=re.sub(r'<style>\.t-page\{[^<]*</style>\n','',s)

@@ -19,7 +19,7 @@ TEXT = [
   ('Preguntas', f'Si tienes alguna pregunta sobre tu privacidad, escríbenos a <button type="button" class="copy-mail" data-mail="{EMAIL}" aria-label="Copiar {EMAIL}"><span>{EMAIL}</span></button>.'),
 ]
 s = open(TOOLS + 'tragos_base.html').read()
-s = re.sub(r'<title>.*?</title>', '<title>Privacidad | Tres Naranjos</title>', s, count=1)
+s = re.sub(r'<title>.*?</title>', '<title>Privacidad | Tres Naranjos Triple Sec</title>', s, count=1)
 s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Cómo Tres Naranjos maneja tu información en este sitio: qué se guarda, qué no y con quién se comparte.">', s, count=1)
 s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">')
 CSS = '''<style>
