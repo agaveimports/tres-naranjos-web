@@ -506,8 +506,11 @@ main#top.gu{padding-top:calc(var(--fqnav,77px) + clamp(36px,4.5vw,64px))!importa
 .gu-isla .dots circle{r:13;fill:#E8561A;stroke:#FFF;stroke-width:4}
 @media (max-width:760px){.gu-top--map .gu-isla{width:150px;margin-bottom:14px}}
 .gu-photo{width:100%;max-width:520px;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:16px;display:block;margin:24px 0 8px}
-.gu-logos{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,56px);flex-wrap:wrap;margin:0 0 8px;padding:clamp(20px,2.4vw,30px) clamp(20px,3vw,40px);background:var(--naranja,#E8561A);border-radius:16px;max-width:720px}.gu-logos img{width:auto;max-width:100%;object-fit:contain;display:block}
-.gu .gu-specs{list-style:none;margin:28px 0 0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
+.gu-logos{display:flex;align-items:center;gap:clamp(22px,3.4vw,44px);flex-wrap:wrap;margin:24px 0 0}.gu-logos img,.gu-top .gu-logos img{width:auto;max-width:100%;aspect-ratio:auto;border-radius:0;object-fit:contain;display:block;filter:brightness(0);opacity:.78}
+.gu-specwrap{display:grid;grid-template-columns:minmax(0,460px) clamp(180px,20vw,240px);gap:clamp(24px,4vw,56px);align-items:center;margin-top:28px}
+.gu-back{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
+@media (max-width:640px){.gu-specwrap{grid-template-columns:1fr}.gu-back{max-width:260px}}
+.gu .gu-specs{list-style:none;margin:0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
 .gu .gu-specs li{margin:0;display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1.5px dashed var(--negro);font-family:var(--type);font-size:15.5px;-webkit-text-stroke:.4px currentColor}
 .gu-specs b{font-weight:700}
 .gu-rec{margin:28px 0 8px;padding:18px 0 0;border-top:1.5px dashed var(--negro);max-width:520px}
@@ -829,10 +832,9 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 
 
 <main id="top" class="gu wrap">
-  <div class="gu-top"><div><h1>¿Dónde comprar triple sec en Puerto Rico?</h1><p class="lead">Hoy Tres Naranjos Triple Sec está en 10 lugares de 7 pueblos de Puerto Rico, entre licorerías, supermercados y cash and carry, de Aguadilla a Caguas. Si no te queda ninguno cerca, PRoduce lo entrega a domicilio en el área metro.</p></div><img src="assets/prod-loop-poster.webp" alt="Botella de Tres Naranjos Triple Sec con naranjas" width="960" height="1200" fetchpriority="high"></div>
+  <div class="gu-top"><div><h1>¿Dónde comprar triple sec en Puerto Rico?</h1><p class="lead">Hoy Tres Naranjos Triple Sec está en 10 lugares de 7 pueblos de Puerto Rico, entre licorerías, supermercados y cash and carry, de Aguadilla a Caguas. Si no te queda ninguno cerca, PRoduce lo entrega a domicilio en el área metro.</p><div class="gu-logos" aria-label="Algunos lugares donde lo encuentras"><img src="assets/tiendas/the-house.webp" alt="The House" width="480" height="121" loading="lazy" style="height:clamp(20px,1.9vw,28px)"><img src="assets/tiendas/produce.webp" alt="PRoduce" width="310" height="200" loading="lazy" style="height:clamp(28px,2.6vw,38px)"><img src="assets/tiendas/club-mezcal.webp" alt="Club Mezcal" width="322" height="200" loading="lazy" style="height:clamp(30px,2.8vw,40px)"></div></div><img src="assets/prod-loop-poster.webp" alt="Botella de Tres Naranjos Triple Sec con naranjas" width="960" height="1200" fetchpriority="high"></div>
   <div class="gu-body">
-  <div class="gu-logos" aria-label="Algunos lugares donde lo encuentras"><img src="assets/tiendas/the-house.webp" alt="The House" width="480" height="121" loading="lazy" style="height:clamp(26px,2.6vw,40px)"><img src="assets/tiendas/produce.webp" alt="PRoduce" width="310" height="200" loading="lazy" style="height:clamp(36px,3.6vw,54px)"><img src="assets/tiendas/club-mezcal.webp" alt="Club Mezcal" width="322" height="200" loading="lazy" style="height:clamp(38px,3.8vw,58px)"></div>
-<h2>Por pueblo</h2>
+  <h2>Por pueblo</h2>
 <h3>Aguadilla</h3><ul><li><b>Almacén Tito Areizaga</b> (Cash &amp; Carry), Camaceyes</li></ul><h3>Cabo Rojo</h3><ul><li><b>100% Frigorífico</b> (Supermercado), Carr. 100 km 4.6</li></ul><h3>Caguas</h3><ul><li><b>The House</b> (Licorería), Metro Plaza</li></ul><h3>Condado / Miramar</h3><ul><li><b>The House</b> (Licorería), Av. José de Diego, sobre SuperMax</li><li><b>PRoduce</b> (Supermercado), 722 C. Hoare, Miramar</li></ul><h3>Guaynabo</h3><ul><li><b>The House</b> (Licorería), Plaza Caparra</li><li><b>The House</b> (Licorería), Plaza Guaynabo</li></ul><h3>Hato Rey</h3><ul><li><b>Club Mezcal</b> (Tienda y sala de degustación)</li></ul><h3>Mayagüez</h3><ul><li><b>Empresas San Expedito</b> (Licorería), 166 C. Santiago R. Palmer Este</li></ul><h3>Rincón</h3><ul><li><b>Licorería Rincón</b> (Licorería), Bonet Plaza</li></ul>
 <p>Con mapa, direcciones y el botón de cómo llegar, está todo en <a href="donde-comprar">Dónde comprar</a>. Cuando entra una tienda nueva, aparece ahí primero.</p>
 <h2>¿No hay ninguna cerca?</h2>
@@ -840,7 +842,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 <p>Si lo que tienes es un bar, un restaurante o una tienda, escríbele a Agave Imports por <a href="https://wa.me/19393730729?text=%C2%A1Hola%21%20Me%20interesa%20Tres%20Naranjos%20para%20mi%20negocio." target="_blank" rel="noopener">WhatsApp</a> al 939-373-0729. Ellos importan y distribuyen Tres Naranjos en Puerto Rico.</p>
 <h2>Lo que te llevas</h2>
 <p>Un triple sec hecho con miel de agave en vez de azúcar, 25% de alcohol, botella de 750 ml. Se produce en Ciudad de México y se importa a Puerto Rico. Sirve para margaritas, mezcalitas, cosmos y cualquier receta que pida triple sec, en la misma medida.</p>
-<ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li><li><span>Hecho en</span><b>México</b></li><li><span>Se vende en</span><b>Puerto Rico</b></li></ul>
+<div class="gu-specwrap"><ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li><li><span>Hecho en</span><b>México</b></li><li><span>Se vende en</span><b>Puerto Rico</b></li></ul><img class="gu-back" src="assets/prod-back.webp" alt="Etiqueta trasera de Tres Naranjos Triple Sec con la receta para margaritas" width="1000" height="1250" loading="lazy"></div>
   <nav class="gu-links" aria-label="Enlaces"><a href="recetas/">Ver las recetas →</a><a href="sobre-nosotros">Preguntas frecuentes →</a></nav>
   <p class="gu-more">Más preguntas: <a href="guia/triple-sec-o-cointreau">¿Triple sec o Cointreau?</a> · <a href="guia/que-triple-sec-para-margarita">¿Qué triple sec uso para una margarita?</a> · <a href="guia/triple-sec-con-miel-de-agave">¿Qué triple sec tiene miel de agave?</a> · <a href="guia/que-es-el-triple-sec">¿Qué es el triple sec?</a> · <a href="guia/mejor-triple-sec-en-puerto-rico">¿Cuál es el mejor triple sec en Puerto Rico?</a></p>
   </div>

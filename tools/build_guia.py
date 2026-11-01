@@ -51,11 +51,12 @@ def tiendas():
     return lead, lista, lead_en
 
 
-LOGOS = ('<div class="gu-logos" aria-label="Algunos lugares donde lo encuentras"><img src="assets/tiendas/the-house.webp" alt="The House" width="480" height="121" loading="lazy" style="height:clamp(26px,2.6vw,40px)">'
-         '<img src="assets/tiendas/produce.webp" alt="PRoduce" width="310" height="200" loading="lazy" style="height:clamp(36px,3.6vw,54px)">'
-         '<img src="assets/tiendas/club-mezcal.webp" alt="Club Mezcal" width="322" height="200" loading="lazy" style="height:clamp(38px,3.8vw,58px)"></div>')
-SPECS = ('<ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li>'
+LOGOS = ('<div class="gu-logos" aria-label="Algunos lugares donde lo encuentras"><img src="assets/tiendas/the-house.webp" alt="The House" width="480" height="121" loading="lazy" style="height:clamp(20px,1.9vw,28px)">'
+         '<img src="assets/tiendas/produce.webp" alt="PRoduce" width="310" height="200" loading="lazy" style="height:clamp(28px,2.6vw,38px)">'
+         '<img src="assets/tiendas/club-mezcal.webp" alt="Club Mezcal" width="322" height="200" loading="lazy" style="height:clamp(30px,2.8vw,40px)"></div>')
+SPECS_UL = ('<ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li>'
          '<li><span>Hecho en</span><b>México</b></li><li><span>Se vende en</span><b>Puerto Rico</b></li></ul>')
+SPECS = ('<div class="gu-specwrap">' + SPECS_UL + '<img class="gu-back" src="assets/prod-back.webp" alt="Etiqueta trasera de Tres Naranjos Triple Sec con la receta para margaritas" width="1000" height="1250" loading="lazy"></div>')
 MARGARITA = ('<div class="gu-rec"><p class="gu-rec-t">La margarita, con Tres Naranjos</p><ul class="rp-ing">'
              '<li><span>Tequila blanco o mezcal</span><span class="a">1 1/2 oz</span></li>'
              '<li class="tn"><span>Tres Naranjos Triple Sec</span><span class="a">1/2 oz</span></li>'
@@ -90,8 +91,11 @@ main#top.gu{padding-top:calc(var(--fqnav,77px) + clamp(36px,4.5vw,64px))!importa
 .gu-isla .dots circle{r:13;fill:#E8561A;stroke:#FFF;stroke-width:4}
 @media (max-width:760px){.gu-top--map .gu-isla{width:150px;margin-bottom:14px}}
 .gu-photo{width:100%;max-width:520px;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:16px;display:block;margin:24px 0 8px}
-.gu-logos{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,56px);flex-wrap:wrap;margin:0 0 8px;padding:clamp(20px,2.4vw,30px) clamp(20px,3vw,40px);background:var(--naranja,#E8561A);border-radius:16px;max-width:720px}.gu-logos img{width:auto;max-width:100%;object-fit:contain;display:block}
-.gu .gu-specs{list-style:none;margin:28px 0 0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
+.gu-logos{display:flex;align-items:center;gap:clamp(22px,3.4vw,44px);flex-wrap:wrap;margin:24px 0 0}.gu-logos img,.gu-top .gu-logos img{width:auto;max-width:100%;aspect-ratio:auto;border-radius:0;object-fit:contain;display:block;filter:brightness(0);opacity:.78}
+.gu-specwrap{display:grid;grid-template-columns:minmax(0,460px) clamp(180px,20vw,240px);gap:clamp(24px,4vw,56px);align-items:center;margin-top:28px}
+.gu-back{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
+@media (max-width:640px){.gu-specwrap{grid-template-columns:1fr}.gu-back{max-width:260px}}
+.gu .gu-specs{list-style:none;margin:0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
 .gu .gu-specs li{margin:0;display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1.5px dashed var(--negro);font-family:var(--type);font-size:15.5px;-webkit-text-stroke:.4px currentColor}
 .gu-specs b{font-weight:700}
 .gu-rec{margin:28px 0 8px;padding:18px 0 0;border-top:1.5px dashed var(--negro);max-width:520px}
@@ -126,14 +130,16 @@ t_lead, t_lista, t_lead_en = tiendas()
 for g in GUIA:
     s = base
     lead = g['lead'].replace('{{TIENDAS_LEAD}}', t_lead).replace('{{TIENDAS_LEAD_EN}}', t_lead_en)
-    body = '\n'.join(g['body']).replace('{{TIENDAS_LISTA}}', t_lista).replace('{{ISLA}}', isla()).replace('{{LOGOS}}', LOGOS).replace('{{SPECS}}', SPECS).replace('{{MARGARITA}}', MARGARITA).replace('{{TRAGOS}}', TRAGOS).replace('{{MARGARITA_EN}}', MARGARITA_EN).replace('{{SPECS_EN}}', SPECS_EN)
+    has_logos = '{{LOGOS}}' in g['body']
+    lead_logos = LOGOS if has_logos else ''
+    body = '\n'.join(x for x in g['body'] if x != '{{LOGOS}}').replace('{{TIENDAS_LISTA}}', t_lista).replace('{{ISLA}}', isla()).replace('{{LOGOS}}', LOGOS).replace('{{SPECS}}', SPECS).replace('{{MARGARITA}}', MARGARITA).replace('{{TRAGOS}}', TRAGOS).replace('{{MARGARITA_EN}}', MARGARITA_EN).replace('{{SPECS_EN}}', SPECS_EN)
     others = [o for o in GUIA if o['slug'] != g['slug'] and o.get('lang', 'es') == g.get('lang', 'es')]
     s = re.sub(r'<title>.*?</title>', f'<title>{esc(g["title"])} | Tres Naranjos Triple Sec</title>', s, count=1)
     s = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(g["desc"])}">', s, count=1)
     s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">', 1)
     top_media = isla() if g.get('map') else f'<img src="{g["photo"]}" alt="{esc(g["photo_alt"])}" width="960" height="1200" fetchpriority="high">'
     main = f'''<main id="top" class="gu wrap">
-  {'<div class="gu-top gu-top--map"><div>' + top_media + '<h1>' + esc(g["title"]) + '</h1><p class="lead">' + lead + '</p></div></div>' if g.get('map') else '<div class="gu-top"><div><h1>' + esc(g["title"]) + '</h1><p class="lead">' + lead + '</p></div>' + top_media + '</div>'}
+  {'<div class="gu-top gu-top--map"><div>' + top_media + '<h1>' + esc(g["title"]) + '</h1><p class="lead">' + lead + '</p>' + lead_logos + '</div></div>' if g.get('map') else '<div class="gu-top"><div><h1>' + esc(g["title"]) + '</h1><p class="lead">' + lead + '</p>' + lead_logos + '</div>' + top_media + '</div>'}
   <div class="gu-body">
   {body}
   <nav class="gu-links" aria-label="Enlaces">{''.join(f'<a href="{h}">{esc(t)} →</a>' for t, h in g.get("links", []))}</nav>

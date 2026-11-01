@@ -506,8 +506,11 @@ main#top.gu{padding-top:calc(var(--fqnav,77px) + clamp(36px,4.5vw,64px))!importa
 .gu-isla .dots circle{r:13;fill:#E8561A;stroke:#FFF;stroke-width:4}
 @media (max-width:760px){.gu-top--map .gu-isla{width:150px;margin-bottom:14px}}
 .gu-photo{width:100%;max-width:520px;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:16px;display:block;margin:24px 0 8px}
-.gu-logos{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,56px);flex-wrap:wrap;margin:0 0 8px;padding:clamp(20px,2.4vw,30px) clamp(20px,3vw,40px);background:var(--naranja,#E8561A);border-radius:16px;max-width:720px}.gu-logos img{width:auto;max-width:100%;object-fit:contain;display:block}
-.gu .gu-specs{list-style:none;margin:28px 0 0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
+.gu-logos{display:flex;align-items:center;gap:clamp(22px,3.4vw,44px);flex-wrap:wrap;margin:24px 0 0}.gu-logos img,.gu-top .gu-logos img{width:auto;max-width:100%;aspect-ratio:auto;border-radius:0;object-fit:contain;display:block;filter:brightness(0);opacity:.78}
+.gu-specwrap{display:grid;grid-template-columns:minmax(0,460px) clamp(180px,20vw,240px);gap:clamp(24px,4vw,56px);align-items:center;margin-top:28px}
+.gu-back{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:16px;display:block}
+@media (max-width:640px){.gu-specwrap{grid-template-columns:1fr}.gu-back{max-width:260px}}
+.gu .gu-specs{list-style:none;margin:0;padding:0;max-width:460px;border-top:1.5px dashed var(--negro)}
 .gu .gu-specs li{margin:0;display:flex;justify-content:space-between;gap:16px;padding-block:12px;border-bottom:1.5px dashed var(--negro);font-family:var(--type);font-size:15.5px;-webkit-text-stroke:.4px currentColor}
 .gu-specs b{font-weight:700}
 .gu-rec{margin:28px 0 8px;padding:18px 0 0;border-top:1.5px dashed var(--negro);max-width:520px}
@@ -840,7 +843,7 @@ a.btn[href="donde-comprar"]:hover::before,a.btn[href="donde-comprar"]:focus-visi
 <div class="gu-tragos"><a href="recetas/margarita"><img src="assets/tragos/sm/margarita.webp" alt="Margarita" width="560" height="560" loading="lazy"><span>Margarita</span></a><a href="recetas/mezcalita"><img src="assets/tragos/sm/mezcalita.webp" alt="Mezcalita" width="560" height="560" loading="lazy"><span>Mezcalita</span></a><a href="recetas/cosmo"><img src="assets/tragos/sm/cosmo.webp" alt="Cosmo" width="560" height="560" loading="lazy"><span>Cosmo</span></a><a href="recetas/spritz-de-china"><img src="assets/tragos/sm/spritz.webp" alt="Spritz de china" width="560" height="560" loading="lazy"><span>Spritz de china</span></a></div>
 <h2>Tres Naranjos, el triple sec con miel de agave</h2>
 <p>Tres Naranjos Triple Sec tiene 25% de alcohol y se endulza con miel de agave en vez de azúcar. Viene en botella de 750 ml y se vende en licorerías y supermercados de Puerto Rico; la lista está en <a href="donde-comprar">Dónde comprar</a>.</p>
-<ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li><li><span>Hecho en</span><b>México</b></li><li><span>Se vende en</span><b>Puerto Rico</b></li></ul>
+<div class="gu-specwrap"><ul class="gu-specs"><li><span>Alcohol</span><b>25% vol.</b></li><li><span>Contenido</span><b>750 ml</b></li><li><span>Hecho con</span><b>Miel de agave</b></li><li><span>Hecho en</span><b>México</b></li><li><span>Se vende en</span><b>Puerto Rico</b></li></ul><img class="gu-back" src="assets/prod-back.webp" alt="Etiqueta trasera de Tres Naranjos Triple Sec con la receta para margaritas" width="1000" height="1250" loading="lazy"></div>
   <nav class="gu-links" aria-label="Enlaces"><a href="recetas/">Ver las recetas →</a><a href="donde-comprar">Dónde comprar →</a></nav>
   <p class="gu-more">Más preguntas: <a href="guia/donde-comprar-triple-sec-en-puerto-rico">¿Dónde comprar triple sec en Puerto Rico?</a> · <a href="guia/triple-sec-o-cointreau">¿Triple sec o Cointreau?</a> · <a href="guia/que-triple-sec-para-margarita">¿Qué triple sec uso para una margarita?</a> · <a href="guia/triple-sec-con-miel-de-agave">¿Qué triple sec tiene miel de agave?</a> · <a href="guia/mejor-triple-sec-en-puerto-rico">¿Cuál es el mejor triple sec en Puerto Rico?</a></p>
   </div>
