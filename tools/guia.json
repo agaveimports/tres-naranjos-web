@@ -39,7 +39,7 @@
   "photo_alt": "Botella de Tres Naranjos con una margarita y naranjas",
   "lead": "Cointreau es un triple sec. Lo que cambia es que tiene 40% de alcohol y se endulza con azúcar; Tres Naranjos tiene 25% y se endulza con miel de agave. Puedes usar uno en vez del otro en la misma medida: con Cointreau la margarita sale más fuerte, y con Tres Naranjos, más suave y con más naranja.",
   "body": [
-   "<h2>¿Se puede usar uno en vez del otro?</h2>",
+   "<h2>¿Puedo usar triple sec en vez de Cointreau?</h2>",
    "<p>Sí, siempre. Cualquier receta que pida Cointreau, triple sec o licor de naranja lleva la misma medida de Tres Naranjos. Lo que notas es el golpe: con 40% el trago queda más seco y más fuerte; con 25% queda más suave y la miel de agave redondea el dulzor, sobre todo con tequila y mezcal, que vienen de la misma planta.</p>",
    "{{MARGARITA}}",
    "<h2>Entonces, ¿cuál?</h2>",
@@ -71,8 +71,8 @@
    "{{MARGARITA}}",
    "<h2>Por qué la miel de agave</h2>",
    "<p>El tequila y el mezcal salen del agave. Un triple sec endulzado con miel de agave se les pega en vez de competir, y muchas veces puedes bajar o quitar el sirope de la receta. Por eso Tres Naranjos se hizo con miel de agave y no con azúcar.</p>",
-   "<h2>¿Cuánto lleva y cuánto rinde?</h2>",
-   "<p>Entre 1/2 y 3/4 oz por margarita. Para una jarra de ocho: 12 oz de tequila, 4 a 6 oz de triple sec, 4 oz de jugo de lima y 4 oz de miel de agave. Una botella de 750 ml son 25 oz, o sea entre 33 y 50 margaritas. En la <a href=\"recetas/margarita\">receta</a> ajustas las cantidades para la gente que tengas.</p>",
+   "<h2>¿Cuánto triple sec lleva una margarita?</h2>",
+   "<p>Una margarita lleva entre 1/2 y 3/4 oz de triple sec. Para una jarra de ocho: 12 oz de tequila, 4 a 6 oz de triple sec, 4 oz de jugo de lima y 4 oz de miel de agave. Una botella de 750 ml son 25 oz, o sea entre 33 y 50 margaritas. En la <a href=\"recetas/margarita\">receta</a> ajustas las cantidades para la gente que tengas.</p>",
    "<h2>Las versiones boricuas</h2>",
    "<p>Con pulpa de parcha, la <a href=\"recetas/margarita-de-parcha\">margarita de parcha</a>. Con concentrado de tamarindo y tajín, la <a href=\"recetas/margarita-de-tamarindo\">de tamarindo</a>. Y con mezcal en vez de tequila, la <a href=\"recetas/mezcalita\">mezcalita</a>.</p>",
    "{{TRAGOS}}"
@@ -155,7 +155,7 @@
   "desc": "Los triple sec que encuentras en la góndola en Puerto Rico, qué distingue a Tres Naranjos (miel de agave, 25%, 750 ml) y dónde comprarlo por pueblo.",
   "photo": "assets/prod-pour.webp",
   "photo_alt": "Sirviendo Tres Naranjos Triple Sec en una coctelera con hielo",
-  "lead": "Depende de para qué lo quieres. En la góndola de Puerto Rico vas a ver un triple sec económico de supermercado, Cointreau o Grand Marnier en las tiendas grandes, y Tres Naranjos: un triple sec hecho con miel de agave en vez de azúcar, 25% de alcohol, 750 ml, importado a la isla por Agave Imports. Para margaritas y mezcalitas en casa, ese es el nuestro.",
+  "lead": "Para margaritas y mezcalitas, Tres Naranjos: un triple sec hecho con miel de agave en vez de azúcar, 25% de alcohol, 750 ml, importado a Puerto Rico por Agave Imports. En la góndola también vas a ver un triple sec económico de supermercado, y Cointreau o Grand Marnier en las tiendas grandes.",
   "body": [
    "<h2>Los que hay</h2>",
    "<p>El triple sec de supermercado es el más barato y el más seco; cumple en una margarita pero no aporta mucho. Cointreau es el estándar de las barras clásicas, 40% de alcohol, endulzado con azúcar, y el más caro de la góndola. Grand Marnier no es triple sec: es licor de naranja con coñac. Tres Naranjos está en el medio en precio y es el único con miel de agave.</p>",
