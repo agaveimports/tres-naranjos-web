@@ -47,6 +47,7 @@ PREGUNTAS = [
     ("¿Dónde venden licor de naranja en Puerto Rico?", "es"),
     ("¿Qué uso en vez de Cointreau?", "es"),
     ("¿Con qué se mezcla el triple sec?", "es"),
+    ("¿Qué triple sec va con mezcal?", "es"),
 ]
 
 # What a real app knows about the user. Nothing else, so the model isn't steered.
