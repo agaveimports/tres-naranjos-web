@@ -27,6 +27,22 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /equipo
 
+User-agent: Claude-User
+Allow: /
+Disallow: /equipo
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /equipo
+
+User-agent: Applebot
+Allow: /
+Disallow: /equipo
+
+User-agent: Bingbot
+Allow: /
+Disallow: /equipo
+
 User-agent: Google-Extended
 Allow: /
 

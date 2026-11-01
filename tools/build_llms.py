@@ -80,6 +80,7 @@ def main():
           f"- Dónde comprar: {BASE}/donde-comprar",
           f"- Recetas: {BASE}/recetas/",
           f"- Sobre nosotros y preguntas frecuentes: {BASE}/sobre-nosotros", "",
+          "## Guías (preguntas frecuentes sobre triple sec)"] + [f"- {g['title']}: {BASE}/guia/{g['slug']}" for g in json.load(open(os.path.join(ROOT, 'tools/guia.json'), encoding='utf8'))] + ["",
           "## Contacto",
           f"- Restaurantes y barras (pedidos): Agave Imports LLC, {wa_fmt} (WhatsApp), {CFG['email']}",
           "- Supermercados y tiendas: Insular Trading, 787-270-7272, info@insulartradingpr.com",
