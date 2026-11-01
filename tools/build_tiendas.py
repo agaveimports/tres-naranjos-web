@@ -59,7 +59,8 @@ def main():
     if '<!-- tiendas:start' in s:
         s = re.sub(r'<!-- tiendas:start.*?<!-- tiendas:end -->', lambda m: block, s, flags=re.S)
     else:
-        s = re.sub(r'(<div class="results" id="results" aria-live="polite">)<div class="sk-list".*?</div></div>(?=\s*<section class="sell")', lambda m: m.group(1) + block, s, count=1, flags=re.S)
+        # replace only the skeleton (<div class="sk-list">...</div>), keeping the </div> that closes #results
+        s = re.sub(r'(<div class="results" id="results" aria-live="polite">)<div class="sk-list".*?</div></div>(</div>\s*<section class="sell")', lambda m: m.group(1) + block + m.group(2), s, count=1, flags=re.S)
         assert 'tiendas:start' in s, 'no encontré el skeleton de #results'
     # TIENDAS backup array, from the same rows
     js = ',\n'.join(f'  {json.dumps([n, t, d, pb, "", ""], ensure_ascii=False)}' for n, t, d, pb in rows)
