@@ -1,0 +1,1816 @@
+{
+ "fecha": "2026-11-01",
+ "modelos": {
+  "ChatGPT": "openai/gpt-5-mini",
+  "Gemini": "google/gemini-3-flash-preview"
+ },
+ "resultados": [
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "Puedes conseguir triple sec en Puerto Rico en supermercados, licorerías y tiendas online. Aquí opciones prácticas y marcas que encontrarás:\n\n- Supermercados grandes (compra en persona o por su tienda online): SuperMax (tienen Trigo Triple Sec y otros licores). ([supermaxonline.com](https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai))  \n  Súper Selectos (ofrecen licor “Flamingo Naranja / Triple Sec” en su tienda). ([superselectos.com](https://www.superselectos.com/products-landing/FESTIVALLICORES022026?productId=24749&utm_source=openai))  \n  Walmart Puerto Rico también tiene secciones de licores en sus tiendas. ([walmartpr.com](https://www.walmartpr.com/tiendas?utm_source=openai))\n\n- Licorerías y tiendas especializadas (más variedad de marcas y tamaños): tiendas como Arcadia / Colonial / Festival Liquor y otras tiendas online que envían a PR listan triple sec y marcas relacionadas. ([arcadialiquor.com](https://www.arcadialiquor.com/sitemap.html?utm_source=openai))\n\n- Tiendas en línea / delivery: catálogos de supermercados y distribuidores locales muestran marcas como Trigo, DeKuyper y Cointreau (Cointreau es la opción premium). Puedes pedir por la web o por WhatsApp según el comercio. ([supermercado.lacompritapr.com](https://supermercado.lacompritapr.com/catalog/2540?utm_source=openai))\n\n- Duty-free / aeropuerto: si buscas marcas premium (Cointreau, Grand Marnier) a veces conviene revisar la tienda duty‑free del aeropuerto. ([sanjuanartisandistillers.com](https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai))\n\nConsejos rápidos:\n- Marcas comunes: Cointreau (premium), DeKuyper / Trigo / Flamingo (económicas), Grand Marnier (licor de naranja con coñac, distinto pero usado en cócteles). ([cellersmonserrat.com](https://cellersmonserrat.com/238-triple-sec?utm_source=openai))  \n- Verifica disponibilidad llamando o revisando la tienda online antes de ir.  \n- Edad legal para comprar alcohol en Puerto Rico: 18 años (lleva identificación). ([roampuertorico.com](https://roampuertorico.com/travel-guide/what-is-the-drinking-age-in-puerto-rico/?utm_source=openai))\n\nSi quieres, puedo buscar disponibilidad y precios en una tienda específica o en tu pueblo/municipio — dime dónde estás y qué marca/tamaño prefieres.",
+   "urls": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://www.superselectos.com/products-landing/FESTIVALLICORES022026?productId=24749&utm_source=openai",
+    "https://www.walmartpr.com/tiendas?utm_source=openai",
+    "https://www.arcadialiquor.com/sitemap.html?utm_source=openai",
+    "https://supermercado.lacompritapr.com/catalog/2540?utm_source=openai",
+    "https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai",
+    "https://cellersmonserrat.com/238-triple-sec?utm_source=openai",
+    "https://roampuertorico.com/travel-guide/what-is-the-drinking-age-in-puerto-rico/?utm_source=openai"
+   ],
+   "tokens": 20923,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://www.superselectos.com/products-landing/FESTIVALLICORES022026?productId=24749&utm_source=openai",
+    "https://www.walmartpr.com/tiendas?utm_source=openai",
+    "https://www.arcadialiquor.com/sitemap.html?utm_source=openai",
+    "https://supermercado.lacompritapr.com/catalog/2540?utm_source=openai",
+    "https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai",
+    "https://cellersmonserrat.com/238-triple-sec?utm_source=openai",
+    "https://roampuertorico.com/travel-guide/what-is-the-drinking-age-in-puerto-rico/?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau",
+    "dekuyper",
+    "grand marnier"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "Puedes comprar triple sec en Puerto Rico en varias opciones — supermercados, licorerías especializadas y tiendas en línea con entrega. Si quieres, puedo buscar disponibilidad y precios cerca de tu municipio; dime en qué pueblo o código postal estás. Mientras tanto, aquí tienes lugares y marcas donde suele encontrarse:\n\n- Supermercados con sección de licores (suelen tener marcas genéricas y algunas premium). Ejemplos: SuperMax (venta online de Trigo Triple Sec). ([supermaxonline.com](https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai))  \n- Supermercados/tiendas locales que venden licores en sus catálogos en línea: La Comprita / Supermercado La Comprita (Trigo Triple Sec). ([supermercado.lacompritapr.com](https://supermercado.lacompritapr.com/productos/trigo-triple-sec-750-ml?utm_source=openai))  \n- Licorerías especializadas y tiendas locales con venta y entrega en PR: La Licorera (venden Esprit Triple Sec y hacen entregas en todo Puerto Rico) y Licorería Miramar (presencia en redes/servicios de pedido). ([somoslalicorera.com](https://www.somoslalicorera.com/collections/all-products/products/esprit-triple-sec?utm_source=openai))  \n- Tiendas que listan marcas premium (Cointreau, entre otras): Vinopaca / Prime Market / Maui Puerto Rico ofrecen Cointreau y otras opciones online. ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))  \n- Opciones de envío o tiendas internacionales que entregan a PR (si buscas una marca específica no local): sitios que envían DeKuyper y otras marcas a Puerto Rico. ([es.drinkablegifts.com](https://es.drinkablegifts.com/gifts/Send-DeKuyper-Triple-Sec-Liqueur-Gifts-to-Puerto-Rico?utm_source=openai))  \n- Mayoristas / cash & carry para compras al por mayor: Pérez Cash & Carry reportan inventario amplio incluyendo Cointreau. ([descubrapuertorico.com](https://www.descubrapuertorico.com/clasificado/perez-cash-carry/?utm_source=openai))\n\nMarcas comunes que encontrarás: Cointreau (premium), Bols o DeKuyper (opciones más económicas), y marcas genéricas como Trigo o Esprit. ([cointreau.com](https://www.cointreau.com/us/en/products/cointreau?utm_source=openai))\n\n¿Quieres que busque tiendas o disponibilidad cerca de tu dirección/municipio y compare precios para Cointreau o una marca genérica? Si me das tu pueblo o código postal lo verifico y te doy direcciones y enlaces.",
+   "urls": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://www.somoslalicorera.com/collections/all-products/products/esprit-triple-sec?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://es.drinkablegifts.com/gifts/Send-DeKuyper-Triple-Sec-Liqueur-Gifts-to-Puerto-Rico?utm_source=openai",
+    "https://www.descubrapuertorico.com/clasificado/perez-cash-carry/?utm_source=openai",
+    "https://www.cointreau.com/us/en/products/cointreau?utm_source=openai"
+   ],
+   "tokens": 10700,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://www.somoslalicorera.com/collections/all-products/products/esprit-triple-sec?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://es.drinkablegifts.com/gifts/Send-DeKuyper-Triple-Sec-Liqueur-Gifts-to-Puerto-Rico?utm_source=openai",
+    "https://www.descubrapuertorico.com/clasificado/perez-cash-carry/?utm_source=openai",
+    "https://www.cointreau.com/us/en/products/cointreau?utm_source=openai"
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "dekuyper"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "Puedes conseguir triple sec en varias tiendas de Puerto Rico. Opciones y dónde buscar:\n\n- Supermercados grandes: SuperMax (tienen marcas como Trigo y Cointreau en su tienda en línea). ([supermaxonline.com](https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai))  \n- Súper Selectos y otras cadenas de supermercado (Selectos suele vender licores/cordiales; la disponibilidad varía por sucursal). ([selectospr.com](https://selectospr.com/?utm_source=openai))  \n- Tiendas/licorerías especializadas y minoristas locales — por ejemplo Vinopacasa (Isla Verde) y San Expedito tienen Cointreau y otros licores. ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))  \n- Mayoristas y clubes de membresía: Costco suele listar Cointreau en su sección de licores (si tienes membresía puedes comprar allí). ([sameday.costco.com](https://sameday.costco.com/store/costco-beer-wine-spirits/products/200658-cointreau-l-unique-1-l?utm_source=openai))  \n- Tiendas en línea y catálogos de cadenas (ej. La Comprita, SuperMax online) muestran existencias y precios para varias marcas. ([supermercado.lacompritapr.com](https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai))\n\nMarcas comunes que verás: Cointreau (premium), Trigo (marca disponible localmente) y otras marcas comerciales de triple sec. ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))\n\nConsejos prácticos:\n- La disponibilidad varía por sucursal; conviene llamar o revisar el inventario en línea antes de ir.  \n- Lleva identificación: venta de alcohol solo a mayores de 21 años.  \n\nSi quieres, puedo buscar la tienda más cercana o verificar existencia/precio en línea — dime en qué pueblo o código postal estás y qué marca (p. ej. Cointreau, Trigo) prefieres.",
+   "urls": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://selectospr.com/?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://sameday.costco.com/store/costco-beer-wine-spirits/products/200658-cointreau-l-unique-1-l?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai"
+   ],
+   "tokens": 11304,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149119/trigo-triple-sec-750-ml?utm_source=openai",
+    "https://selectospr.com/?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://sameday.costco.com/store/costco-beer-wine-spirits/products/200658-cointreau-l-unique-1-l?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "¿A qué \"Tres Naranjos\" te refieres? Por ejemplo: \n- el café marca Tres Naranjos, \n- algún restaurante/cafetería llamado Tres Naranjos, \n- una finca/parcelade nombre Tres Naranjos, o \n- otro producto.  \n\nY ¿en qué municipio o zona de Puerto Rico quieres buscar? Con eso busco dónde lo venden.",
+   "urls": [],
+   "tokens": 9499,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "¿Te refieres al café “Tres Naranjos”?  \n\n- He encontrado listados del Café Tres Naranjos en comercios en Puerto Rico (por ejemplo PuertoRicoProduce). ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai))  \n- También aparece como producto en el sitio de Super Árias (Café molido Tres Naranjos 250 g). ([superarias.com](https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai))  \n- El producto parece ser elaborado por Beneficio Monterrosa (Costa Rica) y se vende en varias tiendas en línea y mercados de la región. ([beneficiomonterrosa.com](https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai))\n\n¿Quieres que busque tiendas cercanas a tu dirección/municipio en Puerto Rico o prefieres opciones para comprarlo en línea y que te lo envíen?",
+   "urls": [
+    "https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai",
+    "https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai",
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai"
+   ],
+   "tokens": 9717,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai",
+    "https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai",
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai"
+   ],
+   "competencia": [
+    "bols"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "¿A qué te refieres con “Tres Naranjos”? Puede ser, por ejemplo, el café “Café Tres Naranjos (de Monterrosa)”, alguna bebida/licor llamada Tres Naranjos, un restaurante o incluso un lugar llamado Tres Naranjos. \n\nDime cuál de esos es (o sube una foto/ enlace) y si quieres que busque tiendas en Puerto Rico cerca de tu municipio o que envíen a PR — así hago la búsqueda y te doy los puntos de venta.",
+   "urls": [],
+   "tokens": 9560,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 1,
+   "respuesta": "Yes — I found it locally. PRoduce (Hoare Market) in San Juan lists Tres Naranjos (small bottle) and you can order/pick up there. As of Nov 1, 2026 they show it at $15 with 8 units in inventory; the shop is at 722 C. Hoare, San Juan — (787) 955-0924, hours listed on the page. ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos))\n\nWould you like me to check other stores (SuperMax, Pueblo, Walmart, The House, V. Suárez/El Hórreo) or call ahead to confirm current stock?",
+   "urls": [
+    "https://puertoricoproduce.com/product/tres-naranjos"
+   ],
+   "tokens": 28535,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://puertoricoproduce.com/product/tres-naranjos"
+   ],
+   "competencia": [],
+   "precio": [
+    "$15"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 2,
+   "respuesta": "Short answer: PRoduce / Hoare Market in San Juan currently lists Tres Naranjos (triple sec) for sale — address 722 C. Hoare, San Juan 00907; phone (787) 955‑0924. ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos))\n\nIf you want more options I can:\n- Check nearby supermarkets/liquor stores (SuperMax, Pueblo, Econo, Walmart, Ambrosía/La Licorera, etc.) for stock; or\n- Search for delivery / online ordering options.\n\nWhich neighborhood in San Juan are you near (Old San Juan, Santurce/Condado, Isla Verde, Hato Rey)? I’ll look up nearby stores and call or check their online inventories. ([sanjuanartisandistillers.com](https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai))",
+   "urls": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai"
+   ],
+   "tokens": 21491,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://sanjuanartisandistillers.com/find-our-products/?utm_source=openai"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 3,
+   "respuesta": "Yes — Tres Naranjos is sold in San Juan. Two quick options to try:\n\n- PRoduce / Hoare Market (722 C. Hoare, Santurce) — PRoduce lists a Tres Naranjos product (44 mL unit, shown in inventory). ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos))  \n- Several supermarkets and liquor shops in San Juan are listed as points of sale by the brand/distributor — examples: Supermax (including Viejo San Juan and other branches), Walmart (Santurce), Pueblo (Isla Verde / Ciudadela), The House (De Diego / Condado) and H&R Food & Liquor. Availability can vary by store. ([sanjuanartisandistillers.com](https://sanjuanartisandistillers.com/find-our-products/))\n\nIf you want, I can:\n- Call or pull phone numbers for one or more of those stores and check current stock, or  \n- Give step‑by‑step directions to the Hoare Market (PRoduce) or H&R Food & Liquor (1050 Ashford Ave #1052) so you can stop by. ([order.online](https://order.online/store/h-r-food-liquors-24533264))\n\nWhich would you prefer?",
+   "urls": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://sanjuanartisandistillers.com/find-our-products/",
+    "https://order.online/store/h-r-food-liquors-24533264"
+   ],
+   "tokens": 28197,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://sanjuanartisandistillers.com/find-our-products/",
+    "https://order.online/store/h-r-food-liquors-24533264"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "Lo más importante es buscar un licor de naranja de buena calidad que equilibre el tequila y el limón. Mis recomendaciones rápidas:\n\n- Cointreau — la opción clásica. Es seco, limpio y bien equilibrado; funciona muy bien en la margarita tradicional. (Si quieres una sola recomendación: usa Cointreau.)\n- Combier — similar a Cointreau, también muy buena calidad y sabor natural a naranja.\n- Grand Marnier — no es exactamente un triple sec (lleva coñac), da una margarita más rica y compleja; buena si quieres algo más profundo y menos “cítrico seco”.\n- DeKuyper / Bols / marcas genéricas — opciones baratas y más dulces; sirven si buscas economía, pero pueden empalagar y alterar el balance.\n\nReceta clásica (rápida):\n- 2 oz tequila (blanco o reposado)\n- 1 oz Cointreau (o el triple sec elegido)\n- 1 oz jugo de lima fresco\nAgitar con hielo, colar en copa con sal al borde. Ajusta la proporción de triple sec si la quieres más o menos dulce.\n\nSi prefieres menos azúcar, prueba la Tommy’s Margarita (sin triple sec): 2 oz tequila, 1 oz jugo de lima, 0.5–0.75 oz jarabe de agave.\n\n¿Quieres que te dé una receta adaptada a un tequila que tengas o a si la quieres más dulce/ácida?",
+   "urls": [],
+   "tokens": 5526,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "grand marnier"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "Buena pregunta — el triple sec que elijas cambia mucho el resultado. Resumen rápido y práctico:\n\nRecomendaciones generales\n- Para una margarita “clásica” y equilibrada: Cointreau (clásico, claro, 40% ABV) o Combier/Tempus Fugit/Pierre Ferrand (versiones premium/delicate). Aportan naranja limpia, secan el cóctel y no lo empalagan.\n- Si quieres una versión más rica y con cuerpo: Grand Marnier (licor de naranja con coñac). No es triple sec puro; da notas de caramelo y madera — ideal para una “Cadillac” o si quieres más profundidad, pero reduce el dulzor del jarabe.\n- Si buscas barato/fiable para uso cotidiano: DeKuyper o Bols (más dulces y menos alcohólicos). Funcionan, pero pueden dejar la margarita más empalagosa y menos fresca.\n\nReceta base (proporciones fáciles)\n- Margarita clásica: 2 oz (60 ml) tequila + 1 oz (30 ml) Cointreau + 1 oz (30 ml) jugo de lima fresco. Hielo, agitar y colar en copa con sal en el borde.\n- Consejo: si usas un triple sec más dulce (Bols, DeKuyper) ajusta con un poco más de lima o ¼ oz (7–8 ml) de jugo extra para balancear.\n\nNotas rápidas de elección\n- Blanco o reposado: el tipo de tequila afecta más que el triple sec; blanco da una margarita fresca, reposado añade notas a vainilla/roble.\n- Calidad > color: algunos triple sec premium son transparentes y muy aromáticos; no hace falta uno coloreado.\n- Si quieres “ligera”: usa Cointreau pero elimina cualquier jarabe añadido; añade sólo ½ oz menos de triple sec si prefieres menos dulzor.\n\nSi quieres, dime:\n- ¿prefieres clásica, dulce o “rica/torrefacta”?, y te doy una receta exacta con medidas en ml o oz y una sugerencia de marca según presupuesto.",
+   "urls": [],
+   "tokens": 5731,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "grand marnier",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "La respuesta corta: para una margarita clásica lo más recomendado es un licor de naranja seco y de buena calidad —por ejemplo Cointreau— porque aporta balance entre aroma a naranja y sequedad (no muy dulce).  \n\nOpciones según lo que busques:\n- Calidad alta / clásica: Cointreau — equilibrio limpio y seco, excelente en margaritas.  \n- Alternativa premium: Combier o un curaçao seco (p. ej. Pierre Ferrand) — más complejidad cítrica.  \n- Para una versión más rica y elegante: Grand Marnier (licor de naranja sobre base de coñac) — aporta notas de vainilla/roble; queda más dulce y “Cadillac Margarita”.  \n- Económicas/básicas: Bols, DeKuyper u otras “triple sec” comerciales — funcionan bien si quieres ahorrar, pero suelen ser más dulces y menos aromáticas.\n\nReceta clásica (proporciones):\n- 60 ml tequila blanco  \n- 30 ml triple sec (p. ej. Cointreau)  \n- 30 ml jugo de lima fresco  \nAgitar con hielo, colar en vaso con hielo y sal en el borde; decorar con rueda de lima.\n\nAjustes según gusto:\n- Si la quieres menos dulce reduce el triple sec a 20 ml o añade un poco más de lima.  \n- Para una frozen, licúa con hielo.  \n- Si prefieres un perfil más complejo, sustituye total o parcialmente el triple sec por Grand Marnier.\n\n¿Quieres que te dé una receta concreta con las medidas en onzas o ml, o prefieres una versión menos dulce / más cítrica?",
+   "urls": [],
+   "tokens": 5531,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "grand marnier",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 1,
+   "respuesta": "Short answer: Cointreau is the best all‑around triple sec for cocktails in Puerto Rico. If you want a richer/orange‑brandy style, Grand Marnier or Pierre Ferrand Dry Curaçao are the top alternatives; for a budget rail option, DeKuyper is the common choice.\n\nWhy/how to choose\n- Best for classic cocktails (Margarita, Cosmopolitan, Sidecar): Cointreau — bright, clean orange flavor and widely used by bartenders. ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))  \n- Premium alternatives (more complex, great for sipping or aged‑cocktail profiles): Combier and Pierre Ferrand Dry Curaçao. Combier is sold locally; Pierre Ferrand can also be sourced/shipped to PR. ([enotecapr.com](https://enotecapr.com/Product-559?utm_source=openai))  \n- If you want a richer, cognac‑based orange liqueur (not technically a triple sec) for sipping or a weightier cocktail: Grand Marnier — commonly available on the island. ([enotecapr.com](https://enotecapr.com/Product-106?utm_source=openai))  \n- Budget / bar rail: DeKuyper triple sec — inexpensive and easy to find, though less refined. ([dekuyperusa.com](https://www.dekuyperusa.com/flavor/dekuyper-triple-sec?utm_source=openai))\n\nWhere to look in Puerto Rico\n- Supermarkets and local liquor shops stock Cointreau and Grand Marnier (examples: SuperMax, Vinopacasa, La Enoteca). If you want I can check specific nearby stores and current prices. ([supermaxonline.com](https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai))\n\nIf you want, tell me your town or ZIP and I’ll look up current stock and prices at nearby stores (or find the best price for delivery).",
+   "urls": [
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://enotecapr.com/Product-559?utm_source=openai",
+    "https://enotecapr.com/Product-106?utm_source=openai",
+    "https://www.dekuyperusa.com/flavor/dekuyper-triple-sec?utm_source=openai",
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai"
+   ],
+   "tokens": 19994,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://enotecapr.com/Product-559?utm_source=openai",
+    "https://enotecapr.com/Product-106?utm_source=openai",
+    "https://www.dekuyperusa.com/flavor/dekuyper-triple-sec?utm_source=openai",
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "grand marnier",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 2,
+   "respuesta": "Short answer — my top picks (with where to find them in Puerto Rico):\n\n- Cointreau — the classic, most-versatile triple sec (40% ABV). Widely carried in Puerto Rico (supermarkets & specialty shops). ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))  \n- Combier L’Original — a French “Liqueur d’Orange” often ranked just behind Cointreau; a great premium-but-not-excessive alternative and sold by local shops in PR. ([enotecapr.com](https://enotecapr.com/Product-559?utm_source=openai))  \n- Pierre Ferrand Dry Curaçao — more of a dry curaçao style (complex, great when orange is a starring flavor); it’s a top bartender pick but may require ordering from specialty sellers that ship to PR. ([norfolkwineandspirits.com](https://norfolkwineandspirits.com/category/new-arrivals/?utm_source=openai))  \n- Patrón Citrónge — solid mid‑range orange liqueur (good value for cocktails); commonly available through online/liquor retailers that serve PR. ([7pmliquor.com](https://www.7pmliquor.com/f/spirits/orange/2503?utm_source=openai))  \n- DeKuyper / Bols (budget) — inexpensive, widely available; fine for mixed drinks when you don’t want to spend on a premium bottle. ([goodpour.com](https://goodpour.com/collections/wine-spirits/products/dekuyper-triple-sec-liqueur?variant=41525222703140&utm_source=openai))\n\nIf you want I can:\n- Check stock and prices at stores near you (tell me your town or a store name), or\n- Compare prices for a specific bottle (size/brand) and show cheapest local/online options.",
+   "urls": [
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://enotecapr.com/Product-559?utm_source=openai",
+    "https://norfolkwineandspirits.com/category/new-arrivals/?utm_source=openai",
+    "https://www.7pmliquor.com/f/spirits/orange/2503?utm_source=openai",
+    "https://goodpour.com/collections/wine-spirits/products/dekuyper-triple-sec-liqueur?variant=41525222703140&utm_source=openai"
+   ],
+   "tokens": 33819,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://enotecapr.com/Product-559?utm_source=openai",
+    "https://norfolkwineandspirits.com/category/new-arrivals/?utm_source=openai",
+    "https://www.7pmliquor.com/f/spirits/orange/2503?utm_source=openai",
+    "https://goodpour.com/collections/wine-spirits/products/dekuyper-triple-sec-liqueur?variant=41525222703140&utm_source=openai"
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "patrón citrónge",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 3,
+   "respuesta": "Short answer — Cointreau. It’s the most commonly recommended “best” triple sec (bright, clean, 40% ABV) and is widely carried in Puerto Rico. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai))\n\nGood alternatives available locally\n- Premium / cocktail-first: Combier L’Original or Pierre Ferrand Dry Curaçao (more complex; often preferred for craft cocktails). ([theliquorbarn.com](https://theliquorbarn.com/collections/triple-sec?utm_source=openai))  \n- Budget / mixing workhorse: DeKuyper triple sec (common, lower ABV / sweeter). Puerto Rico listings show DeKuyper on local product price lists. ([revenuefiles.mt.gov](https://revenuefiles.mt.gov/files/ABCD/Agency-Liquor-Stores/Product-Information/Price-Books/Nov-2025-Jan-2026/Nov-2025-Price-Book.pdf?utm_source=openai))\n\nWhere to buy in Puerto Rico (examples with local sellers that list Cointreau)\n- SuperMax (online/in-store listings). ([supermaxonline.com](https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai))  \n- Vinopacasa / local liquor shops (Avenida Isla Verde listing). ([vinopacasapr.com](https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai))  \n- Local liquor/grocery retailers such as La Comprita, Maui Puerto Rico, Prime Market, La Licorera carry Cointreau or similar. ([supermercado.lacompritapr.com](https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai))\n\nIf you tell me:\n- Your budget (cheap vs premium), or  \n- What you’ll use it for (margaritas, cocktails, sipping),\n\nI can check current prices and stock at a nearby store and give a specific purchase recommendation. Would you like me to look up availability/prices at a particular store or ZIP code?",
+   "urls": [
+    "https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai",
+    "https://theliquorbarn.com/collections/triple-sec?utm_source=openai",
+    "https://revenuefiles.mt.gov/files/ABCD/Agency-Liquor-Stores/Product-Information/Price-Books/Nov-2025-Jan-2026/Nov-2025-Price-Book.pdf?utm_source=openai",
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai"
+   ],
+   "tokens": 11532,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai",
+    "https://theliquorbarn.com/collections/triple-sec?utm_source=openai",
+    "https://revenuefiles.mt.gov/files/ABCD/Agency-Liquor-Stores/Product-Information/Price-Books/Nov-2025-Jan-2026/Nov-2025-Price-Book.pdf?utm_source=openai",
+    "https://www.supermaxonline.com/guaynabo/licores/cordiales/149171/cointreau-750-ml?utm_source=openai",
+    "https://vinopacasapr.com/products/cointreau-750ml?utm_source=openai",
+    "https://supermercado.lacompritapr.com/productos/cointreau-750-ml?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "¿A qué \"Tres Naranjos\" te refieres? Por ejemplo: un restaurante, un hotel/posada, una propiedad en venta, una finca, un vino/libro o alguna otra cosa. Si puedes, indica la ciudad o comparte un enlace. ¿Quieres el precio en USD (dólares) u otra moneda? \n\nPuedo buscar el precio actual en la web si me confirmas cuál es.",
+   "urls": [],
+   "tokens": 4984,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "¿A cuál \"Tres Naranjos\" te refieres? \n\nAlgunas posibilidades que aparecen en la web son, por ejemplo:\n- El café marca \"Tres Naranjos\" (bolsa 250 g) aparece listado en una tienda online. ([superarias.com](https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai))  \n- Un alojamiento/apartamento llamado \"Tres Naranjos\" en Marbella (precio desde ≈50 EUR/noche según una guía). ([welotel.com](https://welotel.com/fr/hoteles/tres-naranjos-in-marbella-697410017f7c0))\n\nDime cuál es (producto, hotel, finca, inmueble, restaurante, ubicación, etc.) y te busco el precio exacto y la disponibilidad.",
+   "urls": [
+    "https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai",
+    "https://welotel.com/fr/hoteles/tres-naranjos-in-marbella-697410017f7c0"
+   ],
+   "tokens": 15327,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.superarias.com/cafe-puro-molido-marca-tres-naranjos-bolsa-250-g/?utm_source=openai",
+    "https://welotel.com/fr/hoteles/tres-naranjos-in-marbella-697410017f7c0"
+   ],
+   "competencia": [
+    "bols"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "¿A cuál \"Tres Naranjos\" te refieres? Puede ser varias cosas (ej.: el café \"Café Tres Naranjos\", un alojamiento/apartamento llamado Tres Naranjos en Marbella, una finca o propiedad, etc.).\n\nDime:\n- ¿Cuál de esos (o otro) quieres?  \n- ¿En qué lugar (país/ciudad)?  \n- ¿En qué moneda y para qué fecha quieres el precio (hoy, fin de semana, precio por noche, precio de venta, etc.)?\n\nCon eso hago la búsqueda y te doy el precio actual con fuentes.",
+   "urls": [],
+   "tokens": 7772,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "¿A cuál te refieres? “Tres Naranjos” puede referirse a varias cosas; aquí las más comunes:\n\n- Café “Tres Naranjos” — una marca de café (Tostado/empacado por Beneficio Monterrosa, asociada al cantón de Naranjo en Costa Rica). ([beneficiomonterrosa.com](https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai))  \n- Producto local listado en Puerto Rico llamado “Tres Naranjos” (aparece en directorios de productos locales). ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai))  \n- Un lugar/poblado llamado Tres Naranjos (hay localidades con ese nombre en Ecuador y en México). ([mapcarta.com](https://mapcarta.com/es/N7832805323?utm_source=openai))  \n- También aparece como título/serie en catálogos literarios (por ejemplo una serie en Goodreads). ([goodreads.com](https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai))\n\nDime cuál de estos (o si es otro) y te doy más detalles sobre qué es exactamente y quién lo produce.",
+   "urls": [
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai",
+    "https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai",
+    "https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai"
+   ],
+   "tokens": 9610,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai",
+    "https://puertoricoproduce.com/product/tres-naranjos?utm_source=openai",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai",
+    "https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "Pueden existir varias cosas llamadas \"Tres Naranjos\". ¿Cuál te interesa? Algunas opciones comunes:\n\n- Un producto/alcohólico local vendido en Puerto Rico llamado \"Tres Naranjos\" (ficha de producto en PRoduce, sin fabricante indicado). ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos))  \n- Café o marca de café llamada \"Café Tres Naranjos\" (varias referencias de tostadores/tiendas). ([beneficiomonterrosa.com](https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai))  \n- Una serie/ubicación ficticia llamada Tres Naranjos en las novelas de Tessa Cooper. ([tessacooperescritora.com](https://tessacooperescritora.com/el-hotel-de-la-discordia/?utm_source=openai))  \n- Topónimos reales (aldeas/parcelas) llamados Tres Naranjos en países como Ecuador o México. ([mapcarta.com](https://mapcarta.com/es/N7832805323?utm_source=openai))\n\nDime a cuál te refieres y con gusto te doy más detalles (si quieres, puedo buscar exactamente quién hace el producto de Puerto Rico).",
+   "urls": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai",
+    "https://tessacooperescritora.com/el-hotel-de-la-discordia/?utm_source=openai",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai"
+   ],
+   "tokens": 16088,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://beneficiomonterrosa.com/index.php/product/cafe-tres-naranjos/?utm_source=openai",
+    "https://tessacooperescritora.com/el-hotel-de-la-discordia/?utm_source=openai",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "Puede referirse a varias cosas. ¿Cuál de estas opciones te interesa?\n\n- Café “Café Tres Naranjos” — marca de café tostado producida por Beneficiadora Monterrosa (Costa Rica). ([beneficiomonterrosa.com](https://beneficiomonterrosa.com/index.php/historia/?utm_source=openai))  \n- “Tres Naranjos” como producto alcohólico local (listado en la tienda PRoduce! de Puerto Rico): aparece como un licor/“Alcohólico Otros” pero la ficha no muestra claramente quién lo fabrica. Puedo buscar el productor si quieres. ([puertoricoproduce.com](https://puertoricoproduce.com/product/tres-naranjos))  \n- Un lugar o caserío llamado Tres Naranjos (hay asentamientos con ese nombre en países como Ecuador y México). ([mapcarta.com](https://mapcarta.com/es/N7832805323?utm_source=openai))  \n- También es título/ubicación en obras literarias o series (p. ej. la serie “Tres Naranjos” de Tessa Cooper). ([goodreads.com](https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai))\n\nDime a cuál te refieres y hago una búsqueda más detallada (por ejemplo, quién lo produce y dónde comprarlo).",
+   "urls": [
+    "https://beneficiomonterrosa.com/index.php/historia/?utm_source=openai",
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai",
+    "https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai"
+   ],
+   "tokens": 16027,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://beneficiomonterrosa.com/index.php/historia/?utm_source=openai",
+    "https://puertoricoproduce.com/product/tres-naranjos",
+    "https://mapcarta.com/es/N7832805323?utm_source=openai",
+    "https://www.goodreads.com/series/442763-tres-naranjos?utm_source=openai"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "No encuentro un licor llamado exactamente \"Tres Naranjos\" — aparece como marca de café (Café Tres Naranjos). ([restaurants10.com](https://www.restaurants10.com/CR/Naranjo/905816762787310/Caf%C3%A9-Tres-Naranjos?utm_source=openai))\n\nSi te refieres a un licor de naranja (tipo triple sec / curaçao), su graduación suele variar entre ~20% y 40% ABV dependiendo de la marca. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai))\n\nPor ejemplo, Cointreau (un triple sec conocido) es 40% ABV, y otros licores de naranja populares (p. ej. Licor 43) suelen estar alrededor de 31% ABV. ([cointreau.com](https://www.cointreau.com/us/en/products/cointreau?utm_source=openai))\n\n¿Puedes decirme a cuál producto exacto te refieres o subir una foto de la etiqueta? Con eso te confirmo el porcentaje exacto.",
+   "urls": [
+    "https://www.restaurants10.com/CR/Naranjo/905816762787310/Caf%C3%A9-Tres-Naranjos?utm_source=openai",
+    "https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai",
+    "https://www.cointreau.com/us/en/products/cointreau?utm_source=openai"
+   ],
+   "tokens": 15267,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.restaurants10.com/CR/Naranjo/905816762787310/Caf%C3%A9-Tres-Naranjos?utm_source=openai",
+    "https://en.wikipedia.org/wiki/Triple_sec?utm_source=openai",
+    "https://www.cointreau.com/us/en/products/cointreau?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "¿A cuál \"Tres Naranjos\" te refieres — el licor/crema de naranja, una cerveza, o otro producto (marca local de Puerto Rico)? Puedo buscar el grado alcohólico exacto si me confirmas cuál.",
+   "urls": [],
+   "tokens": 15347,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "¿A cuál \"Tres Naranjos\" te refieres? Por ejemplo:\n\n- Café Tres Naranjos (producto de café) — no contiene alcohol.  \n- Algún licor, aperitivo o aguardiente llamado \"Tres Naranjos\" — tendría un % de alcohol concreto.\n\nDime cuál y lo busco (puedo confirmar el porcentaje exacto).",
+   "urls": [],
+   "tokens": 9175,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "¡Buena elección! La mezcalita es básicamente una margarita hecha con mezcal: tiene ese toque ahumado característico. Te dejo una receta clásica, varias variaciones y consejos para que te quede perfecta.\n\nMezcalita clásica (1 trago)\n- Ingredientes:\n  - 60 ml de mezcal (2 oz)\n  - 30 ml de jugo de lima fresco (1 oz)\n  - 15–20 ml de licor de naranja (Cointreau, Triple Sec) (½–¾ oz)\n  - 10–15 ml de jarabe de agave o jarabe simple (⅓–½ oz), al gusto\n  - Hielo\n  - Sal (o sal con chile/tajín) para el borde\n  - Rodaja de lima para decorar\n\n- Preparación:\n  1. Humedece el borde del vaso con una rodaja de lima y pásalo por la sal o tajín.\n  2. En una coctelera: añade mezcal, jugo de lima, licor de naranja, jarabe de agave y bastante hielo.\n  3. Agita vigorosamente 10–15 segundos.\n  4. Cuela sobre un vaso bajo con hielo nuevo.\n  5. Decora con una rodaja o cuña de lima. Opcional: una rodajita de chile para darle aroma.\n\nVariaciones populares\n- Picante: agrega 3–4 rodajas de jalapeño o chile serrano en la coctelera (macha ca ligeramente) o usa un jarabe de agave infusionado con chile.\n- Frutal: sustituye 15–30 ml de jugo por puré de mango, tamarindo o maracuyá (ajusta dulzor).\n- Mezcalita Paloma: 45 ml mezcal, 15 ml jugo de lima, 15 ml jarabe de agave; completar con refresco de toronja en vaso alto.\n- Congelada: licúa los ingredientes con 1 taza de hielo hasta obtener textura slush; sirve en copa fría.\n\nConsejos prácticos\n- Usa jugo de lima fresco (hace toda la diferencia).\n- Elige un mezcal joven o reposado con humo moderado; si es demasiado ahumado puede opacar los demás sabores.\n- Ajusta el dulzor con jarabe de agave al gusto.\n- Si quieres menos alcohol, reduce el mezcal a 45 ml y aumenta el jugo de lima o añade un toque de agua con gas.\n- Para hacer 4 tragos multiplica las cantidades por 4 y agita/mezcla en una jarra grande con hielo.\n\n¿Quieres que te dé una versión sin alcohol o una receta para preparar varias raciones para una reunión?",
+   "urls": [],
+   "tokens": 5651,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "¡Buena elección! La “mezcalita” suele ser la versión con mezcal de la margarita: refrescante, ahumada y muy sencilla de preparar. Te dejo una receta clásica, dos variantes (picante y frozen), consejos y una opción sin alcohol.\n\nReceta clásica (mezcalita)\n- Ingredientes:\n  - 45 ml (1.5 oz) de mezcal\n  - 30 ml (1 oz) de jugo de lima recién exprimido\n  - 15 ml (0.5 oz) de Cointreau u otro licor de naranja (opcional)\n  - 15 ml (0.5 oz) de jarabe de agave (o miel diluida)\n  - Hielo\n  - Sal o sal con chile para el borde\n- Preparación:\n  1. Humedece el borde del vaso con una rodaja de lima y pasa el borde por sal o sal con chile.\n  2. En una coctelera, agrega el mezcal, el jugo de lima, el licor de naranja y el jarabe de agave. Añade hielo.\n  3. Agita enérgicamente 10–15 segundos.\n  4. Cuela sobre un vaso bajo con hielo fresco.\n  5. Adorna con una rueda de lima o una tira de piel de naranja.\n\nVariante picante\n- Misma base que la receta clásica pero:\n  - Añade 2–3 rodajas finas de jalapeño (o una rodaja y ajusta al gusto).\n  - Si quieres más intensidad, macera ligeramente las rodajas de jalapeño en la coctelera antes de añadir el resto.\n  - Opcional: sustituye la sal por Tajín para el borde.\n\nMezcalita frozen (granizada)\n- Ingredientes:\n  - 60 ml (2 oz) mezcal\n  - 30 ml (1 oz) jugo de lima\n  - 15–20 ml jarabe de agave\n  - 120–180 g hielo (1–2 tazas)\n- Preparación:\n  1. Pon todo en la licuadora y procesa hasta obtener la textura deseada.\n  2. Sirve en copa fría y decora con lima.\n\nConsejos rápidos\n- Usa jugo de lima fresco; cambia todo el balance si usas concentrado.\n- Ajusta el jarabe de agave al dulzor que prefieras: el mezcal es ahumado y puede necesitar más o menos dulzor.\n- Para un toque ahumado más suave, mezcla mezcal con tequila reposado (p. ej. 50/50).\n- Elige un buen mezcal (no hace falta tope de gama, pero evita los muy baratos): la calidad del mezcal define el carácter del cóctel.\n- Si no quieres alcohol pero buscas sabor ahumado: usa té Lapsang Souchong frío (muy ahumado) en lugar del mezcal y sustituye el licor de naranja por un poco de néctar de naranja.\n\nBebe con moderación. ¿Quieres que te dé la versión exacta para preparar varias copas (batch) o una lista de compras?",
+   "urls": [],
+   "tokens": 5910,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "¡Buenísima elección! Aquí tienes una receta clásica y varias variantes para hacer una mezcalita deliciosa.\n\nReceta clásica (1 cóctel)\n- 60 ml mezcal (2 oz)  \n- 30 ml jugo de lima fresco (1 oz)  \n- 15–20 ml jarabe de agave (½–⅔ oz), ajustar al gusto  \n- 15 ml licor de naranja (Cointreau/Triple Sec) — opcional (½ oz)  \n- Hielo  \n- Sal o sal de gusano para el borde  \n- Rodaja o cuña de lima para decorar\n\nPreparación\n1. Humedece el borde del vaso con una cuña de lima y pásalo por sal o sal de gusano.  \n2. En una coctelera: agrega el mezcal, el jugo de lima, el jarabe de agave y el licor de naranja (si lo usas). Llena con hielo.  \n3. Agita enérgicamente 10–15 segundos.  \n4. Cuela sobre un vaso corto con hielo fresco (rocks). Decora con una rodaja de lima.\n\nVariantes\n- Picante: añade 2–3 trozos finos de jalapeño o una rodaja, módelalos ligeramente antes de agregar los líquidos. O usa Tajín en el borde.  \n- Frutal (mango/pitaya): incorpora 30–45 ml de puré de fruta fresca y reduce el jarabe de agave.  \n- Frozen: licúa 60 ml mezcal, 30 ml jugo de lima, 15 ml agave y 1–1½ tazas de hielo hasta textura deseada.  \n- Más ahumada/suave: si el mezcal es muy ahumado, reduce a 45 ml y sube un poco el jugo de lima o el agave para balancear.  \n- Sin alcohol (mocktail): sustituye el mezcal por té ahumado frío (lapsang souchong) o agua con carbón ahumado + 30 ml de zumo de naranja, 30 ml de lima y 15 ml de agave.\n\nConsejos rápidos\n- Usa jugo de lima recién exprimido.  \n- Ajusta dulzor al gusto; el mezcal puede necesitar más o menos agave según su intensidad.  \n- La sal de gusano y el borde con chile le dan un toque auténtico y complejo.  \n- Prueba con diferentes tipos de mezcal (espadín, tobalá, etc.) para variar el perfil.\n\n¿Quieres una versión para hacer para 4 personas, la versión frozen o te doy una lista de compras?",
+   "urls": [],
+   "tokens": 6002,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "Sí. Algunos orange liqueurs / triple sec que usan miel o néctar de agave son:\n\n- Triple Sec \"Flor de Azahar\" — un triple sec mexicano que indica expresamente que está endulzado con miel de agave. ([descubriendodestilados.com](https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai))  \n- Agavero (Agavero Orange Liqueur) — aunque suele venderse como \"orange liqueur\" más que como “triple sec”, está hecho sobre base de tequila 100% agave y aromatizado con naranja y néctar/miel de agave. ([sunsetliquorstore.com](https://sunsetliquorstore.com/products/agavero-orange-liqueur-750-ml?utm_source=openai))\n\nNota: la mayoría de los triple sec comerciales tradicionales (Cointreau, Combier, etc.) usan azúcar o jarabes y base de alcohol neutro, no miel de agave, así que conviene leer la etiqueta si buscas específicamente agave. ([liquor.com](https://www.liquor.com/orange-liqueurs-5097641?utm_source=openai))\n\n¿Quieres que busque dónde comprar alguno de estos en Puerto Rico o alternativas similares?",
+   "urls": [
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai",
+    "https://sunsetliquorstore.com/products/agavero-orange-liqueur-750-ml?utm_source=openai",
+    "https://www.liquor.com/orange-liqueurs-5097641?utm_source=openai"
+   ],
+   "tokens": 17949,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai",
+    "https://sunsetliquorstore.com/products/agavero-orange-liqueur-750-ml?utm_source=openai",
+    "https://www.liquor.com/orange-liqueurs-5097641?utm_source=openai"
+   ],
+   "competencia": [
+    "cointreau",
+    "combier"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "La mayoría de los triple sec comerciales se endulzan con azúcar (jarabe de azúcar), pero sí hay algunas marcas/ediciones que usan miel o jarabe de agave como endulzante.\n\nEjemplos conocidos:\n- Giffard Agave Sec — un triple sec/liqueur de naranja formulado y comercializado por Giffard y endulzado con néctar/almíbar de agave mexicano. ([thewhiskyexchange.com](https://www.thewhiskyexchange.com/p/11167/agave-sec-liqueur-giffard?utm_source=openai))  \n- Flor de Azar (Triple Sec / licor cítrico mexicano) — versión artesanal/mexicana que indica expresamente que se endulza con miel de agave (miel de agave) y flores/botánicos. ([descubriendodestilados.com](https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai))\n\nNota útil: “Agavero” a veces se recomienda como sustituto en margaritas porque es un licor de tequila con naranja y notas de agave, pero no es un triple sec tradicional; es más bien un licor a base de tequila. ([media-cdn.getbento.com](https://media-cdn.getbento.com/accounts/d7d83a1e7dc0abf61d3daecdd478f403/media/L4U6CwDBTvuT1cTS9bXN_tequila%20menu.docx.pdf?utm_source=openai))\n\n¿Quieres que busque dónde comprar alguno de estos en Puerto Rico o que te dé alternativas (ej.: usar triple sec + jarabe de agave, o usar solo agave en la receta)?",
+   "urls": [
+    "https://www.thewhiskyexchange.com/p/11167/agave-sec-liqueur-giffard?utm_source=openai",
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai",
+    "https://media-cdn.getbento.com/accounts/d7d83a1e7dc0abf61d3daecdd478f403/media/L4U6CwDBTvuT1cTS9bXN_tequila%20menu.docx.pdf?utm_source=openai"
+   ],
+   "tokens": 19420,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://www.thewhiskyexchange.com/p/11167/agave-sec-liqueur-giffard?utm_source=openai",
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2?utm_source=openai",
+    "https://media-cdn.getbento.com/accounts/d7d83a1e7dc0abf61d3daecdd478f403/media/L4U6CwDBTvuT1cTS9bXN_tequila%20menu.docx.pdf?utm_source=openai"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "ChatGPT",
+   "modelo": "openai/gpt-5-mini",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "Sí — el triple sec llamado \"Flor de Azar\" (a veces escrito como Flor de Azahar) está endulzado con miel de agave. Es un triple sec artesanal mexicano, 40% ABV, pensado para coctelería (por ejemplo Margaritas). ([descubriendodestilados.com](https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2))\n\n¿Quieres que busque dónde comprarlo en Puerto Rico o prefieres sugerencias de otros licores/recetas que usen miel de agave?",
+   "urls": [
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2"
+   ],
+   "tokens": 19223,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://descubriendodestilados.com/products/triple-seco-flor-de-azar-750-ml%E2%84%A2"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "En Puerto Rico, conseguir triple sec (licor de naranja seco) es sencillo, ya que está disponible tanto en cadenas de supermercados como en licorerías especializadas.\n\nAquí te detallo las mejores opciones por categoría:\n\n### 1. Cadenas de Supermercados (Opciones más accesibles)\nLa mayoría de los supermercados grandes en la isla tienen una sección de licores donde el triple sec es un producto básico.\n*   **Supermercados Pueblo:** Suelen tener marcas como **Trigo Triple Sec** (muy común en PR) y opciones importadas. Puedes verificar disponibilidad en su plataforma *Pueblo Virtual*.\n*   **Supermercados Amigo:** Ofrecen marcas locales y económicas como **Trigo** a precios competitivos (aprox. $11-$12 por 750ml).\n*   **Econo:** A través de su aplicación *EconoToGo*, puedes encontrar marcas como **Esprit Triple Sec** o **Trigo**.\n*   **SuperMax:** Tienen una sección amplia de licores y mezcladores en sus tiendas físicas y en línea.\n*   **Walmart:** Suelen vender marcas como **DeKuyper** en la sección de licores y mezcladores para margaritas.\n\n### 2. Licorerías Especializadas (Mayor variedad y marcas premium)\nSi buscas marcas de mayor calidad como **Cointreau** o **Combier**, estas tiendas son la mejor opción:\n*   **La Licorera (San Juan/Carolina):** Ofrecen marcas como **Esprit Triple Sec** y tienen servicio de entrega a toda la isla.\n*   **Vino Pa' Casa (Carolina/Isla Verde):** Una excelente opción para comprar en línea o recoger, con una selección cuidada de licores.\n*   **San Expedito Liquor Store (Área Oeste):** Ubicada en el área de Mayagüez/Hormigueros, es ideal si te encuentras en el oeste de la isla.\n*   **La Bodega de Méndez (Guaynabo/Ponce/Añasco):** Ideal si buscas versiones de alta gama o asesoría especializada.\n\n### 3. Marcas comunes en la isla\nAl buscar en los pasillos, las marcas más fáciles de encontrar son:\n*   **Trigo:** La marca local más popular y económica.\n*   **Esprit:** Muy común en licorerías y supermercados Pueblo/Econo.\n*   **DeKuyper:** Frecuente en Walmart y tiendas por departamento.\n*   **Cointreau:** Disponible en licorerías especializadas y secciones gourmet de supermercados para quienes buscan el estándar de oro del triple sec.\n\n**Consejo:** Si necesitas triple sec para coctelería rápida y no quieres gastar mucho, el **Trigo Triple Sec** es el más recomendado por su relación calidad-precio en el mercado local.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPtkeIE1vVOC0WadBTvQFLD7Xuad8D_Jkg-kdi2fTjne_lpAse2fmu2NqgRsb21u4aPwTnxXDn3rK8ahLsHH1zCFHJE5rW4R6wDhdE_eyQSsx00e9hU0gkZPzQEG68JclmVI1ClHqi78d3bTk2Gq1Mhrl_HMyC5lynVaA=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJCzWT5IPVlJf7J2s11zRegXBeZ9o_H94gIIX-dTQIu2NK1M1rf6GiEMFQAMsLirbzxaV_FZ-OUkR1Zq3tC05yq7mVEtSx-cQAZ39PhltItSIepHweeeJNPtLpMbzXuK3L7Y5b8AKCQWrf92RtUnLe7HZzy7cdQwauMA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWSFIkhcA_NcB5ostodDqvH84jjl6AqSljTaG0bdADUbEDm74CIU8ChM5hF7KgT3FX73siqNPES0HJFCHDJ3KArbkMTVzELVrqFox7p3rjoBnNo17aRuW6wgL_0GGl8vEiLJCmk_jMFDHo8KSstHZNXQWCM1bibq2LXzmvR4pmwOgSBvsImwGN-SWRUtQn8LXdbAzRd7osbpiTsac="
+   ],
+   "tokens": 648,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPtkeIE1vVOC0WadBTvQFLD7Xuad8D_Jkg-kdi2fTjne_lpAse2fmu2NqgRsb21u4aPwTnxXDn3rK8ahLsHH1zCFHJE5rW4R6wDhdE_eyQSsx00e9hU0gkZPzQEG68JclmVI1ClHqi78d3bTk2Gq1Mhrl_HMyC5lynVaA=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJCzWT5IPVlJf7J2s11zRegXBeZ9o_H94gIIX-dTQIu2NK1M1rf6GiEMFQAMsLirbzxaV_FZ-OUkR1Zq3tC05yq7mVEtSx-cQAZ39PhltItSIepHweeeJNPtLpMbzXuK3L7Y5b8AKCQWrf92RtUnLe7HZzy7cdQwauMA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWSFIkhcA_NcB5ostodDqvH84jjl6AqSljTaG0bdADUbEDm74CIU8ChM5hF7KgT3FX73siqNPES0HJFCHDJ3KArbkMTVzELVrqFox7p3rjoBnNo17aRuW6wgL_0GGl8vEiLJCmk_jMFDHo8KSstHZNXQWCM1bibq2LXzmvR4pmwOgSBvsImwGN-SWRUtQn8LXdbAzRd7osbpiTsac="
+   ],
+   "competencia": [
+    "cointreau",
+    "combier",
+    "dekuyper"
+   ],
+   "precio": [
+    "$11",
+    "$12"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "En Puerto Rico, conseguir **Triple Sec** es muy sencillo, ya que se vende en una gran variedad de establecimientos. Dependiendo de lo que busques (una marca económica para margaritas o una de alta gama como Cointreau), aquí tienes las mejores opciones:\n\n### 1. Supermercados (La opción más accesible)\nCasi todos los supermercados grandes en la isla tienen una sección de licores donde encontrarás marcas estándar (como DeKuyper, Bols o Hiram Walker).\n*   **Econo:** Tienen una sección de licores muy completa, especialmente los que son \"Econo Facilito\".\n*   **SuperMax:** Suelen tener buena variedad y marcas un poco más premium.\n*   **Pueblo:** Conocidos por tener una selección de licores más amplia y de mayor calidad.\n*   **Selectos.**\n\n### 2. Clubes de Almacén (Para cantidad y precio)\n*   **Costco:** Suelen vender botellas grandes (1.75L) de marcas reconocidas a excelente precio.\n*   **Sam’s Club:** Tienen opciones económicas y marcas populares.\n\n### 3. Tiendas Especializadas (Para marcas premium)\nSi buscas un Triple Sec específico, de alta graduación o marcas como **Cointreau** o **Grand Marnier** (que son tipos de Triple Sec de alta calidad):\n*   **La Enoteca (Ballester Hermanos):** Ubicada en Cataño. Es uno de los distribuidores más grandes y tienen de todo.\n*   **The Wine Box (Guaynabo):** Excelente selección de licores.\n*   **V. Suárez & Co. (Tienda en Guaynabo):** Otro de los distribuidores principales con tienda directa al público.\n*   **La Bodega de Méndez (Guaynabo, Ponce y Añasco):** Ideal si buscas marcas de prestigio.\n\n### 4. Farmacias\n*   **Walgreens:** La mayoría de los Walgreens en Puerto Rico venden alcohol y casi siempre tienen al menos una o dos opciones de Triple Sec en el pasillo de licores.\n*   **CVS:** Similar a Walgreens, aunque la selección puede ser más limitada.\n\n### 5. Gasolineras\n*   Las gasolineras grandes con tiendas de conveniencia (tipo **Puma / Super7** o **TotalEnergies / Bonjour**) suelen tener botellas de Triple Sec, especialmente las de marcas económicas.\n\n**Recomendación:** Si es para una mezcla sencilla, cualquier marca de supermercado funciona. Si quieres que el cóctel (como un Cosmopolitan o una Margarita Cadillac) quede a nivel profesional, te recomiendo invertir en una botella de **Cointreau**.",
+   "urls": [],
+   "tokens": 615,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "dekuyper",
+    "grand marnier",
+    "hiram walker"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde comprar triple sec en Puerto Rico?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "En Puerto Rico, puedes comprar triple sec (licor de naranja) en una amplia variedad de establecimientos, desde supermercados comunes hasta tiendas especializadas en vinos y licores.\n\nAquí tienes las mejores opciones divididas por tipo de tienda:\n\n### 1. Supermercados (Opciones más accesibles)\nEs muy común encontrar marcas económicas como **Trigo Triple Sec** o **DeKuyper** en los pasillos de licores de:\n*   **Supermercados Pueblo:** Suelen tener marcas locales como Trigo y también opciones premium como Cointreau.\n*   **SuperMax:** Ofrecen marcas estándar (Trigo Triple Sec suele rondar los $11-$12).\n*   **Econo:** Cuentan con secciones de licores donde usualmente tienen al menos una opción de triple sec.\n*   **Amigo:** También disponen de licores básicos para coctelería.\n\n### 2. Tiendas Especializadas (Variedad y Premium)\nSi buscas marcas de mayor calidad o importadas (como Cointreau o Grand Marnier), estas tiendas son tu mejor opción:\n*   **The House (Wine, Beer & More):** Tienen varias localizaciones (como Santurce y Guaynabo) y una gran selección de marcas de todos los precios.\n*   **La Enoteca de Ballester:** Ubicada en San Juan (Altamira), es excelente para conseguir **Grand Marnier** y otros licores finos.\n*   **La Licorera:** Con base en San Sebastián pero con servicio de entrega en toda la isla a través de su página web.\n*   **Vinoteca:** Aunque su enfoque principal es el vino, cuentan con una sección de cordiales y licores de alta gama.\n\n### 3. Compras Online y Delivery\nSi prefieres que te lo lleven a casa, puedes usar estas plataformas:\n*   **The House to You:** Aplicación/página web para entrega a domicilio de licores.\n*   **Ron Pontón / La Comprita:** Plataformas de compra en línea que incluyen licores en su inventario.\n*   **Uber Eats / DoorDash:** Muchas licorerías locales y supermercados (como Econo o Pueblo) están integrados en estas apps y permiten pedir botellas selladas.\n\n**Consejo:** Si vas a preparar margaritas clásicas, el **Trigo Triple Sec** es la opción local más popular y económica. Para cócteles más refinados, busca **Cointreau**, que es el estándar de oro para este tipo de licor.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSNASVqXpI8j4nnuRdEhRBT_bLuySw0RPw5h9R7sMn7935Ibdw69WwL3uevRFl957VQt6sZbBRs5FMqawHbSd-hUj7FdI-PYF51K0XaSMB8GhV5SDD4yuK6K7ks_1Y",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF4neeeUs8QPxs2OFAOfPHs93vXNzImjg8oXLI5shmgkaAGyX42EcqKsXkBDUa3vxCu1v6aQLGer-hzlCwVmy8HATNyUYr5qGJ8yplMkxhFhKuikhniXwpIPb_WoKBcJT4R167wZ7kuC1g="
+   ],
+   "tokens": 583,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFSNASVqXpI8j4nnuRdEhRBT_bLuySw0RPw5h9R7sMn7935Ibdw69WwL3uevRFl957VQt6sZbBRs5FMqawHbSd-hUj7FdI-PYF51K0XaSMB8GhV5SDD4yuK6K7ks_1Y",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF4neeeUs8QPxs2OFAOfPHs93vXNzImjg8oXLI5shmgkaAGyX42EcqKsXkBDUa3vxCu1v6aQLGer-hzlCwVmy8HATNyUYr5qGJ8yplMkxhFhKuikhniXwpIPb_WoKBcJT4R167wZ7kuC1g="
+   ],
+   "competencia": [
+    "cointreau",
+    "dekuyper",
+    "grand marnier"
+   ],
+   "precio": [
+    "$11",
+    "$12"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "Si te refieres al **licor Tres Naranjos** (un triple sec de naranja con miel de agave muy popular en la coctelería local), puedes encontrarlo en varios puntos de venta en Puerto Rico, tanto físicos como en línea.\n\nAquí tienes las opciones principales para comprarlo:\n\n### Tiendas Físicas y Especializadas\n*   **The House:** Es uno de los puntos de venta principales con localizaciones en San Juan (Condado, Guaynabo) y otras áreas.\n*   **Almacén Tito Areizaga:** Conocido distribuidor y tienda de licores.\n*   **Licorería Rincón:** Si te encuentras en el área oeste de la isla.\n*   **Club Mezcal:** Tienda especializada en destilados.\n\n### Compra en Línea y Delivery\n*   **PRoduce:** Puedes comprarlo a través de su aplicación o sitio web (**puertoricoproduce.com**), donde suelen tenerlo disponible por un precio aproximado de **$15.00** la unidad.\n*   **La Licorera:** Ofrecen entrega a todo Puerto Rico para licores premium.\n\n### Por Pueblo\nEl licor tiene presencia en establecimientos en los siguientes municipios:\n*   San Juan\n*   Guaynabo\n*   Caguas\n*   Rincón\n*   Mayagüez\n*   Aguadilla\n*   Cabo Rojo\n\n**Nota:** Si lo que buscas es el **Café Tres Naranjos** (de origen centroamericano), este suele venderse en tiendas de café especializado o a través de plataformas de importación como Efast o Mercado Libre, aunque en Puerto Rico es mucho más común encontrar el licor homónimo distribuido por **Agave Imports**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKTKAwW_p-MFuIstJJ48cqnBL7Z-_3HXvJcdXtKUnhKMI_kmgZNSGcDGbrtqNbSC1Lf15sYxlGZZRgtSRt-WflxK4x1E8gmNp4kGAtl_1M4qEbCSPvSDThvP0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6LGAHk5MRevxWzaSqipzSoLgHO1sXK2wlW27QfCNlJxIpyVWIIrqdd46Rs1QEMybiw8PPO81_D4aZqDehio3TYVLJf9LBY2xpIY2riSHjROMoRK1owuBz2YCAF24f7onMUjB_66lWmK9nV1BkgcgmUM0NVcS1eV0OeFCUSx990ouMhHgrWxFIBvmdGNYmHEjHGw-q53TKI-Px4ODcnbkFDR5b7wtD_a9mB2oacEg9Tg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4JWYml5jE3VvZNiAneh6I7Qp3ymKcIlfbDRFYu5eqQoremxm2VghVj1Dp9nYkO6CyoARkPY89x7VBesaQejEf1ehQgAbWB_RhHgjU5E3KiTWBRzTAMg1Nf-G0gMiQ6A==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMXrh8Lpteopfy1H_KVDFynrlE05n74ygxtg4vG8sV5FZyra6e1DLNycpBmZRUZnt7z6ufQsEn5XPcbPCFavSjs4XOo1r7-UzyIF96CCCibRZyag==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgH5eDuX9o_lBJ-aKQqaTBPqW-9VHBERznTG3ZbwFiqWEEK3ksNmXb0U1GJCP4M527gsVWUbT10KTuGl_OvjqitsHcJmUgg2bhOu0Z_9tgW9m0GK6oBVoreneUtQR_pPBSKUdRT_H0k4o="
+   ],
+   "tokens": 402,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKTKAwW_p-MFuIstJJ48cqnBL7Z-_3HXvJcdXtKUnhKMI_kmgZNSGcDGbrtqNbSC1Lf15sYxlGZZRgtSRt-WflxK4x1E8gmNp4kGAtl_1M4qEbCSPvSDThvP0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6LGAHk5MRevxWzaSqipzSoLgHO1sXK2wlW27QfCNlJxIpyVWIIrqdd46Rs1QEMybiw8PPO81_D4aZqDehio3TYVLJf9LBY2xpIY2riSHjROMoRK1owuBz2YCAF24f7onMUjB_66lWmK9nV1BkgcgmUM0NVcS1eV0OeFCUSx990ouMhHgrWxFIBvmdGNYmHEjHGw-q53TKI-Px4ODcnbkFDR5b7wtD_a9mB2oacEg9Tg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4JWYml5jE3VvZNiAneh6I7Qp3ymKcIlfbDRFYu5eqQoremxm2VghVj1Dp9nYkO6CyoARkPY89x7VBesaQejEf1ehQgAbWB_RhHgjU5E3KiTWBRzTAMg1Nf-G0gMiQ6A==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGMXrh8Lpteopfy1H_KVDFynrlE05n74ygxtg4vG8sV5FZyra6e1DLNycpBmZRUZnt7z6ufQsEn5XPcbPCFavSjs4XOo1r7-UzyIF96CCCibRZyag==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGgH5eDuX9o_lBJ-aKQqaTBPqW-9VHBERznTG3ZbwFiqWEEK3ksNmXb0U1GJCP4M527gsVWUbT10KTuGl_OvjqitsHcJmUgg2bhOu0Z_9tgW9m0GK6oBVoreneUtQR_pPBSKUdRT_H0k4o="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "En Puerto Rico, **Tres Naranjos** es principalmente conocido por su **licor de naranja con miel de agave** (un tipo de Triple Sec), aunque también existe una marca de café bajo el mismo nombre.\n\nSi buscas el **licor de naranja Tres Naranjos**, lo puedes encontrar en los siguientes puntos de venta:\n\n### **Tiendas Físicas y Licorerías**\n*   **The House:** La cadena de tiendas especializadas en vinos y licores suele tenerlo disponible.\n*   **Almacén Tito Areizaga:** Distribuidor conocido en el área oeste (Aguadilla/Isabela).\n*   **Licorería Rincón:** Punto de venta frecuente para esta marca.\n*   **Club Mezcal:** Tienda especializada en destilados de agave.\n\n### **Compra en Línea (Delivery)**\n*   **PRoduce (puertoricoproduce.com):** Es una de las plataformas principales para conseguir productos locales. Suelen tener la botella de 750ml por un precio aproximado de $15.00.\n*   **Licorería Miramar:** A menudo incluyen este licor en su catálogo de ingredientes para coctelería premium.\n\n### **Nota sobre el Café Tres Naranjos**\nSi lo que buscas es el **café**, este se encuentra ocasionalmente en mercados agrícolas, tiendas de productos naturales o directamente a través de distribuidores de café artesanal como **Efast Online**.\n\n**Recomendación:** Dado que es una \"marca boricua\" muy popular para hacer margaritas y cócteles, si no lo ves en el área de licores de tu supermercado habitual (como Econo o Pueblo), la opción más segura es verificar en la aplicación de **PRoduce** o visitar un **The House**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGa5umgWziVOQ-Ku1dT1TMNDDr5RlfJ8YsfZE-wyf8NbJtLUtQ5Awr_VK8y9QzdbTi4DJ-zaEmvpEe_EYp9fdwiw5wkxvwa6Beqz9402Gd2pcoOk92rlY5o8TWH2UsnCvE0JEjU4MJJbvB4dmH_DmuHuXIASLUbFQJW",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGy5HwT4mLcbm54QM7SpHO3vGpzsCh5wvmfpXy4g9I8PW46tY7XWAY2L08n1JV46lV-VWL8cOiBdiN5pb885Ni9XiC7ZuXNUDSXPV3-7G5gPJx0ZIQ0_m2fbGdzsMn7gU6JEftIikPUNz_SEJTh60OHio8YcEMaePGK6j_HEvZjcHaJBg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEp7vJXdKVjGa8pw_89I76DtY-giNbtsX6tnW2DSQDK43YSZKd2y2seqbgfJJcujcKTHm5o5vHPXr_z1Fy_dbDd03ES3aGq_A78IJAMAZvryiZHgRJIzr4sGg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_5JxNlIR6-Kwq77WgsDuCYSmnRpN04RWDf-wOnKkS0FkIwJta6wJuZl_FL22PcT9AXy__d5Bzk2xDLLZn7ups5LigC-2lQBZujob9ZyulhzdDWA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQERtuPr-4FY9fh2xkO226L17ixYKQGF5LQei_aNqTQD931ooJQK70ovIuXfQQzLtPLp5Qwp0-OWnIP72lgvLJtzmm93VHzOAd0EcEytZmmoL9wI_q0o5g_8-qrS_dZbTJmgFxJcnyIAnTfd4X5L"
+   ],
+   "tokens": 406,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGa5umgWziVOQ-Ku1dT1TMNDDr5RlfJ8YsfZE-wyf8NbJtLUtQ5Awr_VK8y9QzdbTi4DJ-zaEmvpEe_EYp9fdwiw5wkxvwa6Beqz9402Gd2pcoOk92rlY5o8TWH2UsnCvE0JEjU4MJJbvB4dmH_DmuHuXIASLUbFQJW",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGy5HwT4mLcbm54QM7SpHO3vGpzsCh5wvmfpXy4g9I8PW46tY7XWAY2L08n1JV46lV-VWL8cOiBdiN5pb885Ni9XiC7ZuXNUDSXPV3-7G5gPJx0ZIQ0_m2fbGdzsMn7gU6JEftIikPUNz_SEJTh60OHio8YcEMaePGK6j_HEvZjcHaJBg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEp7vJXdKVjGa8pw_89I76DtY-giNbtsX6tnW2DSQDK43YSZKd2y2seqbgfJJcujcKTHm5o5vHPXr_z1Fy_dbDd03ES3aGq_A78IJAMAZvryiZHgRJIzr4sGg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_5JxNlIR6-Kwq77WgsDuCYSmnRpN04RWDf-wOnKkS0FkIwJta6wJuZl_FL22PcT9AXy__d5Bzk2xDLLZn7ups5LigC-2lQBZujob9ZyulhzdDWA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQERtuPr-4FY9fh2xkO226L17ixYKQGF5LQei_aNqTQD931ooJQK70ovIuXfQQzLtPLp5Qwp0-OWnIP72lgvLJtzmm93VHzOAd0EcEytZmmoL9wI_q0o5g_8-qrS_dZbTJmgFxJcnyIAnTfd4X5L"
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Dónde venden Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "En Puerto Rico, el licor de naranja con miel de agave marca **Tres Naranjos** (un triple sec local popular para coctelería) se puede conseguir principalmente en tiendas especializadas y algunos supermercados.\n\nAquí tienes los puntos de venta más comunes:\n\n### **Tiendas y Licorerías**\n*   **The House:** Es uno de los puntos principales donde suelen tener inventario disponible.\n*   **Almacén Tito Areizaga:** Distribuidor conocido en el área oeste (Aguadilla/Mayagüez) y otras zonas.\n*   **Licorería Rincón:** Punto de venta frecuente en el área oeste de la isla.\n*   **Club Mezcal:** Tienda especializada en licores de agave y productos relacionados.\n*   **La Licorera:** Venta a través de su plataforma online con entrega en todo Puerto Rico.\n\n### **Compra Online y Entrega**\n*   **PRoduce:** Puedes comprarlo a través de su aplicación o sitio web (**puertoricoproduce.com**), donde frecuentemente aparece listado como producto local por un precio aproximado de **$15.00**.\n\n### **Pueblos donde se consigue comúnmente**\nSegún la marca, el producto tiene presencia en licorerías y comercios de:\n*   San Juan y Guaynabo\n*   Caguas\n*   Rincón, Mayagüez, Aguadilla y Cabo Rojo\n\n**Nota:** Si te refieres al refresco español **Trina** (antiguamente llamado Trinaranjus), este es menos común en la isla, aunque a veces se puede encontrar en la sección de productos importados de supermercados grandes o tiendas de comida española especializadas. Si buscas el licor, **Tres Naranjos** es el producto local que encontrarás con facilidad en los lugares mencionados arriba.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKy6_HzigoFnmckGd7WvWe-XvhdM2vzQHNJNwd33eQ0w6-9u8gw4EmbS-yQ9gWsXKJEE7nDRjOjlo0yhncWeEZbsRPR_AMQBUL_ztS2CrbafJnd6s=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdPYOGL9puneQUREOf0BUZZLyWlTULKSdRduTMt3R9TX8Cu7DDFAq9Sn0uyI0z4Mh26Nl9WWs2foQwcGWi2T6gb6VgEMMYe7SZRyAWyV5BckBv-TMIqo2ncXiLapBBtX1vc_qPLGsrBJsY9lXuffb6vjyxpYg="
+   ],
+   "tokens": 418,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKy6_HzigoFnmckGd7WvWe-XvhdM2vzQHNJNwd33eQ0w6-9u8gw4EmbS-yQ9gWsXKJEE7nDRjOjlo0yhncWeEZbsRPR_AMQBUL_ztS2CrbafJnd6s=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdPYOGL9puneQUREOf0BUZZLyWlTULKSdRduTMt3R9TX8Cu7DDFAq9Sn0uyI0z4Mh26Nl9WWs2foQwcGWi2T6gb6VgEMMYe7SZRyAWyV5BckBv-TMIqo2ncXiLapBBtX1vc_qPLGsrBJsY9lXuffb6vjyxpYg="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 1,
+   "respuesta": "You can find **Tres Naranjos Triple Sec** (a Mexican orange liqueur made with agave nectar) at several specialized liquor stores and supermarkets in the San Juan metropolitan area.\n\n### Where to Buy in San Juan\nAccording to the brand's distribution information, it is available at:\n\n*   **The House (Wine & Spirits):** They have several locations, including **Condado** (on Ashford Ave) and **Caparra** (in Guaynabo). They typically carry a wide selection of premium mixers.\n*   **PRoduce:** This is a highly recommended local option. You can buy it online through their app for delivery in San Juan or visit their physical location, **Mercado-Deli-Café**, at **722 C. Hoare, Miramar**.\n*   **La Enoteca (Ballester Hermanos):** Located in **Altamira, Guaynabo** (just outside San Juan), this is a major spirits hub where you can often find Tres Naranjos.\n*   **Supermercados Econo & SuperMax:** Large branches with dedicated liquor sections (like the Econo in Altamira or SuperMax in De Diego) are listed retailers.\n\n### Online Options\n*   **PRoduce (App/Website):** They list Tres Naranjos for approximately **$15.00** per 750ml bottle.\n*   **Agave Imports:** Since they are the primary importer in Puerto Rico, you can contact them directly via WhatsApp at **939-373-0729** if you are having trouble finding stock at a specific store.\n\n**Tip:** Because it is a niche product compared to mass-market brands like Cointreau or Dekuyper, it is always a good idea to check **The House** or **PRoduce** first, as they specialize in local and craft cocktail ingredients.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfPErDisJvWPhzLjC3ELBDe5bUXJac6sTdKy3WfM6Q9yp6sUyoN-oo53TokFo9kwqvzyxwOgElJmmIU0FqIw9fnm64ZAKjUiiWD4V3MfkJxgpJ6TkqWnohUibLmfGso7HJ21DTQugv9si8ZM3HGg=="
+   ],
+   "tokens": 430,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfPErDisJvWPhzLjC3ELBDe5bUXJac6sTdKy3WfM6Q9yp6sUyoN-oo53TokFo9kwqvzyxwOgElJmmIU0FqIw9fnm64ZAKjUiiWD4V3MfkJxgpJ6TkqWnohUibLmfGso7HJ21DTQugv9si8ZM3HGg=="
+   ],
+   "competencia": [
+    "cointreau",
+    "dekuyper"
+   ],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 2,
+   "respuesta": "You can find **Tres Naranjos**, a premium triple sec made with agave nectar and orange peels, at several specialty liquor stores and retailers throughout San Juan.\n\nBecause it is distributed by **Agave Imports**, it is widely available in locations that focus on high-quality spirits. Here are the most reliable places to buy it:\n\n### Physical Retailers in San Juan\n*   **The House:** This is one of the most common retail points for Tres Naranjos. There are locations in **Condado** (on Ashford Ave) and **Caparra/Guaynabo**.\n*   **PRoduce! (Mercado-Deli-Cafe):** Located at **722 C. Hoare, San Juan (Santurce)**. They specialize in local and high-quality products and typically keep it in stock.\n*   **Club Mezcal:** A specialty spirits shop often carrying agave-based and related products.\n*   **Almacén Tito Areizaga:** A well-known wholesaler/retailer in the metro area that carries a wide variety of cocktail ingredients.\n\n### Online & Delivery\n*   **PRoduce! (Mobile App/Website):** You can order it online through their platform for delivery within the San Juan metro area. It usually retails for around **$15.00** per 750ml bottle.\n*   **La Licorera:** While based in San Sebastián, they offer delivery across the entire island, including San Juan, for hard-to-find spirits.\n\n**Pro-Tip:** If you are visiting a bar in San Juan and want to try it before you buy a bottle, many craft cocktail bars in Santurce and Old San Juan use Tres Naranjos as their \"house\" triple sec for margaritas because of its local ties and agave nectar profile.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbC5OVkBZb-NLoZ-h9biY5HqZ28RAL87jL5vget3rrP4M2yHzSyvig5ziFSAkYuWJjbhfFe_YGcBVzgoDUD-KKT4Ynp2A_ilRT9vx3rvVixdbl5_MV_C0NQ5JkBQ1zv89nAJv6",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_-0oR0sXFnWdzMqPAnxD1Bgv47nXAoHGcwgiZZZMPo624cyLY2z9H7FRVlQqDdrynHNe3OwvmrPZ_wBVnca0bjcxFRKajpNwbgGj03fyFOjin-FJmotQu77jqbI3V1MTLepOJRObbtkWdRxN_HRpx29IgGLmK3FWncgJEFbZrpTIZ",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQUEuMuAKdiLSEvPg9lkMAZmc-jgusSUxnQ8FrwllW-01CIhHfZmuAq74LsK8z8CaWEzoBW9Ywi-W3pO0f1yJFh48Bri8UeYEFLTjKyESwYb5hwcl-b9wvS3ZiKXpckW_BAzmrIjEsDqOffl7r26h2EPe4kg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEn-kpdm7wgypnRKupdcXsNe_JHLEDvms7HwTDAk3s6280pVKjWxCj3SzVQQMntyPvIztrZyyFLMDEX9IQDqCnyzTOBF56GWzVsX6mTBxh60ofNZBKV03jGbAmMSqLbWEEHMuOjU5mbVtRsvI2-JQ==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ9SOHEkAwEeeGJQZHAicRbhGAQJ_9NCO_TbpOVAecM02UlUpsks_n1OPcxID46KobvLhyHMiUiMt74FNFBSPgiDJ2LAK1NL-g5-FR85tJyp7ltSo="
+   ],
+   "tokens": 414,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbC5OVkBZb-NLoZ-h9biY5HqZ28RAL87jL5vget3rrP4M2yHzSyvig5ziFSAkYuWJjbhfFe_YGcBVzgoDUD-KKT4Ynp2A_ilRT9vx3rvVixdbl5_MV_C0NQ5JkBQ1zv89nAJv6",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_-0oR0sXFnWdzMqPAnxD1Bgv47nXAoHGcwgiZZZMPo624cyLY2z9H7FRVlQqDdrynHNe3OwvmrPZ_wBVnca0bjcxFRKajpNwbgGj03fyFOjin-FJmotQu77jqbI3V1MTLepOJRObbtkWdRxN_HRpx29IgGLmK3FWncgJEFbZrpTIZ",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQUEuMuAKdiLSEvPg9lkMAZmc-jgusSUxnQ8FrwllW-01CIhHfZmuAq74LsK8z8CaWEzoBW9Ywi-W3pO0f1yJFh48Bri8UeYEFLTjKyESwYb5hwcl-b9wvS3ZiKXpckW_BAzmrIjEsDqOffl7r26h2EPe4kg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEn-kpdm7wgypnRKupdcXsNe_JHLEDvms7HwTDAk3s6280pVKjWxCj3SzVQQMntyPvIztrZyyFLMDEX9IQDqCnyzTOBF56GWzVsX6mTBxh60ofNZBKV03jGbAmMSqLbWEEHMuOjU5mbVtRsvI2-JQ==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZ9SOHEkAwEeeGJQZHAicRbhGAQJ_9NCO_TbpOVAecM02UlUpsks_n1OPcxID46KobvLhyHMiUiMt74FNFBSPgiDJ2LAK1NL-g5-FR85tJyp7ltSo="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Where can I buy Tres Naranjos triple sec in San Juan?",
+   "idioma": "en",
+   "corrida": 3,
+   "respuesta": "You can find **Tres Naranjos Triple Sec** in San Juan at specialized liquor retailers and through online delivery services. This orange liqueur, known for using agave nectar, is distributed locally by Agave Imports.\n\nThe following locations in or serving San Juan typically carry it:\n\n### **Specialty Retailers**\n*   **The House:** This is the most reliable brick-and-mortar option. They have locations in:\n    *   **San Juan (Condado/Santurce area):** Located on Avenida De Diego.\n    *   **Guaynabo (Caparra):** Located in Plaza Caparra.\n    *   **Plaza Guaynabo.**\n*   **PRoduce:** You can visit their physical \"Mercado-Deli-Cafe\" located at **722 Calle Hoare, San Juan, PR 00907**. They focus on local and specialty products and typically list it for around $15.00.\n\n### **Online & Delivery**\n*   **PRoduce (App/Website):** You can order it for home delivery or pick-up via their platform.\n*   **The House (Website):** They offer delivery and store pickup through their \"The House to You\" service.\n\n### **Tips for Finding It**\n*   **Check \"Cordiales\" Sections:** In stores like The House, look in the cordials or liqueur section, often near the tequilas since it is frequently used for margaritas.\n*   **Availability:** While major supermarkets (like SuperMax or Econo) carry triple secs like *Trigo* or *Bourget*, Tres Naranjos is a premium/specialty brand and is more likely to be found at the dedicated liquor stores mentioned above.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpGDNmkTM-fRUPdTdf2f7Vfb8uKLJBp7erV-OXEMH6qLB3ZS6CSqLinRrf20-h5OUH4nYN_wS6HWR76bi0dWYzILAxXK9b52oJk3K8kBb2-LD1EHoFjLtffg12dYAyHyo3FLN4JasovxT7IFWEYzPQ-DImEh9OmnP3NoVAEnsW3wjKRF-IsZh_ndXnMHN4se1NBihBicl4Oeh96rNM31byzc7yXODhnpw7hBY250_g4EQY9cx491UQLRLfrbNF5JQQvPdd7Y-nKtLpqELTX5NvesT3dHhHHI6tVPRqw4YnwBbzaSxIldcns5fxXtMr30K2MK2c4wlolVt5ZZJgjsgPvNxLQ68FXO8zh80dPuCZX_KPfxGspx3eHLEzgueyVZTLw6TSERVgbPPfutd92yMYRdg4xJ2q4muf6V8Fg_qFzldZ_9egmnFwUQCCtT1CFXoWkZYDZAdZTU4Fw_k=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWwx_3J16RAjuFoKjwMG1Z09i6bSwda2uAzaVKHNbSKk-rhkNn7SIFHqUMQD3xsmh0jkNSah5VQw-q4HEsaY8pf9W-wICflcFmVGtPiex1T7sUjt5W7Il-P68M1B37T5NJ1psLuAkSD5wKANFEVL0j",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8-gNhekUYCrneFxTk8hYebjG_uBTQUKdIECRISoPfQpQMsCAZ4X0u8tTwIPMw5gLeyDQqPTRB8VRp1Hnz3NVOLIL9ojD6KXWZF_j_L-lOWvTxvc_dtciP-cTGJlKNzOg0ju4xCtFamusKtdfh-J1_5zqGhSM=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0Enh4eOVzUZkGoVIvL3iC4ZYqSGLbcS9GyYxpKb2Sq6ov8iUvuEmWYXk8y7j6iXSxZg8cueLreD2itCUjBRFaHpaTBhlXSdsAuwL-3648ZEFZ0tJOoMWKi1RX38ZGiJHxU7RDuzosmnJEWSM8ir0glq5bxjebRQDEul3LkOA5",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_ZZPPiP-7UcmC5aavU4kgj-g5noS7QvSIddZEHN6M5Z9S0j-sMFx0wIzqDXFxwkF0f7CXQeGMySl_qZYgQ5rPuR8nH6zDL1FLqXKOkJlGIXtc6yVjeHrjtcRpZ5j1A6XjhSjoTLlWEi6jRPopriq-UzwUoxgNvsWG5AfYi8H4oUcp",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8__GxRtjBrfo45iUwmARN6ZuMLQqVl3bS7mDCNiHobg6AteOWezNeCoLxGVDZk0kPz1MbDPcz-HduUJnQrmnSWEU-qczPPW9eRbrQVro6EU5-UH6SsR8rsH9fYiEYJ9B0Mm3cgkdZoD8UGw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPwnBwB-578Vme8wAiNoR2ir9gPbPR1IZeDscMmq9awTU1c7HxyslXsLBjJs2Ljb9V-AF1bRybi-uXNZgl0O_UttAUslXh9aVZZGIsgAdGnlvCh9HoDjrwVjH_yvQXHuX0AFYDMPn2InkWv21PQg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5YN0kXaLtDWctSGurzbieTdd-r9IHU0E0ahQellMiBYP5n_TYyuDJG6js49csHcGHi9Iya2aQAOvdlmACGQyCIJ9fQv8B-vjcNvu6XRfmz36SuFcCzn4YSCaO9HIIypbUgK52Sghi9NVt2XZyB4Mb7Qc=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4B3btqByroZ1S-0590rbA-ggf_LnYVzAR9tE25W5BhLpg83lAlMPHFN1ipxouZAYBGZUZK_0lrzjcSiqixjva_tl596KELHWJfBsU5cp8RXHJHjWsszqvdnyYiaOny5kUq-jQpr4dKNsJqZlWLUyY9_gl39hLauM5OvK1tG_xNh6Q7i5a7KwhwQ0Khbv8v5iZ6fg="
+   ],
+   "tokens": 402,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpGDNmkTM-fRUPdTdf2f7Vfb8uKLJBp7erV-OXEMH6qLB3ZS6CSqLinRrf20-h5OUH4nYN_wS6HWR76bi0dWYzILAxXK9b52oJk3K8kBb2-LD1EHoFjLtffg12dYAyHyo3FLN4JasovxT7IFWEYzPQ-DImEh9OmnP3NoVAEnsW3wjKRF-IsZh_ndXnMHN4se1NBihBicl4Oeh96rNM31byzc7yXODhnpw7hBY250_g4EQY9cx491UQLRLfrbNF5JQQvPdd7Y-nKtLpqELTX5NvesT3dHhHHI6tVPRqw4YnwBbzaSxIldcns5fxXtMr30K2MK2c4wlolVt5ZZJgjsgPvNxLQ68FXO8zh80dPuCZX_KPfxGspx3eHLEzgueyVZTLw6TSERVgbPPfutd92yMYRdg4xJ2q4muf6V8Fg_qFzldZ_9egmnFwUQCCtT1CFXoWkZYDZAdZTU4Fw_k=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWwx_3J16RAjuFoKjwMG1Z09i6bSwda2uAzaVKHNbSKk-rhkNn7SIFHqUMQD3xsmh0jkNSah5VQw-q4HEsaY8pf9W-wICflcFmVGtPiex1T7sUjt5W7Il-P68M1B37T5NJ1psLuAkSD5wKANFEVL0j",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8-gNhekUYCrneFxTk8hYebjG_uBTQUKdIECRISoPfQpQMsCAZ4X0u8tTwIPMw5gLeyDQqPTRB8VRp1Hnz3NVOLIL9ojD6KXWZF_j_L-lOWvTxvc_dtciP-cTGJlKNzOg0ju4xCtFamusKtdfh-J1_5zqGhSM=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0Enh4eOVzUZkGoVIvL3iC4ZYqSGLbcS9GyYxpKb2Sq6ov8iUvuEmWYXk8y7j6iXSxZg8cueLreD2itCUjBRFaHpaTBhlXSdsAuwL-3648ZEFZ0tJOoMWKi1RX38ZGiJHxU7RDuzosmnJEWSM8ir0glq5bxjebRQDEul3LkOA5",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_ZZPPiP-7UcmC5aavU4kgj-g5noS7QvSIddZEHN6M5Z9S0j-sMFx0wIzqDXFxwkF0f7CXQeGMySl_qZYgQ5rPuR8nH6zDL1FLqXKOkJlGIXtc6yVjeHrjtcRpZ5j1A6XjhSjoTLlWEi6jRPopriq-UzwUoxgNvsWG5AfYi8H4oUcp",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8__GxRtjBrfo45iUwmARN6ZuMLQqVl3bS7mDCNiHobg6AteOWezNeCoLxGVDZk0kPz1MbDPcz-HduUJnQrmnSWEU-qczPPW9eRbrQVro6EU5-UH6SsR8rsH9fYiEYJ9B0Mm3cgkdZoD8UGw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPwnBwB-578Vme8wAiNoR2ir9gPbPR1IZeDscMmq9awTU1c7HxyslXsLBjJs2Ljb9V-AF1bRybi-uXNZgl0O_UttAUslXh9aVZZGIsgAdGnlvCh9HoDjrwVjH_yvQXHuX0AFYDMPn2InkWv21PQg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5YN0kXaLtDWctSGurzbieTdd-r9IHU0E0ahQellMiBYP5n_TYyuDJG6js49csHcGHi9Iya2aQAOvdlmACGQyCIJ9fQv8B-vjcNvu6XRfmz36SuFcCzn4YSCaO9HIIypbUgK52Sghi9NVt2XZyB4Mb7Qc="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "La elección del triple sec depende del tipo de margarita que quieras preparar y de tu presupuesto. Aquí te detallo las mejores opciones según el resultado que busques:\n\n### 1. El Estándar de Oro: **Cointreau**\nEs la opción preferida por la mayoría de los bartenders para una **Margarita Clásica**.\n*   **Por qué:** Es un licor de 40% de alcohol, mucho más fuerte y seco que los triple sec económicos. Aporta un sabor a naranja muy puro y limpio que no opaca el sabor del tequila.\n*   **Resultado:** Una margarita equilibrada, elegante y no demasiado dulce.\n\n### 2. Para una Margarita \"Cadillac\" o de Lujo: **Grand Marnier**\nAunque técnicamente es un licor de naranja basado en coñac (no un triple sec tradicional), se usa para elevar el cóctel.\n*   **Por qué:** Al tener una base de coñac, aporta notas de vainilla, roble y una textura más densa y rica.\n*   **Resultado:** Una margarita más oscura, compleja y potente. Ideal si usas un tequila **Reposado** o **Añejo**.\n\n### 3. La Opción Profesional Alternativa: **Pierre Ferrand Dry Curaçao**\nMuy popular en la coctelería artesanal actual.\n*   **Por qué:** Es menos dulce que el Cointreau y tiene un sabor a cáscara de naranja amarga más profundo.\n*   **Resultado:** Una margarita con un perfil más sofisticado y \"seco\".\n\n### 4. Opciones Económicas (Buena relación calidad-precio)\nSi no quieres gastar lo que cuesta una botella de Cointreau, busca estas marcas que funcionan bien para reuniones grandes:\n*   **Luxardo Triplum:** Muy cercano al estilo de Cointreau pero suele ser un poco más barato.\n*   **Bols o DeKuyper:** Son las opciones más comunes en supermercados. Son más dulces y tienen menos alcohol (alrededor de 15-20%).\n*   **Consejo:** Si usas estos últimos, reduce un poco el azúcar o jarabe de tu receta, ya que estos licores son bastante azucarados.\n\n### Resumen rápido:\n*   **¿Quieres la mejor margarita posible?** Usa **Cointreau**.\n*   **¿Quieres algo más robusto y lujoso?** Usa **Grand Marnier**.\n*   **¿Tienes un presupuesto ajustado?** Usa **Luxardo** o **Bols**.\n\n**Pro-tip:** En Puerto Rico, el **Cointreau** se consigue fácilmente en la mayoría de los supermercados (Econo, Selectos, Pueblo) y tiendas especializadas como La Bodega de Méndez o El Hórreo. Si buscas algo más económico pero decente, el **Dekuyper** es el estándar que verás en casi todas partes.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcsp0GXV5J2S2Qlqohi3A-7R_fB-4yH2jsrzeDCdsHuZl5zy-ZlQAvsnzuG0lDcHPOYiJeM-SLjp5bQ4fwTXbpnr8f6w7HPI314kmq5rv21zCrrqC0umEcBFB_x6iZWK_nIvtdQY2fBxLhbB4wM6kAmycuFLaE8g==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmiV6So3WgmHY1O384W5AZj0CazoLsSwKpwepR9yUFzfzxfHDZVozvbaGczAShfC5evJ6aewkPSjMbWERKq0Ihe2mejD_Cw-KmttznDc1sixvK0k3L6ndTkdzLsCTQBtfHyFJaJzDdfMY4ErkvAHqxqJxrpjlGxnAVXRIu3uShTB7JwN4LPSC-rJZ_g9ehKaY=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEacdHIp7R-nPdraY2zLnowsZPKP74sfjSgQ7GOkvOhOk_s6Cj5IZQwyhaE0hKt2RwUiT4Qh36XDCq5zmqu1ciw5jwd9iZZXXQFitvEzlIB9S4GYKDDaoL16ogzMJMfT5z8FaoH3LcnXNlwsWBz4Jjl7m4wg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGB5O2aNZ9fu7EJTfeAsSdrx6YzAXpns7gaH-RvARyw4u-I4Y01-BPQLbIQ9rLqmyIKZ5mV9KwoqotQbW7tYu_MbL7d1eKf12FtHfvIYZmPoVW62GRh2vportp3BoZy1pPDeTL5AgM61tfRJGO6f16pXug0Q8Tygkz8KxPWtdceU2XZ_CIslpRdahixYljBq68kXr79CT08wEP5WnHAim9R",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEG9GhYaCCCHGjV2YwbPfAguoMjK02Y1T-bHKWkxzshslm051a-LBEsa-MB8QgScC59_sVCl6dPIy33Z1E7QHjzgpC00DZyUllQih8hvAP3lVM-4HUYqenmdwnqRRXVKcNwGeHz29rLO1QV2vCcSM6sPHQPGFwfEWfpTWu08v3Slw0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEW9oOg6LMlP-OUb9RZfmidv-JNagHMsYN5hXHpsLnUO6Amt1qhBrVyHdYtfoLXeeYGIsPh_yRio2Zx48Odj4JY_M3u5w-bZHOXksJ_uPn_PNfy2wbxqj3IXqznuhK8hmWkStaswdY18xQnZ4c="
+   ],
+   "tokens": 652,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcsp0GXV5J2S2Qlqohi3A-7R_fB-4yH2jsrzeDCdsHuZl5zy-ZlQAvsnzuG0lDcHPOYiJeM-SLjp5bQ4fwTXbpnr8f6w7HPI314kmq5rv21zCrrqC0umEcBFB_x6iZWK_nIvtdQY2fBxLhbB4wM6kAmycuFLaE8g==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmiV6So3WgmHY1O384W5AZj0CazoLsSwKpwepR9yUFzfzxfHDZVozvbaGczAShfC5evJ6aewkPSjMbWERKq0Ihe2mejD_Cw-KmttznDc1sixvK0k3L6ndTkdzLsCTQBtfHyFJaJzDdfMY4ErkvAHqxqJxrpjlGxnAVXRIu3uShTB7JwN4LPSC-rJZ_g9ehKaY=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEacdHIp7R-nPdraY2zLnowsZPKP74sfjSgQ7GOkvOhOk_s6Cj5IZQwyhaE0hKt2RwUiT4Qh36XDCq5zmqu1ciw5jwd9iZZXXQFitvEzlIB9S4GYKDDaoL16ogzMJMfT5z8FaoH3LcnXNlwsWBz4Jjl7m4wg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGB5O2aNZ9fu7EJTfeAsSdrx6YzAXpns7gaH-RvARyw4u-I4Y01-BPQLbIQ9rLqmyIKZ5mV9KwoqotQbW7tYu_MbL7d1eKf12FtHfvIYZmPoVW62GRh2vportp3BoZy1pPDeTL5AgM61tfRJGO6f16pXug0Q8Tygkz8KxPWtdceU2XZ_CIslpRdahixYljBq68kXr79CT08wEP5WnHAim9R",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEG9GhYaCCCHGjV2YwbPfAguoMjK02Y1T-bHKWkxzshslm051a-LBEsa-MB8QgScC59_sVCl6dPIy33Z1E7QHjzgpC00DZyUllQih8hvAP3lVM-4HUYqenmdwnqRRXVKcNwGeHz29rLO1QV2vCcSM6sPHQPGFwfEWfpTWu08v3Slw0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEW9oOg6LMlP-OUb9RZfmidv-JNagHMsYN5hXHpsLnUO6Amt1qhBrVyHdYtfoLXeeYGIsPh_yRio2Zx48Odj4JY_M3u5w-bZHOXksJ_uPn_PNfy2wbxqj3IXqznuhK8hmWkStaswdY18xQnZ4c="
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "dekuyper",
+    "grand marnier",
+    "luxardo triplum",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "Para una Margarita, la elección del triple sec es fundamental porque es el ingrediente que aporta el equilibrio entre el alcohol, el dulzor y el aroma cítrico.\n\nAquí te presento las mejores opciones dependiendo de tu presupuesto y el perfil de sabor que busques:\n\n### 1. La opción premium (y estándar de oro): **Cointreau**\nEs técnicamente un triple sec, pero de una calidad superior.\n*   **Por qué usarlo:** Es el más equilibrado. Tiene un sabor a naranja muy puro, es menos dulce que otras marcas y tiene un contenido de alcohol más alto (40%).\n*   **Resultado:** Una margarita elegante, seca y con un sabor a naranja muy nítido. Si quieres la receta \"original\", esta es la opción.\n\n### 2. La opción con cuerpo: **Grand Marnier**\nAunque técnicamente es un licor de naranja basado en **brandy/cognac** (no es un triple sec puro), se usa muchísimo.\n*   **Por qué usarlo:** Al tener una base de brandy, aporta notas de vainilla, roble y caramelo.\n*   **Resultado:** Una margarita más compleja, oscura y dulce. Es el ingrediente principal de la famosa \"Cadillac Margarita\".\n\n### 3. La opción balanceada: **Combier L’Original**\nEs considerado el primer triple sec del mundo (creado en Francia).\n*   **Por qué usarlo:** Es muy similar al Cointreau pero a veces se siente un poco más \"brillante\" y floral.\n*   **Resultado:** Una margarita muy clásica y profesional.\n\n### 4. La opción económica: **Dekuyper o Bols**\nSon las marcas que encuentras en cualquier supermercado.\n*   **Por qué usarlo:** Son económicos y fáciles de conseguir.\n*   **Advertencia:** Tienen mucho más azúcar y menos graduación alcohólica (alrededor de 15-25%).\n*   **Resultado:** Una margarita mucho más dulce y con un sabor a naranja que puede sentirse un poco más \"artificial\". Si usas estos, reduce un poco el jarabe de agave o azúcar de tu receta.\n\n### 5. El toque mexicano: **Controy**\nEs un triple sec producido en México.\n*   **Por qué usarlo:** Se dice que es el que se usó en las primeras margaritas creadas en bares de Ensenada o Acapulco.\n*   **Resultado:** Un sabor auténtico de cantina mexicana.\n\n---\n\n### Mi recomendación personal:\nSi quieres la **mejor Margarita posible**, usa **Cointreau**. La diferencia de precio vale la pena por la calidad del cóctel.\n\n**Pro-tip:** Si sientes que tu triple sec es muy dulce, ajusta la receta usando:\n*   2 oz Tequila Blanco\n*   1 oz Jugo de lima fresco\n*   **1/2 oz a 3/4 oz** de Triple Sec (dependiendo de qué tan dulce te guste).",
+   "urls": [],
+   "tokens": 666,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "controy",
+    "dekuyper",
+    "grand marnier"
+   ],
+   "precio": [],
+   "dice_25": true,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec uso para una margarita?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "La elección del triple sec depende del tipo de margarita que quieras preparar y de tu presupuesto. Aquí tienes las mejores opciones según los expertos y bartenders:\n\n### 1. La opción estándar (Calidad Premium): **Cointreau**\nEs considerado el \"estándar de oro\" para una margarita clásica.\n*   **Por qué usarlo:** Tiene un equilibrio perfecto entre dulce y amargo, con un contenido de alcohol más alto (40% ABV) que ayuda a que el sabor de la naranja resalte sin que el cóctel se sienta demasiado dulce o aguado.\n*   **Resultado:** Una margarita limpia, cítrica y muy equilibrada.\n\n### 2. La opción para una margarita \"Cadillac\": **Grand Marnier**\nAunque técnicamente es un licor de naranja a base de coñac (no un triple sec tradicional), se usa en las margaritas de gama alta.\n*   **Por qué usarlo:** Al tener una base de coñac, aporta notas de vainilla y roble.\n*   **Resultado:** Una margarita más robusta, oscura y compleja. Es ideal si usas un tequila reposado o añejo.\n\n### 3. La opción balanceada y artesanal: **Combier**\nEs el triple sec original (creado en 1834) y es muy apreciado por los bartenders profesionales.\n*   **Por qué usarlo:** Es muy brillante y tiene un sabor a naranja muy puro.\n*   **Resultado:** Similar al Cointreau pero a veces se siente un poco más \"fresco\" y floral.\n\n### 4. Opciones económicas (Para fiestas o grandes cantidades)\nSi buscas algo más accesible, marcas como **Dekuyper**, **Bols** o **Luxardo Triplum** son opciones comunes.\n*   **Consideración:** Estos suelen tener menos alcohol (15-30% ABV) y mucho más azúcar. Si usas uno de estos, te recomiendo **reducir un poco la cantidad de jarabe simple** (si la receta lo lleva) y añadir un toque extra de jugo de lima para compensar el dulzor.\n\n### 5. La alternativa \"Curaçao\": **Pierre Ferrand Dry Curaçao**\nSi prefieres una margarita con un toque más histórico y menos dulce.\n*   **Por qué usarlo:** Está diseñado para ser \"seco\" (dry), por lo que aporta mucho aroma a naranja pero poca azúcar.\n\n---\n\n### Mi recomendación rápida:\n*   Si quieres **la mejor margarita clásica**: Usa **Cointreau**.\n*   Si quieres una margarita **más barata**: Usa **Dekuyper** o **Bols** (pero ajusta el dulce).\n*   Si quieres algo **especial/elegante**: Usa **Grand Marnier**.\n\n**Tip de bartender:** Independientemente de la marca, asegúrate de usar **jugo de lima recién exprimido**. Ningún triple sec premium puede salvar una margarita hecha con mezcla embotellada (sour mix).",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzt8zPlKzsleH5Sl6OBG30tlsP6j_J_NszHklMrFhXJR2bDv_c_BDqWkb5yk3uRiZG-8uuhfJC-YuU7cYFpekzAAChjFwEhVLe4-3uVeMqo_OhKgnbiC7-5cQDjWuU-vask3g2r8xNvB17dtBRUfmWzzJDMGOZezmzRD5CfBTE1temNPyZxL5N-I7rSKJ7Ss0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvxaIdCEIzUi3n0h1n6Bk8eT43XAJBKqIJDg0mL5zjESx0N8JEO-0GGOMZhX_tygRNWgZ1DBLIuQM_toXr80kXRMhBoQCFfoTCD1uLl7tDUy74SgQwIR1fN335pTFaLHA2lPdrxpM7rPOb_wpw9e9tD30t64rjBnK08sydU7Y6J_9ATihcrkcw_qt-tuSTmdJEEWTUNukBy7FCq0yk0A==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-1Zr2ySdK-sxpNkZDUuRnnk0SxVgRfX7e95nPMRyPJmrk9iN8pspTjGrufxJAKoYkolwsYoSBVv6WnNJ-1UFDvHoDLf0b07fEfc4_eKBQFRXzpu9fQyflnXISxrd_GQOjPuSehok6qkXR4RvVaQvtS2vJ8Q==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_n_F5I30G9kDeZLn_BvWrwkr0qo6e0CevleqHyPKnuCE0kAg5BnALthz2UOnMo1XzS3BBjMKZNPlCj4HHPvAnGYDDP0waCG0nF0We-LpNay9Q3BOsYYLun9rqkg7ZC5ieb7ZZD8aAOzSOrjK0zy7g8-1Zdcv2YfimHvX1Dg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIf9_Y5rZfZykdIo3QqWk4SPIySRFnE185p8aJ8QWGax2z18Ht_jht6DhUM_ZkxFkCjSgHsaYWV4M1MERj2Bh7yGU_S5tgHE7CcioXljo8Lq4ml5Jk2PnzzCsT26Ph3IS5mesrRuvCezuHO5G5ZJiOCTD38bGdG6TVCwYUubJgjqzSF55U7Rje",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVoO6p5ktovzu4fAMwQtPOOZtH15YQ0Z6WKokz7MnfoFe3nAjAWk8Y3mMrsWOUfoPYlBUDlRN6RL9QzYfoq2Ae7tV0cqNyxgSh-K6u9AcstK1-vIKInat0b0ogSAfzgcSn_qW6Ul_B1juI0MzHolInUoNpWJpZOLdDws-Z"
+   ],
+   "tokens": 664,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzt8zPlKzsleH5Sl6OBG30tlsP6j_J_NszHklMrFhXJR2bDv_c_BDqWkb5yk3uRiZG-8uuhfJC-YuU7cYFpekzAAChjFwEhVLe4-3uVeMqo_OhKgnbiC7-5cQDjWuU-vask3g2r8xNvB17dtBRUfmWzzJDMGOZezmzRD5CfBTE1temNPyZxL5N-I7rSKJ7Ss0=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvxaIdCEIzUi3n0h1n6Bk8eT43XAJBKqIJDg0mL5zjESx0N8JEO-0GGOMZhX_tygRNWgZ1DBLIuQM_toXr80kXRMhBoQCFfoTCD1uLl7tDUy74SgQwIR1fN335pTFaLHA2lPdrxpM7rPOb_wpw9e9tD30t64rjBnK08sydU7Y6J_9ATihcrkcw_qt-tuSTmdJEEWTUNukBy7FCq0yk0A==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-1Zr2ySdK-sxpNkZDUuRnnk0SxVgRfX7e95nPMRyPJmrk9iN8pspTjGrufxJAKoYkolwsYoSBVv6WnNJ-1UFDvHoDLf0b07fEfc4_eKBQFRXzpu9fQyflnXISxrd_GQOjPuSehok6qkXR4RvVaQvtS2vJ8Q==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_n_F5I30G9kDeZLn_BvWrwkr0qo6e0CevleqHyPKnuCE0kAg5BnALthz2UOnMo1XzS3BBjMKZNPlCj4HHPvAnGYDDP0waCG0nF0We-LpNay9Q3BOsYYLun9rqkg7ZC5ieb7ZZD8aAOzSOrjK0zy7g8-1Zdcv2YfimHvX1Dg==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIf9_Y5rZfZykdIo3QqWk4SPIySRFnE185p8aJ8QWGax2z18Ht_jht6DhUM_ZkxFkCjSgHsaYWV4M1MERj2Bh7yGU_S5tgHE7CcioXljo8Lq4ml5Jk2PnzzCsT26Ph3IS5mesrRuvCezuHO5G5ZJiOCTD38bGdG6TVCwYUubJgjqzSF55U7Rje",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFVoO6p5ktovzu4fAMwQtPOOZtH15YQ0Z6WKokz7MnfoFe3nAjAWk8Y3mMrsWOUfoPYlBUDlRN6RL9QzYfoq2Ae7tV0cqNyxgSh-K6u9AcstK1-vIKInat0b0ogSAfzgcSn_qW6Ul_B1juI0MzHolInUoNpWJpZOLdDws-Z"
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "dekuyper",
+    "grand marnier",
+    "luxardo triplum",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 1,
+   "respuesta": "In Puerto Rico, the availability of triple sec ranges from high-end French imports to locally produced value brands. Depending on your budget and whether you are making a high-end margarita or a batch party drink, here are the best options:\n\n### 1. The Gold Standard: **Cointreau**\nUniversally considered the best premium triple sec, Cointreau is widely available in Puerto Rico at major retailers like **Econo, Pueblo, and Costco**, as well as specialty shops like **La Licorera** and **Prime Market**. \n*   **Why it’s the best:** It has a higher alcohol content (40% ABV) and uses a blend of sweet and bitter orange peels, providing a balanced, sophisticated flavor that isn't overly sugary.\n*   **Best for:** Premium Margaritas, Cosmopolitans, and Sidecars.\n\n### 2. The Local Favorite: **Trigo Triple Sec**\nFor a local option, the **Trigo** brand (famous for its Reserva Añeja rum) produces a triple sec that is a staple in Puerto Rican households and bars.\n*   **Where to find it:** You can find Trigo Triple Sec in almost every local supermarket (**Pueblo, Selectos**) and liquor store at a very accessible price (usually around $10–$12).\n*   **Best for:** High-volume cocktails, local \"house\" margaritas, and home parties where you want a reliable orange flavor without the premium price tag.\n\n### 3. Best Value/Mid-Range: **Luxardo Triplum** or **Bols**\nIf you want something better than a budget brand but cheaper than Cointreau, look for these European imports.\n*   **Luxardo Triplum:** Often found in specialized stores like **La Licorera**, this is a dry, high-quality Italian triple sec that rivals Cointreau for a few dollars less.\n*   **Bols Triple Sec:** A very common sight in PR bars and retail stores, offering a consistent citrus profile for mid-range cocktails.\n\n### 4. The \"Bartender’s Choice\" Alternative: **Pierre Ferrand Dry Curaçao**\nWhile technically a \"Curaçao\" rather than a triple sec, it is often stocked alongside them and is preferred by many professional bartenders in San Juan’s craft cocktail scene (like those in Miramar or Old San Juan).\n*   **Flavor:** It is much less sweet and has a richer, more complex orange flavor.\n*   **Where to find it:** Available at boutique liquor distributors and shops like **Prestige Spirits** or **La Licorera**.\n\n### Summary Recommendation:\n*   **For the best possible cocktail:** Buy **Cointreau**.\n*   **For a local Puerto Rican experience/value:** Buy **Trigo**.\n*   **For Tiki drinks or a drier profile:** Buy **Pierre Ferrand Dry Curaçao**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGl7YXMV8HSI8Tw1qW3eUGkG6K35vw2VYg5wj31qNyDxoOQ9nB7MM6ebhGl3ejzb17UW7LrDwQZFP0aShZDncOesIlAMb4Wm9RK9x_jfQ7SKXyKZbSIFvrU1yMZYU_He1mT0mkbzrmB4SvlgdSJDLgLuUMYCEQUXRxrHaYjMXAmlYqt__fZ5y4kJq3kDRcgN2LQiLp2BRHsidBRmCzG",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwSwTUqdW9Lp6TuIDYWE6WEZBchfg7266nJjW4U_bEtOlvYUzZ5QI_6cUt-AaOT5AdyquqrHyweV8ghfpnggNf7-aNGUXTFU1XiPZLMHwR35PynRFM57a3caVL5iVq9NXPmBTGG2fb1N0LAlE=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjMBi7zHcRTWHyWhpSh1DNHPETyRG6udllvH-SQSryOeRdvJSMmJX8y4csKrwBNSEmp750no9L7uoNDPnk8QX6GR8ofu87SDa4V1i3mBVXWYOBYYOoBV-KmVM4mrHbtbhxe5q_B1JXg3HiO4qtEbAhTJl2XZA2V0F9J1I=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEObIc3QpcgrPZajN2_hCHArEYaK9edhUQpQexrVlJh4ABFujqYClMLUaCM3uHFVQbRHkNU-1y5ifTOdCETRnfUh5P0hDj3DQxSBsSDzCPMXPvO55N4Y5zm7wDccZvyUmrkoBv_ca4Tq6AFJXUzYis1swYfoekY"
+   ],
+   "tokens": 637,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGl7YXMV8HSI8Tw1qW3eUGkG6K35vw2VYg5wj31qNyDxoOQ9nB7MM6ebhGl3ejzb17UW7LrDwQZFP0aShZDncOesIlAMb4Wm9RK9x_jfQ7SKXyKZbSIFvrU1yMZYU_He1mT0mkbzrmB4SvlgdSJDLgLuUMYCEQUXRxrHaYjMXAmlYqt__fZ5y4kJq3kDRcgN2LQiLp2BRHsidBRmCzG",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwSwTUqdW9Lp6TuIDYWE6WEZBchfg7266nJjW4U_bEtOlvYUzZ5QI_6cUt-AaOT5AdyquqrHyweV8ghfpnggNf7-aNGUXTFU1XiPZLMHwR35PynRFM57a3caVL5iVq9NXPmBTGG2fb1N0LAlE=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjMBi7zHcRTWHyWhpSh1DNHPETyRG6udllvH-SQSryOeRdvJSMmJX8y4csKrwBNSEmp750no9L7uoNDPnk8QX6GR8ofu87SDa4V1i3mBVXWYOBYYOoBV-KmVM4mrHbtbhxe5q_B1JXg3HiO4qtEbAhTJl2XZA2V0F9J1I=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEObIc3QpcgrPZajN2_hCHArEYaK9edhUQpQexrVlJh4ABFujqYClMLUaCM3uHFVQbRHkNU-1y5ifTOdCETRnfUh5P0hDj3DQxSBsSDzCPMXPvO55N4Y5zm7wDccZvyUmrkoBv_ca4Tq6AFJXUzYis1swYfoekY"
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "luxardo triplum",
+    "pierre ferrand"
+   ],
+   "precio": [
+    "$10",
+    "$12"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 2,
+   "respuesta": "The \"best\" triple sec depends on your budget and what you're making, but in Puerto Rico, you have access to both world-class imports and solid local staples.\n\nHere are the best triple sec options available in Puerto Rico, categorized by quality and use:\n\n### 1. The Gold Standard (Premium)\n*   **Cointreau:** Widely considered the best triple sec worldwide and easily found in PR (Supermercados Pueblo, Econo, and specialty shops like La Licorera). It is 40% ABV, crystal clear, and offers a perfect balance of sweet and bitter orange. It is the essential choice for a high-end Margarita or Cosmopolitan.\n*   **Luxardo Triplum:** Often available at boutique liquor stores in San Juan. It is a dry, high-proof (39% ABV) triple sec that adds a more complex, herbal citrus note to cocktails.\n\n### 2. The Local Favorite (Best Value)\n*   **Trigo Triple Sec:** Produced locally by **Destilería Trigo**, this is a staple in Puerto Rican households and bars. It is significantly more affordable than Cointreau (usually around $10-$12) and is perfect for large batches of sangria or casual margaritas. While it is sweeter and lower in alcohol, it has a nostalgic, reliable flavor profile for locals.\n\n### 3. Professional & Specialty Picks\n*   **Combier Liqueur d'Orange:** If you can find it at specialty distributors like **Prestige Spirits**, this is the original triple sec from France. It is highly prized by craft bartenders for its clean, intense orange zest flavor.\n*   **Pierre Ferrand Dry Curaçao:** While technically a \"Curaçao\" rather than a \"Triple Sec,\" it is widely available in San Juan's cocktail scene. It uses a brandy base and is the preferred choice for sophisticated drinks like a Mai Tai or a Sidecar because it is less sugary.\n\n### 4. Reliable Mid-Range\n*   **Bols Triple Sec:** A common sight in PR supermarkets. It sits between the budget brands and Cointreau. It’s a solid workhorse for home bars if you want something better than the bottom-shelf options but don't want to spend $35+ on a bottle.\n\n**Where to Buy:**\n*   **High-End/Specialty:** *La Licorera* (San Juan), *The House* (Condado/Guaynabo), or *El Hórreo de V. Suárez*.\n*   **Convenience/Local Brands:** *Supermercados Pueblo*, *Econo*, and *Selectos*.\n\n**Recommendation:** For the best possible cocktail, go with **Cointreau**. For a local experience or large parties, **Trigo** is the undisputed champion of the island.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6zvTorthCq2vmEG4DqvcZle9qZcsS_MC1xMs_1w3MUhDuvkfDimNRMp9p0tO6lMbBS2G9GbeRP1X1HrxFa920Ir8_e6-eUuobM3siN8iQOdS9ZHHgZjHFD1ez-B67xyfgXFOZZX3_hzaf8Lcc0Be_eQ0ocmgd",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFS7G3f22sZEIBBOa782a2W13uEINA9xWKx37nJ_X_8GDoTjrpEzQkIbZiJG_SGQH2MmYaSYnri2IrbDaBJ1rbdoMqSBOFeBQhYrIOQlUeDRYFr0FuR5yp5XM0dd18i85Tg_RewUz1uPU14",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3GUSU4oMuM6b0ktWu1-Z9_a9Tg82anESeYWPVuxMouvI6nFjls5S8LmPvqlQmKej1EfRB1SmfxfRzVeA_5_BXcU8W8iiPAEDDaX78HzdaHt96CiZWjy6q2eeQ8IgXB_IFq-xHBEYpgjarnT-5O4iNxZlstaAClA=="
+   ],
+   "tokens": 619,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6zvTorthCq2vmEG4DqvcZle9qZcsS_MC1xMs_1w3MUhDuvkfDimNRMp9p0tO6lMbBS2G9GbeRP1X1HrxFa920Ir8_e6-eUuobM3siN8iQOdS9ZHHgZjHFD1ez-B67xyfgXFOZZX3_hzaf8Lcc0Be_eQ0ocmgd",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFS7G3f22sZEIBBOa782a2W13uEINA9xWKx37nJ_X_8GDoTjrpEzQkIbZiJG_SGQH2MmYaSYnri2IrbDaBJ1rbdoMqSBOFeBQhYrIOQlUeDRYFr0FuR5yp5XM0dd18i85Tg_RewUz1uPU14",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3GUSU4oMuM6b0ktWu1-Z9_a9Tg82anESeYWPVuxMouvI6nFjls5S8LmPvqlQmKej1EfRB1SmfxfRzVeA_5_BXcU8W8iiPAEDDaX78HzdaHt96CiZWjy6q2eeQ8IgXB_IFq-xHBEYpgjarnT-5O4iNxZlstaAClA=="
+   ],
+   "competencia": [
+    "bols",
+    "cointreau",
+    "combier",
+    "luxardo triplum",
+    "pierre ferrand"
+   ],
+   "precio": [
+    "$10",
+    "$12",
+    "$35"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "Best triple sec available in Puerto Rico",
+   "idioma": "en",
+   "corrida": 3,
+   "respuesta": "In Puerto Rico, the \"best\" triple sec depends on whether you are looking for a world-class premium import or a high-quality local option for casual mixing.\n\n### 1. The Gold Standard (Premium Import)\n**Cointreau** is widely considered the best triple sec available on the island. It is the \"gold standard\" for professional bartenders in Puerto Rico and is essential for a classic Margarita or Cosmopolitan. \n*   **Why it’s the best:** It has a high alcohol content (40% ABV), providing a clean, dry, and intense orange zest flavor without being overly syrupy.\n*   **Availability:** You can find it at major retailers like **La Licorera**, **The House**, and large supermarkets like **Econo** or **Pueblo**.\n\n### 2. The Best Local Option (Value & Versatility)\n**Trigo Triple Sec** is the most popular locally produced option. While it is a \"budget\" spirit compared to Cointreau, it is a staple in Puerto Rican households and chinchorros (roadside bars).\n*   **Why it’s a good choice:** It is significantly more affordable and perfectly suited for high-volume batches of Sangria or casual Margaritas where the orange liqueur is not the primary focus.\n*   **Availability:** Ubiquitous; available in almost every grocery store and gas station across the island.\n\n### 3. Top Tier Alternatives (Orange Liqueurs)\nWhile not technically \"triple secs\" in the strictest sense, these orange liqueurs are top-shelf alternatives frequently found in PR:\n*   **Grand Marnier:** A blend of cognac and orange liqueur. Choose this if you prefer a richer, oakier, and more complex flavor (often used in a \"Cadillac Margarita\"). \n*   **Patrón Citrónge:** Often available due to the high demand for Patrón products in Puerto Rico. It is a high-quality, high-proof (35-40% ABV) liqueur designed specifically to pair with tequila.\n*   **Pierre Ferrand Dry Curaçao:** If you frequent craft cocktail bars in San Juan (like *La Factoría*), this is often the bartender's choice for a drier, more historic orange flavor. It is occasionally available at specialty shops like **El Hórreo de V. Suárez**.\n\n### Where to Buy\n*   **La Licorera (San Juan/Online):** Offers the widest selection of premium labels like Cointreau and Grand Marnier with island-wide shipping.\n*   **The House (Condado/Various):** A premium wine and spirits warehouse with a broad selection of imported liqueurs.\n*   **Costco/Sam’s Club:** Usually the best place to buy Cointreau or Grand Marnier at the lowest price per ounce.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEExI6-dLtbJJkx-TdSCt-kWyiwBF5eco6EDxub221oFmfdmy-JpF96Q82ywmxwCMiQjChib-nbWTycDFURWqDobs0Gw1qvKKZ2LLAd3phKheB1hTLA6xtWIudbflu4k6GYoP437HBrq5oSBQd1-4R1",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0jNGyn32oORNTB5TyZQUk74NJwJc_enMFetPVQFRqkWJawtvUmcmCX1h_rw2YaoOWYbGsVrRS98z8fLCFPbJNwkntQzzReFHpuIexF74w_3ClOFYmpCkIetKB0D809fP61g1EHEs5LCiwNBUN17RkZHXpCDf8ZchQkqxO",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxE_pg8t5vlHC499tnei5tyylIcWFWEJi-WBoJ8q9ICg_a-aUV-Dg8iwIZ9eSHANQEwBrm_hcT3WJRBIlEftJM-8LcqNSc9_sSFEmS7KLjmH3UIbzMiel-aEZ7icb_twhe05T7vtDLVuKZ8BqN2j-bSS93BlKuOzP22opC1JwDXMdyEkw-jW3WeLUf964NhJ8NbtwLo4ii0AyFwPvZVA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9vlKP27TvRRYWRtVtRufFzueyIrGJOPtaq7VQqnTlHR6iFl-SeSnZGO67_Ev0z45KF2O_7yOihhd-OEW5k9hpzrsdZrBpSi-FnbHL9F6v5ntIumzGd81wzZcKbKMALEu4PD05c6DbD3Nzk0g=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXOOl5sPGUIHUQmCmHnacKgaBPGaOSwPc2Q6wWVnpwa0WBKOEx5X4Skegms5TxbZFySebVXfuO1eSx8254OiQXf_cGg_E-3tuY3i6MRI5VF32xhHEyGABhx6W7B-B7fqugtIO0Yf28OvgZiSXcykO_HlZs6U9scA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlmI7l1J3KDVuidiic1xzMkRAHDj-E7OCt5axIdTD87ysgljkO92-jMo8fFtjVmyLiK2PoKoFYrZ97YbScErhzBbYpcXqJFXf8B9Kcn2HVumTz78pziDbYWDYV-O9RTe7kBUtgRNKnkdLy2jn7YjvPtdX3",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpAhiZ5FLPHtqvXX00U2HDsBlKgKLiXoGpNqgBwt8lj8LhHHyyTn_o48ImarkfQR7wx89xpFi02eF6eb906a_thiRxUbpdIHb_MtXSQQo1STRnuuXSho0FbIGCsBAz7wb6mIrLB_BOjStOi3-P5IRzNbdukrxewkqhsik=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9ctEsldNCM7lwosRuu9U6adfU4-XBGghZ7_q9oy0QitlODs38nMwcQ34f1-Aeatdt9XndEa8PzJq4Le2GhQUtJ6nsIceYkJRKg9FlYY1rnMKHMfqfvd6qxspDFutB46AwsNlx4WgyVisvrR_K1z4QXuN-23OF2FcA",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiWH3sFJhDc_nnPczlNCbUZAHxCBEEhqTtRbs83EEf0oxhzpT3_R8U_Y-rF5hy1c377k6Dt_pOo9NgpA6Nuc5eS_kLtQsg1TwFb7KvQoHhIii-K3Win3W1UJGXp3M68ozuK3mhvJPT9ojXDC2zgEnAr4kLrKm8oby8rlYWNeq-Em5o7gtY"
+   ],
+   "tokens": 617,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEExI6-dLtbJJkx-TdSCt-kWyiwBF5eco6EDxub221oFmfdmy-JpF96Q82ywmxwCMiQjChib-nbWTycDFURWqDobs0Gw1qvKKZ2LLAd3phKheB1hTLA6xtWIudbflu4k6GYoP437HBrq5oSBQd1-4R1",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0jNGyn32oORNTB5TyZQUk74NJwJc_enMFetPVQFRqkWJawtvUmcmCX1h_rw2YaoOWYbGsVrRS98z8fLCFPbJNwkntQzzReFHpuIexF74w_3ClOFYmpCkIetKB0D809fP61g1EHEs5LCiwNBUN17RkZHXpCDf8ZchQkqxO",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxE_pg8t5vlHC499tnei5tyylIcWFWEJi-WBoJ8q9ICg_a-aUV-Dg8iwIZ9eSHANQEwBrm_hcT3WJRBIlEftJM-8LcqNSc9_sSFEmS7KLjmH3UIbzMiel-aEZ7icb_twhe05T7vtDLVuKZ8BqN2j-bSS93BlKuOzP22opC1JwDXMdyEkw-jW3WeLUf964NhJ8NbtwLo4ii0AyFwPvZVA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9vlKP27TvRRYWRtVtRufFzueyIrGJOPtaq7VQqnTlHR6iFl-SeSnZGO67_Ev0z45KF2O_7yOihhd-OEW5k9hpzrsdZrBpSi-FnbHL9F6v5ntIumzGd81wzZcKbKMALEu4PD05c6DbD3Nzk0g=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXOOl5sPGUIHUQmCmHnacKgaBPGaOSwPc2Q6wWVnpwa0WBKOEx5X4Skegms5TxbZFySebVXfuO1eSx8254OiQXf_cGg_E-3tuY3i6MRI5VF32xhHEyGABhx6W7B-B7fqugtIO0Yf28OvgZiSXcykO_HlZs6U9scA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlmI7l1J3KDVuidiic1xzMkRAHDj-E7OCt5axIdTD87ysgljkO92-jMo8fFtjVmyLiK2PoKoFYrZ97YbScErhzBbYpcXqJFXf8B9Kcn2HVumTz78pziDbYWDYV-O9RTe7kBUtgRNKnkdLy2jn7YjvPtdX3",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpAhiZ5FLPHtqvXX00U2HDsBlKgKLiXoGpNqgBwt8lj8LhHHyyTn_o48ImarkfQR7wx89xpFi02eF6eb906a_thiRxUbpdIHb_MtXSQQo1STRnuuXSho0FbIGCsBAz7wb6mIrLB_BOjStOi3-P5IRzNbdukrxewkqhsik=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9ctEsldNCM7lwosRuu9U6adfU4-XBGghZ7_q9oy0QitlODs38nMwcQ34f1-Aeatdt9XndEa8PzJq4Le2GhQUtJ6nsIceYkJRKg9FlYY1rnMKHMfqfvd6qxspDFutB46AwsNlx4WgyVisvrR_K1z4QXuN-23OF2FcA"
+   ],
+   "competencia": [
+    "cointreau",
+    "grand marnier",
+    "patrón citrónge",
+    "pierre ferrand"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "En Puerto Rico, el nombre **Tres Naranjos** se refiere principalmente a un **licor de naranja (Triple Sec)** elaborado localmente que se ha vuelto muy popular para la coctelería.\n\nAquí tienes los detalles del costo y dónde conseguirlo:\n\n*   **Precio promedio:** Cuesta alrededor de **$15.00** por la botella de 750 ml.\n*   **Puntos de venta:**\n    *   **Tiendas especializadas:** The House, El Almacén de Tito Areizaga, Licorería Rincón.\n    *   **En línea:** A través de plataformas como **PRoduce** (donde se confirma el precio de $15.00).\n    *   **Supermercados:** También se encuentra en algunos supermercados con secciones de licores bien provistas.\n\n**Características del producto:**\nEs un licor de naranja endulzado con **miel de agave**, diseñado para ofrecer una calidad de coctelería profesional a un precio accesible (frecuentemente mercadeado bajo el lema \"calidad de coctelería a precio de casa\"). Es el ingrediente preferido de muchos para preparar margaritas en la isla.\n\n*Nota: Existe también una marca de café llamada \"Tres Naranjos\" en Costa Rica (Café de Monterrosa), pero si estás en Puerto Rico, lo más probable es que busques el licor local.*",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzRgoxEtNuJxAZ1rRTjvUijCcJI6O3CzL25BIUnNkTJ6GXFTigqM4xqrtnDxsO9TCCEX8J2TMQsQNFfE0bm8BDd5iIW0LWfYZGUuGWR86EajiPEleH2cM-A4CmAoxQh0_4z3zrlcSzTVS5PjGc",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJlPZosHcRIJn8O9ZeUzYQaNKP3CpTOicDyg-U15ZB7gStjK0jLyPboHGJilGhPpi3Pj5iVWQw3s_QHD2eM1G2vfm45fJEPQ20pOvNoh4MKF2F7g=="
+   ],
+   "tokens": 330,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzRgoxEtNuJxAZ1rRTjvUijCcJI6O3CzL25BIUnNkTJ6GXFTigqM4xqrtnDxsO9TCCEX8J2TMQsQNFfE0bm8BDd5iIW0LWfYZGUuGWR86EajiPEleH2cM-A4CmAoxQh0_4z3zrlcSzTVS5PjGc",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJlPZosHcRIJn8O9ZeUzYQaNKP3CpTOicDyg-U15ZB7gStjK0jLyPboHGJilGhPpi3Pj5iVWQw3s_QHD2eM1G2vfm45fJEPQ20pOvNoh4MKF2F7g=="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00",
+    "$15.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "El costo de **Tres Naranjos** depende de si te refieres al licor artesanal de Puerto Rico o al café costarricense que también se comercializa bajo ese nombre. Aquí tienes los detalles:\n\n### 1. Tres Naranjos (Licor Artesanal - Puerto Rico)\nEs una bebida alcohólica local (tipo \"pitorro\" o licor de frutas) muy popular en la isla.\n*   **Precio aproximado:** **$15.00** por unidad (botella estándar).\n*   **Dónde comprar:** Se encuentra en supermercados, tiendas de productos locales y plataformas como *PRoduce*.\n\n### 2. Café Tres Naranjos (Café de Especialidad - Costa Rica)\nProducido por la Beneficiadora Monterrosa en la región de Naranjo, Alajuela.\n*   **Presentación de 250g:** Aproximadamente **₡2,250 a ₡3,600** (aprox. **$4.35 a $7.00 USD**).\n*   **Presentación de 500g:** Alrededor de **₡4,740** (aprox. **$9.20 USD**).\n*   **Dónde comprar:** Supermercados como Walmart Costa Rica o tiendas en línea especializadas en café.\n\n**Nota:** Si buscas el café en Puerto Rico, es más común encontrar marcas locales como **Tres Picachos**, cuyo precio ronda los **$7.75 por 14oz** o hasta **$52.00 por un saco de 5lbs**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-LI5Ki7VgVSvPraen31eSNL4g7IZU94d76mxJGDQCWv6_yqJSF8C_l7q4vX2f6LYkTYMCWv4ecGudKk9iULyBZUucOOBop3xJzN1-HZS8NtzYJpl1RccJeLZg",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGK0h1d0VALMu0Chv1t_MkEb7u8J4KX7T5x2ox-zYNFSAp6D29lyW1_9LCsF9CZduCyBPRdS_o3kT8z5XXg6bbjppLlp66W35-xq6ADHFcu6I8E8lPsg_2ne4RMFJVR8wSMLzDPtMHAlz5Y78Se6NhiHachkvaJM-c=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAOMz0viw0M6ORklqg_Uj7q1_2h2NnNRDRn8T6a3nmjhUUT4GirV5BynWOgBR7kcGH8jECnXtesYMZyD4lPxYDuLuVRVrGDPSemqrP64t4GKzwqBGdaIItvVuCgasLlGsDSnKl5OnxgOctMWRnJJmGMX4Tp1X9XtaNb3xxcQljQLeG3yd4Mrb6_cA-r0a8qhY="
+   ],
+   "tokens": 372,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-LI5Ki7VgVSvPraen31eSNL4g7IZU94d76mxJGDQCWv6_yqJSF8C_l7q4vX2f6LYkTYMCWv4ecGudKk9iULyBZUucOOBop3xJzN1-HZS8NtzYJpl1RccJeLZg",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGK0h1d0VALMu0Chv1t_MkEb7u8J4KX7T5x2ox-zYNFSAp6D29lyW1_9LCsF9CZduCyBPRdS_o3kT8z5XXg6bbjppLlp66W35-xq6ADHFcu6I8E8lPsg_2ne4RMFJVR8wSMLzDPtMHAlz5Y78Se6NhiHachkvaJM-c=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEAOMz0viw0M6ORklqg_Uj7q1_2h2NnNRDRn8T6a3nmjhUUT4GirV5BynWOgBR7kcGH8jECnXtesYMZyD4lPxYDuLuVRVrGDPSemqrP64t4GKzwqBGdaIItvVuCgasLlGsDSnKl5OnxgOctMWRnJJmGMX4Tp1X9XtaNb3xxcQljQLeG3yd4Mrb6_cA-r0a8qhY="
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00",
+    "$4.35",
+    "$7.00",
+    "$9.20",
+    "$7.75"
+   ],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto cuesta Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "Dependiendo de a qué producto o lugar te refieras en Puerto Rico, el precio de **Tres Naranjos** varía:\n\n### 1. Licor Tres Naranjos (Triple Sec)\nEs un licor de naranja con miel de agave muy popular en la isla para la elaboración de cócteles como margaritas.\n*   **Precio aproximado:** **$15.00** por la botella de 750 ml.\n*   **Dónde comprar:** Se consigue en supermercados y tiendas especializadas como *The House*, *PR Produce*, *Econo* o *Almacén Tito Areizaga*.\n\n### 2. Café Tres Naranjos\nAunque la marca es originaria de Naranjo, Costa Rica, se comercializa en Puerto Rico a través de plataformas de productos importados y tiendas de café de especialidad.\n*   **Precio aproximado:**\n    *   Empaque de 250g: Entre **$8.00 y $10.00**.\n    *   Empaque de 1kg: Alrededor de **$25.00 a $30.00**.\n\n### 3. Otros (Vivienda o Bienes Raíces)\nSi te refieres a alguna propiedad o área específica bajo ese nombre (como una calle o sector), los precios dependerán del mercado inmobiliario actual, pero no es un nombre común de una urbanización masiva en la isla (a diferencia de otros países como El Salvador o México).\n\n**Nota:** Si te encuentras en Puerto Rico y buscas el licor para coctelería, el precio de **$15.00** es el estándar más común en la mayoría de los establecimientos.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvVsDad_l9B_2wHWZfXCQLocL2UNWY6gRuTKHBYc42PBrt_vrfe20SSkMeNWWfVuw9x_Lv6whxKokTsaIoqxXsHgUKN8cmhvlqk8qsBPH8qoCPRAA=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuRyAyICn5rUqU_zP0vjx4ObeLDedrRoZjca0rYYuDeCGHFrLY7XdomY457sGTxyRm04_Th-DP5EnvqIVlPccWk2vgFjEx8QlPIFinEK0x9Z-8klIN_eCBYkMMjefeQOqHj4YIFVkXlAceaKFfew==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGS3R3KGk1ZPdM3Ni2eRypgamEpGHCCsKjVKHAaEG7hxvKUop0Kpr5zQfabgRUIoEQToGZEYSPzYMnaFmy3DteyiHeXv6k8HsZKIMa6WtRBzTlqgcoOFqFoG4mliORDJzPt8Rq3AVVRihFMrb-fCBhizLR8-hUDG-peFExpLoZXtfGMAIt4mxs6aW2k4q5-j6EMZxLYPBGZibWX"
+   ],
+   "tokens": 392,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvVsDad_l9B_2wHWZfXCQLocL2UNWY6gRuTKHBYc42PBrt_vrfe20SSkMeNWWfVuw9x_Lv6whxKokTsaIoqxXsHgUKN8cmhvlqk8qsBPH8qoCPRAA=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGuRyAyICn5rUqU_zP0vjx4ObeLDedrRoZjca0rYYuDeCGHFrLY7XdomY457sGTxyRm04_Th-DP5EnvqIVlPccWk2vgFjEx8QlPIFinEK0x9Z-8klIN_eCBYkMMjefeQOqHj4YIFVkXlAceaKFfew==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGS3R3KGk1ZPdM3Ni2eRypgamEpGHCCsKjVKHAaEG7hxvKUop0Kpr5zQfabgRUIoEQToGZEYSPzYMnaFmy3DteyiHeXv6k8HsZKIMa6WtRBzTlqgcoOFqFoG4mliORDJzPt8Rq3AVVRihFMrb-fCBhizLR8-hUDG-peFExpLoZXtfGMAIt4mxs6aW2k4q5-j6EMZxLYPBGZibWX"
+   ],
+   "competencia": [],
+   "precio": [
+    "$15.00",
+    "$8.00",
+    "$10.00",
+    "$25.00",
+    "$30.00"
+   ],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "El término **Tres Naranjos** (o variantes muy similares como **3 Naranjos**) se refiere principalmente a dos productos de consumo distintos, dependiendo de la región:\n\n### 1. Licor de Naranja (Puerto Rico)\nEn Puerto Rico, **Tres Naranjos** es una marca de **licor de naranja (Triple Sec)**.\n*   **¿Qué es?**: Es un licor cítrico elaborado con **miel de agave**, diseñado específicamente para la coctelería (especialmente para hacer Margaritas, Mezcalitas y Cosmos). Se comercializa como una alternativa de calidad premium a un precio accesible.\n*   **¿Quién lo hace?**: Es una **marca puertorriqueña**. Aunque el producto indica \"Hecho en México\" (debido al uso de la miel de agave y procesos de destilación), la marca es propiedad de empresarios locales y se distribuye ampliamente en la isla a través de comercios como *The House*, *Almacén Tito Areizaga* y *PR Produce*.\n\n### 2. Café (Costa Rica)\nEn Costa Rica, existe el **Café 3 Naranjos**.\n*   **¿Qué es?**: Es un café de especialidad y tradicional cultivado en tierras volcánicas a alturas de entre 1,200 y 1,450 metros sobre el nivel del mar.\n*   **¿Quién lo hace?**: Es producido por la **Beneficiadora Monterrosa S.A.**, una empresa familiar ubicada en Naranjo, Alajuela. Utilizan granos de sus propias fincas para garantizar la consistencia y calidad del perfil de taza.\n\n---\n\n### Otras referencias comunes:\n*   **Vinos Naranjos:** No es una marca específica llamada \"Tres Naranjos\", sino un **estilo de vino blanco** que se fermenta con las pieles de la uva (como si fuera un tinto), lo que le da un color ámbar o anaranjado.\n*   **El cuento de \"Las tres naranjas\":** Existe una leyenda popular y un cuento de hadas clásico (recogido por autores como Italo Calvino o en versiones folclóricas españolas y latinoamericanas) sobre un príncipe que busca tres naranjas mágicas de las que salen doncellas.\n\n**Resumen según tu ubicación (Puerto Rico):** Lo más probable es que te refieras al **licor de naranja con miel de agave** que se ha vuelto muy popular recientemente en las licorerías y barras del país.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPNYPEm2I_wzm0fPzFEAD5XEHaosHQh9-R2nHCI5tSYSvCzL4Y5CxQbmNQy8ROOysGt0OT7B-rPWzAFqcc-0EXqmnLzbu9E8g6POL_lJVPKR5Nwgs=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyvGdl8HfQgfXHFTSEZGlN1xyhekcog8LRELzpPJIbeZxaq78L9vE2RsTXzytQuJNR5h1bRffMIYnwbyfdClUIWodwAcBTWVkLvw_ClzsnitB94Mof02hDUenq",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8vts0FXdr60gXBOu3Qa8u7o_hc3YdZGu8GorI5BNT_Pw79t7u9y-H4ju-w27DrbswHKHIxVq6lRPJoQq_9lm4nKwqo9yeTCrvopM1Tq7qn4dipJ3Q1EXZCnA39sZEwqH_fsk581A=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOXh3GLZXj6oomt-H-qMlF-1P0xcdaidwefQtU1kuoiT26SSZ8QDDr6fnHT0wsBfz02Y6wcRUFjYdBMjOdSv5-WH9E6hetcnfUGRgZOdD03p-55a7iN1fDvMWkN8RcVMJ0vyh1xUqqzY6MQE1_t7aeOSJOId1JGXta0T-wycyzrBMiDGxRHl_C",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNG5JrXe3Jhg6TNJpctYVbEXx8T1RzqhjDyjqFhoOHmFtPQvfDl_b1umSKLMgIH3kM8q5krV0qLF_C4Nc0ZkZayEadkVI_y6QdgS3lrQDrOIwI194PIVqObwUQgkxE5VuVNdhPeA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKyK1g0bRRr4Ipl9gPCF0XMHpcdpZU87GC8b01q9zGlrSgHaHl0R5Qr_BXipfPNe-k6aUv-Z99Y9kS7gnnM22JhBBSmKdpmNsu5VcdT_qFwF0vswD5PB4OAmeYTIO3Pxb2YpKzOWG5lm9wju45alZr1PTT",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSwMGBqaDSFxaH9PJVUABRbDIeEolKEu0hRZs12nWHEguDE1OUsR3IRRcK9tmfL8PD0lQwNm9p76rCXOiePuRbI5Mf2_7MmwqxPv9H8NnTi7Jfm_M7YHtCtLElFiRlXUDOVZ_cMIeqBiMdNKeS7uFOyZw-OyAS9CGoMxErUiEYfuBuWE_aC2k3NDYi4ZsB4SVx3EPK-ps3x69pwcs="
+   ],
+   "tokens": 567,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPNYPEm2I_wzm0fPzFEAD5XEHaosHQh9-R2nHCI5tSYSvCzL4Y5CxQbmNQy8ROOysGt0OT7B-rPWzAFqcc-0EXqmnLzbu9E8g6POL_lJVPKR5Nwgs=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyvGdl8HfQgfXHFTSEZGlN1xyhekcog8LRELzpPJIbeZxaq78L9vE2RsTXzytQuJNR5h1bRffMIYnwbyfdClUIWodwAcBTWVkLvw_ClzsnitB94Mof02hDUenq",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8vts0FXdr60gXBOu3Qa8u7o_hc3YdZGu8GorI5BNT_Pw79t7u9y-H4ju-w27DrbswHKHIxVq6lRPJoQq_9lm4nKwqo9yeTCrvopM1Tq7qn4dipJ3Q1EXZCnA39sZEwqH_fsk581A=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOXh3GLZXj6oomt-H-qMlF-1P0xcdaidwefQtU1kuoiT26SSZ8QDDr6fnHT0wsBfz02Y6wcRUFjYdBMjOdSv5-WH9E6hetcnfUGRgZOdD03p-55a7iN1fDvMWkN8RcVMJ0vyh1xUqqzY6MQE1_t7aeOSJOId1JGXta0T-wycyzrBMiDGxRHl_C",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNG5JrXe3Jhg6TNJpctYVbEXx8T1RzqhjDyjqFhoOHmFtPQvfDl_b1umSKLMgIH3kM8q5krV0qLF_C4Nc0ZkZayEadkVI_y6QdgS3lrQDrOIwI194PIVqObwUQgkxE5VuVNdhPeA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKyK1g0bRRr4Ipl9gPCF0XMHpcdpZU87GC8b01q9zGlrSgHaHl0R5Qr_BXipfPNe-k6aUv-Z99Y9kS7gnnM22JhBBSmKdpmNsu5VcdT_qFwF0vswD5PB4OAmeYTIO3Pxb2YpKzOWG5lm9wju45alZr1PTT",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSwMGBqaDSFxaH9PJVUABRbDIeEolKEu0hRZs12nWHEguDE1OUsR3IRRcK9tmfL8PD0lQwNm9p76rCXOiePuRbI5Mf2_7MmwqxPv9H8NnTi7Jfm_M7YHtCtLElFiRlXUDOVZ_cMIeqBiMdNKeS7uFOyZw-OyAS9CGoMxErUiEYfuBuWE_aC2k3NDYi4ZsB4SVx3EPK-ps3x69pwcs="
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "El nombre **Tres Naranjos** se refiere principalmente a una marca de **café gourmet** de Costa Rica y, de forma histórica o relacionada, a un famoso refresco español.\n\nAquí te detallo qué es y quién está detrás en cada caso:\n\n### 1. Café Tres Naranjos (Costa Rica)\nEs una marca de café de especialidad (100% arábigo) que se produce en zonas altas (1,200 a 1,400 msnm). Se caracteriza por tener un cuerpo cremoso, acidez equilibrada y notas achocolatadas.\n*   **¿Quién lo hace?**: Es producido por la empresa **Beneficio Monterrosa**, ubicada en Costa Rica. Esta compañía se encarga de todo el proceso de beneficiado (lavado) y tueste para su comercialización bajo el nombre \"Tres Naranjos de Monterrosa\".\n\n### 2. TriNa / Trinaranjus (España)\nAunque su nombre comercial actual es **TriNa**, originalmente se llamaba **Trinaranjus**. Es una bebida refrescante de fruta sin gas muy popular en España. Su nombre original hacía referencia a que estaba elaborada con el zumo de **tres variedades de naranjas**: Valencia, Salustiana y Cadenera.\n*   **¿Quién lo hizo?**: Fue creado en **1933** por el químico valenciano **Dr. Agustín Trigo Mezquita** en su laboratorio de Valencia.\n*   **¿Quién lo hace hoy?**: Actualmente la marca pertenece al grupo multinacional **Suntory Beverage & Food** (tras la adquisición de Orangina Schweppes en 2009).\n\n### 3. Otros significados\n*   **Literatura popular**: *\"Las tres naranjas del amor\"* es un cuento folclórico clásico de la tradición española y mediterránea, recopilado por autores como Aurelio de Llano, donde un príncipe debe encontrar tres naranjas mágicas de las que salen doncellas.\n*   **Religión**: Existe un plan de lectura bíblica llamado *\"Tres Naranjas: La Voluntad de Dios Para Todos\"*, escrito por Gregg Matte, que utiliza la metáfora de tres naranjas para explicar conceptos espirituales.\n\nSi te refieres a algún producto artesanal específico o un lugar en una localidad particular, por favor bríndame más detalles para precisarlo.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkzBSBOlCgDlb31TzfdqbOm-vcDNrK2m3NCk9i4CUv2zBfZO6RvPRd09ZpOmLTGyPhP-FAh87w5Zg5bbtlMARxs7ieqXBZAUy8yQblIlBVeEW7FLy3fRaQubB0Bmikylz6P1GNt1E7FgYNXi_rkS71QDAKvcGFeCDvgqhmrA2v",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFA2q4KY60nfGySD-qxS13yEAfDMBqAnnmGM2xvWAJcHiQA6lKSec6t6SY62gtUpml5uyjB7Kyy1f5eMbDBaNfTmy9co0gBildoy5rIMdFVAcb08ckjWyGudb6SRGvUM-gfEq8C_p8=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdWbiQMTFjLQw9WarwVGQTRVnZboupXroq0roZNKQuvSnlVsYb6EQ9HMsh-oLiYIkc03fHZvKrEt2MiBQjl7U5pfrRj37gsD0aF0EQ4alUrOplWw-A1C6Ku7VW8KZALnRG48kBCOX-alad8fHLeLXebROM6hBFJ3O5BX11",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu3d7bR1KOgGHl6wcHoezpfuFI5jyfnyPXBhtRmLIG-XXQO073zz7U1sNLyk4ot7CZlGi-rGolhoXoT8JZM9tsaZqPulPGwKoYVMC-eJCm407yOgiIL0Y_BKZahjThFp1CR4dpCm0-ut1CL6VQBQoUyetjb1h-tV6heGb9ibLe1VNOoy8ftTsFgQ=="
+   ],
+   "tokens": 535,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkzBSBOlCgDlb31TzfdqbOm-vcDNrK2m3NCk9i4CUv2zBfZO6RvPRd09ZpOmLTGyPhP-FAh87w5Zg5bbtlMARxs7ieqXBZAUy8yQblIlBVeEW7FLy3fRaQubB0Bmikylz6P1GNt1E7FgYNXi_rkS71QDAKvcGFeCDvgqhmrA2v",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFA2q4KY60nfGySD-qxS13yEAfDMBqAnnmGM2xvWAJcHiQA6lKSec6t6SY62gtUpml5uyjB7Kyy1f5eMbDBaNfTmy9co0gBildoy5rIMdFVAcb08ckjWyGudb6SRGvUM-gfEq8C_p8=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdWbiQMTFjLQw9WarwVGQTRVnZboupXroq0roZNKQuvSnlVsYb6EQ9HMsh-oLiYIkc03fHZvKrEt2MiBQjl7U5pfrRj37gsD0aF0EQ4alUrOplWw-A1C6Ku7VW8KZALnRG48kBCOX-alad8fHLeLXebROM6hBFJ3O5BX11",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu3d7bR1KOgGHl6wcHoezpfuFI5jyfnyPXBhtRmLIG-XXQO073zz7U1sNLyk4ot7CZlGi-rGolhoXoT8JZM9tsaZqPulPGwKoYVMC-eJCm407yOgiIL0Y_BKZahjThFp1CR4dpCm0-ut1CL6VQBQoUyetjb1h-tV6heGb9ibLe1VNOoy8ftTsFgQ=="
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué es Tres Naranjos y quién lo hace?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "El término **Tres Naranjos** se refiere principalmente a un **licor de naranja (Triple Sec)** muy popular en el mercado de Puerto Rico, aunque también puede referirse a una marca de café o a un cuento tradicional según el contexto.\n\nAquí te detallo la información sobre el producto principal y otras versiones:\n\n### 1. Licor Tres Naranjos (Triple Sec)\nEs un licor de naranja elaborado con **miel de agave**, diseñado específicamente para la coctelería (especialmente para Margaritas).\n*   **Quién lo hace:** Es una marca de origen **puertorriqueño** distribuida y gestionada por la empresa **Agave Imports**. Aunque es una marca boricua, el licor se produce en **México** aprovechando la especialidad en derivados del agave.\n*   **Características:** Tiene un 25% de contenido de alcohol, es dulce y cítrico, y se ha posicionado como una alternativa local de calidad a marcas internacionales de triple sec.\n\n### 2. Café Tres Naranjos\nExiste una marca de café bajo este nombre producida en otras regiones de Latinoamérica.\n*   **Quién lo hace:** Proviene generalmente de fincas en **El Salvador** (como el Beneficio Monterrosa). Es un café de altura (1,200 - 1,400 msnm) con notas achocolatadas y proceso de lavado.\n\n### 3. \"Las Tres Naranjas\" (Cuento)\nSi te refieres a la obra literaria, es un **cuento de hadas tradicional** (también conocido como *Las tres naranjas del amor*).\n*   **Quién lo hace:** Es un relato de origen popular recopilado por diversos autores, siendo una de las versiones más famosas la de **Carlo Gozzi** (como obra de teatro) y posteriormente adaptada por compositores como **Serguéi Prokófiev** en su ópera *El amor de las tres naranjas*.\n\n**En resumen:** Si estás en Puerto Rico y lo viste en una licorería o supermercado, es el **licor de naranja con agave** de la empresa **Agave Imports**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZkHw4d_V4vpGo-uW2z_tMRwlqosorAb1gSFhNHj9CeTP7Vg4Cgzy20Zo7DtcTtizhhVDqyDSl7ewjhheZJ3GR5mEt_8Bu-b7hAb_GFTweL7HGoHU=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4Z-67Ys1XCTPTvQDsIPOQN95vRV5464hdfcJGqDA6B_dk3b-gZ-HEPtaHpgDfCOgb3VluBAmcjUBoR0cxrS9-5umyZdkkV-rzYBjp2KmcO7oVqoG5BtdL2T6xwAkqHEoDv0jSNA-kkoFheE8Rgw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEF2hKQNeGAH7pW9D1lj4p4kkgl20rDBwMxoomIZuwZNhgt1DtAlDRew1BdRFHUIzzAcGQQnvE_zNsZKsUbHfUfG5DeXGY_zQxrnjiFMLidEf_Zf0fvel_Jx12oHbUQcAmK0csP1OjWtIlnLck6LhMX0H-6uV5Y2Kd20URUFXe3zw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFh6v0eLNAmwZIGCCpMPDUfz_QZDWjaov3C1r6xapaYUO5nbxvs94RGFu45ywnH8-KYPGH3aJGmDJDq9SSzhdLOcUsuSI2AaF7hMl_Bh_I01pz0VTYX-C1tjGEMqD48Bcd7zSH_TxWRqFKG3cJD1oyeqR7520Gr_LecZxYJ_LuxLtnQZ5ezoWHrOA9_FyhAVIS",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjYSsND6-wDzIovteDEUC9lvSct3WWB8HxYVd6TFqaG76E_gg6vjtTsxHb7P5TdaXaejYPYTX6udOOsQZfW9qaarXHO1rMERVI4b9IqS-eDsirserAsHkMNjoAOCFIyAGIECfInlQUdC_Z-78cOYoLYwWWUu0rTLidbMZ4gYefirb_Ru3yq0k3WgfF2Bh3WX6893QH"
+   ],
+   "tokens": 487,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZkHw4d_V4vpGo-uW2z_tMRwlqosorAb1gSFhNHj9CeTP7Vg4Cgzy20Zo7DtcTtizhhVDqyDSl7ewjhheZJ3GR5mEt_8Bu-b7hAb_GFTweL7HGoHU=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4Z-67Ys1XCTPTvQDsIPOQN95vRV5464hdfcJGqDA6B_dk3b-gZ-HEPtaHpgDfCOgb3VluBAmcjUBoR0cxrS9-5umyZdkkV-rzYBjp2KmcO7oVqoG5BtdL2T6xwAkqHEoDv0jSNA-kkoFheE8Rgw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEF2hKQNeGAH7pW9D1lj4p4kkgl20rDBwMxoomIZuwZNhgt1DtAlDRew1BdRFHUIzzAcGQQnvE_zNsZKsUbHfUfG5DeXGY_zQxrnjiFMLidEf_Zf0fvel_Jx12oHbUQcAmK0csP1OjWtIlnLck6LhMX0H-6uV5Y2Kd20URUFXe3zw==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGFh6v0eLNAmwZIGCCpMPDUfz_QZDWjaov3C1r6xapaYUO5nbxvs94RGFu45ywnH8-KYPGH3aJGmDJDq9SSzhdLOcUsuSI2AaF7hMl_Bh_I01pz0VTYX-C1tjGEMqD48Bcd7zSH_TxWRqFKG3cJD1oyeqR7520Gr_LecZxYJ_LuxLtnQZ5ezoWHrOA9_FyhAVIS",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjYSsND6-wDzIovteDEUC9lvSct3WWB8HxYVd6TFqaG76E_gg6vjtTsxHb7P5TdaXaejYPYTX6udOOsQZfW9qaarXHO1rMERVI4b9IqS-eDsirserAsHkMNjoAOCFIyAGIECfInlQUdC_Z-78cOYoLYwWWUu0rTLidbMZ4gYefirb_Ru3yq0k3WgfF2Bh3WX6893QH"
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": true,
+   "miel_de_agave": true,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "Para responder con precisión, es importante aclarar a qué tipo de producto te refieres, ya que existen dos bebidas principales con nombres o perfiles similares que se consumen en regiones distintas:\n\n### 1. El licor artesanal \"Tres Naranjos\" (Puerto Rico)\nSi te refieres al producto local de Puerto Rico que se vende bajo este nombre, se trata de una bebida a base de frutas (frecuentemente asociada a infusiones de naranja).\n*   **Graduación alcohólica:** Según distribuidores locales (como PRoduce), este producto tiene una porción estándar de 1.5 oz que contiene aproximadamente **100 calorías**, lo cual es típico de licores que rondan el **20% al 25% de alcohol por volumen (alc. vol.)**, aunque el porcentaje exacto puede variar según el lote artesanal.\n\n### 2. Vinos de \"Naranjo\" o etiquetas similares (Argentina/España)\nEn el mundo del vino, existe la marca **Chakana \"Tres Naranjos\"** (Argentina) o vinos similares de la región de Condado de Huelva (España).\n*   **Vino Chakana (Naranjo):** Suele tener una graduación de entre **13% y 13.5% alc. vol.**\n*   **Vino de Naranja (Huelva, España):** Estos son vinos aromatizados y fortificados que suelen tener entre **14.5% y 17% alc. vol.**\n\n**Resumen rápido:**\n*   Si es el **licor de Puerto Rico**: Probablemente entre **20-25%**.\n*   Si es el **vino blanco macerado (Orange Wine)**: Aproximadamente **13%**.\n\n*Nota: Siempre verifica la etiqueta específica de la botella, ya que por ley el contenido alcohólico debe estar impreso en el envase.*",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGE42JKaA8GRF90dYB9i2kgQpVoxTdKAQBXfcbQWioB-VVcVdbxKkWLZpz86MKD2C5DEI4YBRhSBrN8TlrsE_GHBkoD4DZUkDF-wtu4ozSGhm5Xe0yGgjhQpwCdcGUaEoYNQCZ6nQGyFui0uCjb1C6oq6ZD6DqWvA=="
+   ],
+   "tokens": 432,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGE42JKaA8GRF90dYB9i2kgQpVoxTdKAQBXfcbQWioB-VVcVdbxKkWLZpz86MKD2C5DEI4YBRhSBrN8TlrsE_GHBkoD4DZUkDF-wtu4ozSGhm5Xe0yGgjhQpwCdcGUaEoYNQCZ6nQGyFui0uCjb1C6oq6ZD6DqWvA=="
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": true,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "La marca **Tres Naranjos** es un licor artesanal elaborado en **Puerto Rico**, específicamente en el pueblo de Manatí.\n\nEste licor tiene una graduación alcohólica de **20% de alcohol por volumen (alc. vol.)**.\n\n### Detalles adicionales:\n*   **Origen:** Puerto Rico.\n*   **Ingredientes principales:** Se elabora con una base de alcohol de caña y esencias de cítricos (tradicionalmente tres tipos de naranjas).\n*   **Uso común:** Se consume mayormente como digestivo, en \"shots\" o se utiliza en la coctelería local para aportar un sabor cítrico intenso y dulce.\n\nEs importante no confundirlo con el \"Vino Naranja\" (típico de España o Argentina), que suele tener entre 13% y 15% de alcohol, ya que el **Tres Naranjos de Puerto Rico** es técnicamente un licor destilado y macerado con una mayor potencia alcohólica.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxDCATFc9KT7eX617e84M5Y6EEafdZAi5jNjzJblKC6poKacjDUPyGMcG-keFvtkYaSxt4wG6MEsf3dGpInMt4YQacwf6bqYQB64G79vYIWItqsckfFE5wjmjINW5mH6Btw-TuIHWXBybPbeMzGA=="
+   ],
+   "tokens": 240,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxDCATFc9KT7eX617e84M5Y6EEafdZAi5jNjzJblKC6poKacjDUPyGMcG-keFvtkYaSxt4wG6MEsf3dGpInMt4YQacwf6bqYQB64G79vYIWItqsckfFE5wjmjINW5mH6Btw-TuIHWXBybPbeMzGA=="
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": true
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cuánto alcohol tiene Tres Naranjos?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "La respuesta depende de a qué producto \"Tres Naranjos\" te refieras, ya que existen dos bebidas populares con ese nombre: un licor y un vino.\n\n### 1. Licor Tres Naranjos (Triple Sec)\nEs un licor de naranja elaborado a base de miel de agave, muy utilizado en coctelería (especialmente para Margaritas).\n*   **Contenido de alcohol:** **25% Vol.**\n*   **Presentación común:** Botella de 750 ml.\n\n### 2. Vino Naranja (Categoría general)\nSi te refieres a los vinos denominados \"naranjos\" (vinos blancos fermentados con la piel de la uva, lo que les da ese color y más cuerpo):\n*   **Contenido de alcohol:** La mayoría de estos vinos tienen entre **11% y 15% Vol.**\n*   Sin embargo, si se trata del **Vino Naranja del Condado de Huelva** (un vino aromatizado específico de España), su graduación suele ser mayor, situándose entre los **14.5% y 17% Vol.** debido a que a menudo son fortificados.\n\n**Resumen:** Si tienes la botella de licor transparente o ámbar con etiqueta naranja (el más común en tiendas de destilados), tiene **25% de alcohol**.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMR7RkZBjQnc8Bn6BKM8XbHF8sGSGheqE_wgXK0tWS3pq59BTavHCvjTX_DKX37aw_R1n_kYAZUHPCdnDIFQiYMf3LBbXHnpb_jBHIgv490iai3NU=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQED4tf9gv1McNY5UFrQU80hGqgWDOXPFXbOMSUhbVVILM4siyWzC15AvfSSvTVXkN0RRZDJuBcpX0i0B7fHjOu4EyVZlaU_Pb01SxjvsYS5dWa9O8yYu4_TS44La4HXwvaLCBAuGS69ICy8qtT7esKf0fu--U-k5XNL0pr41PWsZIhvNsFsz0IK5Y2j",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEv2ZVULXuAd3rB35PabLXlN4_AGc3MzkZj8C8CfD1GjygbCXutNC0Ch75RpAm-b5TrE9L_bODVW-TCaBibrRYVfEpzTb8rqDQrEBSoFlJCcuP5gNoFlL8aI6bSJgdobUH4NpvyOyZ-AXxtZ6mK14kY3OiK-LNutA=="
+   ],
+   "tokens": 317,
+   "nombrado": true,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMR7RkZBjQnc8Bn6BKM8XbHF8sGSGheqE_wgXK0tWS3pq59BTavHCvjTX_DKX37aw_R1n_kYAZUHPCdnDIFQiYMf3LBbXHnpb_jBHIgv490iai3NU=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQED4tf9gv1McNY5UFrQU80hGqgWDOXPFXbOMSUhbVVILM4siyWzC15AvfSSvTVXkN0RRZDJuBcpX0i0B7fHjOu4EyVZlaU_Pb01SxjvsYS5dWa9O8yYu4_TS44La4HXwvaLCBAuGS69ICy8qtT7esKf0fu--U-k5XNL0pr41PWsZIhvNsFsz0IK5Y2j",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEv2ZVULXuAd3rB35PabLXlN4_AGc3MzkZj8C8CfD1GjygbCXutNC0Ch75RpAm-b5TrE9L_bODVW-TCaBibrRYVfEpzTb8rqDQrEBSoFlJCcuP5gNoFlL8aI6bSJgdobUH4NpvyOyZ-AXxtZ6mK14kY3OiK-LNutA=="
+   ],
+   "competencia": [],
+   "precio": [],
+   "dice_25": true,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "La **Mezcalita** es la prima ahumada y sofisticada de la Margarita. La clave de este cóctel es el equilibrio entre el sabor terroso del mezcal, la acidez de la lima y el dulzor.\n\nAquí tienes la receta clásica y el paso a paso:\n\n### Ingredientes\n*   **2 oz (60 ml)** de Mezcal (se recomienda uno joven o Espadín).\n*   **1 oz (30 ml)** de Jugo de limón (lima verde) recién exprimido.\n*   **¾ oz (22 ml)** de Jarabe natural (o miel de agave).\n*   **½ oz (15 ml)** de Licor de naranja (Controy, Cointreau o Triple Sec).\n*   **Hielo.**\n*   **Para el escarchado:** Sal de gusano (tradicional) o Tajín, y una rodaja de limón.\n\n---\n\n### Preparación paso a paso\n\n1.  **Escarcha el vaso:** Pasa una rodaja de limón por el borde de un vaso bajo (Old Fashioned). Voltea el vaso sobre un plato con la sal de gusano o el chile en polvo para que se pegue al borde.\n2.  **Mezcla los ingredientes:** En una coctelera (shaker), agrega el mezcal, el jugo de limón, el jarabe y el licor de naranja.\n3.  **Agita:** Llena la coctelera con bastante hielo. Cierra y agita con fuerza durante unos 10-15 segundos hasta que la coctelera esté bien fría al tacto.\n4.  **Sirve:** Sirve la mezcla colada en el vaso escarchado. Puedes ponerle hielo nuevo al vaso si la prefieres \"on the rocks\".\n5.  **Decora:** Adorna con una rodaja de limón o una rodaja de naranja deshidratada.\n\n---\n\n### Variantes Populares\n\nSi quieres darle un giro diferente, prueba estas opciones:\n\n*   **Mezcalita de Jamaica:** Sustituye el jarabe natural por un concentrado de flor de jamaica.\n*   **Mezcalita de Maracuyá (Parcha):** Añade 1 oz de pulpa de maracuyá antes de agitar. Es la favorita de muchos por el contraste ácido-dulce.\n*   **Mezcalita Picante:** Agrega dos rodajas de chile serrano o jalapeño a la coctelera antes de agitar para un toque \"spicy\".\n*   **Mezcalita de Pepino:** Macera 3 rodajas de pepino en la coctelera antes de añadir los líquidos para un sabor mucho más fresco.\n\n### Tips para una Mezcalita perfecta:\n*   **Calidad del Mezcal:** No necesitas el más caro, pero evita los que son demasiado industriales. Un buen mezcal artesanal hará que el cóctel brille.\n*   **Equilibrio:** Si sientes que está muy fuerte, añade un poco más de jarabe de agave. Si está muy dulce, un toque extra de limón.",
+   "urls": [],
+   "tokens": 701,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau",
+    "controy"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "La **Mezcalita** es la prima ahumada y sofisticada de la Margarita. La clave está en el equilibrio entre lo cítrico, lo dulce y el toque terroso del mezcal.\n\nAquí tienes la receta clásica y los pasos para que te quede perfecta:\n\n### Ingredientes\n*   **2 oz (60 ml) de Mezcal** (joven/espadín es el mejor para coctelería).\n*   **1 oz (30 ml) de Jugo de limón** recién exprimido.\n*   **¾ oz (22 ml) de Jarabe de agave** (puedes usar jarabe simple si no tienes).\n*   **½ oz (15 ml) de Licor de naranja** (Controy, Cointreau o Triple Sec).\n*   **Hielo.**\n*   **Para el escarchado:** Sal de gusano (tradicional) o una mezcla de sal y chile en polvo (Tajín).\n*   **Decoración:** Una rodaja de limón o una rodaja de naranja.\n\n---\n\n### Preparación paso a paso\n\n1.  **Escarchar el vaso:** Pasa un trozo de limón por el borde de un vaso (tipo Old Fashioned o una copa). Voltéalo sobre un plato con la sal de gusano o el chile en polvo para que se pegue bien. Reserva.\n2.  **Mezclar:** En una coctelera (shaker) con bastante hielo, agrega el mezcal, el jugo de limón, el licor de naranja y el jarabe de agave.\n3.  **Agitar:** Agita con fuerza durante unos 15-20 segundos hasta que la coctelera esté bien fría al tacto. Esto es vital para diluir un poco el alcohol y enfriar la mezcla.\n4.  **Servir:** Sirve la mezcla colada en el vaso escarchado. Puedes ponerle hielos nuevos si lo prefieres.\n5.  **Decorar:** Añade la rodaja de limón o naranja y ¡disfruta!\n\n---\n\n### Variaciones populares\n\nSi quieres darle un giro diferente, prueba estas opciones agregando los ingredientes a la coctelera:\n\n*   **Mezcalita de Maracuyá:** Sustituye el licor de naranja por pulpa de maracuyá (parcha). Es la favorita de muchos por su acidez.\n*   **Mezcalita de Pepino y Jalapeño:** Macerar 2 rodajas de pepino y una de jalapeño en la coctelera antes de añadir los líquidos. Es refrescante y picante.\n*   **Mezcalita de Jamaica:** Añade 1 oz de concentrado de flor de jamaica. Le da un color rojo hermoso y un sabor floral.\n\n### Tips Pro:\n*   **El Mezcal:** No uses uno demasiado caro o \"de colección\" para mezclar; un **Espadín joven** artesanal funciona de maravilla porque mantiene su carácter ahumado sin perderse entre los otros sabores.\n*   **El Dulzor:** Si te gusta menos dulce, baja el jarabe de agave a ½ oz.",
+   "urls": [],
+   "tokens": 709,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau",
+    "controy"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Cómo hago una mezcalita?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "La **Mezcalita** es la prima ahumada y sofisticada de la Margarita. La clave de este cóctel es el equilibrio entre el sabor terroso del mezcal, la acidez de la lima y el toque dulce.\n\nAquí tienes la receta clásica y el paso a paso para que te quede perfecta:\n\n### Ingredientes\n*   **Mezcal:** 2 oz (60 ml) - Elige uno joven o espadín para empezar.\n*   **Jugo de limón (lima):** 1 oz (30 ml) - Que sea recién exprimido.\n*   **Licor de naranja:** 1/2 oz (15 ml) - Como Cointreau o Controy.\n*   **Jarabe de agave (o jarabe simple):** 1/2 oz (15 ml).\n*   **Para el escarchado:** Sal de gusano (tradicional) o Tajín con sal.\n*   **Hielo.**\n\n---\n\n### Preparación paso a paso\n\n1.  **Escarchar el vaso:** Pasa una rodaja de limón por el borde de un vaso (tipo Old Fashioned o una copa). Voltea el vaso sobre un plato con la sal de gusano o el chile en polvo hasta que se pegue bien.\n2.  **Mezclar:** En una coctelera (shaker), agrega el mezcal, el jugo de limón, el licor de naranja y el jarabe de agave.\n3.  **Agitar:** Llena la coctelera con bastante hielo. Cierra y agita con fuerza durante unos 15-20 segundos hasta que la coctelera esté bien fría por fuera.\n4.  **Servir:** Sirve la mezcla colada en el vaso escarchado. Puedes ponerle hielos nuevos al vaso si lo prefieres \"on the rocks\".\n5.  **Decorar:** Adorna con una rodaja de limón o una rodaja de naranja deshidratada.\n\n---\n\n### Variantes populares\nSi quieres darle un giro, puedes probar estas versiones:\n\n*   **Mezcalita de Jamaica:** Sustituye el jarabe de agave por un concentrado de flor de jamaica.\n*   **Mezcalita de Maracuyá:** Añade 1 oz de pulpa de maracuyá (parcha) antes de agitar. Es la combinación favorita de muchos por el contraste de acidez y humo.\n*   **Mezcalita Picante:** Agrega dos rodajas de chile serrano o jalapeño a la coctelera antes de agitar para un toque de calor.\n*   **Mezcalita de Piña:** Usa jugo de piña natural y escarcha con mucho Tajín.\n\n### Tips de experto\n*   **No escatimes en el limón:** El jugo embotellado arruina el sabor del mezcal.\n*   **El balance:** Si sientes que el mezcal es muy fuerte, añade un poco más de jarabe de agave. Si la sientes muy dulce, añade un toque extra de limón.\n*   **Sal de gusano:** Es el acompañante histórico del mezcal; si puedes conseguirla, elevará tu cóctel a otro nivel.",
+   "urls": [],
+   "tokens": 724,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [],
+   "competencia": [
+    "cointreau",
+    "controy"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": false,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 1,
+   "respuesta": "El triple sec que destaca por estar endulzado con miel de agave (agave nectar) es el **Flor de Azar**.\n\nA diferencia de los licores de naranja tradicionales (como Cointreau o Grand Marnier) que utilizan azúcar de caña o remolacha, este licor artesanal mexicano utiliza **miel de agave orgánica** para obtener su dulzor, lo que le otorga un perfil de sabor más natural y con más cuerpo.\n\nAquí te detallo las opciones principales y marcas relacionadas:\n\n### 1. Flor de Azar (El ejemplo más directo)\n*   **Origen:** Ciudad de México.\n*   **Diferencial:** Está endulzado específicamente con **miel de agave**.\n*   **Perfil:** Tiene un 40% de alcohol (ABV) y, además de los cítricos, incluye botánicos como lavanda, cardamomo y pimienta negra, lo que lo acerca un poco al estilo de un amaro cítrico pero manteniendo la esencia del triple sec.\n\n### 2. Giffard Agave Sec\n*   Es un licor francés diseñado específicamente para Margaritas. Aunque es un \"licor de agave\" con sabor a naranja, se comercializa como un sustituto del triple sec. Está endulzado con jarabe de agave para complementar mejor el sabor del tequila.\n\n### 3. Licores a base de Tequila (Relacionados)\nAunque técnicamente son \"licores de naranja a base de tequila\" y no siempre triple secs puros, son opciones que suelen incluir notas de agave por su base alcohólica:\n*   **Patrón Citrónge:** Se elabora con una base de tequila de la casa. Aunque suele endulzarse con azúcar de caña, su base de agave le da ese carácter terroso y herbáceo que muchos buscan.\n*   **Pura Vida Naranja:** Un licor de naranja mexicano que se promociona como el ingrediente \"secreto\" de la margarita original, muy ligado a la producción de agave, aunque frecuentemente se mezcla con miel de agave aparte al preparar el cóctel.\n\n**Nota para coctelería:** Si no encuentras una marca específica que ya contenga la miel, muchos bartenders profesionales utilizan un triple sec estándar (como Cointreau) y añaden una pequeña cantidad de **miel de agave** por separado en la coctelera para lograr ese equilibrio de sabor.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtMYn-_5L8VmSTitwE1XMmHF3JqIMpdY7UBUyD0mmV4BlFiAj1vo7tAV0Y5w0eEYQcGGIc7tlFmuFZ6CduiugDdZFP1sMXkQCaVV-4bvAa3P97v-zzib3I8p7cNuK1VKomyNBz6tJwvjFHpXmJClk-PU4UyQ==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFlQmfWZoRpajdDrZFrERl3-Lk_POi_ZrN3R_S81X_4jtzT_N2JNiSGSmFXAxHYY9bL79OmL5BuSrBf4OZqbuAFZ2x1-8aPh2Shj-YL0c5LnnaAlMzS3okbNvnIAoLAiophS6SNffs05UbesiVK-H3WFCmdLQc=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF-nm0HqAXxlA49zPDYl8uYy7rCLi3TV9mKNVLixw-kIgFoo-McYPN-SPGtG5uAxNe0WNq4bWmWW0_sUvgk-taftuUsxiue6BUXwFY5ZHHtjndSIsL0VztDdzjT-trYuL_enTv7YlG877vgSGIz6ug=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXWotnNF0X6q1di7ujr9mYNvZC8TLQifB9qkZLbM8ETAHC5re0_nr0VyS5_0M0Acvp8UfVqX5oOwdIfOmAP9nXhzgekF1NPyY55ismUKCDHI9X0OkVX69FXCJOw-LYeR55TrkaIuFZGi47cDCSwxhvG2KUu9gI4OJ9iZcJtxuxF-jo2REGWjSX",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8yxlU6bI_se8xVQJt1ZdLxfVQjJnEQxBATnLEc3TPNreEz6TcOxiAR2n-tEHHcBjVUfAh28qL11615ABtUM9T67uan9Jf5t3TkwoEWCjE__Pd0T-PPkRfgwkGu6asQHErVuepDsFG1ycCksomBy2lZIURHXBFb-AVShAffTR0D_hfug==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdT4gycuPsp_iBR6Fj2C_YnK_8jIK5nd_eoUiDEawB0RPumRx6CcpyqvIOgu5dRjgOn0U-jXmywadnaXA0tNnWRGkFoq20o2Jxu8JqgNpeseQbWB2n4TP9HNn0rYXW66Pd2I6wBZVfRFnIpd0fbVNKzXSTtb8=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5RTy0e8bmSmDtlIACs-8Ww6KV1P63-F30UlKUpcflgkHj0UhDzxH5h4SuIxVJNbU019mApWH8xAMseFrCLO3EQvhSjXwqdt2A4VoW057IO2xjhJ12ymzxXx1hBtWDN2Xn55_kujh5GoqRnpsbXf5mutPYNl9UZ6FZ30x8XKsYT3Vuubfk4b-rx0ic",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnvGbVzF0xDTaJNWm5mj2bGteM8J0TGFWFn33e-GRraFbVHZmJTMqEeMGSZrF6fI0W6RUMXSZJSgX2wIAD12C9T3PeOh5oT1tk-vWYbCEnVxk_2rahU3EU5JGiwgUzKZtt4R3pauGyRphkxAYfpAQAzWbzMtsO6qY9HdgZLnlBwkaWWZznxtk="
+   ],
+   "tokens": 538,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtMYn-_5L8VmSTitwE1XMmHF3JqIMpdY7UBUyD0mmV4BlFiAj1vo7tAV0Y5w0eEYQcGGIc7tlFmuFZ6CduiugDdZFP1sMXkQCaVV-4bvAa3P97v-zzib3I8p7cNuK1VKomyNBz6tJwvjFHpXmJClk-PU4UyQ==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFlQmfWZoRpajdDrZFrERl3-Lk_POi_ZrN3R_S81X_4jtzT_N2JNiSGSmFXAxHYY9bL79OmL5BuSrBf4OZqbuAFZ2x1-8aPh2Shj-YL0c5LnnaAlMzS3okbNvnIAoLAiophS6SNffs05UbesiVK-H3WFCmdLQc=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF-nm0HqAXxlA49zPDYl8uYy7rCLi3TV9mKNVLixw-kIgFoo-McYPN-SPGtG5uAxNe0WNq4bWmWW0_sUvgk-taftuUsxiue6BUXwFY5ZHHtjndSIsL0VztDdzjT-trYuL_enTv7YlG877vgSGIz6ug=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXWotnNF0X6q1di7ujr9mYNvZC8TLQifB9qkZLbM8ETAHC5re0_nr0VyS5_0M0Acvp8UfVqX5oOwdIfOmAP9nXhzgekF1NPyY55ismUKCDHI9X0OkVX69FXCJOw-LYeR55TrkaIuFZGi47cDCSwxhvG2KUu9gI4OJ9iZcJtxuxF-jo2REGWjSX",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8yxlU6bI_se8xVQJt1ZdLxfVQjJnEQxBATnLEc3TPNreEz6TcOxiAR2n-tEHHcBjVUfAh28qL11615ABtUM9T67uan9Jf5t3TkwoEWCjE__Pd0T-PPkRfgwkGu6asQHErVuepDsFG1ycCksomBy2lZIURHXBFb-AVShAffTR0D_hfug==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdT4gycuPsp_iBR6Fj2C_YnK_8jIK5nd_eoUiDEawB0RPumRx6CcpyqvIOgu5dRjgOn0U-jXmywadnaXA0tNnWRGkFoq20o2Jxu8JqgNpeseQbWB2n4TP9HNn0rYXW66Pd2I6wBZVfRFnIpd0fbVNKzXSTtb8=",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5RTy0e8bmSmDtlIACs-8Ww6KV1P63-F30UlKUpcflgkHj0UhDzxH5h4SuIxVJNbU019mApWH8xAMseFrCLO3EQvhSjXwqdt2A4VoW057IO2xjhJ12ymzxXx1hBtWDN2Xn55_kujh5GoqRnpsbXf5mutPYNl9UZ6FZ30x8XKsYT3Vuubfk4b-rx0ic",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnvGbVzF0xDTaJNWm5mj2bGteM8J0TGFWFn33e-GRraFbVHZmJTMqEeMGSZrF6fI0W6RUMXSZJSgX2wIAD12C9T3PeOh5oT1tk-vWYbCEnVxk_2rahU3EU5JGiwgUzKZtt4R3pauGyRphkxAYfpAQAzWbzMtsO6qY9HdgZLnlBwkaWWZznxtk="
+   ],
+   "competencia": [
+    "cointreau",
+    "grand marnier",
+    "patrón citrónge"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 2,
+   "respuesta": "Existen algunas marcas específicas de triple sec (o licores de naranja de estilo triple sec) que utilizan **miel de agave** (o néctar de agave) en lugar del azúcar de caña tradicional.\n\nLas opciones más destacadas son:\n\n1.  **Flor de Azar:** Es probablemente la respuesta más directa a tu pregunta. Se comercializa específicamente como un \"triple sec mexicano de nueva generación\" que, a diferencia de las marcas francesas tradicionales, está endulzado con **miel de agave orgánica**. Además, incluye otros botánicos como pomelo, mandarina, lavanda y cardamomo, lo que le da un perfil más complejo y floral.\n2.  **Giffard Agave Sec:** Esta es una colaboración entre la prestigiosa casa francesa Giffard y Simon Difford (de *Difford's Guide*). Está diseñado específicamente para la coctelería con tequila (como el Margarita), utilizando néctar de agave mexicano para proporcionar un dulzor que armonice mejor con el espíritu del agave.\n3.  **Agavero Orange:** Aunque a veces se clasifica simplemente como licor de naranja, es una mezcla de tequila 100% de agave azul infundido con esencia de naranjas y **néctar de agave**. Es muy popular para quienes buscan un sustituto del triple sec que mantenga la base de la planta de agave.\n4.  **Jalisco Liqueur:** Un licor de naranja hecho en México que utiliza solo tres ingredientes: naranjas de Jalisco, alcohol de agave azul y **néctar de agave**. Se promociona como una alternativa más limpia y natural a los triple sec comerciales llenos de azúcar refinada.\n\n**¿Por qué elegir un triple sec con miel de agave?**\nMuchos bartenders y entusiastas lo prefieren para preparar **Margaritas**, ya que el sabor terroso y la textura de la miel de agave complementan de forma natural al tequila o al mezcal, a diferencia del azúcar de remolacha o caña que usan marcas clásicas como Cointreau.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeQADkWWigRKt7gAelF-sqxRaRt02bcq7svIBX_bfiqz48nqcO3RBNu8Bk6zV-h9HTp1bpRrpgV6XbKSu1VIDUnpV1tqKuO217RnhNixRkKas5VOtrWiis0k2yK0aklX4UZqh7GgOu2hqLktQX",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEB8Ea15n4seHiIxAzkO0cjwy6MKVsOgDMl9QekITSuWY7IKapY7DThRkt8sqiGh6Qm0_ajzH2TdutcGdMPmfCP0K3eAo3p4qfeyVJavnyHC-ebTyr97_GlNvhlyCcCmUJXJaXFDKpIU6Js9X_gdOEO",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjGTgtnrirr1lu6O6L-ZALyfjYeShylffY1m6F25zhNBgT-c0tgrQ8YDggpZDxgHfLMFHxKtrtvig7bM6fJlzrPNtMz2AQuIXTbk7C200pJTlbBldCAeE45T4D3joWR8cYTomeMZ6IuwSR7EiOrIr-1aGIFAHd"
+   ],
+   "tokens": 462,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGeQADkWWigRKt7gAelF-sqxRaRt02bcq7svIBX_bfiqz48nqcO3RBNu8Bk6zV-h9HTp1bpRrpgV6XbKSu1VIDUnpV1tqKuO217RnhNixRkKas5VOtrWiis0k2yK0aklX4UZqh7GgOu2hqLktQX",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEB8Ea15n4seHiIxAzkO0cjwy6MKVsOgDMl9QekITSuWY7IKapY7DThRkt8sqiGh6Qm0_ajzH2TdutcGdMPmfCP0K3eAo3p4qfeyVJavnyHC-ebTyr97_GlNvhlyCcCmUJXJaXFDKpIU6Js9X_gdOEO",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjGTgtnrirr1lu6O6L-ZALyfjYeShylffY1m6F25zhNBgT-c0tgrQ8YDggpZDxgHfLMFHxKtrtvig7bM6fJlzrPNtMz2AQuIXTbk7C200pJTlbBldCAeE45T4D3joWR8cYTomeMZ6IuwSR7EiOrIr-1aGIFAHd"
+   ],
+   "competencia": [
+    "cointreau"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  },
+  {
+   "fecha": "2026-11-01",
+   "asistente": "Gemini",
+   "modelo": "google/gemini-3-flash-preview",
+   "pregunta": "¿Qué triple sec tiene miel de agave?",
+   "idioma": "es",
+   "corrida": 3,
+   "respuesta": "Aunque la mayoría de los triple sec comerciales utilizan azúcar de caña o de remolacha como endulzante, existen algunas marcas específicas que utilizan **miel de agave** (o jarabe de agave) para darles un perfil más natural y orientado a la coctelería con tequila.\n\nAquí tienes las opciones más destacadas:\n\n### 1. **Giffard Agave Sec**\nEs probablemente el más conocido dentro de esta categoría. Fue creado específicamente por la casa francesa Giffard en colaboración con expertos en coctelería para ser el compañero perfecto de la Margarita.\n*   **Diferencia:** En lugar de azúcar refinada, utiliza **jarabe de agave de México**.\n*   **Uso:** Es ideal si quieres el sabor de una \"Tommy’s Margarita\" (que usa agave en lugar de licor de naranja) pero manteniendo el aroma cítrico del triple sec.\n\n### 2. **Flor de Azar**\nEs un triple sec premium artesanal elaborado en la Ciudad de México.\n*   **Diferencia:** Está endulzado con **miel de agave orgánica** y destilado con una mezcla de cítricos mexicanos (naranja, mandarina, lima) y botánicos como lavanda y cardamomo.\n*   **Perfil:** Tiene un sabor más complejo y menos empalagoso que los triple sec industriales.\n\n### 3. **Agavero Orange**\nAunque técnicamente se etiqueta a menudo como un \"licor de naranja\", funciona como un sustituto del triple sec en cocteles de alta gama.\n*   **Diferencia:** Está hecho con una base de **tequila 100% agave** y endulzado con néctar de agave.\n*   **Sabor:** Tiene notas muy profundas de agave cocido que complementan perfectamente cualquier tequila.\n\n### ¿Por qué elegir uno con miel de agave?\n*   **Sabor más integrado:** Si vas a preparar Margaritas o Palomas, el endulzante de agave armoniza mejor con las notas terrosas del tequila que el azúcar blanca.\n*   **Textura:** La miel de agave aporta un cuerpo o \"sedosidad\" distinta al cóctel.\n*   **Menos procesado:** Para quienes buscan ingredientes más naturales en sus bebidas.\n\n**Nota sobre marcas comunes:** Licores tradicionales como *Cointreau* o *Combier* utilizan azúcar de remolacha o caña. *Patrón Citrónge*, aunque es de una marca de tequila, tradicionalmente utiliza azúcar para su dulzor, aunque su base sea neutra o de grano.",
+   "urls": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE35e9vrk3t9dmj_o6rZBGYZboXagxMP-f4r_ADFmySG3JRrWTcQrZa0A59xROneGBWzfVIL0rmjkU3SgM9DiVJMdMSP0yO8L_kTtfjkU5xQxQiE5pEi5SdqpEQSszR_CG_zbT6mzDr_aIGWVQGWt0jaQR1vA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_4_Ywg0949hfoI4lupTwnkvH2T6rqMNCQgiEfUiiz8XwaBtaXcdJonpLpvXc9zbyxi_ZgTlXU3Ms8qOhsShi0CLNkCuU7Y-69kTaQwGR5KaAlOFSyXug3pNfNiQZocj9jTo8aR7YqnQFfmpEgvYRQkwYeqB61auorDVc9FGOSkpA4NmRdp8YMCLKsdk-4",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf3-eEjJLWZKWWLBYf_G3sFhr0j2uHAk0sBPhxu-z-if_UV7H0KwRVDLy-TRh808lhpsBXX4gwcmtiXGvhChWIeZ6fP3c8O9h7ooIhwnRha_knJwI_f_O8Obiry7tJC5ZpSEP7kcK5ZKYVz54mQDnMgVBRkMU="
+   ],
+   "tokens": 578,
+   "nombrado": false,
+   "citado": false,
+   "paginas_citadas": [],
+   "otras_fuentes": [
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE35e9vrk3t9dmj_o6rZBGYZboXagxMP-f4r_ADFmySG3JRrWTcQrZa0A59xROneGBWzfVIL0rmjkU3SgM9DiVJMdMSP0yO8L_kTtfjkU5xQxQiE5pEi5SdqpEQSszR_CG_zbT6mzDr_aIGWVQGWt0jaQR1vA==",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_4_Ywg0949hfoI4lupTwnkvH2T6rqMNCQgiEfUiiz8XwaBtaXcdJonpLpvXc9zbyxi_ZgTlXU3Ms8qOhsShi0CLNkCuU7Y-69kTaQwGR5KaAlOFSyXug3pNfNiQZocj9jTo8aR7YqnQFfmpEgvYRQkwYeqB61auorDVc9FGOSkpA4NmRdp8YMCLKsdk-4",
+    "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf3-eEjJLWZKWWLBYf_G3sFhr0j2uHAk0sBPhxu-z-if_UV7H0KwRVDLy-TRh808lhpsBXX4gwcmtiXGvhChWIeZ6fP3c8O9h7ooIhwnRha_knJwI_f_O8Obiry7tJC5ZpSEP7kcK5ZKYVz54mQDnMgVBRkMU="
+   ],
+   "competencia": [
+    "cointreau",
+    "combier",
+    "patrón citrónge"
+   ],
+   "precio": [],
+   "dice_25": false,
+   "miel_de_agave": true,
+   "menciona_pr": false
+  }
+ ]
+}
