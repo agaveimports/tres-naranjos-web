@@ -47,6 +47,17 @@ jobs:
           else
             echo "Nada cambió"
           fi
+      - name: IndexNow (avisa a Bing / ChatGPT de las páginas que cambiaron)
+        run: |
+          python3 tools/indexnow.py || echo "IndexNow skipped"
+          if [ -n "$(git status --porcelain tools/indexnow_enviado.json)" ]; then
+            git config user.name "Recetas (hoja)"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add tools/indexnow_enviado.json
+            git commit -m "IndexNow: páginas avisadas"
+            git pull --rebase origin main
+            git push
+          fi
       - name: Tarjetas anchas de WhatsApp (espera la de Krea si la receta es nueva)
         run: python3 tools/sync_recetas.py --anchas
         env:
