@@ -26,6 +26,7 @@ jobs:
       - run: python3 tools/ai_visibilidad.py --runs ${{ inputs.runs || 3 }}
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PYTHONUNBUFFERED: '1'   # print each answer as it comes, so the log shows progress
       - name: Guardar resultados
         run: |
           git config user.name "AI visibilidad"
