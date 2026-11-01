@@ -43,8 +43,8 @@
    "<p>Sí, siempre. Cualquier receta que pida Cointreau, triple sec o licor de naranja lleva la misma medida de Tres Naranjos. Lo que notas es el golpe: con 40% el trago queda más seco y más fuerte; con 25% queda más suave y la miel de agave redondea el dulzor, sobre todo con tequila y mezcal, que vienen de la misma planta.</p>",
    "{{MARGARITA}}",
    "<h2>Entonces, ¿cuál?</h2>",
-   "<p>Si quieres un cóctel seco y fuerte al estilo de la barra clásica, un triple sec de 40% cumple y Cointreau es el más conocido. Si lo que quieres son margaritas y mezcalitas en casa, con más fruta y menos golpe, un triple sec de 25% con miel de agave funciona mejor y rinde igual: una botella de 750 ml da entre 33 y 50 margaritas.</p>",
-   "<p>De precio, Cointreau está entre los más caros de la góndola. Tres Naranjos es calidad de coctelería a precio de casa; el precio exacto lo pone cada tienda.</p>",
+   "<p>Si te gusta la margarita más fuerte y seca, usa uno de 40%, como Cointreau. Si la prefieres más suave y con más sabor a naranja, usa uno de 25% con miel de agave, como Tres Naranjos. Cualquiera de los dos rinde igual: una botella de 750 ml da entre 33 y 50 margaritas.</p>",
+   "<p>De precio, Cointreau suele costar más. El precio exacto de cada uno lo pone cada tienda.</p>",
    "<h2>¿Y Grand Marnier?</h2>",
    "<p>No es triple sec. Es un licor de naranja con base de coñac, ámbar y más pesado. Rico solo, pero no es el sustituto directo en una margarita.</p>"
   ],
@@ -124,10 +124,10 @@
   "desc": "El triple sec es un licor de naranja transparente hecho con cáscaras de naranja. Qué cócteles lo llevan, cuánto alcohol tiene y en qué se diferencia del curaçao y del Grand Marnier.",
   "photo": "assets/guia/cascaras-de-naranja-2.webp",
   "photo_alt": "Botella de Tres Naranjos Triple Sec acostada entre cáscaras de naranja secas",
-  "lead": "El triple sec es un licor de naranja transparente: se hace con cáscaras de naranja maceradas en alcohol neutro, destiladas y endulzadas. Es el licor de naranja que llevan la margarita, el cosmo, el sidecar, el kamikaze y el mai tai, y nació en Francia en el siglo XIX. Hay triple sec desde 15% hasta 40% de alcohol; Tres Naranjos tiene 25%.",
+  "lead": "El triple sec es un licor de naranja transparente: se hace con cáscaras de naranja maceradas en alcohol neutro, destiladas y endulzadas. Es el licor de naranja que llevan la margarita, el cosmo, el sidecar, el kamikaze y el mai tai. Hay triple sec desde 15% hasta 40% de alcohol; Tres Naranjos tiene 25%.",
   "body": [
    "<h2>¿Por qué \"sec\" si es dulce?</h2>",
-   "<p><i>Sec</i> es seco en francés. Cuando nació en el siglo XIX, era más seco que los curaçaos de la época, que eran mucho más dulces; con los años casi todos los triple sec se endulzaron. Lo de \"triple\" tiene varias versiones: tres destilaciones o tres tipos de cáscara, según la casa que lo cuente.</p>",
+   "<p>El triple sec nació en Francia en el siglo XIX, y <i>sec</i> es seco en francés. En ese momento era más seco que los curaçaos de la época, que eran mucho más dulces; con los años casi todos los triple sec se endulzaron. Lo de \"triple\" tiene varias versiones: tres destilaciones o tres tipos de cáscara, según la casa que lo cuente.</p>",
    "<h2>Triple sec, curaçao, Cointreau y Grand Marnier</h2>",
    "<p>El <b>curaçao</b> es el primo caribeño, de la naranja laraha de Curazao, a veces teñido de azul. <b>Cointreau</b> es una marca francesa de triple sec, de 40%; la comparación completa está en <a href=\"guia/triple-sec-o-cointreau\">Triple sec o Cointreau</a>. <b>Grand Marnier</b> no es triple sec: es licor de naranja con base de coñac, ámbar y más pesado.</p>",
    "<h2>Los cócteles que lo llevan</h2>",
