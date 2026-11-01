@@ -1,7 +1,7 @@
 [
  {
   "q": "¿Qué es Tres Naranjos?",
-  "a": "Tres Naranjos Triple Sec es un licor de naranja endulzado con miel de agave, hecho para que tus margaritas, mezcalitas y cócteles con tequila o mezcal queden como en la barra."
+  "a": "Tres Naranjos Triple Sec es un licor de naranja endulzado con miel de agave, 25% de alcohol, 750 ml, que se vende en Puerto Rico. Hecho para que tus margaritas, mezcalitas y cócteles con tequila o mezcal queden como en la barra."
  },
  {
   "q": "¿Qué es un triple sec?",
@@ -13,15 +13,15 @@
  },
  {
   "q": "¿Cuánto alcohol tiene?",
-  "a": "25% de alcohol por volumen. Viene en botella de 750 ml."
+  "a": "Tres Naranjos Triple Sec tiene 25% de alcohol por volumen. Viene en botella de 750 ml."
  },
  {
   "q": "¿De dónde es Tres Naranjos?",
-  "a": "Se hace en México. Lo produce y embotella Bodegas Collado en Ciudad de México, y lo importa Agave Imports LLC en San Juan."
+  "a": "Es una marca de Agave Imports, una empresa de Puerto Rico. El licor se produce y embotella en México, por Bodegas Collado en Ciudad de México, y Agave Imports LLC lo importa y distribuye en Puerto Rico desde San Juan."
  },
  {
   "q": "¿Dónde lo puedo comprar?",
-  "a": "En licorerías, supermercados y tiendas como The House, Licorería Rincón y Almacén Tito Areizaga. Búscalos por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a>."
+  "a": "{{TIENDAS}}"
  },
  {
   "q": "¿Qué recetas puedo hacer con Tres Naranjos?",

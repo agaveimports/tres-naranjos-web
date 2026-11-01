@@ -5,6 +5,21 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'; SITE=ROOT+'site/'
 B=json.load(open(TOOLS+'config.json'))['site_url'].rstrip('/')
 FAQ=json.load(open(TOOLS+'faq.json'))
+
+# "¿Dónde lo puedo comprar?" is written from the live store list (same source as llms.txt), so the towns stay true
+import sys; sys.path.insert(0,TOOLS)
+from build_llms import stores as _stores
+def _tiendas_txt():
+    rows=_stores()
+    pueblos=[]; nombres=[]
+    for n,t,d,pb in rows:
+        pb=pb.replace(' / ',' y ')
+        if pb not in pueblos: pueblos.append(pb)
+        if n not in nombres: nombres.append(n)
+    return (f"En {len(rows)} licorerías, supermercados y tiendas de Puerto Rico, en {', '.join(pueblos[:-1])} y {pueblos[-1]}: "
+            f"{', '.join(nombres[:-1])} y {nombres[-1]}. Búscalas por pueblo en la página <a href=\"donde-comprar\">Dónde comprar</a>.")
+for f in FAQ:
+    if f['a']=='{{TIENDAS}}': f['a']=_tiendas_txt()
 # photo next to the page title; swap for any photo in site/assets (portrait works best)
 PHOTO='assets/sobre-banner-3.webp'
 PHOTO_ALT='Etiqueta de Tres Naranjos Triple Sec al sol con media china'
