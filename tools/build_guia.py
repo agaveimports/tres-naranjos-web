@@ -156,7 +156,7 @@ for g in GUIA:
   <div class="gu-body">
   {body}
   <nav class="gu-links" aria-label="Enlaces">{''.join(f'<a href="{h}">{esc(t)} →</a>' for t, h in g.get("links", []))}</nav>
-  {('<p class="gu-more">' + ('More' if g.get('lang') == 'en' else 'Más preguntas') + ': ' + ' · '.join(f'<a href="guia/{o["slug"]}">{esc(o["q"])}</a>' for o in others) + '</p>') if others else ''}
+  {('<p class="gu-more">' + ('More' if g.get('lang') == 'en' else 'Más preguntas') + ': ' + ' · '.join(f'<a href="guia/{o["slug"]}">{esc(o["q"])}</a>' for o in others) + ('' if g.get('lang') == 'en' else ' · <a href="guias">Todas las guías</a>') + '</p>') if others else ''}
   </div>
 </main>
 <script>(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>'''
@@ -177,3 +177,38 @@ for g in GUIA:
         s = s.replace('"inLanguage": "es-PR"', '"inLanguage": "en"')
     open(SITE + f'guia/{g["slug"]}.html', 'w', encoding='utf8').write(hoist(s))
 print('ok', len(GUIA), 'guías')
+# ---------- /guias (Nov 2): hub of the guides, linked from the footer on every page ----------
+ES = [g for g in GUIA if g.get('lang', 'es') == 'es']
+s = base
+H_T = 'Guías de triple sec: qué es, cuál usar y dónde comprar | Tres Naranjos'
+H_D = 'Guías claras sobre el triple sec: qué es, triple sec o Cointreau, cuál usar para margarita y dónde comprarlo en Puerto Rico.'
+s = re.sub(r'<title>.*?</title>', f'<title>{esc(H_T)}</title>', s, count=1)
+s = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(H_D)}">', s, count=1)
+s = s.replace('<a href="recetas/" aria-current="page">', '<a href="recetas/">', 1)
+s = s.replace('<li><a href="guias">Guías</a></li>', '<li><a href="guias" aria-current="page">Guías</a></li>', 1)
+main = f'''<main id="top" class="gu wrap gu-hub">
+  <h1>Guías de triple sec</h1>
+  <p class="lead">Respuestas claras a lo que más se pregunta del triple sec: qué es, cuál usar y dónde comprarlo en Puerto Rico.</p>
+  <ul class="gu-hub-l">{''.join(f'<li><a href="guia/{g["slug"]}"><b>{esc(g["q"])}</b><span>{esc(g["desc"])}</span></a></li>' for g in ES)}</ul>
+</main>
+<script>(function(){{const n=document.getElementById('nav');const f=()=>{{if(n)document.documentElement.style.setProperty('--fqnav',n.getBoundingClientRect().bottom+'px')}};f();addEventListener('resize',f);addEventListener('load',f)}})();</script>'''
+a = s.index('<main id="top">'); b = s.index('</main>', a) + 7; s = s[:a] + main + s[b:]
+LD = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Guías de triple sec", "description": H_D, "inLanguage": "es-PR", "url": f"{B}/guias",
+      "hasPart": [{"@type": "Article", "headline": g["title"], "url": f"{B}/guia/{g['slug']}"} for g in ES]}
+s = s.replace('</head>', f'<script type="application/ld+json">{json.dumps(LD, ensure_ascii=False)}</script>\n</head>', 1)
+HUB_CSS = '''<style>
+.gu-hub{max-width:860px;padding-block:clamp(40px,6vw,80px)}
+.gu-hub-l{list-style:none;padding:0!important;margin:clamp(24px,3vw,36px) 0 0!important;border-top:1.5px dashed var(--negro)}
+.gu-hub-l li{margin:0!important;border-bottom:1.5px dashed var(--negro)}
+.gu-hub-l a{display:block;padding:18px 0;text-decoration:none!important;color:var(--negro)}
+.gu-hub-l b{display:block;font-size:clamp(19px,1.6vw,22px);line-height:1.3}
+.gu-hub-l span{display:block;margin-top:4px;font-size:15px;line-height:1.45;font-weight:400;color:#7a706a}
+.gu-hub-l a:hover b{color:#E04F12}
+</style>'''
+s = s.replace('</head>', CSS + HUB_CSS + f'<meta property="og:type" content="website"><meta property="og:site_name" content="Tres Naranjos"><meta property="og:title" content="{esc(H_T)}"><meta property="og:description" content="{esc(H_D)}"><meta property="og:image" content="{B}/share/home.jpg?v=2"><link rel="canonical" href="{B}/guias">\n</head>', 1)
+a = s.index('/* =====================================================================\n   RECETAS'); b = s.index('</script>', a)
+s = s[:a] + "(function(){const n=document.getElementById('nav');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')})();\n" + s[b:]
+s = re.sub(r'<style>\.t-page\{[^<]*</style>\n', '', s)
+open(SITE + 'guias.html', 'w', encoding='utf8').write(hoist(s))
+print('ok guias hub')
+

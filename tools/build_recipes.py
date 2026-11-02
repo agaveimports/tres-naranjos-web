@@ -5,6 +5,11 @@ def como(name):
   return ('una ' if name.split()[0].lower().endswith('a') else 'un ') + name.lower()
 import json,html,re
 import os
+# Nov 2: each recipe links to the guide that goes deeper (in-context links help Google and AI find the guides)
+GU_M = '¿Qué triple sec usar? Lee <a href="guia/que-triple-sec-para-margarita">qué triple sec uso para una margarita</a>.'
+GU_C = '¿Triple sec o Cointreau? <a href="guia/triple-sec-o-cointreau">Mira la diferencia</a>.'
+def gu_line(slug): return GU_M if re.search(r'margarita|mezcalita', slug) else GU_C
+
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 TOOLS=ROOT+'tools/'
 SITE=ROOT+'site/'
@@ -80,6 +85,9 @@ CSS='''<style>
 .rp-ctrl{justify-content:center;gap:24px}
 .rp-ing,.rp-steps,.rp-tip{text-align:left}
 .rp-steps{max-width:560px;margin-inline:auto}
+.rp-gu{max-width:560px;margin:18px auto 0;text-align:left;font-size:15px;line-height:1.5;color:#7a706a}
+.rp-gu a{color:var(--negro);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.rp-gu a:hover{color:#E04F12}
 .rp-acts{justify-content:center}
 .rp-more{max-width:860px;margin-inline:auto;text-align:center}
 .rp-card{justify-items:center}
@@ -299,6 +307,7 @@ for i,d in enumerate(D):
       <ul class="rp-ing" id="ing">{ing_html(d)}</ul>
       <span class="rp-label">Cómo se hace</span>
       <ol class="rp-steps">{''.join('<li>'+esc(x)+'</li>' for x in d['steps'])}</ol>
+      <p class="rp-gu">{gu_line(d['slug'])}</p>
       <div class="rp-acts"><button type="button" class="rp-sw prev" aria-label="Receta anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><a class="btn rp-wa" id="share" href="#" target="_blank" rel="noopener">{WA_SVG}Mándasela a un pana</a><button type="button" class="rp-sw next" aria-label="Receta siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
     </div>
   </div>
@@ -307,7 +316,7 @@ for i,d in enumerate(D):
   a=s.index('<main id="top">');b=s.index('</main>',a)+7;s=s[:a]+main+s[b:]
   fa=s.index('<footer');fb=s.index('</footer>',fa)+9
   s=s[:fa]+'''<footer class="rp-foot wrap">
-  <nav class="rp-flinks"><a href="recetas/">Recetas</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="sobre-nosotros">Sobre nosotros</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><a class="js-wa-contact rp-wa-link" href="https://wa.me/19393730729" target="_blank" rel="noopener">WhatsApp ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
+  <nav class="rp-flinks"><a href="recetas/">Recetas</a><span>·</span><a href="donde-comprar">Dónde comprar</a><span>·</span><a href="sobre-nosotros">Sobre nosotros</a><span>·</span><a href="guias">Guías</a><span>·</span><a href="https://instagram.com/tresnaranjosoficial" target="_blank" rel="noopener">Instagram ↗</a><span>·</span><a class="js-wa-contact rp-wa-link" href="https://wa.me/19393730729" target="_blank" rel="noopener">WhatsApp ↗</a><span>·</span><button type="button" class="copy-mail" data-mail="info@agaveimportspr.com" aria-label="Copiar info@agaveimportspr.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@agaveimportspr.com</span></button></nav>
   <p><strong>Disfruta con responsabilidad.</strong> © Tres Naranjos 2026. Importado por Agave Imports LLC, PO Box 190029, San Juan, PR 00919. Producido y embotellado por Bodegas Collado, S.A. de C.V., Ciudad de México. <a href="privacidad" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacidad</a></p>
 </footer>'''+s[fb:]
   # keep shared scripts (WhatsApp, giants, age gate), drop the tragos picker
@@ -341,10 +350,12 @@ const ALL='''+ALLJS+''';
   function warm(){pre(cur-1);pre(cur+1)}
   (window.requestIdleCallback||setTimeout)(warm);
   const q=s=>document.querySelector(s),txt=(el,t)=>{if(el)el.textContent=t};
+  const GU_M='''+json.dumps(GU_M)+''',GU_C='''+json.dumps(GU_C)+''';
   function body(d){
     R={code:d.code,slug:d.slug,name:d.name,serves:d.serves,ing:d.ing,tags:d.tags};ppl=d.serves;
     txt(h1,d.name);txt(q('.rp-meta'),d.sub+' · '+d.vaso);txt(q('.rp-tags .t1'),d.tags[0]);txt(q('.rp-tags .t2'),d.tags[1]);
     const ol=q('.rp-steps');ol.innerHTML='';d.steps.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.appendChild(li)});
+    const gu=q('.rp-gu');if(gu)gu.innerHTML=/margarita|mezcalita/.test(d.slug)?GU_M:GU_C;
     render();fitTitle();
   }
   /* same height for every drink, so the footer never jumps: measure all 12 in one frame (nothing paints in between) */

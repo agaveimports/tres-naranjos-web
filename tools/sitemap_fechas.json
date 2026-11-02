@@ -1,94 +1,98 @@
 {
  "donde-comprar.html": {
-  "fecha": "2026-11-01",
-  "hash": "56591a6c28403985"
+  "hash": "5e1a25d04a9b05e3",
+  "fecha": "2026-11-02"
  },
  "guia/donde-comprar-triple-sec-en-puerto-rico.html": {
-  "hash": "260b03de975c6ee9",
-  "fecha": "2026-11-01"
+  "hash": "0b68013965103e89",
+  "fecha": "2026-11-02"
  },
  "guia/mejor-triple-sec-en-puerto-rico.html": {
-  "hash": "f4d086315cfcf9d7",
-  "fecha": "2026-11-01"
+  "hash": "323d45b025783ba4",
+  "fecha": "2026-11-02"
  },
  "guia/que-es-el-triple-sec.html": {
-  "fecha": "2026-11-01",
-  "hash": "dc51ae5021ac170d"
+  "hash": "4ec095a6cb5cc552",
+  "fecha": "2026-11-02"
  },
  "guia/que-triple-sec-para-margarita.html": {
-  "fecha": "2026-11-01",
-  "hash": "2789defacb0240ba"
+  "hash": "684023553efca356",
+  "fecha": "2026-11-02"
  },
  "guia/triple-sec-con-miel-de-agave.html": {
-  "hash": "6c4ef98d18049f29",
-  "fecha": "2026-11-01"
+  "hash": "57655aeb956cd8bb",
+  "fecha": "2026-11-02"
  },
  "guia/triple-sec-o-cointreau.html": {
-  "fecha": "2026-11-01",
-  "hash": "2e2133ebc012032e"
+  "hash": "1d11e8e08a58b303",
+  "fecha": "2026-11-02"
+ },
+ "guias.html": {
+  "hash": "d19568152f383b59",
+  "fecha": "2026-11-02"
  },
  "index.html": {
-  "fecha": "2026-11-01",
-  "hash": "cda1d91e7f19506f"
+  "hash": "c2e83f2b36f1a6f4",
+  "fecha": "2026-11-02"
  },
  "privacidad.html": {
-  "fecha": "2026-11-01",
-  "hash": "e19d63493370ca7a"
+  "hash": "de7e846cbef26eb9",
+  "fecha": "2026-11-02"
  },
  "recetas/cosmo.html": {
-  "fecha": "2026-11-01",
-  "hash": "6a46c072322554b8"
+  "hash": "8721dd2a2637c95e",
+  "fecha": "2026-11-02"
  },
  "recetas/index.html": {
-  "fecha": "2026-10-22",
-  "hash": "4f7b043ca0be92c3"
+  "hash": "27927390970f8dfb",
+  "fecha": "2026-11-02"
  },
  "recetas/kamikaze.html": {
-  "fecha": "2026-11-01",
-  "hash": "f49504660b626dcc"
+  "hash": "2cd5033b3ea605c6",
+  "fecha": "2026-11-02"
  },
  "recetas/mai-tai.html": {
-  "fecha": "2026-11-01",
-  "hash": "e061efa64463905e"
+  "hash": "aeb1117968211b71",
+  "fecha": "2026-11-02"
  },
  "recetas/margarita-de-parcha.html": {
-  "fecha": "2026-11-01",
-  "hash": "553ec316a7f5ca76"
+  "hash": "e5d10ba8cc562cc2",
+  "fecha": "2026-11-02"
  },
  "recetas/margarita-de-tamarindo.html": {
-  "fecha": "2026-11-01",
-  "hash": "37a87eb36d32ffab"
+  "hash": "c81be9c0c6df1be9",
+  "fecha": "2026-11-02"
  },
  "recetas/margarita.html": {
-  "fecha": "2026-11-01",
-  "hash": "312524432a6382f9"
+  "hash": "fae94f30dc95f78d",
+  "fecha": "2026-11-02"
  },
  "recetas/mezcalita.html": {
-  "fecha": "2026-11-01",
-  "hash": "ffa9520bc8ddfc24"
+  "hash": "beaab88e4385a72f",
+  "fecha": "2026-11-02"
  },
  "recetas/mimosa-naranjosa.html": {
-  "fecha": "2026-11-01",
-  "hash": "c7f07dbd952b15ea"
+  "hash": "f4460467c8dc23f5",
+  "fecha": "2026-11-02"
  },
  "recetas/ponche-de-naranja.html": {
-  "fecha": "2026-11-01",
-  "hash": "3462846b9978570c"
+  "hash": "82fa0e591d7a5873",
+  "fecha": "2026-11-02"
  },
  "recetas/sangria-de-la-casa.html": {
-  "fecha": "2026-11-01",
-  "hash": "97e300f6ecf48197"
+  "hash": "7df7fbd24c6be88c",
+  "fecha": "2026-11-02"
  },
  "recetas/sidecar.html": {
-  "fecha": "2026-11-01",
-  "hash": "93ba066cd7290ac1"
+  "hash": "5da3076466202a9b",
+  "fecha": "2026-11-02"
  },
  "recetas/spritz-de-china.html": {
-  "fecha": "2026-11-01",
-  "hash": "795ed15173ab96f6"
+  "hash": "20c16c573001bc55",
+  "fecha": "2026-11-02"
  },
  "sobre-nosotros.html": {
-  "fecha": "2026-11-01",
-  "hash": "5c18a4f6269480fd"
+  "hash": "17bf1ac6bd7bfdf7",
+  "fecha": "2026-11-02"
  }
 }
